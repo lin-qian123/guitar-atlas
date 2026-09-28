@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "source_id": "classclef",
+  "name": "ClassClef",
+  "base_url": "https://www.classclef.com/",
+  "api_base": "https://www.classclef.com/wp-json/wp/v2/",
+  "user_agent": "GuitarAtlas/0.2 (+source-attributed personal offline music catalog; resumable)",
+  "scope": "All publicly listed PDF scores in the frozen WordPress pages and posts; MIDI and Guitar Pro are indexed as companion formats.",
+  "minimum_request_interval_seconds": 0.2,
+  "max_workers": 5,
+  "request_timeout_seconds": 45,
+  "source_sha1_available": false,
+  "instrumentation_policy": "Do not infer exact instrumentation or original/arrangement status from source site, page, composer, title, or PDF notation label."
+}

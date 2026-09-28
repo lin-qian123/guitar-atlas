@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-09-28",
+  "entries": [
+    {
+      "category": "For guitar, 2 violins (arr)",
+      "work_id": "459426",
+      "filename": "PMLP459426-dupuy-pol-d116_arr_Blatt.pdf",
+      "section": "*For 2 Violins, Guitar and Bass ad lib. (Blatt)",
+      "imslp_url": "https://imslp.org/wiki/Polonaise_(Du_Puy,_Edouard)",
+      "reason": "来源小节明确包含额外低音乐器，不符合当前精确编制。"
+    },
+    {
+      "category": "For guitar, 2 violins (arr)",
+      "work_id": "459426",
+      "filename": "PMLP459426-DuPuy-Polonaise_2_Violin_Guitar_Cello-Cello.pdf",
+      "section": "*For 2 Violins, Guitar and Bass ad lib. (Blatt)",
+      "imslp_url": "https://imslp.org/wiki/Polonaise_(Du_Puy,_Edouard)",
+      "reason": "来源小节明确包含额外低音乐器，不符合当前精确编制。"
+    },
+    {
+      "category": "For guitar, 2 violins (arr)",
+      "work_id": "459426",
+      "filename": "PMLP459426-DuPuy-Polonaise_2_Violin_Guitar_Cello-Gitarre.pdf",
+      "section": "*For 2 Violins, Guitar and Bass ad lib. (Blatt)",
+      "imslp_url": "https://imslp.org/wiki/Polonaise_(Du_Puy,_Edouard)",
+      "reason": "来源小节明确包含额外低音乐器，不符合当前精确编制。"
+    },
+    {
+      "category": "For guitar, 2 violins (arr)",
+      "work_id": "459426",
+      "filename": "PMLP459426-DuPuy-Polonaise_2_Violin_Guitar_Cello-Violine_I.pdf",
+      "section": "*For 2 Violins, Guitar and Bass ad lib. (Blatt)",
+      "imslp_url": "https://imslp.org/wiki/Polonaise_(Du_Puy,_Edouard)",
+      "reason": "来源小节明确包含额外低音乐器，不符合当前精确编制。"
+    },
+    {
+      "category": "For guitar, 2 violins (arr)",
+      "work_id": "459426",
+      "filename": "PMLP459426-DuPuy-Polonaise_2_Violin_Guitar_Cello-Violine_II.pdf",
+      "section": "*For 2 Violins, Guitar and Bass ad lib. (Blatt)",
+      "imslp_url": "https://imslp.org/wiki/Polonaise_(Du_Puy,_Edouard)",
+      "reason": "来源小节明确包含额外低音乐器，不符合当前精确编制。"
+    },
+    {
+      "category": "For recorder, guitar (arr)",
+      "work_id": "639904",
+      "filename": "PMLP639904-Follia_Corelli_-_recorder,_guitar,_bass_-_arrt_Colette_Mourey_-_SCORE_AND_PARTS.pdf",
+      "section": "*For Soprano Recorder, Guitar and Bass ''ad lib.'' (Mourey)",
+      "imslp_url": "https://imslp.org/wiki/Violin_Sonata_in_D_minor_'La_Folia',_Op.5_No.12_(Corelli,_Arcangelo)",
+      "reason": "来源小节明确包含额外低音乐器，不符合当前精确编制。"
+    }
+  ]
+}

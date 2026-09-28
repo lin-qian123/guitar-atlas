@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-"""Export the public, PDF-free IMSLP guitar search catalog.
+"""Export the public, score-file-free Guitar Atlas search catalog.
 
 The offline library keeps category-local PDF links.  The public site is a
-separate product: it deduplicates works by IMSLP work ID, keeps every approved
-category membership, and links only to canonical IMSLP work/category pages.
+separate product: it preserves source-scoped identities and every approved
+category membership, and links only to registered source webpages.
 """
 
 from __future__ import annotations
@@ -18,6 +18,7 @@ from pathlib import Path
 from typing import Mapping
 
 from render_master_index import category_info
+from imslp_library.title_review import load_reviewed_titles, resolve_reviewed_title
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -153,10 +154,11 @@ def work_identity(
     work: Mapping[str, object],
     context: str,
     composer_overrides: Mapping[str, str],
+    reviewed_titles: Mapping[str, Mapping[str, object]] | None = None,
 ) -> tuple[dict[str, object], str]:
     work_id = required_text(work, "work_id", context)
     title_en = required_text(work, "title_en", context)
-    title_zh = required_text(work, "title_zh", context)
+    title_zh = resolve_reviewed_title(work, str(work.get("title_zh") or ""), reviewed_titles or {})
     if not (title_zh.startswith("《") and title_zh.endswith("》")):
         raise PublicExportError(f"{context}: title_zh must use Chinese book-title marks")
     composer_en = required_text(work, "composer", context)
@@ -188,10 +190,11 @@ def reviewed_at(root: Path) -> str:
     return value
 
 
-def build_public_catalog(root: Path) -> dict[str, object]:
+def build_imslp_catalog(root: Path) -> dict[str, object]:
     root = root.resolve()
     categories = configured_categories(root)
     composer_overrides = load_composer_overrides(root)
+    reviewed_titles = load_reviewed_titles(root / "metadata/translations/title_overrides_reviewed_zh.json")
     composer_variants: dict[str, set[str]] = defaultdict(set)
     works_by_id: dict[str, dict[str, object]] = {}
     category_record_count = 0
@@ -209,7 +212,7 @@ def build_public_catalog(root: Path) -> dict[str, object]:
             if not isinstance(raw_work, dict):
                 raise PublicExportError(f"invalid work row: {catalog_path}")
             identity, observed_composer_zh = work_identity(
-                raw_work, str(catalog_path), composer_overrides
+                raw_work, str(catalog_path), composer_overrides, reviewed_titles
             )
             work_id = str(identity["id"])
             composer_variants[str(identity["composer_en"])].add(observed_composer_zh)
@@ -301,6 +304,14 @@ def build_public_catalog(root: Path) -> dict[str, object]:
     }
 
 
+def build_public_catalog(root: Path) -> dict[str, object]:
+    from catalog_sources import merge_sources
+    try:
+        return merge_sources(root.resolve(), build_imslp_catalog(root))
+    except (ValueError, KeyError, OSError) as exc:
+        raise PublicExportError(str(exc)) from exc
+
+
 def write_json_atomic(path: Path, payload: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, temporary = tempfile.mkstemp(
@@ -323,6 +334,8 @@ def write_json_atomic(path: Path, payload: object) -> None:
 
 def export_public_catalog(root: Path, output: Path) -> dict[str, object]:
     payload = build_public_catalog(root)
+    from validate_public_site import validate_payload
+    validate_payload(payload)
     write_json_atomic(output, payload)
     return payload
 

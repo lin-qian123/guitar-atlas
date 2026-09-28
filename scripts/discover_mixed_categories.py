@@ -40,7 +40,7 @@ def write_json_atomic(path: Path, payload: object) -> None:
 def discover(pure_config: Path) -> dict[str, object]:
     pure_names = read_pure_names(pure_config)
     client = ImslpClient(
-        user_agent="imslp-guitar-chamber-library/1.0 (category discovery)"
+        user_agent="GuitarAtlas/0.2 (IMSLP chamber category discovery)"
     )
     categories = []
     exclusions: Counter[str] = Counter()

@@ -89,7 +89,8 @@ const GuitarSearch = (() => {
   }
 
   function passes(category, filters) {
-    return (!filters.family || filters.family === 'all' || category.family === filters.family)
+    return (!filters.source || filters.source === 'all' || sourceId(category) === filters.source)
+      && (!filters.family || filters.family === 'all' || category.family === filters.family)
       && (!filters.kind || filters.kind === 'all' || category.kind === filters.kind)
       && (filters.category === undefined || filters.category === 'all' || String(category.id) === String(filters.category));
   }
@@ -98,16 +99,41 @@ const GuitarSearch = (() => {
     return !normalize(input) && (filters.category === undefined || filters.category === 'all') ? 'categories' : 'works';
   }
 
+  function sourceId(item) { return item.source_id || 'imslp'; }
+  function titleLabel(item) { return (item.title_zh || item.title_en || '').replace(/^《|》$/g, ''); }
+  function composerLabel(item) { return item.composer_zh || item.composer_en || '作者未标注'; }
+  function kindLabel(kind) { return ({original:'原作', arrangement:'改编'})[kind] || '来源未标注'; }
+  function resourceLabel(item) { return item.resource_type === 'reference' ? '参考资料' : ''; }
+
+  // Only an exact, accent-folded full name (with comma order normalized) shares
+  // curated aliases across sources. The original attribution is never rewritten.
+  function composerKey(name) {
+    const parts = String(name || '').split(',');
+    return normalize(parts.length === 2 ? `${parts[1]} ${parts[0]}` : name);
+  }
+
   function createIndex(data, aliases = {}) {
-    const byCategory = new Map(data.categories.map(category => [category.id, category]));
+    const byCategory = new Map(data.categories.map(category => [String(category.id), category]));
+    const sources = new Map((Array.isArray(data.sources) ? data.sources : []).map(source => [source.id, source.name]));
+    const aliasesByName = new Map();
+    function addComposerAliases(name, values) {
+      const key = composerKey(name);
+      if (!key) return;
+      if (!aliasesByName.has(key)) aliasesByName.set(key, new Set());
+      for (const value of values) if (typeof value === 'string' && value.trim()) aliasesByName.get(key).add(value);
+    }
+    for (const [name, values] of Object.entries(aliases.composers || {})) addComposerAliases(name, values);
+    for (const item of data.works) addComposerAliases(item.composer_en, [item.composer_zh]);
     const vocabulary = new Map();
     const composers = new Map();
     const documents = data.works.map((item, index) => {
-      const categories = item.category_ids.map(id => byCategory.get(id));
-      const composerAliases = aliases.composers?.[item.composer_en] || [];
-      const workAliases = aliases.works?.[item.id] || [];
-      const primary = [item.title_en, item.title_zh, item.composer_en, item.composer_zh];
-      const source = fieldSet([...primary, item.id, ...categories.flatMap(c => [c.name, c.name_zh])]);
+      const categories = item.category_ids.map(id => byCategory.get(String(id))).filter(Boolean);
+      const composerAliases = [...(aliasesByName.get(composerKey(item.composer_en)) || [])];
+      const workAliases = [...(aliases.works?.[item.id] || []), ...(item.title_aliases || [])];
+      const primary = [item.title_en, item.title_zh, item.composer_en, item.composer_zh, item.id,
+        sourceId(item), item.source_name || sources.get(sourceId(item)), ...(item.formats || []), resourceLabel(item), item.resource_type];
+      const categoryFields = categories => categories.flatMap(c => [c.name, c.name_zh, sourceId(c), sources.get(sourceId(c)), kindLabel(c.kind)]);
+      const source = fieldSet([...primary, ...categoryFields(categories)]);
       const expanded = fieldSet([...source.fields, ...composerAliases, ...workAliases]);
       for (const token of expanded.tokens) {
         if (!vocabulary.has(token)) vocabulary.set(token, []);
@@ -115,24 +141,29 @@ const GuitarSearch = (() => {
       }
       if (!composers.has(item.composer_en)) composers.set(item.composer_en, {
         fields: fieldSet([item.composer_en, item.composer_zh, ...composerAliases]),
-        label: item.composer_zh, detail: item.composer_en, query: item.composer_en, kind: 'composer',
+        label: composerLabel(item), detail: item.composer_en, query: item.composer_en, kind: 'composer',
       });
-      return {item, categories, source, expanded};
+      return {item, categories, source, expanded, scoped(eligible) {
+        if (eligible.length === categories.length) return {source, expanded};
+        const scopedSource = fieldSet([...primary, ...categoryFields(eligible)]);
+        return {source: scopedSource, expanded: fieldSet([...scopedSource.fields, ...composerAliases, ...workAliases])};
+      }};
     });
     let lastKey;
     let lastResponse;
 
     function search(input, filters = {}) {
       const query = normalize(input);
-      const key = JSON.stringify([query, filters.family, filters.kind, filters.category]);
+      const key = JSON.stringify([query, filters.source, filters.family, filters.kind, filters.category]);
       if (key === lastKey) return lastResponse;
       const terms = query.split(' ').filter(Boolean);
       const eligible = documents.map(doc => doc.categories.filter(category => passes(category, filters)));
+      const scoped = documents.map((doc, index) => doc.scoped(eligible[index]));
       let matches = [];
       documents.forEach((doc, index) => {
         if (!eligible[index].length) return;
-        const direct = exactScore(doc.source, query, terms);
-        const expanded = exactScore(doc.expanded, query, terms);
+        const direct = exactScore(scoped[index].source, query, terms);
+        const expanded = exactScore(scoped[index].expanded, query, terms);
         if (direct !== null || expanded !== null) matches.push({
           item: doc.item, categories: eligible[index], score: Math.min(direct ?? Infinity, expanded === null ? Infinity : 0.5 + expanded),
           matchType: direct !== null ? 'exact' : 'alias',
@@ -144,13 +175,14 @@ const GuitarSearch = (() => {
         const costs = terms.map(term => {
           const found = new Map();
           documents.forEach((doc, index) => {
-            if (eligible[index].length && contains(doc.expanded, term)) found.set(index, 0);
+            if (eligible[index].length && contains(scoped[index].expanded, term)) found.set(index, 0);
           });
           const limit = tolerance(term);
           if (limit) for (const [token, indices] of vocabulary) {
             const cost = tokenCost(term, token, limit);
             if (cost <= limit) for (const index of indices) {
-              if (eligible[index].length && (!found.has(index) || cost < found.get(index))) found.set(index, cost);
+              if (eligible[index].length && scoped[index].expanded.tokens.has(token)
+                && (!found.has(index) || cost < found.get(index))) found.set(index, cost);
             }
           }
           return found;
@@ -164,8 +196,8 @@ const GuitarSearch = (() => {
         }
         if (matches.length) mode = 'fuzzy';
       }
-      matches.sort((a, b) => a.score - b.score || a.item.composer_en.localeCompare(b.item.composer_en)
-        || a.item.title_en.localeCompare(b.item.title_en) || a.item.id.localeCompare(b.item.id));
+      matches.sort((a, b) => a.score - b.score || String(a.item.composer_en || '').localeCompare(String(b.item.composer_en || ''))
+        || a.item.title_en.localeCompare(b.item.title_en) || String(a.item.id).localeCompare(String(b.item.id)));
       lastKey = key;
       lastResponse = {matches, mode};
       return lastResponse;
@@ -180,8 +212,9 @@ const GuitarSearch = (() => {
       const seen = new Set();
       for (const match of response.matches) {
         const composer = composers.get(match.item.composer_en);
-        if (seen.has(composer.query)) continue;
-        seen.add(composer.query);
+        const identity = composerKey(composer.query);
+        if (!composer.query || seen.has(identity)) continue;
+        seen.add(identity);
         const relevant = terms.every(term => contains(composer.fields, term)
           || (response.mode === 'fuzzy' && tolerance(term) > 0
             && [...composer.fields.tokens].some(token => tokenCost(term, token, tolerance(term)) <= tolerance(term))));
@@ -193,10 +226,15 @@ const GuitarSearch = (() => {
       for (const match of response.matches) {
         if (suggestions.length === 6) break;
         const item = match.item;
-        const query = `${item.title_en} ${item.composer_en}`;
-        if (seen.has(query)) continue;
-        seen.add(query);
-        suggestions.push({label: item.title_zh.replace(/^《|》$/g, ''), detail: item.composer_zh, query, kind: 'work'});
+        const canonical = `${item.title_en} ${item.composer_en || ''}`.trim();
+        const metadata = fieldSet([sourceId(item), item.source_name || sources.get(sourceId(item)), ...(item.formats || []), resourceLabel(item), item.resource_type,
+          ...match.categories.flatMap(category => [category.name, category.name_zh, kindLabel(category.kind)])]);
+        const primary = fieldSet([canonical]);
+        const retained = terms.filter(term => !contains(primary, term) && contains(metadata, term));
+        const selectedQuery = [canonical, ...retained].join(' ');
+        if (seen.has(selectedQuery)) continue;
+        seen.add(selectedQuery);
+        suggestions.push({label: titleLabel(item), detail: composerLabel(item), query: selectedQuery, kind: 'work', resource_type: item.resource_type || 'score'});
       }
       return suggestions;
     }
@@ -205,13 +243,13 @@ const GuitarSearch = (() => {
       const nameKey = category => category.name.replace(/^For guitar(?= |$)/, 'For 1 guitar');
       const categories = data.categories.filter(category => passes(category, filters)).sort((a, b) =>
         Number(a.kind === 'arrangement') - Number(b.kind === 'arrangement') || order.compare(nameKey(a), nameKey(b)));
-      const ids = new Set(categories.map(category => category.id));
-      const workCount = documents.filter(doc => doc.item.category_ids.some(id => ids.has(id))).length;
+      const ids = new Set(categories.map(category => String(category.id)));
+      const workCount = documents.filter(doc => doc.item.category_ids.some(id => ids.has(String(id)))).length;
       return {categories, workCount};
     }
     return {search, suggest, browse};
   }
-  return {normalize, createIndex, catalogView};
+  return {normalize, createIndex, catalogView, sourceId, titleLabel, composerLabel, kindLabel, resourceLabel};
 })();
 
 if (typeof module !== 'undefined' && module.exports) module.exports = GuitarSearch;

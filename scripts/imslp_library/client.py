@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from typing import Protocol
 
 
-PROJECT_USER_AGENT = "imslp-guitar-library/1.0 (offline pure-guitar catalog)"
+PROJECT_USER_AGENT = "GuitarAtlas/0.2 (source-attributed offline guitar catalog; IMSLP adapter)"
 DEFAULT_API_URL = "https://imslp.org/api.php"
 
 

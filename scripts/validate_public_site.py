@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Validate the deployable IMSLP guitar site without network access."""
+"""Validate the deployable Guitar Atlas site without network access."""
 
 from __future__ import annotations
 
@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Mapping
 
 from export_public_site import validate_imslp_url
+from catalog_sources import load_registry, validate_source_url
 
 
 FORBIDDEN_KEYS = {
@@ -22,12 +23,17 @@ FORBIDDEN_KEYS = {
     "sha1_imslp",
     "sha256",
     "local_path",
+    "assets",
+    "sha1",
+    "object_path",
 }
 FORBIDDEN_TEXT = (
     re.compile(r"file://", re.IGNORECASE),
     re.compile(r"/Volumes/", re.IGNORECASE),
     re.compile(r"(?:^|[/\\])scores[/\\]", re.IGNORECASE),
     re.compile(r"\.pdf(?:$|[?#])", re.IGNORECASE),
+    re.compile(r"\.(?:mid|midi|gpx|gp[3-8]|zip)(?:$|[?#])", re.IGNORECASE),
+    re.compile(r"/Users/", re.IGNORECASE),
 )
 
 
@@ -62,16 +68,50 @@ def require_list(payload: Mapping[str, object], name: str) -> list[object]:
 
 
 def validate_payload(payload: object) -> dict[str, int]:
-    if not isinstance(payload, dict) or payload.get("schema_version") != 1:
-        fail("catalog must use schema_version 1")
+    if not isinstance(payload, dict) or payload.get("schema_version") not in {1, 2}:
+        fail("catalog must use schema_version 1 or 2")
+    multisource = payload["schema_version"] == 2
     check_forbidden(payload)
+    source_ids = set()
+    if multisource:
+        registry = load_registry()
+        configured = {row["id"]: row for row in registry}
+        for source in require_list(payload, "sources"):
+            if not isinstance(source, dict) or source.get("id") not in configured or source["id"] in source_ids:
+                fail("unknown or duplicate public source")
+            expected = configured[source["id"]]
+            if any(source.get(key) != expected[key] for key in ("name", "homepage")):
+                fail("public source identity differs from registry")
+            source_ids.add(source["id"])
+        if source_ids != set(configured):
+            fail("public catalog is missing a configured source")
+
+    def validate_row_url(row: dict, context: str) -> None:
+        if multisource:
+            source = row.get("source_id")
+            if source not in source_ids:
+                fail(f"{context}: unknown source")
+            validate_source_url(row.get("source_url"), source)
+            if row.get("source_name") != configured[source]["name"]:
+                fail(f"{context}: invalid source name")
+            if source == "imslp" and row.get("imslp_url") != row["source_url"]:
+                fail(f"{context}: inconsistent IMSLP source URL")
+        else:
+            url = row.get("imslp_url")
+            if not isinstance(url, str):
+                fail(f"{context} has no IMSLP URL")
+            validate_imslp_url(url, context)
     categories = require_list(payload, "categories")
     works = require_list(payload, "works")
     families = require_list(payload, "families")
-    family_ids = {
-        family.get("id") for family in families if isinstance(family, dict)
-    }
-    if len(family_ids) != len(families) or None in family_ids:
+    for family in families:
+        if not isinstance(family, dict) or any(
+            not isinstance(family.get(field), str) or not family[field].strip()
+            for field in ("id", "name_zh", "name_en")
+        ):
+            fail("family identity and display names must be non-empty strings")
+    family_ids = {family["id"] for family in families}
+    if len(family_ids) != len(families):
         fail("family IDs must be unique and non-empty")
 
     category_ids: set[int] = set()
@@ -83,19 +123,20 @@ def validate_payload(payload: object) -> dict[str, int]:
         category_id = raw.get("id")
         if category_id != expected_id:
             fail("category IDs must be contiguous and ordered")
+        if not isinstance(raw.get("name"), str) or not raw["name"].strip():
+            fail(f"category {category_id} has an invalid name")
+        if not isinstance(raw.get("name_zh"), str):
+            fail(f"category {category_id} has an invalid name_zh")
         family = raw.get("family")
         if family not in family_ids:
             fail(f"category {category_id} references an unknown family")
-        if raw.get("kind") not in {"original", "arrangement"}:
+        if raw.get("kind") not in ({"original", "arrangement", "unspecified"} if multisource else {"original", "arrangement"}):
             fail(f"category {category_id} has an invalid kind")
         work_count = raw.get("work_count")
         if type(work_count) is not int or work_count < 0:
             fail(f"category {category_id} has an invalid work_count")
-        url = raw.get("imslp_url")
-        if not isinstance(url, str):
-            fail(f"category {category_id} has no IMSLP URL")
         try:
-            validate_imslp_url(url, f"category {category_id}")
+            validate_row_url(raw, f"category {category_id}")
         except ValueError as exc:
             raise PublicSiteValidationError(str(exc)) from exc
         category_ids.add(category_id)
@@ -114,18 +155,17 @@ def validate_payload(payload: object) -> dict[str, int]:
         if work_id in seen_work_ids:
             fail(f"duplicate work ID: {work_id}")
         seen_work_ids.add(work_id)
-        for field in ("title_en", "title_zh", "composer_en", "composer_zh"):
+        required = ("title_en",) if multisource and raw.get("source_id") != "imslp" else ("title_en", "title_zh", "composer_en", "composer_zh")
+        for field in required:
             if not isinstance(raw.get(field), str) or not str(raw[field]).strip():
                 fail(f"work {work_id} has an invalid {field}")
-        if not str(raw["title_zh"]).startswith("《") or not str(
-            raw["title_zh"]
-        ).endswith("》"):
+        for field in ("title_en", "title_zh", "composer_en", "composer_zh"):
+            if not isinstance(raw.get(field), str):
+                fail(f"work {work_id} has a non-string {field}")
+        if raw.get("title_zh") and (not str(raw["title_zh"]).startswith("《") or not str(raw["title_zh"]).endswith("》")):
             fail(f"work {work_id} has an invalid Chinese display title")
-        url = raw.get("imslp_url")
-        if not isinstance(url, str):
-            fail(f"work {work_id} has no IMSLP URL")
         try:
-            validate_imslp_url(url, f"work {work_id}")
+            validate_row_url(raw, f"work {work_id}")
         except ValueError as exc:
             raise PublicSiteValidationError(str(exc)) from exc
         memberships = raw.get("category_ids")
@@ -139,6 +179,26 @@ def validate_payload(payload: object) -> dict[str, int]:
         ):
             fail(f"work {work_id} has invalid category memberships")
         observed_memberships.update(memberships)
+        if multisource:
+            resource_type = raw.get("resource_type", "score")
+            if not isinstance(resource_type, str) or resource_type not in {"score", "reference"}:
+                fail(f"work {work_id} has an invalid resource type")
+            native_id = raw.get("source_record_id")
+            expected_id = work_id if raw["source_id"] == "imslp" else work_id.split(":", 1)[-1]
+            if not isinstance(native_id, str) or not native_id or native_id != expected_id:
+                fail(f"work {work_id} has inconsistent source identity")
+            formats = raw.get("formats")
+            if (not isinstance(formats, list) or not formats
+                    or any(not isinstance(value, str) or value not in {"PDF", "MIDI", "GPX", "GP3", "GP4", "GP5"} for value in formats)
+                    or len(formats) != len(set(formats))):
+                fail(f"work {work_id} has invalid format labels")
+            aliases = raw.get("title_aliases", [])
+            if not isinstance(aliases, list) or any(not isinstance(value, str) or not value.strip() for value in aliases):
+                fail(f"work {work_id} has invalid title aliases")
+            if any(categories[value]["source_id"] != raw["source_id"] for value in memberships):
+                fail(f"work {work_id} crosses source category identities")
+            if raw["source_id"] != "imslp" and not work_id.startswith(raw["source_id"] + ":"):
+                fail(f"work {work_id} must use a source namespace")
         sort_key = (
             str(raw["composer_en"]).casefold(),
             str(raw["title_en"]).casefold(),
@@ -149,8 +209,14 @@ def validate_payload(payload: object) -> dict[str, int]:
         previous_sort_key = sort_key
         source_links += 1
 
-    if dict(observed_memberships) != category_work_counts:
+    if any(observed_memberships[key] != count for key, count in category_work_counts.items()):
         fail("category work counts do not equal work memberships")
+    if multisource:
+        for source in payload["sources"]:
+            if source.get("record_count") != sum(row["source_id"] == source["id"] for row in works):
+                fail("source record count does not match catalog")
+            if source.get("category_count") != sum(row["source_id"] == source["id"] for row in categories):
+                fail("source category count does not match catalog")
     summary = payload.get("summary")
     if not isinstance(summary, dict):
         fail("summary must be an object")
@@ -162,6 +228,8 @@ def validate_payload(payload: object) -> dict[str, int]:
     for key, expected in expected_summary.items():
         if summary.get(key) != expected:
             fail(f"summary {key} does not match catalog contents")
+    if multisource and summary.get("source_count") != len(source_ids):
+        fail("summary source_count does not match registry")
     integrity = payload.get("integrity")
     if isinstance(integrity, dict) and integrity.get("public_score_file_links") != 0:
         fail("public score-file link count must be zero")
@@ -199,10 +267,11 @@ def validate_search_aliases(aliases: object, catalog: Mapping[str, object]) -> N
 
 def validate_public_site(root: Path) -> dict[str, int]:
     root = root.resolve()
-    files = [path for path in root.rglob("*") if path.is_file()]
-    if any(path.is_symlink() for path in files):
+    entries = list(root.rglob("*"))
+    if any(path.is_symlink() for path in entries):
         fail("public site must not contain symbolic links")
-    score_files = [path for path in files if path.suffix.casefold() == ".pdf"]
+    files = [path for path in entries if path.is_file()]
+    score_files = [path for path in files if path.suffix.casefold() in {".pdf", ".mid", ".midi", ".gpx", ".gp3", ".gp4", ".gp5", ".gp6", ".gp7", ".gp8", ".zip"}]
     if score_files:
         fail(f"public site contains score files: {score_files[0]}")
     catalog_path = root / "data/catalog.json"
@@ -216,10 +285,18 @@ def validate_public_site(root: Path) -> dict[str, int]:
     except (OSError, json.JSONDecodeError) as exc:
         raise PublicSiteValidationError("cannot read public search aliases") from exc
     validate_search_aliases(aliases, payload)
+    for path in files:
+        if path.suffix.casefold() != ".json" or path in {catalog_path, root / "data/search-aliases.json"}:
+            continue
+        try:
+            extra = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+            raise PublicSiteValidationError(f"cannot read public JSON: {path}") from exc
+        check_forbidden(extra, path.relative_to(root).as_posix())
     for required in ("index.html", "assets/app.js", "assets/search.js", "assets/site.css"):
         if not (root / required).is_file():
             fail(f"missing public asset: {required}")
-    asset_paths = [path for path in files if path.suffix in {".html", ".js", ".css"}]
+    asset_paths = [path for path in files if path.suffix.casefold() in {".html", ".js", ".css", ".svg"}]
     for path in asset_paths:
         try:
             text = path.read_text(encoding="utf-8")

@@ -2,6 +2,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const vm = require('node:vm');
 const enginePath = path.join(__dirname, '../public_site/assets/search.js');
 const categories = [
   {id: 0, name: 'For guitar', name_zh: '1把吉他·原作', family: 'pure', kind: 'original'},
@@ -167,4 +168,211 @@ test('versioned aliases resolve to real canonical identities and work IDs', () =
   assert.ok(ids(index.search('德布西 月光')).includes('2397'));
   assert.ok(ids(index.search('Moonlight Sonata')).includes('1458'));
   assert.equal(index.search('Tchaikovky').matches.filter(m => m.item.composer_en === 'Tchaikovsky, Pyotr').length, 8);
+});
+
+const multiSourceData = {
+  schema_version: 2,
+  sources: [{id:'imslp', name:'IMSLP'}, {id:'classclef', name:'ClassClef'}],
+  categories: [
+    ...categories,
+    {id:'classclef:tarrega', name:'Francisco Tarrega', name_zh:'', source_id:'classclef', family:'classclef', kind:'unspecified'},
+    {id:'classclef:other', name:'Other composers', name_zh:'', source_id:'classclef', family:'classclef', kind:'unspecified'},
+  ],
+  works: [
+    ...data.works,
+    {...work('classclef:1', 'Recuerdos de la Alhambra', null, 'Francisco Tarrega', null, ['classclef:tarrega']),
+      source_id:'classclef', source_url:'https://www.classclef.com/francisco-tarrega/', formats:['PDF', 'GPX', 'MIDI']},
+    {...work('classclef:2', 'Prelude', '', 'Carlos Tarrega', '', ['classclef:other']),
+      source_id:'classclef', formats:['PDF']},
+  ],
+};
+const multiSourceIndex = () => require(enginePath).createIndex(multiSourceData, aliases);
+
+test('sources keep distinct work identities even when titles and local IDs overlap', () => {
+  const index = multiSourceIndex();
+  assert.deepEqual(new Set(ids(index.search('Recuerdos'))), new Set(['1', 'classclef:1']));
+  assert.deepEqual(ids(index.search('Recuerdos', {source:'imslp'})), ['1']);
+  assert.deepEqual(ids(index.search('Recuerdos', {source:'classclef'})), ['classclef:1']);
+  assert.deepEqual(ids(index.search('阿尔汉布拉宫的回忆', {source:'classclef'})), []);
+  assert.equal(index.browse().workCount, data.works.length + 2);
+});
+
+test('source filtering applies to browsing, fuzzy recovery and suggestions', () => {
+  const index = multiSourceIndex();
+  const browse = index.browse({source:'classclef'});
+  assert.deepEqual(browse.categories.map(category => category.id), ['classclef:tarrega', 'classclef:other']);
+  assert.equal(browse.workCount, 2);
+  assert.deepEqual(index.browse({source:'classclef',kind:'original'}), {categories:[], workCount:0});
+  assert.deepEqual(ids(index.search('Recuerods', {source:'classclef'})), ['classclef:1']);
+  assert.deepEqual(index.suggest('Chpo in', {source:'classclef'}), []);
+  assert.deepEqual(index.suggest('Chopin', {source:'classclef'}), []);
+  assert.ok(index.suggest('Tarega', {source:'classclef'}).some(s => s.query === 'Francisco Tarrega'));
+  assert.equal(require(enginePath).catalogView('', {source:'classclef'}), 'categories');
+});
+
+test('unknown source classification stays separate from original and arrangement', () => {
+  const index = multiSourceIndex();
+  assert.deepEqual(ids(index.search('Recuerdos', {source:'classclef', kind:'original'})), []);
+  assert.deepEqual(ids(index.search('Recuerdos', {source:'classclef', kind:'arrangement'})), []);
+  assert.deepEqual(ids(index.search('Recuerdos', {kind:'unspecified', category:'classclef:tarrega'})), ['classclef:1']);
+  assert.equal(require(enginePath).kindLabel('unspecified'), '来源未标注');
+  assert.equal(require(enginePath).kindLabel('future-unmapped-kind'), '来源未标注');
+});
+
+test('source names and available formats are searchable without exposing file links', () => {
+  const index = multiSourceIndex();
+  assert.deepEqual(ids(index.search('ClassClef MIDI')), ['classclef:1']);
+  assert.deepEqual(ids(index.search('classclef gpx', {source:'imslp'})), []);
+  assert.deepEqual(ids(index.search('IMSLP Recuerdos')), ['1']);
+  assert.ok(index.suggest('ClassClef GPX').some(s => s.kind === 'work' && s.label === 'Recuerdos de la Alhambra'));
+  const suggestion = index.suggest('ClassClef GPX').find(s => s.kind === 'work');
+  assert.deepEqual(ids(index.search(suggestion.query)), ['classclef:1']);
+  assert.match(suggestion.query, /classclef/);
+  assert.match(suggestion.query, /gpx/);
+});
+
+test('source title aliases are searchable without replacing source titles or crossing work IDs', () => {
+  const item = {...multiSourceData.works.find(item => item.id === 'classclef:1'), title_aliases:['Memories of the Alhambra']};
+  const index = require(enginePath).createIndex({...multiSourceData, works:[...data.works, item]}, aliases);
+  const response = index.search('Memories Alhambra');
+  assert.deepEqual(ids(response), ['classclef:1']);
+  assert.equal(response.matches[0].matchType, 'alias');
+  assert.equal(response.matches[0].item.title_en, 'Recuerdos de la Alhambra');
+  assert.deepEqual(ids(index.search('Memories Alhambra', {source:'imslp'})), []);
+});
+
+test('null and empty translations fall back to original titles and attributions', () => {
+  const engine = require(enginePath);
+  const item = multiSourceData.works.find(item => item.id === 'classclef:1');
+  assert.equal(engine.titleLabel(item), 'Recuerdos de la Alhambra');
+  assert.equal(engine.composerLabel(item), 'Francisco Tarrega');
+  const suggestions = multiSourceIndex().suggest('Recuerdos', {source:'classclef'});
+  assert.ok(suggestions.every(s => s.label && s.detail));
+  assert.equal(item.title_zh, null);
+  assert.equal(item.composer_zh, null);
+});
+
+test('unattributed works remain searchable without inventing a composer suggestion', () => {
+  const item = {...multiSourceData.works.at(-1), title_en:'Anonymous dance', composer_en:'', composer_zh:''};
+  const engine = require(enginePath);
+  const index = engine.createIndex({...multiSourceData, works:[item]});
+  assert.equal(engine.composerLabel(item), '作者未标注');
+  assert.deepEqual(ids(index.search('Anonymous')), ['classclef:2']);
+  assert.ok(index.suggest('Anonymous').every(s => s.kind === 'work' && s.detail === '作者未标注'));
+  assert.equal(item.composer_en, '');
+});
+
+test('curated full-name aliases work across source name ordering without rewriting identities', () => {
+  const response = multiSourceIndex().search('塔瑞加');
+  assert.deepEqual(new Set(ids(response)), new Set(['1', 'classclef:1']));
+  assert.equal(response.matches.find(match => match.item.id === '1').item.composer_en, 'Tárrega, Francisco');
+  assert.equal(response.matches.find(match => match.item.id === 'classclef:1').item.composer_en, 'Francisco Tarrega');
+  assert.ok(!ids(response).includes('classclef:2'));
+});
+
+test('existing Chinese composer labels are shared for exact full names as search aliases only', () => {
+  const shared = {...work('classclef:42', 'Etude', '', 'Mauro Giuliani', '', ['classclef:other']), source_id:'classclef'};
+  const works = [
+    work('42', 'Etude', '《练习曲》', 'Giuliani, Mauro', '毛罗·朱利亚尼'), shared,
+    {...shared, id:'classclef:43', composer_en:'Michele Giuliani'},
+    {...shared, id:'classclef:44', composer_en:'M. Giuliani'},
+    {...shared, id:'classclef:45', composer_en:'Mauro A. Giuliani'},
+  ];
+  const index = require(enginePath).createIndex({...multiSourceData, works}, {});
+  assert.deepEqual(new Set(ids(index.search('毛罗 朱利亚尼'))), new Set(['42','classclef:42']));
+  assert.deepEqual(ids(index.search('毛罗 朱利亚尼', {source:'classclef'})), ['classclef:42']);
+  assert.ok(index.suggest('毛罗 朱利亚尼', {source:'classclef'}).some(s => s.kind === 'composer' && s.query === 'Mauro Giuliani'));
+  assert.equal(shared.composer_en, 'Mauro Giuliani');
+  assert.equal(shared.composer_zh, '');
+});
+
+test('category query terms must belong to the active membership in exact and fuzzy search', () => {
+  const index = multiSourceIndex();
+  assert.deepEqual(ids(index.search('Tchaikovsky flute', {family:'pure'})), []);
+  assert.deepEqual(ids(index.search('Tchaikovky flute', {family:'pure'})), []);
+  assert.deepEqual(ids(index.search('Tchaikovky flute', {family:'woodwinds',kind:'arrangement',source:'imslp'})), ['2']);
+  assert.deepEqual(ids(index.search('Tarrega', {source:'classclef',category:'0'})), []);
+});
+
+function appContext() {
+  class Element {
+    constructor() { this.children = []; this.attributes = {}; this.style = {}; this.dataset = {}; this.value = 'all'; }
+    append(...nodes) { this.children.push(...nodes); }
+    setAttribute(name, value) { this.attributes[name] = value; }
+    addEventListener() {}
+  }
+  const nodes = new Map();
+  const querySelector = selector => {
+    if (!nodes.has(selector)) nodes.set(selector, new Element());
+    return nodes.get(selector);
+  };
+  for (const [selector, values] of Object.entries({
+    '#source-filter':['all','imslp','classclef'], '#family-filter':['all','pure','classclef'],
+    '#kind-filter':['all','original','arrangement','unspecified'], '#category-filter':['all','0','classclef:tarrega'],
+  })) querySelector(selector).options = values.map(value => ({value}));
+  const urls = [];
+  const context = vm.createContext({
+    document: {querySelector, createElement: () => new Element()},
+    window: {location: {search:'', pathname:'/guitar-atlas/', hash:'#catalog'}},
+    history: {replaceState: (_state, _unused, url) => urls.push(url), pushState: (_state, _unused, url) => urls.push(url)},
+    URLSearchParams, GuitarSearch:require(enginePath), console,
+  });
+  // Load the real DOM functions without network-driven startup.
+  const app = fs.readFileSync(path.join(__dirname, '../public_site/assets/app.js'), 'utf8');
+  vm.runInContext(app.replace(/\bstart\(\);\s*$/, ''), context);
+  return {context, nodes, urls};
+}
+
+test('public and offline URL state preserve source and namespaced category filters', () => {
+  const {context, nodes, urls} = appContext();
+  context.window.location.search = '?source=classclef&kind=unspecified&category=classclef%3Atarrega&q=GPX';
+  context.readUrlState();
+  assert.equal(nodes.get('#source-filter').value, 'classclef');
+  assert.equal(nodes.get('#category-filter').value, 'classclef:tarrega');
+  assert.equal(nodes.get('#filter-drawer').open, true);
+  context.writeUrlState();
+  const params = new URL(urls.at(-1), 'https://example.com').searchParams;
+  assert.equal(params.get('source'), 'classclef');
+  assert.equal(params.get('category'), 'classclef:tarrega');
+  let offlineQuery;
+  context.window.GuitarCatalogAdapter = {readQuery: () => '?source=imslp&q=Sor', writeQuery: query => { offlineQuery = query; }};
+  context.readUrlState();
+  context.writeUrlState();
+  assert.equal(new URLSearchParams(offlineQuery).get('source'), 'imslp');
+  assert.equal(new URLSearchParams(offlineQuery).get('q'), 'Sor');
+});
+
+test('result cards render original labels, unknown kind and source-page links while keeping the offline hook', () => {
+  const {context} = appContext();
+  let decorated;
+  context.window.GuitarCatalogAdapter = {decorateCard: (article, match) => { decorated = match.item.id; }};
+  const match = multiSourceIndex().search('GPX').matches[0];
+  const card = context.resultCard(match, 0);
+  const descendants = node => [node, ...node.children.flatMap(descendants)];
+  const all = descendants(card);
+  assert.ok(all.some(node => node.textContent === 'Recuerdos de la Alhambra'));
+  assert.ok(all.some(node => node.textContent === 'Francisco Tarrega'));
+  assert.ok(all.some(node => node.textContent === '来源未标注'));
+  assert.equal(all.find(node => node.className === 'source-link').href, 'https://www.classclef.com/francisco-tarrega/');
+  assert.equal(decorated, 'classclef:1');
+  const legacy = createIndex().search('Recuerdos').matches[0];
+  legacy.item.imslp_url = 'https://imslp.org/wiki/Recuerdos';
+  const legacyCard = context.resultCard(legacy, 1);
+  assert.equal(descendants(legacyCard).find(node => node.className === 'source-link').href, legacy.item.imslp_url);
+});
+
+test('reference resources have a searchable label and distinct card label without changing score defaults', () => {
+  const item = {...multiSourceData.works.at(-1), id:'classclef:glossary', title_en:'Glossary', resource_type:'reference'};
+  const engine = require(enginePath);
+  const index = engine.createIndex({...multiSourceData, works:[...multiSourceData.works, item]});
+  assert.deepEqual(ids(index.search('参考资料')), ['classclef:glossary']);
+  assert.deepEqual(ids(index.search('reference', {source:'classclef'})), ['classclef:glossary']);
+  const suggestion = index.suggest('参考资料')[0];
+  assert.equal(suggestion.resource_type, 'reference');
+  assert.deepEqual(ids(index.search(suggestion.query)), ['classclef:glossary']);
+  assert.equal(engine.resourceLabel(multiSourceData.works[0]), '');
+  const {context} = appContext();
+  const card = context.resultCard(index.search('参考资料').matches[0], 0);
+  const header = card.children.find(node => node.className === 'result-header');
+  assert.equal(header.children.find(node => node.className === 'result-kind').textContent, '参考资料');
 });

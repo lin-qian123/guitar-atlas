@@ -35,3 +35,5 @@ __pycache__/
 /metadata/translation_coverage.json
 /metadata/mixed_*.json
 /metadata/mixed_runs/
+/sources/
+/work/

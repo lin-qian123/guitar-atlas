@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "version": "2026-09-28.1",
+  "sources": [
+    {
+      "id": "imslp",
+      "name": "IMSLP",
+      "homepage": "https://imslp.org/",
+      "allowed_hosts": ["imslp.org"],
+      "adapter": "imslp_categories"
+    },
+    {
+      "id": "classclef",
+      "name": "ClassClef",
+      "homepage": "https://www.classclef.com/",
+      "allowed_hosts": ["www.classclef.com", "classclef.com"],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/classclef/catalog.json",
+      "family": "classclef",
+      "family_name_zh": "ClassClef 来源目录",
+      "family_name_en": "ClassClef collections"
+    }
+  ]
+}

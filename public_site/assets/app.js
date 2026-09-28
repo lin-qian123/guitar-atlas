@@ -4,9 +4,11 @@ const PAGE_SIZE = 18;
 const FAMILY_LABELS = {
   pure: "纯吉他", strings: "弦乐", woodwinds: "木管", brass: "铜管",
   keyboard_reed: "键盘 / 自由簧", plucked: "拨弦乐器", percussion: "打击乐", mixed_chamber: "室内乐",
+  classclef: "ClassClef 目录",
 };
 const elements = {
   search: document.querySelector("#search"),
+  source: document.querySelector("#source-filter"),
   family: document.querySelector("#family-filter"),
   kind: document.querySelector("#kind-filter"),
   category: document.querySelector("#category-filter"),
@@ -28,6 +30,7 @@ const elements = {
 const state = {
   data: null,
   categoryById: new Map(),
+  sourceById: new Map(),
   engine: null,
   matches: [],
   visible: PAGE_SIZE,
@@ -72,54 +75,71 @@ function compactNumber(value) {
 }
 
 function populateFilters() {
+  for (const source of Array.isArray(state.data.sources) ? state.data.sources : [{id:"imslp", name:"IMSLP"}]) {
+    state.sourceById.set(source.id, source);
+    addOption(elements.source, source.id, source.name);
+  }
   addFamilyShortcut("all", "全部分类");
   for (const family of state.data.families) {
     addOption(elements.family, family.id, `${family.name_zh} / ${family.name_en}`);
     addFamilyShortcut(family.id, FAMILY_LABELS[family.id] || family.name_zh);
   }
   for (const category of state.data.categories) {
-    state.categoryById.set(category.id, category);
-    addOption(elements.category, category.id, `${category.name}｜${category.name_zh}`);
+    state.categoryById.set(String(category.id), category);
+    addOption(elements.category, category.id, `${sourceName(category)} · ${category.name_zh || category.name}`);
   }
 }
 
 function updateFamilyShortcuts() {
   let selected = elements.family.value;
   if (elements.category.value !== "all") {
-    selected = state.categoryById.get(Number(elements.category.value)).family;
+    selected = state.categoryById.get(elements.category.value)?.family || selected;
   }
+  const available = new Set(state.engine.browse({source:elements.source.value}).categories.map(category => category.family));
   for (const button of elements.familyShortcuts.querySelectorAll("button")) {
     button.setAttribute("aria-pressed", String(button.dataset.family === selected));
+    button.hidden = button.dataset.family !== "all" && !available.has(button.dataset.family);
   }
 }
 
+function sourceName(item) {
+  const id = GuitarSearch.sourceId(item);
+  return item.source_name || state.sourceById.get(id)?.name || (id === "imslp" ? "IMSLP" : id);
+}
+
 function readUrlState() {
-  const params = new URLSearchParams(window.location.search);
+  const params = new URLSearchParams(window.GuitarCatalogAdapter?.readQuery?.() ?? window.location.search);
   elements.search.value = params.get("q") || "";
+  const source = params.get("source") || "all";
   const family = params.get("family") || "all";
   const kind = params.get("kind") || "all";
   const category = params.get("category") || "all";
-  for (const [select, value] of [[elements.family, family], [elements.kind, kind], [elements.category, category]]) {
+  for (const [select, value] of [[elements.source, source], [elements.family, family], [elements.kind, kind], [elements.category, category]]) {
     select.value = [...select.options].some((option) => option.value === value) ? value : "all";
   }
-  document.querySelector("#filter-drawer").open = [family, kind, category].some((value) => value !== "all");
+  document.querySelector("#filter-drawer").open = [source, family, kind, category].some((value) => value !== "all");
 }
 
 function writeUrlState(push = false) {
   const params = new URLSearchParams();
   const query = elements.search.value.trim();
   if (query) params.set("q", query);
+  if (elements.source.value !== "all") params.set("source", elements.source.value);
   if (elements.family.value !== "all") params.set("family", elements.family.value);
   if (elements.kind.value !== "all") params.set("kind", elements.kind.value);
   if (elements.category.value !== "all") params.set("category", elements.category.value);
   const suffix = params.toString();
+  if (window.GuitarCatalogAdapter?.writeQuery) {
+    window.GuitarCatalogAdapter.writeQuery(suffix, push);
+    return;
+  }
   const url = `${window.location.pathname}${suffix ? `?${suffix}` : ""}${window.location.hash}`;
   if (push && url !== `${window.location.pathname}${window.location.search}${window.location.hash}`) history.pushState(null, "", url);
   else history.replaceState(null, "", url);
 }
 
 function currentFilters() {
-  return {family: elements.family.value, kind: elements.kind.value, category: elements.category.value};
+  return {source: elements.source.value, family: elements.family.value, kind: elements.kind.value, category: elements.category.value};
 }
 
 function closeSuggestions() {
@@ -153,7 +173,7 @@ function showSuggestions() {
     option.setAttribute("aria-selected", "false");
     const text = makeElement("span", "option-copy");
     text.append(makeElement("strong", "", suggestion.label), makeElement("small", "", suggestion.detail));
-    option.append(text, makeElement("span", "option-kind", suggestion.kind === "composer" ? "作曲家" : "曲目"));
+    option.append(text, makeElement("span", "option-kind", suggestion.kind === "composer" ? "音乐家" : suggestion.resource_type === "reference" ? "参考资料" : "曲目"));
     // Keep focus on the combobox so both pointer and keyboard selection work.
     option.addEventListener("pointerdown", event => event.preventDefault());
     option.addEventListener("click", () => chooseSuggestion(index));
@@ -165,6 +185,7 @@ function showSuggestions() {
 
 function openCategory(category, clearQuery = false) {
   if (clearQuery) elements.search.value = "";
+  elements.source.value = GuitarSearch.sourceId(category);
   elements.family.value = "all";
   elements.kind.value = "all";
   elements.category.value = String(category.id);
@@ -177,7 +198,7 @@ function openCategory(category, clearQuery = false) {
 function renderDirectory() {
   const directory = state.engine.browse(currentFilters());
   elements.directory.replaceChildren();
-  elements.status.textContent = `${compactNumber(directory.categories.length)} 个分类 · ${compactNumber(directory.workCount)} 部作品`;
+  elements.status.textContent = `${compactNumber(directory.categories.length)} 个分类 · ${compactNumber(directory.workCount)} 条作品记录`;
   for (const family of state.data.families) {
     const categories = directory.categories.filter(category => category.family === family.id);
     if (!categories.length) continue;
@@ -196,15 +217,15 @@ function renderDirectory() {
     const grid = makeElement("div", "category-grid");
     for (const category of categories) {
       const card = makeElement("a", "category-card");
-      card.href = `?category=${category.id}#catalog`;
+      card.href = window.GuitarCatalogAdapter?.categoryHref?.(category) ?? `?category=${encodeURIComponent(category.id)}#catalog`;
       card.dataset.category = String(category.id);
-      card.setAttribute("aria-label", `${category.name}｜${category.name_zh}，${compactNumber(category.work_count)} 部作品`);
+      card.setAttribute("aria-label", `${sourceName(category)}：${category.name_zh || category.name}，${compactNumber(category.work_count)} 条作品记录`);
       const meta = makeElement("div", "category-card-meta");
-      meta.append(makeElement("span", "result-kind", category.kind === "original" ? "原作" : "改编"),
-        makeElement("span", "", `${compactNumber(category.work_count)} 部作品`));
-      const title = category.name_zh.replace(/[·.]?(?:原作|改编)$/, "");
+      meta.append(makeElement("span", "source-badge", sourceName(category)),
+        makeElement("span", "result-kind", GuitarSearch.kindLabel(category.kind)));
+      const title = (category.name_zh || category.name).replace(/[·.]?(?:原作|改编)$/, "");
       card.append(meta, makeElement("h3", "", title), makeElement("p", "category-source-name", category.name),
-        makeElement("span", "category-enter", "查看作品 →"));
+        makeElement("span", "category-enter", `${compactNumber(category.work_count)} 条作品记录 · 查看 →`));
       card.addEventListener("click", event => {
         if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
         event.preventDefault();
@@ -219,10 +240,10 @@ function renderDirectory() {
 }
 
 function categoryChip(category) {
-  const button = makeElement("button", "category-chip", category.name_zh);
+  const button = makeElement("button", "category-chip", category.name_zh || category.name);
   button.type = "button";
   button.title = category.name;
-  button.setAttribute("aria-label", `查看 ${category.name_zh}（${category.name}）`);
+  button.setAttribute("aria-label", `查看 ${category.name_zh || category.name}（${sourceName(category)}）`);
   button.addEventListener("click", () => openCategory(category));
   return button;
 }
@@ -234,25 +255,27 @@ function resultCard(match, index) {
 
   const header = makeElement("div", "result-header");
   header.append(makeElement("span", "result-number", String(index + 1).padStart(2, "0")));
-  const kinds = new Set(match.categories.map((category) => category.kind));
-  header.append(makeElement("span", "result-kind", kinds.size > 1 ? "原作 / 改编" : kinds.has("original") ? "原作" : "改编"));
+  header.append(makeElement("span", "source-badge", sourceName(item)));
+  const kinds = [...new Set(match.categories.map((category) => GuitarSearch.kindLabel(category.kind)))];
+  header.append(makeElement("span", "result-kind", GuitarSearch.resourceLabel(item) || kinds.join(" / ")));
   article.append(header);
 
   const title = makeElement("div", "result-title");
-  title.append(makeElement("h3", "", item.title_zh.replace(/^《|》$/g, "")));
-  title.append(makeElement("p", "result-title-en", item.title_en));
+  title.append(makeElement("h3", "", GuitarSearch.titleLabel(item)));
+  if (item.title_zh && GuitarSearch.titleLabel(item) !== item.title_en) title.append(makeElement("p", "result-title-en", item.title_en));
   article.append(title);
 
   const meta = makeElement("div", "result-meta");
-  const composer = makeElement("p", "result-composer", item.composer_zh);
-  composer.append(makeElement("span", "", item.composer_en));
+  const composer = makeElement("p", "result-composer", GuitarSearch.composerLabel(item));
+  if (item.composer_zh && item.composer_zh !== item.composer_en) composer.append(makeElement("span", "", item.composer_en));
   meta.append(composer);
+  if (item.formats?.length) meta.append(makeElement("p", "result-formats", `来源格式：${item.formats.join(" · ")}`));
   const categories = makeElement("div", "category-list");
   match.categories.slice(0, 4).forEach((category) => categories.append(categoryChip(category)));
   meta.append(categories);
   if (match.categories.length > 4) {
     const extra = makeElement("details", "category-extra");
-    extra.append(makeElement("summary", "", `其他 ${match.categories.length - 4} 个编制分类`));
+    extra.append(makeElement("summary", "", `其他 ${match.categories.length - 4} 个分类`));
     const list = makeElement("div", "category-list");
     match.categories.slice(4).forEach((category) => list.append(categoryChip(category)));
     extra.append(list);
@@ -260,12 +283,13 @@ function resultCard(match, index) {
   }
   article.append(meta);
 
-  const link = makeElement("a", "source-link", "IMSLP 作品原页");
-  link.href = item.imslp_url;
-  link.setAttribute("aria-label", `${item.title_zh}：IMSLP 作品原页（新窗口）`);
+  const link = makeElement("a", "source-link", `${sourceName(item)} 来源页面`);
+  link.href = item.source_url || item.imslp_url;
+  link.setAttribute("aria-label", `${GuitarSearch.titleLabel(item)}：${sourceName(item)} 来源页面（新窗口）`);
   link.target = "_blank";
   link.rel = "noopener noreferrer";
   article.append(link);
+  window.GuitarCatalogAdapter?.decorateCard?.(article, match);
   return article;
 }
 
@@ -274,12 +298,12 @@ function renderResults() {
   if (!state.matches.length) {
     const empty = makeElement("div", "empty");
     empty.append(makeElement("strong", "", "未找到匹配作品"));
-    empty.append(makeElement("span", "", "请检查关键词，或调整编制筛选条件。"));
+    empty.append(makeElement("span", "", "请检查关键词，或调整来源与分类筛选条件。"));
     if (Object.values(currentFilters()).some(value => value !== "all")) {
-      const relax = makeElement("button", "relax-filters", "保留关键词，放宽编制");
+      const relax = makeElement("button", "relax-filters", "保留关键词，清除筛选");
       relax.type = "button";
       relax.addEventListener("click", () => {
-        elements.family.value = elements.kind.value = elements.category.value = "all";
+        elements.source.value = elements.family.value = elements.kind.value = elements.category.value = "all";
         state.visible = PAGE_SIZE;
         update();
       });
@@ -304,9 +328,10 @@ function update({push = false} = {}) {
   elements.directory.hidden = !browsing;
   elements.results.hidden = browsing;
   elements.back.hidden = browsing;
-  elements.title.textContent = browsing ? "乐谱分类库" : elements.category.value === "all" ? "作品检索" : state.categoryById.get(Number(elements.category.value)).name_zh;
-  elements.description.textContent = browsing ? "按演奏编制浏览，原作与改编分别列出。"
-    : elements.category.value === "all" ? "按相关性排列，支持中英文与常见异译名。" : state.categoryById.get(Number(elements.category.value)).name;
+  const category = state.categoryById.get(elements.category.value);
+  elements.title.textContent = browsing ? "乐谱分类库" : category ? category.name_zh || category.name : "作品检索";
+  elements.description.textContent = browsing ? "保留来源分类；IMSLP 按编制，ClassClef 按站内目录。"
+    : category ? `${sourceName(category)} · ${category.name}` : "按相关性排列，保留各来源的独立记录。";
   if (browsing) {
     state.matches = [];
     elements.results.replaceChildren();
@@ -320,7 +345,7 @@ function update({push = false} = {}) {
   const response = state.engine.search(elements.search.value, currentFilters());
   state.matches = response.matches;
   const shown = Math.min(state.visible, state.matches.length);
-  elements.status.textContent = `${compactNumber(state.matches.length)} 部${response.mode === "fuzzy" ? "近似" : ""}作品${shown < state.matches.length ? ` · 已显示 ${shown} 部` : ""}`;
+  elements.status.textContent = `${compactNumber(state.matches.length)} 条${response.mode === "fuzzy" ? "近似" : ""}作品记录${shown < state.matches.length ? ` · 已显示 ${shown} 条` : ""}`;
   elements.hint.hidden = response.mode !== "fuzzy" && state.aliasesAvailable;
   elements.hint.textContent = response.mode === "fuzzy" ? "未找到精确结果，以下为近似匹配。"
     : state.aliasesAvailable ? "" : "别名表暂未载入，曲名搜索和拼写容错仍然可用。";
@@ -331,6 +356,7 @@ function update({push = false} = {}) {
 
 function clearSearch() {
   elements.search.value = "";
+  elements.source.value = "all";
   elements.family.value = "all";
   elements.kind.value = "all";
   elements.category.value = "all";
@@ -417,6 +443,11 @@ function bindEvents() {
   [elements.family, elements.kind, elements.category].forEach((select) => {
     select.addEventListener("change", () => { state.visible = PAGE_SIZE; update(); });
   });
+  elements.source.addEventListener("change", () => {
+    elements.family.value = elements.kind.value = elements.category.value = "all";
+    state.visible = PAGE_SIZE;
+    update();
+  });
   elements.clear.addEventListener("click", () => { window.clearTimeout(timer); clearSearch(); });
   elements.share.addEventListener("click", copySearchLink);
   elements.loadMore.addEventListener("click", () => {
@@ -442,16 +473,21 @@ function bindEvents() {
   });
 }
 
+async function loadCatalog() {
+  const [response, aliases] = await Promise.all([
+    fetch("data/catalog.json", { cache: "no-cache" }),
+    fetch("data/search-aliases.json", { cache: "no-cache", signal: AbortSignal.timeout(5000) })
+      .then(result => result.ok ? result.json() : null).catch(() => null),
+  ]);
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return {data: await response.json(), aliases};
+}
+
 async function start() {
   try {
-    const [response, aliases] = await Promise.all([
-      fetch("data/catalog.json", { cache: "no-cache" }),
-      fetch("data/search-aliases.json", { cache: "no-cache", signal: AbortSignal.timeout(5000) })
-        .then(result => result.ok ? result.json() : null).catch(() => null),
-    ]);
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    state.data = await response.json();
-    if (state.data.schema_version !== 1) throw new Error("unsupported catalog schema");
+    const {data, aliases} = await (window.GuitarCatalogAdapter?.load() ?? loadCatalog());
+    state.data = data;
+    if (![1, 2].includes(state.data.schema_version)) throw new Error("unsupported catalog schema");
     populateFilters();
     state.aliasesAvailable = aliases !== null;
     state.engine = GuitarSearch.createIndex(state.data, aliases || {});

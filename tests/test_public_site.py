@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import runpy
+import shutil
 from pathlib import Path
 
 import pytest
@@ -124,6 +125,20 @@ def test_public_catalog_fails_closed_on_cross_category_identity_drift(
         namespace["build_public_catalog"](tmp_path)
 
 
+def test_export_uses_work_id_review_before_stale_category_translation(tmp_path: Path) -> None:
+    make_library(tmp_path)
+    work = json.loads((tmp_path / "For guitar/metadata/catalog.json").read_text())[0]
+    write_json(tmp_path / "metadata/translations/title_overrides_reviewed_zh.json", {
+        "schema_version": 1, "reviewed_at": "2026-09-28", "entries": [{
+            "work_id": "42", "title_en": work["title_en"], "title_zh": "《审校后的罗马尼亚民间舞曲》",
+            "status": "corrected", "basis": "corpus_review", "reason": "review precedence regression",
+            "reviewer": "test", "source_refs": [],
+        }],
+    })
+    result = public_exporter()["build_public_catalog"](tmp_path)
+    assert result["works"][0]["title_zh"] == "《审校后的罗马尼亚民间舞曲》"
+
+
 def test_public_catalog_rejects_non_imslp_work_links(tmp_path: Path) -> None:
     make_library(tmp_path)
     catalog_path = tmp_path / "For guitar/metadata/catalog.json"
@@ -225,3 +240,34 @@ def test_public_validator_checks_counts_memberships_and_forbidden_fields(
     payload["works"][0]["download_url"] = "https://example.test/score.pdf"
     with pytest.raises(validator["PublicSiteValidationError"], match="forbidden"):
         validator["validate_payload"](payload)
+
+
+@pytest.mark.parametrize("collection,field,value", [
+    ("categories", "name", None), ("categories", "name", ""),
+    ("categories", "name_zh", {}), ("families", "name_en", None),
+])
+def test_public_validator_rejects_unrenderable_directory_labels(
+    tmp_path: Path, collection: str, field: str, value: object,
+) -> None:
+    make_library(tmp_path)
+    payload = public_exporter()["build_public_catalog"](tmp_path)
+    payload[collection][0][field] = value
+    validator = public_validator()
+    with pytest.raises(validator["PublicSiteValidationError"]):
+        validator["validate_payload"](payload)
+
+
+@pytest.mark.parametrize("extra", ["json", "directory_symlink"])
+def test_public_validator_rejects_private_auxiliary_exports(tmp_path: Path, extra: str) -> None:
+    site = tmp_path / "public_site"
+    shutil.copytree(ROOT / "public_site", site)
+    validator = public_validator()
+    validator["validate_public_site"](site)
+    private = {"local_path": "/Users/example/library/score.pdf", "sha256": "a" * 64}
+    if extra == "json":
+        write_json(site / "data/internal-review.json", private)
+    else:
+        write_json(tmp_path / "private/review.json", private)
+        (site / "extra").symlink_to(tmp_path / "private", target_is_directory=True)
+    with pytest.raises(validator["PublicSiteValidationError"], match="forbidden|symbolic"):
+        validator["validate_public_site"](site)
