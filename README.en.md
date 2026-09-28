@@ -50,9 +50,21 @@ ClassClef includes **6,739 score records and 1 reference record**. Its frozen 5,
 - **Local content:** ClassClef references 8,578 distinct PDF contents, approximately 5.535 GB: 8,577 source objects and 1 reused IMSLP file. Of 320 score archives, 304 were successfully expanded into 638 PDF members, counted before content deduplication. These are not counts of new PDFs unique to the entire library.
 - **Availability:** 2 records offer GPX/MIDI only and 68 have PDF links but no successful files, giving 70 records without a local PDF. Another 127 records have only some versions available.
 
-Fresh cross-source checks replaced 169 duplicate copies with shared hard links, saving **60,879,123 bytes**. Two other candidates retained their ClassClef originals because the IMSLP source files failed verification. The 741 Python tests, 32 Node search tests, and public privacy validation passed. Final source verification, full offline rebuilding, and remote publication remain in progress; see [TODO.md](TODO.md).
+ClassClef's final full file verification passed: all 8,578 files corresponding to manifest objects were checked, `structural_valid=true`, and both errors and quarantine records are empty. The 231 confirmed HTTP 404 responses leave `complete=false` and verification exit code 2, indicating incomplete source coverage. MIDI/GPX files are indexed as metadata only.
 
-IMSLP has 11,393 reviewed Chinese work titles. Its existing manifest contains 22,637 PDF records, including 22,572 previously validated entries and 65 unavailable entries; the new offline links additionally apply the six exact instrumentation exclusions below. Historical entry counts are neither unique physical PDF counts nor a fresh full-library acceptance result.
+The full offline catalog has been regenerated and verified:
+
+| Source | PDF manifest records | Valid records | Distinct SHA-256 contents |
+| --- | ---: | ---: | ---: |
+| IMSLP | 22,637 | 22,566 | 21,496 |
+| ClassClef | 9,088 | 8,855 | 8,578 |
+| **Library total** | **31,725** | **31,421** | **29,904** |
+
+The library retains **304 unavailable records, including 6 explicit exclusions**. IMSLP contributes 65 previously unavailable records and 6 instrumentation exclusions. Final link validation passed: 31,143 distinct local paths resolve to 30,974 linked inodes, with no broken or ineligible excluded links. The 29,904 figure counts distinct content, not physical file entities; older IMSLP duplicates have not been physically deduplicated across the whole library. Fresh cross-source checks replaced 169 duplicate copies with shared hard links, saving **60,879,123 bytes**. Two other candidates retained their ClassClef originals because the IMSLP source files failed verification.
+
+The 741 Python tests, 32 Node search tests, and public privacy validation passed. A rebuild from final source metadata matched the exported public catalog field for field. Browser checks covered five-part expansion, absent-PDF/404 notices, instrumentation exclusions, and reference material, with zero JavaScript errors. Sample PDF HTTP responses and actual rendering passed inspection. Codex's in-app PDF preview remained blank and is not reported as a passed viewer check.
+
+Catalog snapshot [`502db86`](https://github.com/lin-qian123/guitar-atlas/commit/502db8610994a32716ea5bda59eabe965b2c2fb3) is published in the [GitHub repository](https://github.com/lin-qian123/guitar-atlas) and [live catalog](https://lin-qian123.github.io/guitar-atlas/). The [test and deployment workflow](https://github.com/lin-qian123/guitar-atlas/actions/runs/36409900823) succeeded, and deployed file digests matched local files. IMSLP's 11,393 reviewed Chinese work titles remain intact. Outstanding coverage and follow-up work are recorded in [TODO.md](TODO.md).
 
 IMSLP's instrumentation rules apply to that source only. A ClassClef directory label does not establish verified instrumentation. Each run is measured against a frozen source snapshot; later upstream additions, removals, and broken links are reported separately.
 
@@ -79,7 +91,7 @@ Records offering Guitar Pro or other formats without a PDF retain their source a
 - A **membership** is one source record in one category.
 - A **source record** is deduplicated by its source and source-native ID, without claiming musicological deduplication across websites.
 - A **manifest record** is one file entry under a category or source record; several entries may refer to the same content.
-- A **unique physical PDF** is identified by internal SHA-256, retaining every source attribution and category path.
+- **Distinct PDF content** is deduplicated by internal SHA-256; path and linked-inode counts are measured separately, preserving every source attribution and category path.
 
 Downloads are resumable and use atomic `.part` files. Verification checks the PDF header, expected byte size and upstream checksum when supplied, internal SHA-256, and parseability. HTML, login pages, CAPTCHA, error pages, and partial responses cannot become scores. Where a source supplies no independent checksum, an internal hash establishes local content identity, not a match against a publisher-provided hash. Human-verification barriers remain explicit incomplete states.
 
