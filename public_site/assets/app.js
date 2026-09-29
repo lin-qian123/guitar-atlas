@@ -107,6 +107,19 @@ function sourceName(item) {
   return item.source_name || state.sourceById.get(id)?.name || (id === "imslp" ? "IMSLP" : id);
 }
 
+function appendTranslationNote(parent, evidence, field) {
+  const labels = {
+    title: {machine:"曲名待复核", retained:"保留原题", untranslated:"曲名未译"},
+    composer: {machine:"姓名待复核", retained:"保留原名", untranslated:"姓名未译"},
+    category: {machine:"分类译名待复核", retained:"分类保留原名", untranslated:"分类未译"},
+  };
+  const label = labels[field]?.[evidence?.status];
+  if (!label) return;
+  const note = makeElement("span", "translation-note", label);
+  if (evidence.reason) note.title = evidence.reason;
+  parent.append(note);
+}
+
 function readUrlState() {
   const params = new URLSearchParams(window.GuitarCatalogAdapter?.readQuery?.() ?? window.location.search);
   elements.search.value = params.get("q") || "";
@@ -224,8 +237,9 @@ function renderDirectory() {
       meta.append(makeElement("span", "source-badge", sourceName(category)),
         makeElement("span", "result-kind", GuitarSearch.kindLabel(category.kind)));
       const title = (category.name_zh || category.name).replace(/[·.]?(?:原作|改编)$/, "");
-      card.append(meta, makeElement("h3", "", title), makeElement("p", "category-source-name", category.name),
-        makeElement("span", "category-enter", `${compactNumber(category.work_count)} 条作品记录 · 查看 →`));
+      card.append(meta, makeElement("h3", "", title), makeElement("p", "category-source-name", category.name));
+      appendTranslationNote(card, category.translation, "category");
+      card.append(makeElement("span", "category-enter", `${compactNumber(category.work_count)} 条作品记录 · 查看 →`));
       card.addEventListener("click", event => {
         if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
         event.preventDefault();
@@ -263,11 +277,13 @@ function resultCard(match, index) {
   const title = makeElement("div", "result-title");
   title.append(makeElement("h3", "", GuitarSearch.titleLabel(item)));
   if (item.title_zh && GuitarSearch.titleLabel(item) !== item.title_en) title.append(makeElement("p", "result-title-en", item.title_en));
+  appendTranslationNote(title, item.translation?.title, "title");
   article.append(title);
 
   const meta = makeElement("div", "result-meta");
   const composer = makeElement("p", "result-composer", GuitarSearch.composerLabel(item));
   if (item.composer_zh && item.composer_zh !== item.composer_en) composer.append(makeElement("span", "", item.composer_en));
+  appendTranslationNote(composer, item.translation?.composer, "composer");
   meta.append(composer);
   if (item.formats?.length) meta.append(makeElement("p", "result-formats", `来源格式：${item.formats.join(" · ")}`));
   const categories = makeElement("div", "category-list");

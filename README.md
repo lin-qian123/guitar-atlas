@@ -34,7 +34,22 @@
 | 来源 | 组织方式 | 核验边界 |
 | --- | --- | --- |
 | **IMSLP** | 经批准的古典/原声吉他独奏、重奏与吉他室内乐精确编制分类 | 原作与改编分开；文件须符合指定编制分区；保留原分类名 |
-| **ClassClef** | 按来源站曲目和音乐家目录整理，单独保留来源分类 | 收录公开目录中的乐谱记录及可验证下载的 PDF；未明确的编制、原作/改编、中文译名不推测 |
+| **ClassClef** | 按来源站曲目和音乐家目录整理，单独保留来源分类 | 收录公开目录中的乐谱记录及可验证下载的 PDF；未明确的编制、原作/改编不推测；中文参考名另行审校 |
+
+### 中文目录修复：2026-09-29
+
+| 来源 | 中文曲名（参考译法或惯用名） | 明确保留原题 | 音乐家中文名 / 有署名的不同名称 | 中文分类 |
+| --- | ---: | ---: | ---: | ---: |
+| IMSLP | 11,380 | 13 | 2,158 / 2,164 | 352 / 352 |
+| ClassClef | 6,664 | 76 | 851 / 858 | 77 / 77 |
+
+ClassClef 的 6,740 条曲名均已逐条处理；76 条保留原题并记录原因，其中 2 条仍有中文改编说明，不能把“含中文字段”直接当成完整译名。7 个来源署名保留原文，另 4 条记录在来源中没有署名。IMSLP 修正 92 条曲名及一批音乐家误译；其余曲名沿用历史参考审校资产，本次不宣称所有名称已有权威中文定名。
+
+两种版本统一应用按来源与稳定 ID 保存的译名。新条目缺少审校、原文或 ID 漂移、汇总过期会阻止发布；重新采集不会用机器草稿覆盖已有复核结果。详细状态与保留原因见 [`coverage_2026-09-29.json`](metadata/translations/coverage_2026-09-29.json)。本次译名审计无未复核草稿或漏译字段；有意保留的原文独立统计。
+
+849 项 Python 测试、34 项 Node 搜索测试、公开隐私验证与译名审计通过；浏览器核对中文曲名、人名、分类筛选及原题保留标签。公开/离线显示逐字段一致，31,143 个本地 PDF 路径与 6 条排除规则核对通过。
+
+本次同步公开目录、本地总页和 352 个旧分类目录的显示文字。本地总页通过清单、排除规则、归属、链接与文件大小核对更新，保留前次文件完整性结果；未重新执行全库 PDF 哈希与解析验证。下列 2026-09-28 文件覆盖缺口和编制待核验项仍然存在。
 
 ### 2026-09-28 目录快照
 
@@ -105,6 +120,12 @@ ClassClef 保留其曲目原名、音乐家署名、来源页和目录归属。�
 
 IMSLP 曲名审校的权威文件是 [`metadata/translations/title_overrides_reviewed_zh.json`](metadata/translations/title_overrides_reviewed_zh.json)，按 `work_id` 优先于机器翻译缓存。来源原文始终保留；中文名是参考译名，未审校或未提供的名称如实标注。
 
+ClassClef 曲名保存在 [`classclef_titles_zh.json`](metadata/translations/classclef_titles_zh.json)，按完整来源 ID 定位；音乐家和分类分别保存在 [`musicians_zh.json`](metadata/translations/musicians_zh.json) 与 [`categories_zh.json`](metadata/translations/categories_zh.json)，按来源分开维护。重新采集不会清空这些译名；原文改变或 ID 失效时，导出会停止并要求复核。
+
+每个曲名、署名和分类分别记录状态、依据与原因：`reviewed` 为有依据的惯用名，`reference` 为已对照原文检查的参考译法，`retained` 为有具体理由保留的原文。未经检查的草稿为 `machine`，未译为 `untranslated`；来源本就没有署名时使用 `not_applicable`。中文字段非空不等于权威译名，也不代表编制或文件已核验。编号式标题、风格化品牌，以及无法可靠确认中文用字的姓名可以保留原文，不虚构译名以凑覆盖率。
+
+`python scripts/audit_translations.py` 分别统计中文覆盖、参考译法、惯用名、原文保留和缺失署名；未复核草稿或漏译会阻止发布。曲名草稿可用 `python scripts/build_classclef_translations.py draft` 续传，`shards` 输出审查分片；复核后使用 `assemble` 汇入持久资产，已有复核结果受到保护。机器缓存与临时审查分片位于 Git 忽略的 `work/`，最终资产进入版本管理。
+
 ## 快速开始
 
 ### 浏览公开目录
@@ -128,6 +149,7 @@ python -m pip install -e '.[test]'
 python -m pytest -q
 node --test tests/search.test.cjs  # Node.js 22+，无需 npm 依赖
 python scripts/validate_public_site.py public_site
+python scripts/audit_translations.py
 ```
 
 ### 采集与验证 ClassClef
@@ -167,7 +189,7 @@ python scripts/export_public_site.py \
   --output public_site/data/catalog.json
 ```
 
-导出与验证会拒绝身份冲突、目录缺失或结构错误、未批准来源的页面链接，以及可能泄露本地或下载信息的字段。导出后重新运行 Python、搜索和公开站点验证，再发布 `public_site/`。
+导出与验证会拒绝身份冲突、目录缺失或结构错误、未批准来源的页面链接，以及可能泄露本地或下载信息的字段。导出后重新运行 Python、搜索、公开站点验证与译名审计，再发布 `public_site/`。
 
 ### 重建本地离线总页
 
@@ -176,6 +198,8 @@ python scripts/render_master_index.py .
 ```
 
 这条命令会检查本地 PDF 的文件头、大小、源 SHA-1（如有）和可解析性，并生成根 `index.html`。旧入口保存在 `backups/offline-ui/`。
+
+仅修改译名或显示文案时，可运行 `python scripts/render_master_index.py . --metadata-only`。此模式比较来源身份、清单、范围与排除规则，并核对全部现有链接及文件大小后更新页面；清单或文件状态改变时拒绝继续，需完整重建。它保留上次 PDF 完整性结果，不重新证明文件哈希或可解析性。
 
 可选安装 Poppler（macOS：`brew install poppler`）。当 pypdf 无法读取某些旧式 PDF 时，生成器可使用 `pdfinfo` 交叉验证；不会修改或修复原文件。
 
@@ -195,7 +219,7 @@ python scripts/render_master_index.py .
 guitar-atlas/
 ├── config/                         # 来源范围、IMSLP 分类与逐文件排除审查
 ├── sources/classclef/              # 私有快照、清单、验证与 PDF（Git 忽略）
-├── metadata/translations/          # IMSLP 曲名与音乐家中文名审校资产
+├── metadata/translations/          # 按来源维护的曲名、音乐家和分类译名与审校证据
 ├── public_site/                    # 可部署的来源目录，不含乐谱文件
 │   ├── assets/                    # 共享样式、交互与搜索引擎
 │   ├── data/catalog.json           # 按来源身份合并分类关系的公开目录
@@ -206,6 +230,7 @@ guitar-atlas/
 │   ├── build_classclef_library.py   # ClassClef 发现、下载、验证
 │   ├── deduplicate_source_pdfs.py   # 已验证相同 PDF 的跨来源物理去重
 │   ├── export_public_site.py       # 多来源元数据 → 公开目录
+│   ├── audit_translations.py       # 译名覆盖与逐字段审校状态门禁
 │   ├── validate_public_site.py     # 发布前数据与隐私检查
 │   ├── render_master_index.py      # 本地离线总页
 │   ├── render_offline_site.py      # 公共模板与离线数据适配

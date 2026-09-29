@@ -119,6 +119,34 @@ repository is `guitar-atlas`; the existing local directory may remain `imslp`.
 
 ## Public and offline editions
 
+- Keep persistent display translations in `metadata/translations/`: IMSLP
+  work-ID title overrides, ClassClef full-ID title entries, source-scoped
+  `musicians_zh.json`, and source-scoped `categories_zh.json`. Apply them after
+  discovery and before export. Guard every entry with its exact original text;
+  stale IDs or changed source text must fail instead of silently relabeling data.
+- Public translation schema 1 records title, composer, and category evidence
+  separately. `reviewed` means a supported conventional name; `reference` is a
+  checked reference translation; `retained` requires a concrete reason for
+  keeping the original. Unchecked drafts remain `machine`; absent translations
+  are `untranslated`; `not_applicable` is only for absent source attribution.
+  Derive the aggregate work status from its fields. Never infer review from
+  non-empty Chinese text or from another field's status.
+- Keep raw source text in the internal snapshot. Remove malformed inline
+  download-link markup from display text without changing source IDs or the
+  title's actual wording; do not expose embedded download URLs as title text.
+- Run `python scripts/audit_translations.py` before publication, alongside the
+  public validator and search tests. Its coverage/status check does not prove
+  authoritative-name accuracy or PDF integrity. Report retained originals and
+  missing source attributions separately from translated fields.
+- For display-only refreshes of an unchanged file/source snapshot,
+  `python scripts/render_master_index.py . --metadata-only` preserves verified
+  local editions and backs up the old entry. It checks identities, manifest/configuration fingerprints, current
+  exclusion and availability mappings, existing links, and file sizes, not PDF
+  hashes. Legacy pages bootstrap a fingerprint only after their complete mapping
+  agrees with the current source manifests. Run a full render after acquisition, manifest, file,
+  category, or instrumentation changes; never describe a metadata refresh as
+  fresh full PDF verification.
+
 - Keep the offline library and public web export as separate products. The
   offline root may link to verified local PDFs. `public_site/` must contain no
   PDFs, MIDI, GPX, file/download URLs, local paths, hashes, or private filesystem

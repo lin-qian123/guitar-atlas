@@ -111,8 +111,14 @@ def render(root: Path) -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("root", type=Path)
+    parser.add_argument("--metadata-only", action="store_true", help="Refresh display text from an unchanged, previously verified offline snapshot; does not recheck PDF bytes")
     args = parser.parse_args()
-    print(json.dumps(render(args.root), ensure_ascii=False, indent=2))
+    if args.metadata_only:
+        from render_offline_site import refresh_display_metadata
+        result = refresh_display_metadata(args.root)
+    else:
+        result = render(args.root)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0
 
 

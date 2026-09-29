@@ -81,7 +81,8 @@ def merge_sources(root: Path, data: dict) -> dict:
     for row in data["works"]:
         row["source_record_id"] = row["id"]
         row["formats"] = ["PDF"]
-        row["translation_status"] = "reviewed"
+        # Field-level evidence is attached by catalog_translations after merging.
+        row["translation_status"] = "untranslated"
         row["resource_type"] = "score"
     all_ids = {work["id"] for work in data["works"]}
     for source in registry:

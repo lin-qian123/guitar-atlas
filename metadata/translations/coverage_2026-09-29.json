@@ -1,0 +1,1049 @@
+{
+  "schema_version": 1,
+  "scope": "Published frozen catalog; text coverage and field-level review states, not authoritative-name certification or PDF validation.",
+  "summary": {
+    "imslp": {
+      "title": {
+        "reference": 11198,
+        "retained": 13,
+        "reviewed": 182
+      },
+      "composer": {
+        "reference": 10619,
+        "retained": 14,
+        "reviewed": 760
+      },
+      "category": {
+        "reference": 352
+      }
+    },
+    "classclef": {
+      "title": {
+        "reference": 6660,
+        "retained": 76,
+        "reviewed": 4
+      },
+      "composer": {
+        "not_applicable": 4,
+        "reference": 6119,
+        "retained": 7,
+        "reviewed": 610
+      },
+      "category": {
+        "reference": 77
+      }
+    }
+  },
+  "coverage": {
+    "imslp": {
+      "records": 11393,
+      "categories": 352,
+      "chinese_titles": 11380,
+      "attributed_records": 11393,
+      "chinese_attributions": 11379,
+      "chinese_categories": 352
+    },
+    "classclef": {
+      "records": 6740,
+      "categories": 77,
+      "chinese_titles": 6666,
+      "attributed_records": 6736,
+      "chinese_attributions": 6729,
+      "chinese_categories": 77
+    }
+  },
+  "pending": [],
+  "retained": [
+    {
+      "source_id": "classclef",
+      "id": "classclef:0d2dc160dba75a35a39bab7a",
+      "field": "composer",
+      "original": "10cm",
+      "status": "retained",
+      "basis": "source_name_review_2026_09_29",
+      "reason": "来源使用数字和拉丁字母构成的艺名；保留 10cm 的识别拼写，不将其直译为长度。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:6917ffe31b044f018b210ef2",
+      "field": "title",
+      "original": "Pais de Albanico",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "原题 Pais de Albanico 可能含拼写错误，尚未核实是否对应其他常见曲名；不按相近拼写猜译。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:68f0b3225cdc59c6f554d5c0",
+      "field": "title",
+      "original": "Bangun Pemudi Pemula",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "来源使用 Pemula，不能自动改为另一首歌的 Pemuda，保留原题等待明确版本证据。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:753a1508268660062db43b94",
+      "field": "title",
+      "original": "7 14",
+      "status": "retained",
+      "basis": "source_title_review",
+      "reason": "来源仅以两个数字作为题名，保留原样，不推断日期或编号含义。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:0d073209ba03f4555815a11e",
+      "field": "title",
+      "original": "Momoti",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Momoti 的语种与指称未明确，机器译文“发动机”无充分依据；保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:81444c4636f8940ea788a53b",
+      "field": "title",
+      "original": "Papelon",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Papelon 可指当地民俗、食物或专名，来源标题不足以确认具体含义；保留原题待核。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:62b7d6dd147859008b66f9c8",
+      "field": "title",
+      "original": "Seis Por Derecho",
+      "status": "retained",
+      "basis": "individual_source_title_and_music_context_review",
+      "reason": "委内瑞拉霍罗波曲式名 Seis Por Derecho 不宜按普通词义译为六对；尚无可靠通行中文译名，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:800763742d633ff24af0a396",
+      "field": "title",
+      "original": "Cancion del Enterriano",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Enterriano 的来源拼写有疑点，未据原谱确认其与 Entrerriano 的关系，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:18c92d103ea400223e49df45",
+      "field": "title",
+      "original": "Malquistao",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "原题 Malquistao 可能为地方语言或方言称谓；未确认其含义，不以机器音译当作已核实语义。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:d0821863dbc37e6a6e798396",
+      "field": "title",
+      "original": "Baixo De Pau",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Baixo De Pau 的题名语义不能由来源确定，保留原题，避免逐词误译。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:c64487ef666d8c5107f23d03",
+      "field": "title",
+      "original": "Cancao Do Amor Asente",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Asente 的来源拼写有疑点，不能据近似词自动还原为 Ausente，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:f143745d8fe9c06f3cc2bffe",
+      "field": "title",
+      "original": "Tapiilraiauara",
+      "status": "retained",
+      "basis": "individual_source_title_and_music_context_review",
+      "reason": "原题是罕见外来专名且拼写语义尚无可靠依据；机器仅译成貘可能丢失大部分名称，故保留原文。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:e483f0511c66dfa1e36d3b7f",
+      "field": "composer",
+      "original": "Big Bang",
+      "status": "retained",
+      "basis": "source_name_review_2026_09_29",
+      "reason": "来源使用团体英文署名；保留 Big Bang 的原始品牌拼写，不直译为宇宙学名词。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:09e26eb771665b2706461af3",
+      "field": "title",
+      "original": "Policy Blues",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Policy 在布鲁斯题名中可能涉及特定俗语或博彩含义，不能直接认定为“政策”；保留原题待核。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:3435213244105250c06a3e1a",
+      "field": "composer",
+      "original": "Busker Busker",
+      "status": "retained",
+      "basis": "source_name_review_2026_09_29",
+      "reason": "来源使用团体英文署名；保留重复词构成的品牌拼写，不译为普通街头艺人描述。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:bc547e463e14b7722e2ba8ae",
+      "field": "title",
+      "original": "Milles",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "原题 Milles 指称未明，机器译文“其中”不能对应曲名；保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:077f1b34e55b356ff8906efd",
+      "field": "title",
+      "original": "Dance of the Hounsies",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "原题中的Hounsies所指未确认；暂保留原题，避免译成无据的动物名称。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "1574059",
+      "field": "title",
+      "original": "Kotobaro Bhebechinu, Op.21",
+      "status": "retained",
+      "basis": "corpus_review",
+      "reason": "原题“Kotobaro Bhebechinu, Op.21”的中文语义或专名译法尚未确认；保留来源拼写及编号。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:9e8da793596087c20a7bb81c",
+      "field": "composer",
+      "original": "Chen",
+      "status": "retained",
+      "basis": "source_name_review_2026_09_29",
+      "reason": "来源仅署 Chen，姓名与汉字用字均未明确；不能据此猜作陈姓或某位歌手的中文全名。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "515352",
+      "field": "composer",
+      "original": "Chen, Yihan",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "来源只有拉丁字母拼写；无法据此确定中文姓名用字。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "94035",
+      "field": "composer",
+      "original": "Decembertexture",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "来源使用风格化笔名；保留其拼写以避免把用户名误作普通词翻译。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "85352",
+      "field": "composer",
+      "original": "Decembertexture",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "来源使用风格化笔名；保留其拼写以避免把用户名误作普通词翻译。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "84954",
+      "field": "composer",
+      "original": "Decembertexture",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "来源使用风格化笔名；保留其拼写以避免把用户名误作普通词翻译。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "85730",
+      "field": "composer",
+      "original": "Decembertexture",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "来源使用风格化笔名；保留其拼写以避免把用户名误作普通词翻译。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "84926",
+      "field": "composer",
+      "original": "Decembertexture",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "来源使用风格化笔名；保留其拼写以避免把用户名误作普通词翻译。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "427565",
+      "field": "composer",
+      "original": "Desponsatione Beatae Mariae Virginis, Justinus a",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "来源使用拉丁语修会署名；未确认可靠的中文姓名，保留完整署名。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:075b613961ebc6da9189918e",
+      "field": "title",
+      "original": "Divigando",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "原题Divigando的拼写和所指不明确；暂保留原题，待来源确认。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:5523cbf7caf9d238170d308d",
+      "field": "title",
+      "original": "Big Buck",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Buck 的具体含义在来源中未说明，保留原题，不强定为雄鹿或金钱。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:7c6f4dc61447632a8903cb50",
+      "field": "title",
+      "original": "Andaja",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Andaja 疑为截断或异体拼写，未确认完整题名，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:601099366acf927f8f43d63a",
+      "field": "title",
+      "original": "Cancona",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Cancona 不能可靠确定为哪一种体裁词或拼写变体，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:5a75039b8880172fb343d418",
+      "field": "title",
+      "original": "Cantabire (B. 84)",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "来源用 Cantabire，与常见术语 Cantabile 拼写不同；仅保留原题及目录编号，不自动更正。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:8482b137208daa184155d47f",
+      "field": "title",
+      "original": "Volatarei",
+      "status": "retained",
+      "basis": "individual_source_title_and_music_context_review",
+      "reason": "原题 Volatarei 的葡语词形/可能拼写变体尚无可靠解释，不能仅依机器推测译为我会飞，保留原文。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:d38cbb2cfe9fea4b907eb955",
+      "field": "title",
+      "original": "Matachin",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Matachin 为历史舞蹈称谓，尚未确认本条中文通行名；保留原题便于核对。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:9048076e61a4b241d02331ec",
+      "field": "title",
+      "original": "Paradetas",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Paradetas 是历史舞曲名称，未确认可靠中文对应名；保留原文而不以音译替代语义核实。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:1d91106e4e75be3e8331d4cb",
+      "field": "title",
+      "original": "Poro",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Poro 在不同语种中有不同含义，来源题名未提供足够语境；不采用无依据的“一半”译文。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "198644",
+      "field": "title",
+      "original": "K",
+      "status": "retained",
+      "basis": "corpus_review",
+      "reason": "原题为字母、数字或时间式标题（K），保留其记法，不擅自扩写为中文。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:300a94efc267ce4bf27ee020",
+      "field": "title",
+      "original": "Mal Reggendo",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "源题Mal Reggendo为意大利语片段，缺乏上下文，暂不杜撰完整中文曲名。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "36177",
+      "field": "title",
+      "original": "RAM",
+      "status": "retained",
+      "basis": "corpus_review",
+      "reason": "原题为字母、数字或时间式标题（RAM），保留其记法，不擅自扩写为中文。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:0a1a9b8b42d5ccc51a0b8241",
+      "field": "title",
+      "original": "Ach Lieb Mit Lied",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Ach Lieb Mit Lied 的旧拼写及句法不能可靠确认，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:aab6acedfc9e474de18ac215",
+      "field": "title",
+      "original": "1984",
+      "status": "retained",
+      "basis": "source_title_review",
+      "reason": "原题为纯数字，保留编号，不擅自增加“年”。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:e0c3b54a1a36950c2f894fa1",
+      "field": "title",
+      "original": "Natrap Je",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Natrap Je 的语种及含义未确认，不据机器音译宣布完成语义翻译；保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:4316a69ece6f9c653b418a28",
+      "field": "title",
+      "original": "HWV 461",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "原题仅为作品目录编号HWV 461；按来源保留编号，不编造中文曲名。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "387669",
+      "field": "title",
+      "original": "Hemios-III",
+      "status": "retained",
+      "basis": "corpus_review",
+      "reason": "原题“Hemios-III”的中文语义或专名译法尚未确认；保留来源拼写及编号。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:5d2e39f37313b1db590bdd4a",
+      "field": "title",
+      "original": "Prive Resuello (Arranged by Alirio Diaz)",
+      "status": "retained",
+      "basis": "individual_source_title_and_music_context_review",
+      "reason": "原题 Prive Resuello 的方言/拼写语义尚未可靠确定，保留标题及明确改编署名。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "948235",
+      "field": "title",
+      "original": "Echandi 23",
+      "status": "retained",
+      "basis": "corpus_review",
+      "reason": "原题“Echandi 23”的中文语义或专名译法尚未确认；保留来源拼写及编号。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "1281365",
+      "field": "composer",
+      "original": "Isida, Kazue Rockzaemon",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "来源包含风格化拉丁字母署名；未核实姓名原字，保留其原文。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "1281367",
+      "field": "composer",
+      "original": "Isida, Kazue Rockzaemon",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "来源包含风格化拉丁字母署名；未核实姓名原字，保留其原文。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "1281366",
+      "field": "composer",
+      "original": "Isida, Kazue Rockzaemon",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "来源包含风格化拉丁字母署名；未核实姓名原字，保留其原文。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "1281364",
+      "field": "composer",
+      "original": "Isida, Kazue Rockzaemon",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "来源包含风格化拉丁字母署名；未核实姓名原字，保留其原文。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "1377296",
+      "field": "composer",
+      "original": "Isida, Kazue Rockzaemon",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "来源包含风格化拉丁字母署名；未核实姓名原字，保留其原文。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:41ed3921fb6e513392584c0a",
+      "field": "title",
+      "original": "Chassons De Nos Plaisirs",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Chassons De Nos Plaisirs 是句法未完整的题名片段，保留原题，不添加未见的宾语。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:6c065a25af620a17ae66c04c",
+      "field": "title",
+      "original": "Pickie Pickie Pickie",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Pickie Pickie Pickie 为反复使用的曲名词语，语义与语源未确认；保留原题，不以音译重复充当确定释义。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:fc722f39d581607c1a025be7",
+      "field": "title",
+      "original": "Pretty Mary Sunlite",
+      "status": "retained",
+      "basis": "individual_source_title_and_music_context_review",
+      "reason": "原题中的 Mary Sunlite 是否属于专名/双关尚无可靠依据，保留原题避免把标题擅自改写成人物加阳光。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:5e75979cb3a0cce6d198af77",
+      "field": "title",
+      "original": "Po de Mico",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Po de Mico 涉及地域性植物或俗称用法，尚未核实本曲题意；保留原文而非采用无意义的机器倒序音译。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:1f5506d655e746beaa3b97b3",
+      "field": "title",
+      "original": "Musettology",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Musettology 为构造词或曲名专名，未确认其中文通行名；保留完整原题，不机械解释为学科。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:1507fa00282e4abdb77e3605",
+      "field": "title",
+      "original": "BWV 248 Keep O My Spirit",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Keep O My Spirit 句意及所指乐章不能由此片段确定，保留原題和 BWV 248。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:b3998c028511397342fdc4ae",
+      "field": "title",
+      "original": "Mignarda",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Mignarda 为原题专名，未确认本曲应采用的中文标题；保留原题而非猜译。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:bb12b9b49a7331a69d8fa69b",
+      "field": "title",
+      "original": "My Lady Hundons Puffe",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "原题含历史专名 Hundon 与 Puffe，现有“泡芙”直译不可靠；未核实专名写法及该词在曲名中的含义，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:38e6310e56d1325841a4a297",
+      "field": "title",
+      "original": "Atlantic High",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "High 在此可能有多个含义，来源未给出语境，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:a9a313c50f66830c1acbd215",
+      "field": "title",
+      "original": "Christs Saints Of God Fantasy",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Christs Saints Of God Fantasy 的词组关系未明确，保留原题，不补写宗教语义。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:dc7bd3124ae573e2fb72ebe0",
+      "field": "title",
+      "original": "Paillo Costarricense Pierre",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "原题 Paillo Costarricense Pierre 可能含舞种拼写错误与人名；未确认断句，保留原题避免把不明片段强译为人名。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:0310ed782b5af58b806479e3",
+      "field": "title",
+      "original": "Pala Pala Alejandra",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Pala Pala Alejandra 含舞种或专名片段，未核实应采用的中文题名；保留完整来源标题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:6d3b91e5db70b7b417ff7cd3",
+      "field": "title",
+      "original": "Trunifo Florian Andreas",
+      "status": "retained",
+      "basis": "individual_source_title_and_music_context_review",
+      "reason": "原题 Trunifo Florian Andreas 的拼写及标题与署名边界不明确，不能把整串文本直接当成人名音译，保留来源原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:db704cf7ebbb5b73ed8931af",
+      "field": "title",
+      "original": "Misionera",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Misionera 可涉及地域性称谓，不能仅按普通词确定本曲标题；保留原题待核。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:e4179e4571a8038d07c08493",
+      "field": "title",
+      "original": "Pasillaneando (Arranged by Alirio Diaz)",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Pasillaneando 为地方音乐称谓或构词，中文标题未确定；原题连同改编者署名一起保留，避免强作普通词翻译。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:875590a83bad2f7161e67e81",
+      "field": "title",
+      "original": "Yek Liang Tai",
+      "status": "retained",
+      "basis": "individual_source_title_and_music_context_review",
+      "reason": "罗马字标题 Yek Liang Tai 尚无法可靠对应汉字；搜索未证实其与任何相似中文歌名同一，故保留来源拼写，避免猜成月亮代表我的心。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:33128bb28657930f9f4da92d",
+      "field": "title",
+      "original": "Mali Flower",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "Mali在原题中的所指尚未确认；保留原题，避免误认为国家或擅改为其他曲名。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:a5dc308a60a0336cf9953cdc",
+      "field": "title",
+      "original": "A Trout Toward Noon by Night",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "A Trout Toward Noon by Night 可能含组合题名，来源未明确分隔关系，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:f2b6a90957b70a26b3c4de91",
+      "field": "title",
+      "original": "Ojo",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Ojo 在不同语种可有不同含义，本条缺乏足够语境；删除无依据的“大条”译文，保留原题。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "397309",
+      "field": "composer",
+      "original": "Limak X. Robczuk",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "来源使用风格化署名；未确认中文译名，保留完整原文，不把笔名译为普通名词。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "587191",
+      "field": "title",
+      "original": "7:40",
+      "status": "retained",
+      "basis": "corpus_review",
+      "reason": "原题为字母、数字或时间式标题（7:40），保留其记法，不擅自扩写为中文。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:f146ddc51373b95627f47942",
+      "field": "composer",
+      "original": "Luo Ni",
+      "status": "retained",
+      "basis": "source_name_review_2026_09_29",
+      "reason": "来源只有罗马字署名，尚无可核对的姓名原字证据；不猜中文用字。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "1495825",
+      "field": "title",
+      "original": "ABC",
+      "status": "retained",
+      "basis": "corpus_review",
+      "reason": "原题为字母、数字或时间式标题（ABC），保留其记法，不擅自扩写为中文。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:a85e95841f83186fbec797a6",
+      "field": "title",
+      "original": "And Boy",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "And Boy 在来源中含义不明确，不能据此还原日文曲名，保留原题。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "663979",
+      "field": "title",
+      "original": "Ibia-Mom Jaci Ndipapahabi",
+      "status": "retained",
+      "basis": "corpus_review",
+      "reason": "原题“Ibia-Mom Jaci Ndipapahabi”的中文语义或专名译法尚未确认；保留来源拼写及编号。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:29571acce31cc45391fd4af0",
+      "field": "title",
+      "original": "7 14",
+      "status": "retained",
+      "basis": "source_title_review",
+      "reason": "来源仅以两个数字作为题名，保留原样，不推断日期或编号含义。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:95062759357acb0e62c96fb6",
+      "field": "composer",
+      "original": "Passenger",
+      "status": "retained",
+      "basis": "source_name_review_2026_09_29",
+      "reason": "来源使用英文艺名；保留 Passenger 的识别拼写，不将其误作普通词“乘客”。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:9f6cbd5da5875425655da3a8",
+      "field": "title",
+      "original": "Big Blind Bluesy",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Big Blind 的扑克术语或其他双关含义未获来源确认，保留完整原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:b861bde91dd69ecffd39cc12",
+      "field": "title",
+      "original": "Basse",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Basse 可能是低音或截断的舞曲题名，来源未展开，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:306cc8de8ec08223ae569b69",
+      "field": "title",
+      "original": "Beure",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Beure 是来源的单词片段，无法确认完整古法语题名，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:180e37110342129456eb29c1",
+      "field": "title",
+      "original": "Corps",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Corps 是未展开的单词片段，不能确定为完整题名或另一首作品的截断标题，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:0d68e8eed608f901244b2f48",
+      "field": "composer",
+      "original": "R Asuke",
+      "status": "retained",
+      "basis": "source_name_review_2026_09_29",
+      "reason": "来源只有首字母及罗马字署名，身份及姓名原字未核实；保留原文避免猜日本姓名汉字。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:0b17fd9b8eb617b74326252f",
+      "field": "title",
+      "original": "Pobo Tobalo",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Pobo Tobalo 可能含人名、方言或来源拼写错误；未确认语义与断句，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:a593324ee03aafb4dd870041",
+      "field": "title",
+      "original": "Paesolu",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Paesolu 为地域性或专名曲名，尚未核实确切语义；保留原题供进一步核对。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:cfeb3ad5c777c1a448a674c1",
+      "field": "title",
+      "original": "10. Les ré glissent et portent manteaux",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "法语原题含音名及双关，直译会丢失或误解双关，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:9b8f6335642eca0addde00f6",
+      "field": "title",
+      "original": "53. US Pic",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "US Pic 中 Pic 的缩写含义不能从来源确认，保留完整原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:64fdda1a3a33a237dd9e2829",
+      "field": "title",
+      "original": "74. La Carina",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "La Carina 可有多种语言及专名解释，现有来源未说明指涉，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:da0e9415506f3907106cc226",
+      "field": "title",
+      "original": "86. Garcheries",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Garcheries 为造词，未确认其构词及地名指涉，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:b02ad510da9716fafa473067",
+      "field": "title",
+      "original": "Clown Down",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Clown Down 的双关或惯用含义尚不明确，保留原题，避免机械译为小丑倒下。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:9ac7d58954930fa4f79f12e7",
+      "field": "title",
+      "original": "Tel Guillaume",
+      "status": "retained",
+      "basis": "individual_source_title_and_music_context_review",
+      "reason": "原题 Tel Guillaume 可能包含对法语姓名或歌剧曲名的倒置/双关；缺少可靠说明，不能按单词含义擅译成像纪尧姆一样。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "671181",
+      "field": "title",
+      "original": "Dvandva",
+      "status": "retained",
+      "basis": "format_consistency",
+      "reason": "原题“Dvandva”的中文语义或专名译法尚未确认；保留来源拼写及编号。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "203882",
+      "field": "composer",
+      "original": "Shen, Yichuan",
+      "status": "retained",
+      "basis": "source_spelling",
+      "reason": "来源只有拉丁字母拼写；无法据此确定中文姓名用字。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:c941aa9d45bd36874cbfd15f",
+      "field": "title",
+      "original": "Auroras Powder Rag",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "Auroras Powder 的指涉及所有格不明确，保留完整原题，避免把专名误译成普通物品。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:e0440e431ca6df6c7fa55895",
+      "field": "title",
+      "original": "Matesa",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "原题 Matesa 的语种与指称未明确，机器译文“它太硬”缺乏依据；保留原题待核。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:dc1ded6ab84a45e44115ae4f",
+      "field": "title",
+      "original": "Tickle Dew",
+      "status": "retained",
+      "basis": "individual_source_title_and_music_context_review",
+      "reason": "原题 Tickle Dew 可能为双关或专名，逐词译成痒痒露缺乏可信语义，保留原文供检索。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:c938646575ed77556a1dc92b",
+      "field": "title",
+      "original": "Matenik",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Matenik 为来源原题，未确认本条舞种名称或专名用法；不据机译指定中文含义。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:3c5ba2b7d1ea0bfdc76052b2",
+      "field": "title",
+      "original": "Portenazo",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Portenazo 为地域性称谓或构词，无法据标题确定中文对应；不采用机译“大满贯”，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:5a06994770a5bad468ad28fd",
+      "field": "title",
+      "original": "There Were Three Razens",
+      "status": "retained",
+      "basis": "individual_source_title_and_music_context_review",
+      "reason": "原题 Razens 可能为拼写变体，尚未获得可靠解释；不擅自改成相近民歌曲名或虚构人物，暂保留原文。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:e758de6d94ec1b1af73b7bdb",
+      "field": "title",
+      "original": "Christmas Memories Wheels",
+      "status": "retained",
+      "basis": "source_title_retained",
+      "reason": "来源把 Christmas Memories 与 Wheels 连在一起，未明确是单曲题名还是组合曲目，保留完整原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:d8bd39919c36870343512c88",
+      "field": "title",
+      "original": "Molondron",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Molondron 的地域或专名指称未确认；保留原题而非把音译视为已核实含义。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:b45427117b50c6c1b6d25aa4",
+      "field": "title",
+      "original": "Morgan Magam",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Morgan Magam 的语种与指称未确认，机译“摩根本人”依据不足；保留来源拼写。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "1210309",
+      "field": "title",
+      "original": "Anittam id Ossor, O.102",
+      "status": "retained",
+      "basis": "corpus_review",
+      "reason": "原题“Anittam id Ossor, O.102”的中文语义或专名译法尚未确认；保留来源拼写及编号。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "176589",
+      "field": "title",
+      "original": "23",
+      "status": "retained",
+      "basis": "corpus_review",
+      "reason": "原题为字母、数字或时间式标题（23），保留其记法，不擅自扩写为中文。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:e606d27142da32f7a812ffcb",
+      "field": "title",
+      "original": "Morao",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Morao 可能为人名、艺名或地方词，无法确认本曲语义；机器译文“后退”不可据此采用。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:09fd1986b6cb711dab6178a0",
+      "field": "title",
+      "original": "Morente",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Morente 可为姓氏，未确认本曲是否指人物；不把它机械译为“垂死”，保留原题。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:f1478ab7e0dd9e1194b0defa",
+      "field": "title",
+      "original": "Quirpa Guatirena (Arranged by Alirio Diaz)",
+      "status": "retained",
+      "basis": "individual_source_title_and_music_context_review",
+      "reason": "原题为委内瑞拉地方曲名，机器输出混入下载指令等无关内容；在缺少可靠对应译名时保留原题和明确改编署名。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:0808b9c19239dfd75f2b4f0a",
+      "field": "title",
+      "original": "Milles",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "原题 Milles 指称未明，机器译文“其中”不能对应曲名；保留原题。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "770712",
+      "field": "title",
+      "original": "Djet",
+      "status": "retained",
+      "basis": "corpus_review",
+      "reason": "原题“Djet”的中文语义或专名译法尚未确认；保留来源拼写及编号。"
+    },
+    {
+      "source_id": "classclef",
+      "id": "classclef:18a2424ac8767ef05082cd19",
+      "field": "title",
+      "original": "Napulita",
+      "status": "retained",
+      "basis": "title_semantic_review_2026_09_29",
+      "reason": "Napulita 为地方性曲名，尚未确认应作地名、人名或方言词解释；保留原题。"
+    },
+    {
+      "source_id": "imslp",
+      "id": "1190007",
+      "field": "title",
+      "original": "Rag Tag",
+      "status": "retained",
+      "basis": "music_terminology",
+      "reason": "Rag Tag 可能含音乐题名双关，来源未解释具体指涉，保留原题而不逐词误译。"
+    }
+  ],
+  "ready": true
+}

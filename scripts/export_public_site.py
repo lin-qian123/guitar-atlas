@@ -132,9 +132,7 @@ def configured_categories(root: Path) -> list[dict[str, object]]:
 
 def load_composer_overrides(root: Path) -> dict[str, str]:
     path = root / "metadata/translations/composer_overrides_reviewed_zh.json"
-    if not path.is_file():
-        return {}
-    payload = read_json(path)
+    payload = read_json(path) if path.is_file() else {"schema_version": 1, "entries": {}}
     if not isinstance(payload, dict) or payload.get("schema_version") != 1:
         raise PublicExportError(f"invalid composer override catalog: {path}")
     entries = payload.get("entries")
@@ -147,6 +145,11 @@ def load_composer_overrides(root: Path) -> dict[str, str]:
         if not isinstance(translated, str) or not translated.strip():
             raise PublicExportError(f"invalid composer override value for {source!r}")
         overrides[source.strip()] = translated.strip()
+    # Central source-scoped reviews also resolve stale category-local caches
+    # before comparing work identities across category memberships.
+    from catalog_translations import read_asset, checked_entry
+    for original, row in read_asset(root, "musicians_zh.json").get("imslp", {}).items():
+        overrides[original] = checked_entry(row, original, f"IMSLP composer {original}")[0]
     return overrides
 
 
@@ -306,8 +309,9 @@ def build_imslp_catalog(root: Path) -> dict[str, object]:
 
 def build_public_catalog(root: Path) -> dict[str, object]:
     from catalog_sources import merge_sources
+    from catalog_translations import apply_translations
     try:
-        return merge_sources(root.resolve(), build_imslp_catalog(root))
+        return apply_translations(root.resolve(), merge_sources(root.resolve(), build_imslp_catalog(root)))
     except (ValueError, KeyError, OSError) as exc:
         raise PublicExportError(str(exc)) from exc
 

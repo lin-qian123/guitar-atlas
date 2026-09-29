@@ -1212,9 +1212,12 @@ def apply_title_translations(
 
 
 def load_composer_translations() -> dict[str, str]:
-    if not COMPOSER_TRANSLATIONS_JSON.exists():
-        return {}
-    return json.loads(COMPOSER_TRANSLATIONS_JSON.read_text(encoding="utf-8"))
+    translations = (json.loads(COMPOSER_TRANSLATIONS_JSON.read_text(encoding="utf-8"))
+                    if COMPOSER_TRANSLATIONS_JSON.exists() else {})
+    from catalog_translations import checked_entry, read_asset
+    for original, row in read_asset(PROJECT_ROOT, "musicians_zh.json").get("imslp", {}).items():
+        translations[original] = checked_entry(row, original, f"IMSLP composer {original}")[0]
+    return translations
 
 
 def apply_composer_translations(

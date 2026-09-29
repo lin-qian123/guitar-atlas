@@ -28,6 +28,7 @@ FORBIDDEN_KEYS = {
     "object_path",
 }
 FORBIDDEN_TEXT = (
+    re.compile(r'''https?://[^\s<>"'“”]*\.(?:pdf|mid|midi|gpx|gp[3-8]|zip)(?=[\s<>"'“”?#/]|$)''', re.IGNORECASE),
     re.compile(r"file://", re.IGNORECASE),
     re.compile(r"/Volumes/", re.IGNORECASE),
     re.compile(r"(?:^|[/\\])scores[/\\]", re.IGNORECASE),
@@ -35,6 +36,8 @@ FORBIDDEN_TEXT = (
     re.compile(r"\.(?:mid|midi|gpx|gp[3-8]|zip)(?:$|[?#])", re.IGNORECASE),
     re.compile(r"/Users/", re.IGNORECASE),
 )
+TRANSLATION_STATUSES = {"reviewed", "reference", "retained", "machine", "untranslated", "not_applicable"}
+HAN = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\U00020000-\U0002ffff]")
 
 
 class PublicSiteValidationError(ValueError):
@@ -67,10 +70,47 @@ def require_list(payload: Mapping[str, object], name: str) -> list[object]:
     return value
 
 
+def validate_translation(evidence: object, original: str, translated: str, context: str) -> str:
+    """Check field-level claims; Han presence is coverage, not semantic review."""
+    if not isinstance(evidence, dict):
+        fail(f"{context}: translation evidence must be an object")
+    status = evidence.get("status")
+    if not isinstance(status, str) or status not in TRANSLATION_STATUSES:
+        fail(f"{context}: invalid translation status")
+    for field in ("basis", "reason"):
+        if not isinstance(evidence.get(field), str):
+            fail(f"{context}: translation {field} must be a string")
+    if status not in {"untranslated", "not_applicable"} and not evidence["basis"].strip():
+        fail(f"{context}: translation basis is required")
+    if status in {"reviewed", "reference", "machine"}:
+        if not translated.strip() or not HAN.search(translated):
+            fail(f"{context}: translated status requires a Chinese display value")
+    elif status == "retained":
+        if not (translated or original).strip() or not evidence["reason"].strip():
+            fail(f"{context}: retained text requires a display value and reason")
+    elif status == "untranslated":
+        if translated != "":
+            fail(f"{context}: untranslated field must have an empty Chinese value")
+    elif original != "" or translated != "":
+        fail(f"{context}: not_applicable requires empty original and Chinese values")
+    return status
+
+
+def aggregate_translation_status(statuses: list[str]) -> str:
+    for status in ("untranslated", "machine", "reference", "reviewed"):
+        if status in statuses:
+            return status
+    return "retained"
+
+
 def validate_payload(payload: object) -> dict[str, int]:
     if not isinstance(payload, dict) or payload.get("schema_version") not in {1, 2}:
         fail("catalog must use schema_version 1 or 2")
     multisource = payload["schema_version"] == 2
+    translation_contract = "translation_schema_version" in payload
+    if translation_contract and (not multisource or type(payload["translation_schema_version"]) is not int
+                                 or payload["translation_schema_version"] != 1):
+        fail("translation_schema_version must be 1 in public schema 2")
     check_forbidden(payload)
     source_ids = set()
     if multisource:
@@ -103,6 +143,8 @@ def validate_payload(payload: object) -> dict[str, int]:
             validate_imslp_url(url, context)
     categories = require_list(payload, "categories")
     works = require_list(payload, "works")
+    if not translation_contract and any(isinstance(row, dict) and "translation" in row for row in categories + works):
+        fail("field-level translation evidence requires translation_schema_version")
     families = require_list(payload, "families")
     for family in families:
         if not isinstance(family, dict) or any(
@@ -127,6 +169,8 @@ def validate_payload(payload: object) -> dict[str, int]:
             fail(f"category {category_id} has an invalid name")
         if not isinstance(raw.get("name_zh"), str):
             fail(f"category {category_id} has an invalid name_zh")
+        if translation_contract:
+            validate_translation(raw.get("translation"), raw["name"], raw["name_zh"], f"category {category_id}")
         family = raw.get("family")
         if family not in family_ids:
             fail(f"category {category_id} references an unknown family")
@@ -155,15 +199,24 @@ def validate_payload(payload: object) -> dict[str, int]:
         if work_id in seen_work_ids:
             fail(f"duplicate work ID: {work_id}")
         seen_work_ids.add(work_id)
-        required = ("title_en",) if multisource and raw.get("source_id") != "imslp" else ("title_en", "title_zh", "composer_en", "composer_zh")
+        required = ("title_en",) if translation_contract or (multisource and raw.get("source_id") != "imslp") else ("title_en", "title_zh", "composer_en", "composer_zh")
         for field in required:
             if not isinstance(raw.get(field), str) or not str(raw[field]).strip():
                 fail(f"work {work_id} has an invalid {field}")
         for field in ("title_en", "title_zh", "composer_en", "composer_zh"):
             if not isinstance(raw.get(field), str):
                 fail(f"work {work_id} has a non-string {field}")
-        if raw.get("title_zh") and (not str(raw["title_zh"]).startswith("《") or not str(raw["title_zh"]).endswith("》")):
+        if raw.get("title_zh") and (not str(raw["title_zh"]).startswith("《") or not str(raw["title_zh"]).endswith("》")
+                                    or not raw["title_zh"][1:-1].strip()):
             fail(f"work {work_id} has an invalid Chinese display title")
+        if translation_contract:
+            evidence = raw.get("translation")
+            if not isinstance(evidence, dict) or set(evidence) != {"title", "composer"}:
+                fail(f"work {work_id}: title and composer translation evidence is required")
+            statuses = [validate_translation(evidence[field], raw[f"{field}_en"], raw[f"{field}_zh"],
+                                             f"work {work_id} {field}") for field in ("title", "composer")]
+            if raw.get("translation_status") != aggregate_translation_status(statuses):
+                fail(f"work {work_id}: aggregate translation_status disagrees with field evidence")
         try:
             validate_row_url(raw, f"work {work_id}")
         except ValueError as exc:

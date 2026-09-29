@@ -28,6 +28,19 @@ VALID_BASES = {
 }
 
 MISTRANSLATION_RULES = (
+    ("rag_as_cloth", r"\brag\b", r"抹布"),
+    ("choro_as_choir", r"\bchoros?\b", r"合唱"),
+    ("tiento_as_attempt", r"\btiento\b", r"尝试|诱惑"),
+    ("giga_as_gig", r"\bgiga\b", r"演出时间"),
+    ("mode_as_tones", r"\b(?:tono|toni)\b", r"第[一二三四五六七八九十]+声|托尼"),
+    ("passacaille_as_passage", r"\bpassacaille\b", r"通道"),
+    ("spagnoletta_nonmusical", r"\bspagnoletta\b", r"乳交"),
+    ("maxixe_as_vegetable", r"\bmaxixe\b", r"小黄瓜"),
+    ("melodia_as_apology", r"\bmelodia\b", r"对不起"),
+    ("granadina_as_syrup", r"\bgranadinas?\b", r"石榴糖浆"),
+    ("sicilienne_as_island", r"\bsicilienne\b", r"西西里岛"),
+    ("tyrolienne_as_zipline", r"\btyrolienne\b", r"滑索"),
+    ("petenera_nonmusical", r"\bpeteneras?\b", r"伯特利"),
     ("pieces_as_objects", r"\b(?:pieces?|pi[eè]ces?|piezas?|pezzi|st[uü]cke|morceaux)\b", r"件"),
     ("orders_as_dishes", r"\b[oó]rdenes\b", r"道菜"),
     ("prelude_as_stage_opening", r"\b(?:preludes?|preludios?|pr[eé]ludes?)\b", r"序幕"),

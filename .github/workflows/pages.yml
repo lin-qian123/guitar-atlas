@@ -37,6 +37,8 @@ jobs:
         run: node --test tests/search.test.cjs
       - name: Validate public catalog boundary
         run: python scripts/validate_public_site.py public_site
+      - name: Validate translation coverage and review states
+        run: python scripts/audit_translations.py
 
   deploy:
     needs: test

@@ -34,7 +34,22 @@ Both editions share the HTML template, styles, and search logic. The public site
 | Source | Organization | Verification boundary |
 | --- | --- | --- |
 | **IMSLP** | Approved exact instrumentation categories for classical/acoustic guitar solos, ensembles, and guitar chamber music | Originals and arrangements remain separate; files must match their target sections; original category names are preserved |
-| **ClassClef** | Source repertoire and musician directories, kept as separate source categories | Public score records and verifiable PDF downloads; unspecified instrumentation, original/arrangement status, and Chinese names remain unspecified |
+| **ClassClef** | Source repertoire and musician directories, kept as separate source categories | Public score records and verifiable PDF downloads; unspecified instrumentation and original/arrangement status stay unknown; Chinese reference names are reviewed separately |
+
+### Chinese catalog repair: 2026-09-29
+
+| Source | Chinese titles (reference or established names) | Intentionally retained titles | Chinese musician names / distinct attributed names | Chinese categories |
+| --- | ---: | ---: | ---: | ---: |
+| IMSLP | 11,380 | 13 | 2,158 / 2,164 | 352 / 352 |
+| ClassClef | 6,664 | 76 | 851 / 858 | 77 / 77 |
+
+All 6,740 ClassClef titles have an explicit review disposition. The 76 retained titles have individual reasons; 2 also contain Chinese arrangement notes, so a nonempty Chinese field is not a complete translation. Seven source attributions retain their original spelling, and 4 records lack an attribution at the source. This repair corrects 92 IMSLP titles and a set of musician-name mistranslations. Other IMSLP titles retain the historical reference review; this is not a claim that every name has an authoritative Chinese form.
+
+Both editions apply durable translations by source and stable ID. Missing review, changed originals or IDs, and stale summaries block publication; acquisition cannot replace checked text with machine drafts. See [`coverage_2026-09-29.json`](metadata/translations/coverage_2026-09-29.json) for field states and retention reasons. The audit has no unresolved machine drafts or untranslated fields; deliberate retention is reported separately.
+
+The 849 Python tests, 34 Node search tests, public privacy validation, and translation audit pass. Browser checks cover Chinese titles and names, category filtering, and retention labels. Public/offline display data matches field for field; 31,143 local PDF paths and all 6 exclusions pass the link audit.
+
+This refresh synchronizes the public catalog, offline home, and display text in all 352 legacy category directories. The offline home is checked against current manifests, exclusions, memberships, links, and file sizes while retaining the preceding integrity results. Full PDF hashing and parsing are not repeated. The file-coverage gaps and instrumentation-review boundaries in the 2026-09-28 snapshot below remain open.
 
 ### Catalog snapshot: 2026-09-28
 
@@ -103,6 +118,12 @@ Search-only aliases live in [`public_site/data/search-aliases.json`](public_site
 
 IMSLP's canonical Chinese title review is [`metadata/translations/title_overrides_reviewed_zh.json`](metadata/translations/title_overrides_reviewed_zh.json), keyed by `work_id` and taking precedence over machine-translation caches. Original names remain visible. Chinese names are reference translations; absent or unreviewed names retain their actual status.
 
+ClassClef titles live in [`classclef_titles_zh.json`](metadata/translations/classclef_titles_zh.json), keyed by full source ID. [`musicians_zh.json`](metadata/translations/musicians_zh.json) and [`categories_zh.json`](metadata/translations/categories_zh.json) keep attribution and category translations separate for each source. Acquisition cannot erase these assets; changed original text or stale IDs stop export for review.
+
+Each title, attribution, and category has its own status, basis, and reason. `reviewed` identifies a supported conventional name; `reference` is a checked reference rendering; `retained` records a specific reason to preserve the original. Unchecked drafts are `machine`, absent translations are `untranslated`, and `not_applicable` is reserved for missing source attribution. A populated Chinese field is not a certificate of authoritative naming, instrumentation, or file integrity. Numbered titles, stylized brands, and names whose original Chinese characters are uncertain may deliberately remain unchanged.
+
+`python scripts/audit_translations.py` counts Chinese text, reference and conventional names, retained originals, and missing attribution separately. Unreviewed drafts or missing translations block publication. `python scripts/build_classclef_translations.py draft` resumes draft acquisition, `shards` prepares review batches, and `assemble` incorporates corrections while preserving earlier reviews. Draft caches and temporary batches stay in Git-ignored `work/`; final translation assets are versioned.
+
 ## Quick start
 
 ### Browse the public catalog
@@ -126,6 +147,7 @@ python -m pip install -e '.[test]'
 python -m pytest -q
 node --test tests/search.test.cjs  # Node.js 22+, no npm dependencies
 python scripts/validate_public_site.py public_site
+python scripts/audit_translations.py
 ```
 
 ### Discover and validate ClassClef
@@ -165,7 +187,7 @@ python scripts/export_public_site.py \
   --output public_site/data/catalog.json
 ```
 
-Export and validation reject identity conflicts, missing or malformed catalogs, page links outside approved sources, and fields exposing local or download information. Run the Python suite, search tests, and public-site validation before publishing `public_site/`.
+Export and validation reject identity conflicts, missing or malformed catalogs, page links outside approved sources, and fields exposing local or download information. Run the Python suite, search tests, public-site validation, and translation audit before publishing `public_site/`.
 
 ### Rebuild the local offline home page
 
@@ -174,6 +196,8 @@ python scripts/render_master_index.py .
 ```
 
 The command checks local PDF headers, sizes, source SHA-1 when available, and parseability, then writes the root `index.html`. The previous entry is preserved in `backups/offline-ui/`.
+
+For translation or display-only edits, use `python scripts/render_master_index.py . --metadata-only`. This compares source identities, manifests, scope, and exclusions, then checks every retained link and file size before refreshing the page. Changed manifests or file states require a full rebuild. It preserves the previous PDF integrity results; it does not repeat checksum or parsing verification.
 
 Poppler is optional (`brew install poppler` on macOS). If pypdf cannot read a legacy PDF, the generator can use `pdfinfo` as a second parser; source files are never rewritten or repaired.
 
@@ -193,7 +217,7 @@ Every source must pass the same public-field allowlist, source URL checks, local
 guitar-atlas/
 ├── config/                         # Source scope, IMSLP categories, score exclusions
 ├── sources/classclef/              # Private snapshots, state, and PDFs (ignored)
-├── metadata/translations/          # Reviewed IMSLP titles and musician names
+├── metadata/translations/          # Source-scoped title, musician and category translations with review evidence
 ├── public_site/                    # Deployable source catalog without scores
 │   ├── assets/                    # Shared styles, interaction, and search
 │   ├── data/catalog.json           # Memberships grouped by source identity
@@ -204,6 +228,7 @@ guitar-atlas/
 │   ├── build_classclef_library.py   # ClassClef discovery, download, verification
 │   ├── deduplicate_source_pdfs.py   # Verified cross-source physical deduplication
 │   ├── export_public_site.py       # Source metadata → public catalog
+│   ├── audit_translations.py       # Translation coverage and field review gate
 │   ├── validate_public_site.py     # Data and privacy checks
 │   ├── render_master_index.py      # Local offline home page
 │   ├── render_offline_site.py      # Public template and offline data adapter

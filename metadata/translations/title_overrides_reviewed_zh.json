@@ -4,8 +4,8 @@
   "policy": "Use established Mainland Chinese classical-music names when available; otherwise retain a faithful reference translation with standard musical terminology.",
   "summary": {
     "work_count": 11393,
-    "corrected_count": 3918,
-    "accepted_count": 7475,
+    "corrected_count": 4006,
+    "accepted_count": 7387,
     "shard_count": 3,
     "supplement_counts": [
       87,
@@ -3082,10 +3082,10 @@
     {
       "work_id": "21461",
       "title_en": "8 Valses poeticos",
-      "title_zh": "《诗意圆舞曲》",
+      "title_zh": "《8首诗意圆舞曲》",
       "status": "corrected",
-      "basis": "common_name",
-      "reason": "采用格拉纳多斯作品的通行中文名",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_famous_works",
       "source_refs": []
     },
@@ -4177,7 +4177,8 @@
       "basis": "corpus_review",
       "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
       "reviewer": "title_review_1",
-      "source_refs": []
+      "source_refs": [],
+      "retention_reason": "原题为字母、数字或时间式标题（RAM），保留其记法，不擅自扩写为中文。"
     },
     {
       "work_id": "36192",
@@ -4342,11 +4343,11 @@
     {
       "work_id": "39210",
       "title_en": "Bagatela",
-      "title_zh": "《琐事》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_1",
+      "title_zh": "《小品》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《琐事》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -5777,10 +5778,10 @@
     {
       "work_id": "55775",
       "title_en": "12 Variations on 'Ah, vous dirai-je maman', K.265/300e",
-      "title_zh": "《小星星变奏曲，K.265/300e》",
+      "title_zh": "《小星星主题12首变奏曲，K.265/300e》",
       "status": "corrected",
-      "basis": "common_name",
-      "reason": "采用该组变奏曲最通行的中文名",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_famous_works",
       "source_refs": []
     },
@@ -5947,10 +5948,10 @@
     {
       "work_id": "58188",
       "title_en": "Intonazione del primo tono",
-      "title_zh": "《第一声​​的语调》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第一调式引子（Intonazione）》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_1",
       "source_refs": []
     },
@@ -7967,11 +7968,11 @@
     {
       "work_id": "79781",
       "title_en": "Melodia",
-      "title_zh": "《对不起》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_1",
+      "title_zh": "《旋律》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《对不起》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -8327,10 +8328,10 @@
     {
       "work_id": "83177",
       "title_en": "6 Sonatas for 2 Violins, Op.3",
-      "title_zh": "《6 首小提琴奏鸣曲，作品 3》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《为两把小提琴而作的6首奏鸣曲，作品3》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -9407,11 +9408,11 @@
     {
       "work_id": "94283",
       "title_en": "Tyrolienne",
-      "title_zh": "《滑索》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《蒂罗尔舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《滑索》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -9857,11 +9858,11 @@
     {
       "work_id": "95068",
       "title_en": "Tyrolienne",
-      "title_zh": "《滑索》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《蒂罗尔舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《滑索》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -14927,21 +14928,23 @@
     {
       "work_id": "172781",
       "title_en": "Ligeirinho, EL480",
-      "title_zh": "《光，EL480》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《轻快地，EL480》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_3",
-      "source_refs": []
+      "source_refs": [
+        "https://imslp.org/wiki/Ligeirinho,_EL480_(Lopes,_Edson)"
+      ]
     },
     {
       "work_id": "172784",
       "title_en": "Moto Perpetuo",
-      "title_zh": "《永动机》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_1",
+      "title_zh": "《无穷动》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《永动机》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -14957,10 +14960,10 @@
     {
       "work_id": "172790",
       "title_en": "Tempo de giga, EL486",
-      "title_zh": "《演出时间，EL486》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《吉格舞曲速度，EL486》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_1",
       "source_refs": []
     },
@@ -15112,7 +15115,8 @@
       "basis": "corpus_review",
       "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
       "reviewer": "title_review_3",
-      "source_refs": []
+      "source_refs": [],
+      "retention_reason": "原题为字母、数字或时间式标题（23），保留其记法，不擅自扩写为中文。"
     },
     {
       "work_id": "176867",
@@ -15737,10 +15741,10 @@
     {
       "work_id": "187515",
       "title_en": "Neon Rag",
-      "title_zh": "《霓虹抹布》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《霓虹拉格泰姆》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 复核音乐体裁：Rag 为拉格泰姆，Choro 为肖罗，Strambotto 保留体裁音译；避免普通词义误译。",
       "reviewer": "title_review_1",
       "source_refs": []
     },
@@ -16072,7 +16076,8 @@
       "basis": "corpus_review",
       "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
       "reviewer": "title_review_2",
-      "source_refs": []
+      "source_refs": [],
+      "retention_reason": "原题为字母、数字或时间式标题（K），保留其记法，不擅自扩写为中文。"
     },
     {
       "work_id": "198850",
@@ -19377,10 +19382,10 @@
     {
       "work_id": "296280",
       "title_en": "Tiento de falsas 6° tono",
-      "title_zh": "《假尝试第六声》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第六调式蒂恩托（falsas）》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -19457,20 +19462,20 @@
     {
       "work_id": "297732",
       "title_en": "Tiento de falsas 2° tono",
-      "title_zh": "《错误尝试第二声》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第二调式蒂恩托（falsas）》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_3",
       "source_refs": []
     },
     {
       "work_id": "297737",
       "title_en": "Tiento lleno 5° tono",
-      "title_zh": "《全音第五音》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第五调式蒂恩托（lleno）》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -21817,10 +21822,10 @@
     {
       "work_id": "354101",
       "title_en": "Phrygian Mode Canon for 2 Instruments",
-      "title_zh": "《适用于 2 台乐器的弗里吉亚模式卡农》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《为两件乐器而作的弗里吉亚调式卡农》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -22047,10 +22052,10 @@
     {
       "work_id": "356851",
       "title_en": "Phantasia terzi Toni",
-      "title_zh": "《托尼的第三个幻想》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第三调式幻想曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_3",
       "source_refs": []
     },
@@ -22307,10 +22312,10 @@
     {
       "work_id": "357882",
       "title_en": "Fantasia de vihuela de secondo tono No.3",
-      "title_zh": "《第二音维韦拉幻想曲 第3号》",
+      "title_zh": "《第二调式维韦拉琴幻想曲第3号》",
       "status": "corrected",
-      "basis": "format_consistency",
-      "reason": "将 No. 编号统一为中文“第…号”格式。",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_cross_consistency",
       "source_refs": []
     },
@@ -24552,7 +24557,8 @@
       "basis": "corpus_review",
       "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
       "reviewer": "title_review_1",
-      "source_refs": []
+      "source_refs": [],
+      "retention_reason": "原题“Hemios-III”的中文语义或专名译法尚未确认；保留来源拼写及编号。"
     },
     {
       "work_id": "387819",
@@ -24567,10 +24573,10 @@
     {
       "work_id": "388031",
       "title_en": "Intonazione del sesto tono",
-      "title_zh": "《第六声的语调》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第六调式引子（Intonazione）》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -24627,30 +24633,30 @@
     {
       "work_id": "389072",
       "title_en": "Tiento del Tercer Tono",
-      "title_zh": "《第三音的诱惑》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第三调式蒂恩托》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_3",
       "source_refs": []
     },
     {
       "work_id": "389145",
       "title_en": "Intonazione del secondo tono",
-      "title_zh": "《第二声的语调》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第二调式引子（Intonazione）》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_1",
       "source_refs": []
     },
     {
       "work_id": "389149",
       "title_en": "Intonazione del terzo tono",
-      "title_zh": "《第三声的语调》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第三调式引子（Intonazione）》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_3",
       "source_refs": []
     },
@@ -24667,20 +24673,20 @@
     {
       "work_id": "389218",
       "title_en": "Intonazione del quarto tono",
-      "title_zh": "《第四声的语调》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第四调式引子（Intonazione）》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
     {
       "work_id": "389221",
       "title_en": "Intonazione del quinto tono",
-      "title_zh": "《第五声的语调》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第五调式引子（Intonazione）》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_3",
       "source_refs": []
     },
@@ -24807,11 +24813,11 @@
     {
       "work_id": "395329",
       "title_en": "Spagnoletta",
-      "title_zh": "《乳交》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《斯帕尼奥莱塔舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《乳交》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -24997,11 +25003,11 @@
     {
       "work_id": "397858",
       "title_en": "Maxixe",
-      "title_zh": "《小黄瓜》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《马希谢舞曲（Maxixe）》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《小黄瓜》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -25057,11 +25063,11 @@
     {
       "work_id": "399081",
       "title_en": "Gallardas",
-      "title_zh": "《加拉多斯》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《加利亚德舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《加拉多斯》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -27827,11 +27833,11 @@
     {
       "work_id": "430205",
       "title_en": "La Rosa",
-      "title_zh": "《玫瑰酒店》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《玫瑰》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《玫瑰酒店》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -34419,10 +34425,10 @@
     {
       "work_id": "517491",
       "title_en": "Hebridean Sunset Rag",
-      "title_zh": "《赫布里底群岛日落抹布》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《赫布里底群岛日落拉格泰姆》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 复核音乐体裁：Rag 为拉格泰姆，Choro 为肖罗，Strambotto 保留体裁音译；避免普通词义误译。",
       "reviewer": "title_review_1",
       "source_refs": []
     },
@@ -34929,10 +34935,10 @@
     {
       "work_id": "532755",
       "title_en": "Tiento de primero tono, FO 1",
-      "title_zh": "《第一音调，FO 1》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第一调式蒂恩托，FO 1》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_3",
       "source_refs": []
     },
@@ -35569,10 +35575,10 @@
     {
       "work_id": "543425",
       "title_en": "Gallardas de octavo tono, WSC 49",
-      "title_zh": "《八音加利亚德，WSC 49》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第八调式加利亚德舞曲，WSC 49》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -36431,10 +36437,10 @@
     {
       "work_id": "564983",
       "title_en": "Batalla segunda de 6º tono",
-      "title_zh": "《六音第二战》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第六调式第二战斗曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -37466,7 +37472,8 @@
       "basis": "corpus_review",
       "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
       "reviewer": "title_review_1",
-      "source_refs": []
+      "source_refs": [],
+      "retention_reason": "原题为字母、数字或时间式标题（7:40），保留其记法，不擅自扩写为中文。"
     },
     {
       "work_id": "587657",
@@ -38921,11 +38928,11 @@
     {
       "work_id": "640812",
       "title_en": "4 Bagatelas",
-      "title_zh": "《4 巴加特拉》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《4首小品》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《4 巴加特拉》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -40286,7 +40293,8 @@
       "basis": "corpus_review",
       "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
       "reviewer": "title_review_1",
-      "source_refs": []
+      "source_refs": [],
+      "retention_reason": "原题“Ibia-Mom Jaci Ndipapahabi”的中文语义或专名译法尚未确认；保留来源拼写及编号。"
     },
     {
       "work_id": "663987",
@@ -41111,12 +41119,13 @@
     {
       "work_id": "671181",
       "title_en": "Dvandva",
-      "title_zh": "《द्वंद्वा》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_1",
-      "source_refs": []
+      "title_zh": "《Dvandva》",
+      "status": "corrected",
+      "basis": "format_consistency",
+      "reason": "旧显示为天城文转写而非中文；保留来源拉丁字母原题，明确中文译法待确认。",
+      "reviewer": "translation_repair_2026_09_29",
+      "source_refs": [],
+      "retention_reason": "原题“Dvandva”的中文语义或专名译法尚未确认；保留来源拼写及编号。"
     },
     {
       "work_id": "671287",
@@ -43641,10 +43650,10 @@
     {
       "work_id": "707660",
       "title_en": "Toccata seconda del nono tono naturale",
-      "title_zh": "《托卡塔第九自然音第二音》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第九自然调式托卡塔第2号》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -43861,11 +43870,11 @@
     {
       "work_id": "709596",
       "title_en": "Espanoleta",
-      "title_zh": "《西班牙语》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《西班牙小舞曲（Espanoleta）》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《西班牙语》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -43951,11 +43960,11 @@
     {
       "work_id": "710763",
       "title_en": "Mabelita",
-      "title_zh": "《腰带》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《玛贝莉塔（Mabelita）》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《腰带》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -50623,11 +50632,11 @@
     {
       "work_id": "759582",
       "title_en": "Passacaille",
-      "title_zh": "《通道》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《帕萨卡利亚舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《通道》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -51128,7 +51137,8 @@
       "basis": "corpus_review",
       "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
       "reviewer": "title_review_2",
-      "source_refs": []
+      "source_refs": [],
+      "retention_reason": "原题“Djet”的中文语义或专名译法尚未确认；保留来源拼写及编号。"
     },
     {
       "work_id": "770820",
@@ -51443,11 +51453,11 @@
     {
       "work_id": "776908",
       "title_en": "Canarios",
-      "title_zh": "《金丝雀》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《加那利舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《金丝雀》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -52453,10 +52463,10 @@
     {
       "work_id": "789730",
       "title_en": "Strambotto",
-      "title_zh": "《古怪的》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《斯特兰博托》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 复核音乐体裁：Rag 为拉格泰姆，Choro 为肖罗，Strambotto 保留体裁音译；避免普通词义误译。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -52803,11 +52813,11 @@
     {
       "work_id": "793505",
       "title_en": "Exercise",
-      "title_zh": "《锻炼》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《练习曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《锻炼》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -53503,11 +53513,11 @@
     {
       "work_id": "796090",
       "title_en": "Petenera",
-      "title_zh": "《伯特利》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《佩特内拉曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《伯特利》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -53623,11 +53633,11 @@
     {
       "work_id": "796503",
       "title_en": "Sevillanas",
-      "title_zh": "《塞维利亚人》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《塞维利亚纳舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《塞维利亚人》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -54623,11 +54633,11 @@
     {
       "work_id": "802773",
       "title_en": "Sicilienne",
-      "title_zh": "《西西里岛》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《西西里舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《西西里岛》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -55293,11 +55303,11 @@
     {
       "work_id": "812455",
       "title_en": "Plany",
-      "title_zh": "《计划》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《哀歌》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《计划》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -55843,10 +55853,10 @@
     {
       "work_id": "817377",
       "title_en": "Choro Rewriting",
-      "title_zh": "《合唱重写》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《肖罗重写》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 复核音乐体裁：Rag 为拉格泰姆，Choro 为肖罗，Strambotto 保留体裁音译；避免普通词义误译。",
       "reviewer": "title_review_3",
       "source_refs": []
     },
@@ -56923,20 +56933,20 @@
     {
       "work_id": "829823",
       "title_en": "Fuga quarti toni",
-      "title_zh": "《赋格第四音》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第四调式赋格》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_1",
       "source_refs": []
     },
     {
       "work_id": "829961",
       "title_en": "Fuga quinti toni",
-      "title_zh": "《赋格第五音》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第五调式赋格》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -61647,11 +61657,11 @@
     {
       "work_id": "873027",
       "title_en": "Sevillanas, Op.11",
-      "title_zh": "《塞维利亚纳斯，作品 11》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_1",
+      "title_zh": "《塞维利亚纳舞曲，Op.11》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《塞维利亚纳斯，作品 11》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -62227,10 +62237,10 @@
     {
       "work_id": "882628",
       "title_en": "Versus primi toni, W.1",
-      "title_zh": "《第一声​​的诗句，W.1》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第一调式 Versus，W.1》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 修正调式语义；拉丁语体裁词 Versus 原样保留，避免译成普通诗句。",
       "reviewer": "title_review_3",
       "source_refs": []
     },
@@ -62287,10 +62297,10 @@
     {
       "work_id": "882940",
       "title_en": "Versus septimi toni, W.92-93",
-      "title_zh": "《第七声韵律，W.92-93》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第七调式 Versus，W.92-93》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 修正调式语义；拉丁语体裁词 Versus 原样保留，避免译成普通诗句。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -62397,10 +62407,10 @@
     {
       "work_id": "884638",
       "title_en": "Passacaglia in Dorian, kwv.12",
-      "title_zh": "《多里安的帕萨卡利亚，kwv.12》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《多里安调式帕萨卡利亚舞曲，kwv.12》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_3",
       "source_refs": []
     },
@@ -62427,12 +62437,14 @@
     {
       "work_id": "884758",
       "title_en": "A Minor Dance",
-      "title_zh": "《小舞》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《A小调舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "来源作品页 Key 明确为 A minor，参考译为 A小调舞曲，避免把 Minor 当作大小形容词。",
       "reviewer": "title_review_3",
-      "source_refs": []
+      "source_refs": [
+        "https://imslp.org/wiki/A_Minor_Dance_(Boden,_Andrew_David)"
+      ]
     },
     {
       "work_id": "884974",
@@ -62527,10 +62539,10 @@
     {
       "work_id": "886175",
       "title_en": "Versus octavi toni, W.96",
-      "title_zh": "《第八声韵律，W.96》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第八调式 Versus，W.96》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 修正调式语义；拉丁语体裁词 Versus 原样保留，避免译成普通诗句。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -64367,11 +64379,11 @@
     {
       "work_id": "914252",
       "title_en": "Gallarda",
-      "title_zh": "《加拉多》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《加利亚德舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《加拉多》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -65127,11 +65139,11 @@
     {
       "work_id": "929043",
       "title_en": "Petenera",
-      "title_zh": "《伯特利》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《佩特内拉曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《伯特利》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -65857,11 +65869,11 @@
     {
       "work_id": "946872",
       "title_en": "Gallarda",
-      "title_zh": "《加拉多》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_1",
+      "title_zh": "《加利亚德舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《加拉多》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -65902,16 +65914,17 @@
       "basis": "corpus_review",
       "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
       "reviewer": "title_review_2",
-      "source_refs": []
+      "source_refs": [],
+      "retention_reason": "原题“Echandi 23”的中文语义或专名译法尚未确认；保留来源拼写及编号。"
     },
     {
       "work_id": "948457",
       "title_en": "Villano",
-      "title_zh": "《恶棍》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《维利亚诺舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《恶棍》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -66057,11 +66070,11 @@
     {
       "work_id": "951235",
       "title_en": "Sevillana",
-      "title_zh": "《塞维利亚》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《塞维利亚纳舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《塞维利亚》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -66617,11 +66630,11 @@
     {
       "work_id": "962013",
       "title_en": "Gallarda, Libro I, f.15",
-      "title_zh": "《加拉达，第一册，f.15》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《加利亚德舞曲，第I册，f.15》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《加拉达，第一册，f.15》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -66687,11 +66700,11 @@
     {
       "work_id": "963359",
       "title_en": "Villanos",
-      "title_zh": "《恶棍》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《维利亚诺舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《恶棍》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -66967,11 +66980,11 @@
     {
       "work_id": "970251",
       "title_en": "Lantururu",
-      "title_zh": "《链》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《兰图鲁鲁（Lantururu）》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《链》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -73467,10 +73480,10 @@
     {
       "work_id": "1049319",
       "title_en": "Pasacalles de 1o Tono",
-      "title_zh": "《第一音游行》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第一调式帕萨卡利亚舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_3",
       "source_refs": []
     },
@@ -73627,10 +73640,10 @@
     {
       "work_id": "1051238",
       "title_en": "Fantasía del segundo tono",
-      "title_zh": "《第二声幻想》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第二调式幻想曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -73677,10 +73690,10 @@
     {
       "work_id": "1051825",
       "title_en": "Fantasía del tercer tono",
-      "title_zh": "《第三音幻想》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第三调式幻想曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_3",
       "source_refs": []
     },
@@ -73927,10 +73940,10 @@
     {
       "work_id": "1054796",
       "title_en": "Fantasía del cuarto tono",
-      "title_zh": "《第四声幻想》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第四调式幻想曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_3",
       "source_refs": []
     },
@@ -77767,11 +77780,11 @@
     {
       "work_id": "1108847",
       "title_en": "Gallardas de el Torneo, CSdG, f.31",
-      "title_zh": "《锦标赛加拉达斯，CSdG，f.31》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_1",
+      "title_zh": "《锦标赛的加利亚德舞曲，CSdG，f.31》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《锦标赛加拉达斯，CSdG，f.31》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -80667,10 +80680,10 @@
     {
       "work_id": "1160353",
       "title_en": "Preludio de primo tono, Rda, f.115",
-      "title_zh": "《第一音前奏曲，Rda，f.115》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《第一调式前奏曲，Rda，f.115》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -82307,11 +82320,11 @@
     {
       "work_id": "1182424",
       "title_en": "Variations on La Tyrolienne",
-      "title_zh": "《蒂罗林变奏曲》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《蒂罗尔舞曲主题变奏曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《蒂罗林变奏曲》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -82937,12 +82950,15 @@
     {
       "work_id": "1190007",
       "title_en": "Rag Tag",
-      "title_zh": "《抹布日》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《Rag Tag》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_1",
-      "source_refs": []
+      "source_refs": [
+        "https://imslp.org/wiki/Rag_Tag_(Weidt,_Albert_John)"
+      ],
+      "retention_reason": "Rag Tag 可能含音乐题名双关，来源未解释具体指涉，保留原题而不逐词误译。"
     },
     {
       "work_id": "1190043",
@@ -83237,10 +83253,10 @@
     {
       "work_id": "1192975",
       "title_en": "Cold Molasses Rag",
-      "title_zh": "《冷糖蜜抹布》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《冷糖蜜拉格泰姆》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 复核音乐体裁：Rag 为拉格泰姆，Choro 为肖罗，Strambotto 保留体裁音译；避免普通词义误译。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -83777,11 +83793,11 @@
     {
       "work_id": "1199087",
       "title_en": "Sevillana Popular",
-      "title_zh": "《热门塞维利亚语》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_1",
+      "title_zh": "《民间塞维利亚纳舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《热门塞维利亚语》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -84272,7 +84288,8 @@
       "basis": "corpus_review",
       "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
       "reviewer": "title_review_2",
-      "source_refs": []
+      "source_refs": [],
+      "retention_reason": "原题“Anittam id Ossor, O.102”的中文语义或专名译法尚未确认；保留来源拼写及编号。"
     },
     {
       "work_id": "1210666",
@@ -89367,11 +89384,11 @@
     {
       "work_id": "1286953",
       "title_en": "Granadina",
-      "title_zh": "《石榴糖浆》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《格拉纳迪纳曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《石榴糖浆》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -89627,11 +89644,11 @@
     {
       "work_id": "1291295",
       "title_en": "Petenera",
-      "title_zh": "《伯特利》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《佩特内拉曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《伯特利》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -89687,21 +89704,21 @@
     {
       "work_id": "1291972",
       "title_en": "Seguidillas Sevillanas Populares",
-      "title_zh": "《热门塞吉迪亚斯塞维利亚斯》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《民间塞维利亚塞吉迪亚舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《热门塞吉迪亚斯塞维利亚斯》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
       "work_id": "1292264",
       "title_en": "Sevillanas",
-      "title_zh": "《塞维利亚人》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_1",
+      "title_zh": "《塞维利亚纳舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《塞维利亚人》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -91207,11 +91224,11 @@
     {
       "work_id": "1313656",
       "title_en": "Sicilienne",
-      "title_zh": "《西西里岛》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_1",
+      "title_zh": "《西西里舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《西西里岛》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -92677,10 +92694,10 @@
     {
       "work_id": "1343416",
       "title_en": "Preambulo 1",
-      "title_zh": "《序言1》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《前奏曲第1号》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 对照原题复核体裁、调式、数量与编号，修正逐词误译或遗漏；保留原题供比对。",
       "reviewer": "title_review_1",
       "source_refs": []
     },
@@ -93459,11 +93476,11 @@
     {
       "work_id": "1350510",
       "title_en": "Copla de peteneras",
-      "title_zh": "《佩特内拉斯科普拉》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《佩特内拉歌谣》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《佩特内拉斯科普拉》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -93509,11 +93526,11 @@
     {
       "work_id": "1350947",
       "title_en": "Petenera",
-      "title_zh": "《伯特利》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《佩特内拉曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《伯特利》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -93599,21 +93616,21 @@
     {
       "work_id": "1352434",
       "title_en": "6 Variations sur la Tyrolienne, Op.17",
-      "title_zh": "《蒂罗尔变奏曲 6 首，作品 17》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《蒂罗尔舞曲主题6首变奏曲，Op.17》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《蒂罗尔变奏曲 6 首，作品 17》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
       "work_id": "1352436",
       "title_en": "Grandes Variations sur la Tyrolienne, Op.19",
-      "title_zh": "《蒂罗尔变奏曲，Op.19》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《蒂罗尔舞曲主题大变奏曲，Op.19》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《蒂罗尔变奏曲，Op.19》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -94649,11 +94666,11 @@
     {
       "work_id": "1361913",
       "title_en": "Melodia Nocturna",
-      "title_zh": "《夜曲》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《夜之旋律》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《夜曲》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -96089,10 +96106,10 @@
     {
       "work_id": "1379488",
       "title_en": "Choros Songbook",
-      "title_zh": "《合唱歌集》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
+      "title_zh": "《肖罗歌集》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "2026-09-29 复核音乐体裁：Rag 为拉格泰姆，Choro 为肖罗，Strambotto 保留体裁音译；避免普通词义误译。",
       "reviewer": "title_review_2",
       "source_refs": []
     },
@@ -98869,11 +98886,11 @@
     {
       "work_id": "1414357",
       "title_en": "Las nuevas Peteneras, Op.85",
-      "title_zh": "《新佩特内拉斯，作品 85》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_1",
+      "title_zh": "《新佩特内拉曲，Op.85》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《新佩特内拉斯，作品 85》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -99572,11 +99589,11 @@
     {
       "work_id": "1422886",
       "title_en": "Nenufar",
-      "title_zh": "《目的》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_3",
+      "title_zh": "《睡莲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《目的》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -102062,11 +102079,11 @@
     {
       "work_id": "1450638",
       "title_en": "Granadinas, Op.47",
-      "title_zh": "《格林纳丁斯，作品 47》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_1",
+      "title_zh": "《格拉纳迪纳曲，Op.47》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《格林纳丁斯，作品 47》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -106107,7 +106124,8 @@
       "basis": "corpus_review",
       "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
       "reviewer": "title_review_2",
-      "source_refs": []
+      "source_refs": [],
+      "retention_reason": "原题为字母、数字或时间式标题（ABC），保留其记法，不擅自扩写为中文。"
     },
     {
       "work_id": "1495827",
@@ -109367,7 +109385,8 @@
       "basis": "corpus_review",
       "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
       "reviewer": "title_review_3",
-      "source_refs": []
+      "source_refs": [],
+      "retention_reason": "原题“Kotobaro Bhebechinu, Op.21”的中文语义或专名译法尚未确认；保留来源拼写及编号。"
     },
     {
       "work_id": "1574389",
@@ -109582,10 +109601,10 @@
     {
       "work_id": "1579333",
       "title_en": "Tombeau de Mad. J. decedé à Leipsig le 17. str: 1738",
-      "title_zh": "《J夫人墓碑曲（1738年卒于莱比锡）》",
+      "title_zh": "《J夫人墓碑曲（卒于莱比锡，原题日期 17. str: 1738）》",
       "status": "corrected",
       "basis": "music_terminology",
-      "reason": "Use the standard musical-form term or correct a high-confidence literal mistranslation.",
+      "reason": "保留原题日期片段 17. str: 1738；缩写不明确，不猜测月份。",
       "reviewer": "title_review_final_sweeps",
       "source_refs": []
     },
@@ -111042,11 +111061,11 @@
     {
       "work_id": "1598778",
       "title_en": "Peteneras",
-      "title_zh": "《佩特内拉斯》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_1",
+      "title_zh": "《佩特内拉曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《佩特内拉斯》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -111402,11 +111421,11 @@
     {
       "work_id": "1602556",
       "title_en": "Le Petit Rien",
-      "title_zh": "《小事一无所获》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《微不足道的小品》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《小事一无所获》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -113602,11 +113621,11 @@
     {
       "work_id": "1635403",
       "title_en": "Sevillanas por Gil",
-      "title_zh": "《吉尔的塞维利亚斯》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_2",
+      "title_zh": "《吉尔的塞维利亚纳舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《吉尔的塞维利亚斯》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -113662,11 +113681,11 @@
     {
       "work_id": "1635424",
       "title_en": "Sevillanas originales",
-      "title_zh": "《原始塞维利亚纳》",
-      "status": "accepted",
-      "basis": "corpus_review",
-      "reason": "Passed the assigned corpus terminology, identity and format review; existing reference translation retained.",
-      "reviewer": "title_review_1",
+      "title_zh": "《原创塞维利亚纳舞曲》",
+      "status": "corrected",
+      "basis": "music_terminology",
+      "reason": "修正原译 《原始塞维利亚纳》 的非音乐词义、专名误译或术语不完整；保留原题编号。",
+      "reviewer": "translation_repair_2026_09_29",
       "source_refs": []
     },
     {
@@ -113979,5 +113998,7 @@
       "reviewer": "title_review_3",
       "source_refs": []
     }
-  ]
+  ],
+  "updated_at": "2026-09-29",
+  "update_note": "2026-09-29: corrected 48 music-term/title mistranslations and one non-Chinese transcription; recorded explicit retention reasons for 12 original titles. This does not re-certify the entire earlier review."
 }

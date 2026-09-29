@@ -1,0 +1,3020 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-29",
+  "policy": "分类中文是来源目录标题的参考翻译，按来源与来源分类ID索引。英文标题、来源关系和数词全部保留；音乐家专页不是经核实的编制分类。IMSLP 使用现有分类名作为键。歧义片段有明确说明，中文标签不替代谱面编制核验。",
+  "entries": {
+    "imslp": {
+      "For 12 guitars": {
+        "original": "For 12 guitars",
+        "zh": "12把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 16 guitars": {
+        "original": "For 16 guitars",
+        "zh": "16把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars": {
+        "original": "For 2 guitars",
+        "zh": "2把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 3 guitars": {
+        "original": "For 3 guitars",
+        "zh": "3把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 4 guitars": {
+        "original": "For 4 guitars",
+        "zh": "4把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 5 guitars": {
+        "original": "For 5 guitars",
+        "zh": "5把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 6 guitars": {
+        "original": "For 6 guitars",
+        "zh": "6把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 7 guitars": {
+        "original": "For 7 guitars",
+        "zh": "7把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 8 guitars": {
+        "original": "For 8 guitars",
+        "zh": "8把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 9 guitars": {
+        "original": "For 9 guitars",
+        "zh": "9把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar": {
+        "original": "For guitar",
+        "zh": "1把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 10 string guitar (arr)": {
+        "original": "For 10 string guitar (arr)",
+        "zh": "10弦吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 10-string guitar (arr)": {
+        "original": "For 10-string guitar (arr)",
+        "zh": "10弦吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 12 guitars (arr)": {
+        "original": "For 12 guitars (arr)",
+        "zh": "12把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 and 3 guitars (arr)": {
+        "original": "For 2 and 3 guitars (arr)",
+        "zh": "2或3把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars (arr)": {
+        "original": "For 2 guitars (arr)",
+        "zh": "2把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 3 guitars (arr)": {
+        "original": "For 3 guitars (arr)",
+        "zh": "3把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 4 guitars (arr)": {
+        "original": "For 4 guitars (arr)",
+        "zh": "4把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 5 guitars (arr)": {
+        "original": "For 5 guitars (arr)",
+        "zh": "5把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 6 guitars (arr)": {
+        "original": "For 6 guitars (arr)",
+        "zh": "6把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 6 string guitar (arr)": {
+        "original": "For 6 string guitar (arr)",
+        "zh": "6弦吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 7 string guitar (arr)": {
+        "original": "For 7 string guitar (arr)",
+        "zh": "7弦吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 7-string guitar (arr)": {
+        "original": "For 7-string guitar (arr)",
+        "zh": "7弦吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 8 guitars (arr)": {
+        "original": "For 8 guitars (arr)",
+        "zh": "8把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 8 string guitar (arr)": {
+        "original": "For 8 string guitar (arr)",
+        "zh": "8弦吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 8-string guitar (arr)": {
+        "original": "For 8-string guitar (arr)",
+        "zh": "8弦吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar (arr)": {
+        "original": "For guitar (arr)",
+        "zh": "1把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar ensemble (arr)": {
+        "original": "For guitar ensemble (arr)",
+        "zh": "吉他合奏·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar orchestra (arr)": {
+        "original": "For guitar orchestra (arr)",
+        "zh": "吉他乐团·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, cello": {
+        "original": "For 2 guitars, cello",
+        "zh": "2把吉他、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, double bass": {
+        "original": "For 2 guitars, double bass",
+        "zh": "2把吉他、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, strings": {
+        "original": "For 2 guitars, strings",
+        "zh": "2把吉他、弦乐·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, viola": {
+        "original": "For 2 guitars, viola",
+        "zh": "2把吉他、中提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, violin": {
+        "original": "For 2 guitars, violin",
+        "zh": "2把吉他、小提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 3 guitars, strings": {
+        "original": "For 3 guitars, strings",
+        "zh": "3把吉他、弦乐·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 double basses": {
+        "original": "For guitar, 2 double basses",
+        "zh": "吉他、2把低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 violins": {
+        "original": "For guitar, 2 violins",
+        "zh": "吉他、2把小提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 violins, cello": {
+        "original": "For guitar, 2 violins, cello",
+        "zh": "吉他、2把小提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 violins, viola, cello": {
+        "original": "For guitar, 2 violins, viola, cello",
+        "zh": "吉他、2把小提琴、中提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, cello": {
+        "original": "For guitar, cello",
+        "zh": "吉他、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, double bass": {
+        "original": "For guitar, double bass",
+        "zh": "吉他、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, strings": {
+        "original": "For guitar, strings",
+        "zh": "吉他、弦乐·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, viola": {
+        "original": "For guitar, viola",
+        "zh": "吉他、中提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, viola damore": {
+        "original": "For guitar, viola damore",
+        "zh": "吉他、维奥尔德阿莫雷琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, viola, cello": {
+        "original": "For guitar, viola, cello",
+        "zh": "吉他、中提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, viola, cello, theremin": {
+        "original": "For guitar, viola, cello, theremin",
+        "zh": "吉他、中提琴、大提琴、特雷门琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, violin": {
+        "original": "For guitar, violin",
+        "zh": "吉他、小提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, violin, cello": {
+        "original": "For guitar, violin, cello",
+        "zh": "吉他、小提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, violin, viola": {
+        "original": "For guitar, violin, viola",
+        "zh": "吉他、小提琴、中提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, violin, viola, cello": {
+        "original": "For guitar, violin, viola, cello",
+        "zh": "吉他、小提琴、中提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, 2 violins (arr)": {
+        "original": "For 2 guitars, 2 violins (arr)",
+        "zh": "2把吉他、2把小提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, cello (arr)": {
+        "original": "For 2 guitars, cello (arr)",
+        "zh": "2把吉他、大提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, violin (arr)": {
+        "original": "For 2 guitars, violin (arr)",
+        "zh": "2把吉他、小提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 violins and guitar (arr)": {
+        "original": "For 2 violins and guitar (arr)",
+        "zh": "2把小提琴、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 3 violins, 2 guitars (arr)": {
+        "original": "For 3 violins, 2 guitars (arr)",
+        "zh": "3把小提琴、2把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 3 violins, cello, guitar (arr)": {
+        "original": "For 3 violins, cello, guitar (arr)",
+        "zh": "3把小提琴、大提琴、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 4 guitars, 2 violins (arr)": {
+        "original": "For 4 guitars, 2 violins (arr)",
+        "zh": "4把吉他、2把小提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For cello and guitar (arr)": {
+        "original": "For cello and guitar (arr)",
+        "zh": "大提琴、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 violins (arr)": {
+        "original": "For guitar, 2 violins (arr)",
+        "zh": "吉他、2把小提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 violins, cello (arr)": {
+        "original": "For guitar, 2 violins, cello (arr)",
+        "zh": "吉他、2把小提琴、大提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 violins, viola, cello (arr)": {
+        "original": "For guitar, 2 violins, viola, cello (arr)",
+        "zh": "吉他、2把小提琴、中提琴、大提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 viols (arr)": {
+        "original": "For guitar, 2 viols (arr)",
+        "zh": "吉他、2把维奥尔琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, cello (arr)": {
+        "original": "For guitar, cello (arr)",
+        "zh": "吉他、大提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, viol (arr)": {
+        "original": "For guitar, viol (arr)",
+        "zh": "吉他、维奥尔琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, viola (arr)": {
+        "original": "For guitar, viola (arr)",
+        "zh": "吉他、中提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, violin (arr)": {
+        "original": "For guitar, violin (arr)",
+        "zh": "吉他、小提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, violin, cello (arr)": {
+        "original": "For guitar, violin, cello (arr)",
+        "zh": "吉他、小提琴、大提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, violin, contrabass (arr)": {
+        "original": "For guitar, violin, contrabass (arr)",
+        "zh": "吉他、小提琴、低音提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, violin, viola (arr)": {
+        "original": "For guitar, violin, viola (arr)",
+        "zh": "吉他、小提琴、中提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For violin, 2 guitars (arr)": {
+        "original": "For violin, 2 guitars (arr)",
+        "zh": "小提琴、2把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For violin, viola, guitar (arr)": {
+        "original": "For violin, viola, guitar (arr)",
+        "zh": "小提琴、中提琴、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 flutes, guitar": {
+        "original": "For 2 flutes, guitar",
+        "zh": "2支长笛、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 4 recorders, 6 guitars": {
+        "original": "For 4 recorders, 6 guitars",
+        "zh": "4支竖笛、6把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For alto flute, bass flute, guitar": {
+        "original": "For alto flute, bass flute, guitar",
+        "zh": "中音长笛、低音长笛、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For alto saxophone, guitar": {
+        "original": "For alto saxophone, guitar",
+        "zh": "中音萨克斯管、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For bass flute, guitar": {
+        "original": "For bass flute, guitar",
+        "zh": "低音长笛、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For bassoon, 2 guitars": {
+        "original": "For bassoon, 2 guitars",
+        "zh": "大管、2把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For bassoon, guitar": {
+        "original": "For bassoon, guitar",
+        "zh": "大管、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For clarinet, 2 guitars": {
+        "original": "For clarinet, 2 guitars",
+        "zh": "单簧管、2把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For clarinet, bass clarinet, guitar": {
+        "original": "For clarinet, bass clarinet, guitar",
+        "zh": "单簧管、低音单簧管、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For clarinet, guitar": {
+        "original": "For clarinet, guitar",
+        "zh": "单簧管、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, 2 guitars": {
+        "original": "For flute, 2 guitars",
+        "zh": "长笛、2把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, clarinet, 2 guitars": {
+        "original": "For flute, clarinet, 2 guitars",
+        "zh": "长笛、单簧管、2把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, clarinet, guitar": {
+        "original": "For flute, clarinet, guitar",
+        "zh": "长笛、单簧管、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, duduk, guitar": {
+        "original": "For flute, duduk, guitar",
+        "zh": "长笛、杜杜克管、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar": {
+        "original": "For flute, guitar",
+        "zh": "长笛、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, oboe, bassoon, guitar": {
+        "original": "For flute, oboe, bassoon, guitar",
+        "zh": "长笛、双簧管、大管、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, oboe, guitar": {
+        "original": "For flute, oboe, guitar",
+        "zh": "长笛、双簧管、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, ocarina, guitar": {
+        "original": "For flute, ocarina, guitar",
+        "zh": "长笛、陶笛、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, saxophone, guitar": {
+        "original": "For flute, saxophone, guitar",
+        "zh": "长笛、萨克斯管、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For oboe damore, guitar": {
+        "original": "For oboe damore, guitar",
+        "zh": "柔音双簧管、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For oboe, 2 guitars": {
+        "original": "For oboe, 2 guitars",
+        "zh": "双簧管、2把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For oboe, guitar": {
+        "original": "For oboe, guitar",
+        "zh": "双簧管、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For pan flute, guitar": {
+        "original": "For pan flute, guitar",
+        "zh": "排箫、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For piccolo, guitar": {
+        "original": "For piccolo, guitar",
+        "zh": "短笛、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, 2 guitars": {
+        "original": "For recorder, 2 guitars",
+        "zh": "竖笛、2把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, guitar": {
+        "original": "For recorder, guitar",
+        "zh": "竖笛、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For soprano saxophone, guitar": {
+        "original": "For soprano saxophone, guitar",
+        "zh": "高音萨克斯管、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For tenor saxophone, guitar": {
+        "original": "For tenor saxophone, guitar",
+        "zh": "次中音萨克斯管、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 clarinets, 2 guitars (arr)": {
+        "original": "For 2 clarinets, 2 guitars (arr)",
+        "zh": "2支单簧管、2把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 flutes, 2 guitars (arr)": {
+        "original": "For 2 flutes, 2 guitars (arr)",
+        "zh": "2支长笛、2把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 flutes, guitar (arr)": {
+        "original": "For 2 flutes, guitar (arr)",
+        "zh": "2支长笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 recorders, guitar (arr)": {
+        "original": "For 2 recorders, guitar (arr)",
+        "zh": "2支竖笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 3 flutes, guitar (arr)": {
+        "original": "For 3 flutes, guitar (arr)",
+        "zh": "3支长笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 3 recorders, guitar (arr)": {
+        "original": "For 3 recorders, guitar (arr)",
+        "zh": "3支竖笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 4 recorders, guitar (arr)": {
+        "original": "For 4 recorders, guitar (arr)",
+        "zh": "4支竖笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 5 flutes, guitar (arr)": {
+        "original": "For 5 flutes, guitar (arr)",
+        "zh": "5支长笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 9 flutes, guitar (arr)": {
+        "original": "For 9 flutes, guitar (arr)",
+        "zh": "9支长笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For alto flute, bass flute and guitar (arr)": {
+        "original": "For alto flute, bass flute and guitar (arr)",
+        "zh": "中音长笛、低音长笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For alto flute, guitar (arr)": {
+        "original": "For alto flute, guitar (arr)",
+        "zh": "中音长笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For alto recorder and guitar (arr)": {
+        "original": "For alto recorder and guitar (arr)",
+        "zh": "中音竖笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For alto saxophone and guitar (arr)": {
+        "original": "For alto saxophone and guitar (arr)",
+        "zh": "中音萨克斯管、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For bass flute and guitar (arr)": {
+        "original": "For bass flute and guitar (arr)",
+        "zh": "低音长笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For bassoon, guitar (arr)": {
+        "original": "For bassoon, guitar (arr)",
+        "zh": "大管、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For clarinet, guitar (arr)": {
+        "original": "For clarinet, guitar (arr)",
+        "zh": "单簧管、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, 2 guitars (arr)": {
+        "original": "For flute, 2 guitars (arr)",
+        "zh": "长笛、2把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, alto flute, bass flute and guitar (arr)": {
+        "original": "For flute, alto flute, bass flute and guitar (arr)",
+        "zh": "长笛、中音长笛、低音长笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, clarinet, guitar (arr)": {
+        "original": "For flute, clarinet, guitar (arr)",
+        "zh": "长笛、单簧管、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar (arr)": {
+        "original": "For flute, guitar (arr)",
+        "zh": "长笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar and flute (arr)": {
+        "original": "For guitar and flute (arr)",
+        "zh": "吉他、长笛·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For oboe, guitar (arr)": {
+        "original": "For oboe, guitar (arr)",
+        "zh": "双簧管、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For piccolo clarinet and guitar (arr)": {
+        "original": "For piccolo clarinet and guitar (arr)",
+        "zh": "高音单簧管、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "piccolo clarinet 是高音单簧管的复合名称，不应拆成短笛与单簧管。"
+      },
+      "For recorder, 2 guitars (arr)": {
+        "original": "For recorder, 2 guitars (arr)",
+        "zh": "竖笛、2把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, guitar (arr)": {
+        "original": "For recorder, guitar (arr)",
+        "zh": "竖笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For soprano saxophone and guitar (arr)": {
+        "original": "For soprano saxophone and guitar (arr)",
+        "zh": "高音萨克斯管、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For tenor recorder and guitar (arr)": {
+        "original": "For tenor recorder and guitar (arr)",
+        "zh": "次中音竖笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For tenor recorder, bass recorder and guitar (arr)": {
+        "original": "For tenor recorder, bass recorder and guitar (arr)",
+        "zh": "次中音竖笛、低音竖笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For trumpet, guitar": {
+        "original": "For trumpet, guitar",
+        "zh": "小号、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, harmonium": {
+        "original": "For 2 guitars, harmonium",
+        "zh": "2把吉他、簧风琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, piano": {
+        "original": "For 2 guitars, piano",
+        "zh": "2把吉他、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For accordion, 2 guitars": {
+        "original": "For accordion, 2 guitars",
+        "zh": "手风琴、2把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For accordion, guitar": {
+        "original": "For accordion, guitar",
+        "zh": "手风琴、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For concertina, guitar": {
+        "original": "For concertina, guitar",
+        "zh": "六角手风琴、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, harpsichord": {
+        "original": "For guitar, harpsichord",
+        "zh": "吉他、羽管键琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, piano": {
+        "original": "For guitar, piano",
+        "zh": "吉他、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For harmonica, guitar": {
+        "original": "For harmonica, guitar",
+        "zh": "口琴、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For concertina, guitar (arr)": {
+        "original": "For concertina, guitar (arr)",
+        "zh": "六角手风琴、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, harpsichord (arr)": {
+        "original": "For guitar, harpsichord (arr)",
+        "zh": "吉他、羽管键琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, piano (arr)": {
+        "original": "For guitar, piano (arr)",
+        "zh": "吉他、钢琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For harmonica, guitar (arr)": {
+        "original": "For harmonica, guitar (arr)",
+        "zh": "口琴、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For piano and guitar (arr)": {
+        "original": "For piano and guitar (arr)",
+        "zh": "钢琴、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 lutes": {
+        "original": "For guitar, 2 lutes",
+        "zh": "吉他、2把鲁特琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins": {
+        "original": "For guitar, 2 mandolins",
+        "zh": "吉他、2把曼陀林·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins, mandocello, lute": {
+        "original": "For guitar, 2 mandolins, mandocello, lute",
+        "zh": "吉他、2把曼陀林、曼陀大提琴、鲁特琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins, mandola": {
+        "original": "For guitar, 2 mandolins, mandola",
+        "zh": "吉他、2把曼陀林、曼陀拉·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins, mandola, lute": {
+        "original": "For guitar, 2 mandolins, mandola, lute",
+        "zh": "吉他、2把曼陀林、曼陀拉、鲁特琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins, mandola, mandocello": {
+        "original": "For guitar, 2 mandolins, mandola, mandocello",
+        "zh": "吉他、2把曼陀林、曼陀拉、曼陀大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 3 mandolins": {
+        "original": "For guitar, 3 mandolins",
+        "zh": "吉他、3把曼陀林·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 3 mandolins, 2 mandolas": {
+        "original": "For guitar, 3 mandolins, 2 mandolas",
+        "zh": "吉他、3把曼陀林、2把曼陀拉·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 3 mandolins, mandola, mandocello": {
+        "original": "For guitar, 3 mandolins, mandola, mandocello",
+        "zh": "吉他、3把曼陀林、曼陀拉、曼陀大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, bandurria": {
+        "original": "For guitar, bandurria",
+        "zh": "吉他、班杜里亚琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, banjo": {
+        "original": "For guitar, banjo",
+        "zh": "吉他、班卓琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, harp": {
+        "original": "For guitar, harp",
+        "zh": "吉他、竖琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, lute": {
+        "original": "For guitar, lute",
+        "zh": "吉他、鲁特琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, mandola": {
+        "original": "For guitar, mandola",
+        "zh": "吉他、曼陀拉·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, mandolin": {
+        "original": "For guitar, mandolin",
+        "zh": "吉他、曼陀林·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, mandolin, bandurria": {
+        "original": "For guitar, mandolin, bandurria",
+        "zh": "吉他、曼陀林、班杜里亚琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, mandolin, mandola": {
+        "original": "For guitar, mandolin, mandola",
+        "zh": "吉他、曼陀林、曼陀拉·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 bandurrias or 2 mandolins and guitar (arr)": {
+        "original": "For 2 bandurrias or 2 mandolins and guitar (arr)",
+        "zh": "2把班杜里亚琴或2把曼陀林、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars and mandolin (arr)": {
+        "original": "For 2 guitars and mandolin (arr)",
+        "zh": "2把吉他、曼陀林·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 mandolins, mandola and guitar (arr)": {
+        "original": "For 2 mandolins, mandola and guitar (arr)",
+        "zh": "2把曼陀林、曼陀拉、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 mandolins, mandola, mandocello and guitar (arr)": {
+        "original": "For 2 mandolins, mandola, mandocello and guitar (arr)",
+        "zh": "2把曼陀林、曼陀拉、曼陀大提琴、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 3 guitars, 4 lutes, 3 bandurrias (arr)": {
+        "original": "For 3 guitars, 4 lutes, 3 bandurrias (arr)",
+        "zh": "3把吉他、4把鲁特琴、3把班杜里亚琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 3 guitars, 5 lutes, 3 bandurrias (arr)": {
+        "original": "For 3 guitars, 5 lutes, 3 bandurrias (arr)",
+        "zh": "3把吉他、5把鲁特琴、3把班杜里亚琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 4 guitars, ukulele (arr)": {
+        "original": "For 4 guitars, ukulele (arr)",
+        "zh": "4把吉他、尤克里里·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For banjo and guitar (arr)": {
+        "original": "For banjo and guitar (arr)",
+        "zh": "班卓琴、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 lutes, 2 bandurrias (arr)": {
+        "original": "For guitar, 2 lutes, 2 bandurrias (arr)",
+        "zh": "吉他、2把鲁特琴、2把班杜里亚琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins (arr)": {
+        "original": "For guitar, 2 mandolins (arr)",
+        "zh": "吉他、2把曼陀林·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins, lute (arr)": {
+        "original": "For guitar, 2 mandolins, lute (arr)",
+        "zh": "吉他、2把曼陀林、鲁特琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins, mandola (arr)": {
+        "original": "For guitar, 2 mandolins, mandola (arr)",
+        "zh": "吉他、2把曼陀林、曼陀拉·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins, mandola, mandocello (arr)": {
+        "original": "For guitar, 2 mandolins, mandola, mandocello (arr)",
+        "zh": "吉他、2把曼陀林、曼陀拉、曼陀大提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 3 mandolins (arr)": {
+        "original": "For guitar, 3 mandolins (arr)",
+        "zh": "吉他、3把曼陀林·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 4 mandolins (arr)": {
+        "original": "For guitar, 4 mandolins (arr)",
+        "zh": "吉他、4把曼陀林·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, lute (arr)": {
+        "original": "For guitar, lute (arr)",
+        "zh": "吉他、鲁特琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, lute, 2 bandurrias (arr)": {
+        "original": "For guitar, lute, 2 bandurrias (arr)",
+        "zh": "吉他、鲁特琴、2把班杜里亚琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, lute, bandurria (arr)": {
+        "original": "For guitar, lute, bandurria (arr)",
+        "zh": "吉他、鲁特琴、班杜里亚琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, mandolin (arr)": {
+        "original": "For guitar, mandolin (arr)",
+        "zh": "吉他、曼陀林·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, ukulele (arr)": {
+        "original": "For guitar, ukulele (arr)",
+        "zh": "吉他、尤克里里·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For mandolin and guitar (arr)": {
+        "original": "For mandolin and guitar (arr)",
+        "zh": "曼陀林、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For mandolin, banjo, resonator and guitar (arr)": {
+        "original": "For mandolin, banjo, resonator and guitar (arr)",
+        "zh": "曼陀林、班卓琴、共鸣吉他、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, percussion": {
+        "original": "For 2 guitars, percussion",
+        "zh": "2把吉他、打击乐·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For marimba, guitar": {
+        "original": "For marimba, guitar",
+        "zh": "马林巴、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For percussion, 2 guitars": {
+        "original": "For percussion, 2 guitars",
+        "zh": "打击乐、2把吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For percussion, guitar": {
+        "original": "For percussion, guitar",
+        "zh": "打击乐、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 4 guitars, percussion (arr)": {
+        "original": "For 4 guitars, percussion (arr)",
+        "zh": "4把吉他、打击乐·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 flutes, guitar, 2 violins, viola, cello": {
+        "original": "For 2 flutes, guitar, 2 violins, viola, cello",
+        "zh": "2支长笛、吉他、2把小提琴、中提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, 2 mandolins, mandola, double bass": {
+        "original": "For 2 guitars, 2 mandolins, mandola, double bass",
+        "zh": "2把吉他、2把曼陀林、曼陀拉、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, 3 mandolins, mandola, double bass": {
+        "original": "For 2 guitars, 3 mandolins, mandola, double bass",
+        "zh": "2把吉他、3把曼陀林、曼陀拉、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, lute, bandurria, double bass": {
+        "original": "For 2 guitars, lute, bandurria, double bass",
+        "zh": "2把吉他、鲁特琴、班杜里亚琴、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 saxophones, trumpet, trombone, percussion, 2 guitars, keyboard": {
+        "original": "For 2 saxophones, trumpet, trombone, percussion, 2 guitars, keyboard",
+        "zh": "2支萨克斯管、小号、长号、打击乐、2把吉他、键盘乐器·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 3 flutes, percussion, celesta, 2 guitars, 2 mandolins, harp, piano": {
+        "original": "For 3 flutes, percussion, celesta, 2 guitars, 2 mandolins, harp, piano",
+        "zh": "3支长笛、打击乐、钢片琴、2把吉他、2把曼陀林、竖琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 3 guitars, 2 mandolins, mandola, mandocello, double bass": {
+        "original": "For 3 guitars, 2 mandolins, mandola, mandocello, double bass",
+        "zh": "3把吉他、2把曼陀林、曼陀拉、曼陀大提琴、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 4 guitars, percussion, double bass": {
+        "original": "For 4 guitars, percussion, double bass",
+        "zh": "4把吉他、打击乐、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For accordion, guitar, double bass, keyboard": {
+        "original": "For accordion, guitar, double bass, keyboard",
+        "zh": "手风琴、吉他、低音提琴、键盘乐器·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For accordion, guitar, violin, double bass, keyboard": {
+        "original": "For accordion, guitar, violin, double bass, keyboard",
+        "zh": "手风琴、吉他、小提琴、低音提琴、键盘乐器·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For accordion, percussion, guitar, piano": {
+        "original": "For accordion, percussion, guitar, piano",
+        "zh": "手风琴、打击乐、吉他、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For alto flute, 2 guitars, percussion, harpsichord": {
+        "original": "For alto flute, 2 guitars, percussion, harpsichord",
+        "zh": "中音长笛、2把吉他、打击乐、羽管键琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For bass clarinet, percussion, 2 guitars, violin, double bass, piano": {
+        "original": "For bass clarinet, percussion, 2 guitars, violin, double bass, piano",
+        "zh": "低音单簧管、打击乐、2把吉他、小提琴、低音提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For bells, guitar, 2 mandolins, mandola, double bass": {
+        "original": "For bells, guitar, 2 mandolins, mandola, double bass",
+        "zh": "钟、吉他、2把曼陀林、曼陀拉、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For clarinet, 2 guitars, violin": {
+        "original": "For clarinet, 2 guitars, violin",
+        "zh": "单簧管、2把吉他、小提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For clarinet, bassoon, guitar, violin, piano": {
+        "original": "For clarinet, bassoon, guitar, violin, piano",
+        "zh": "单簧管、大管、吉他、小提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For clarinet, bassoon, guitar, violin, viola, piano": {
+        "original": "For clarinet, bassoon, guitar, violin, viola, piano",
+        "zh": "单簧管、大管、吉他、小提琴、中提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For clarinet, guitar, viola": {
+        "original": "For clarinet, guitar, viola",
+        "zh": "单簧管、吉他、中提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For clarinet, guitar, violin, cello, piano": {
+        "original": "For clarinet, guitar, violin, cello, piano",
+        "zh": "单簧管、吉他、小提琴、大提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For clarinet, guitar, violin, viola, cello, piano": {
+        "original": "For clarinet, guitar, violin, viola, cello, piano",
+        "zh": "单簧管、吉他、小提琴、中提琴、大提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For clarinet, percussion, 2 guitars, violin, double bass, piano": {
+        "original": "For clarinet, percussion, 2 guitars, violin, double bass, piano",
+        "zh": "单簧管、打击乐、2把吉他、小提琴、低音提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For clarinet, percussion, guitar": {
+        "original": "For clarinet, percussion, guitar",
+        "zh": "单簧管、打击乐、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For concertina, guitar, strings": {
+        "original": "For concertina, guitar, strings",
+        "zh": "六角手风琴、吉他、弦乐·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For English horn, guitar": {
+        "original": "For English horn, guitar",
+        "zh": "英国管、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, accordion, percussion, guitar, violin, double bass, keyboard": {
+        "original": "For flute, accordion, percussion, guitar, violin, double bass, keyboard",
+        "zh": "长笛、手风琴、打击乐、吉他、小提琴、低音提琴、键盘乐器·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, accordion, trumpet, guitar, double bass": {
+        "original": "For flute, accordion, trumpet, guitar, double bass",
+        "zh": "长笛、手风琴、小号、吉他、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, bass clarinet, guitar, violin": {
+        "original": "For flute, bass clarinet, guitar, violin",
+        "zh": "长笛、低音单簧管、吉他、小提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, bassoon, guitar, viola": {
+        "original": "For flute, bassoon, guitar, viola",
+        "zh": "长笛、大管、吉他、中提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, bassoon, guitar, violin, piano": {
+        "original": "For flute, bassoon, guitar, violin, piano",
+        "zh": "长笛、大管、吉他、小提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, bassoon, guitar, violin, viola, piano": {
+        "original": "For flute, bassoon, guitar, violin, viola, piano",
+        "zh": "长笛、大管、吉他、小提琴、中提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, bassoon, trumpet, guitar": {
+        "original": "For flute, bassoon, trumpet, guitar",
+        "zh": "长笛、大管、小号、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, clarinet, guitar, mandolin": {
+        "original": "For flute, clarinet, guitar, mandolin",
+        "zh": "长笛、单簧管、吉他、曼陀林·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, clarinet, marimba, vibraphone, guitar": {
+        "original": "For flute, clarinet, marimba, vibraphone, guitar",
+        "zh": "长笛、单簧管、马林巴、颤音琴、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, clarinet, percussion, guitar, violin, cello, piano": {
+        "original": "For flute, clarinet, percussion, guitar, violin, cello, piano",
+        "zh": "长笛、单簧管、打击乐、吉他、小提琴、大提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, clarinet, trombone, marimba, guitar, violin, viola, cello, piano": {
+        "original": "For flute, clarinet, trombone, marimba, guitar, violin, viola, cello, piano",
+        "zh": "长笛、单簧管、长号、马林巴、吉他、小提琴、中提琴、大提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, clarinet, trumpet, percussion, guitar, cello": {
+        "original": "For flute, clarinet, trumpet, percussion, guitar, cello",
+        "zh": "长笛、单簧管、小号、打击乐、吉他、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, 2 mandolins, mandola, mandocello, double bass": {
+        "original": "For flute, guitar, 2 mandolins, mandola, mandocello, double bass",
+        "zh": "长笛、吉他、2把曼陀林、曼陀拉、曼陀大提琴、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, 2 violins, piano": {
+        "original": "For flute, guitar, 2 violins, piano",
+        "zh": "长笛、吉他、2把小提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, cello": {
+        "original": "For flute, guitar, cello",
+        "zh": "长笛、吉他、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, electric piano": {
+        "original": "For flute, guitar, electric piano",
+        "zh": "长笛、吉他、电钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, mandolin": {
+        "original": "For flute, guitar, mandolin",
+        "zh": "长笛、吉他、曼陀林·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, mandolin, double bass": {
+        "original": "For flute, guitar, mandolin, double bass",
+        "zh": "长笛、吉他、曼陀林、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, strings": {
+        "original": "For flute, guitar, strings",
+        "zh": "长笛、吉他、弦乐·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, viola": {
+        "original": "For flute, guitar, viola",
+        "zh": "长笛、吉他、中提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, violin": {
+        "original": "For flute, guitar, violin",
+        "zh": "长笛、吉他、小提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, violin, cello": {
+        "original": "For flute, guitar, violin, cello",
+        "zh": "长笛、吉他、小提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, violin, cello, piano": {
+        "original": "For flute, guitar, violin, cello, piano",
+        "zh": "长笛、吉他、小提琴、大提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, violin, viola": {
+        "original": "For flute, guitar, violin, viola",
+        "zh": "长笛、吉他、小提琴、中提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, violin, viola, cello": {
+        "original": "For flute, guitar, violin, viola, cello",
+        "zh": "长笛、吉他、小提琴、中提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, violin, viola, cello, piano": {
+        "original": "For flute, guitar, violin, viola, cello, piano",
+        "zh": "长笛、吉他、小提琴、中提琴、大提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, horn, guitar": {
+        "original": "For flute, horn, guitar",
+        "zh": "长笛、圆号、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, horn, trumpet, guitar, violin, cello, piano": {
+        "original": "For flute, horn, trumpet, guitar, violin, cello, piano",
+        "zh": "长笛、圆号、小号、吉他、小提琴、大提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, marimba, guitar, mandolin, violin, cello": {
+        "original": "For flute, marimba, guitar, mandolin, violin, cello",
+        "zh": "长笛、马林巴、吉他、曼陀林、小提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, oboe, clarinet, bassoon, horn, guitar": {
+        "original": "For flute, oboe, clarinet, bassoon, horn, guitar",
+        "zh": "长笛、双簧管、单簧管、大管、圆号、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, oboe, clarinet, saxophone, 2 guitars, viola, piano": {
+        "original": "For flute, oboe, clarinet, saxophone, 2 guitars, viola, piano",
+        "zh": "长笛、双簧管、单簧管、萨克斯管、2把吉他、中提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, oboe, horn, percussion, guitar, 2 violins, viola, cello": {
+        "original": "For flute, oboe, horn, percussion, guitar, 2 violins, viola, cello",
+        "zh": "长笛、双簧管、圆号、打击乐、吉他、2把小提琴、中提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, oboe, saxophone, celesta, guitar, harp": {
+        "original": "For flute, oboe, saxophone, celesta, guitar, harp",
+        "zh": "长笛、双簧管、萨克斯管、钢片琴、吉他、竖琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, oboe, vibraphone, guitar, double bass": {
+        "original": "For flute, oboe, vibraphone, guitar, double bass",
+        "zh": "长笛、双簧管、颤音琴、吉他、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, percussion, guitar": {
+        "original": "For flute, percussion, guitar",
+        "zh": "长笛、打击乐、吉他·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, percussion, guitar, harp, bandurria, viola, double bass, piano": {
+        "original": "For flute, percussion, guitar, harp, bandurria, viola, double bass, piano",
+        "zh": "长笛、打击乐、吉他、竖琴、班杜里亚琴、中提琴、低音提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, percussion, guitar, mandolin, double bass": {
+        "original": "For flute, percussion, guitar, mandolin, double bass",
+        "zh": "长笛、打击乐、吉他、曼陀林、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, recorder, guitar, violin": {
+        "original": "For flute, recorder, guitar, violin",
+        "zh": "长笛、竖笛、吉他、小提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For glockenspiel, guitar, 2 mandolins, 2 mandolas": {
+        "original": "For glockenspiel, guitar, 2 mandolins, 2 mandolas",
+        "zh": "钟琴、吉他、2把曼陀林、2把曼陀拉·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For glockenspiel, guitar, 2 mandolins, mandola, mandocello, double bass": {
+        "original": "For glockenspiel, guitar, 2 mandolins, mandola, mandocello, double bass",
+        "zh": "钟琴、吉他、2把曼陀林、曼陀拉、曼陀大提琴、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolas, 3 violins": {
+        "original": "For guitar, 2 mandolas, 3 violins",
+        "zh": "吉他、2把曼陀拉、3把小提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins, mandola, 2 mandocellos, double bass": {
+        "original": "For guitar, 2 mandolins, mandola, 2 mandocellos, double bass",
+        "zh": "吉他、2把曼陀林、曼陀拉、2把曼陀大提琴、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins, mandola, double bass": {
+        "original": "For guitar, 2 mandolins, mandola, double bass",
+        "zh": "吉他、2把曼陀林、曼陀拉、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins, mandola, mandocello, double bass": {
+        "original": "For guitar, 2 mandolins, mandola, mandocello, double bass",
+        "zh": "吉他、2把曼陀林、曼陀拉、曼陀大提琴、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 treble instruments, bass instrument": {
+        "original": "For guitar, 2 treble instruments, bass instrument",
+        "zh": "吉他、2件高音乐器、低音乐器·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, bass instrument": {
+        "original": "For guitar, bass instrument",
+        "zh": "吉他、低音乐器·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, duduk, piano": {
+        "original": "For guitar, duduk, piano",
+        "zh": "吉他、杜杜克管、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, mandola, 2 violins": {
+        "original": "For guitar, mandola, 2 violins",
+        "zh": "吉他、曼陀拉、2把小提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, mandola, strings": {
+        "original": "For guitar, mandola, strings",
+        "zh": "吉他、曼陀拉、弦乐·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, mandolin, cello": {
+        "original": "For guitar, mandolin, cello",
+        "zh": "吉他、曼陀林、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, mandolin, mandola, mandocello, double bass": {
+        "original": "For guitar, mandolin, mandola, mandocello, double bass",
+        "zh": "吉他、曼陀林、曼陀拉、曼陀大提琴、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, mandolin, piano": {
+        "original": "For guitar, mandolin, piano",
+        "zh": "吉他、曼陀林、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, mandolin, violin": {
+        "original": "For guitar, mandolin, violin",
+        "zh": "吉他、曼陀林、小提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, percussion, double bass": {
+        "original": "For guitar, percussion, double bass",
+        "zh": "吉他、打击乐、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, treble instrument": {
+        "original": "For guitar, treble instrument",
+        "zh": "吉他、高音乐器·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, violin, bass instrument": {
+        "original": "For guitar, violin, bass instrument",
+        "zh": "吉他、小提琴、低音乐器·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, violin, continuo": {
+        "original": "For guitar, violin, continuo",
+        "zh": "吉他、小提琴、通奏低音·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, violin, piano": {
+        "original": "For guitar, violin, piano",
+        "zh": "吉他、小提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, violin, viola, cello, double bass, piano": {
+        "original": "For guitar, violin, viola, cello, double bass, piano",
+        "zh": "吉他、小提琴、中提琴、大提琴、低音提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For horn, guitar, violin, viola, cello": {
+        "original": "For horn, guitar, violin, viola, cello",
+        "zh": "圆号、吉他、小提琴、中提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For oboe, guitar, violin, cello": {
+        "original": "For oboe, guitar, violin, cello",
+        "zh": "双簧管、吉他、小提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For ocarina, guitar, violin": {
+        "original": "For ocarina, guitar, violin",
+        "zh": "陶笛、吉他、小提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For percussion, 2 guitars, cello": {
+        "original": "For percussion, 2 guitars, cello",
+        "zh": "打击乐、2把吉他、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For percussion, guitar, double bass, piano": {
+        "original": "For percussion, guitar, double bass, piano",
+        "zh": "打击乐、吉他、低音提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For percussion, guitar, piano": {
+        "original": "For percussion, guitar, piano",
+        "zh": "打击乐、吉他、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For percussion, marimba, guitar, violin, viola, cello, piano": {
+        "original": "For percussion, marimba, guitar, violin, viola, cello, piano",
+        "zh": "打击乐、马林巴、吉他、小提琴、中提琴、大提琴、钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, 2 guitars, erhu, cello": {
+        "original": "For recorder, 2 guitars, erhu, cello",
+        "zh": "竖笛、2把吉他、二胡、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, 2 guitars, violin, cello": {
+        "original": "For recorder, 2 guitars, violin, cello",
+        "zh": "竖笛、2把吉他、小提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, guitar, 2 mandolins, mandola, mandocello": {
+        "original": "For recorder, guitar, 2 mandolins, mandola, mandocello",
+        "zh": "竖笛、吉他、2把曼陀林、曼陀拉、曼陀大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, guitar, 2 mandolins, mandola, mandocello, double bass": {
+        "original": "For recorder, guitar, 2 mandolins, mandola, mandocello, double bass",
+        "zh": "竖笛、吉他、2把曼陀林、曼陀拉、曼陀大提琴、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, guitar, cello": {
+        "original": "For recorder, guitar, cello",
+        "zh": "竖笛、吉他、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, guitar, erhu, cello": {
+        "original": "For recorder, guitar, erhu, cello",
+        "zh": "竖笛、吉他、二胡、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, guitar, violin": {
+        "original": "For recorder, guitar, violin",
+        "zh": "竖笛、吉他、小提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, guitar, violin, cello": {
+        "original": "For recorder, guitar, violin, cello",
+        "zh": "竖笛、吉他、小提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, percussion, 2 guitars, erhu, cello": {
+        "original": "For recorder, percussion, 2 guitars, erhu, cello",
+        "zh": "竖笛、打击乐、2把吉他、二胡、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, percussion, 2 guitars, violin, cello": {
+        "original": "For recorder, percussion, 2 guitars, violin, cello",
+        "zh": "竖笛、打击乐、2把吉他、小提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, percussion, guitar, erhu, cello": {
+        "original": "For recorder, percussion, guitar, erhu, cello",
+        "zh": "竖笛、打击乐、吉他、二胡、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, percussion, guitar, violin, cello": {
+        "original": "For recorder, percussion, guitar, violin, cello",
+        "zh": "竖笛、打击乐、吉他、小提琴、大提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For soprano saxophone, tuba, percussion, marimba, guitar, viola, double bass, electric piano": {
+        "original": "For soprano saxophone, tuba, percussion, marimba, guitar, viola, double bass, electric piano",
+        "zh": "高音萨克斯管、大号、打击乐、马林巴、吉他、中提琴、低音提琴、电钢琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For tenor saxophone, guitar, double bass": {
+        "original": "For tenor saxophone, guitar, double bass",
+        "zh": "次中音萨克斯管、吉他、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For timpani, guitar, 2 mandolins, mandola, 3 mandocellos, harp, double bass": {
+        "original": "For timpani, guitar, 2 mandolins, mandola, 3 mandocellos, harp, double bass",
+        "zh": "定音鼓、吉他、2把曼陀林、曼陀拉、3把曼陀大提琴、竖琴、低音提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For vibraphone, guitar, violin": {
+        "original": "For vibraphone, guitar, violin",
+        "zh": "颤音琴、吉他、小提琴·原作",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 flutes, 2 clarinets, guitar, 3 violins, 3 cellos (arr)": {
+        "original": "For 2 flutes, 2 clarinets, guitar, 3 violins, 3 cellos (arr)",
+        "zh": "2支长笛、2支单簧管、吉他、3把小提琴、3把大提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, 2 mandolins, mandola, mandocello, percussion, timpani, double bass (arr)": {
+        "original": "For 2 guitars, 2 mandolins, mandola, mandocello, percussion, timpani, double bass (arr)",
+        "zh": "2把吉他、2把曼陀林、曼陀拉、曼陀大提琴、打击乐、定音鼓、低音提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, 2 treble instruments (arr)": {
+        "original": "For 2 guitars, 2 treble instruments (arr)",
+        "zh": "2把吉他、2件高音乐器·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 guitars, treble instrument (arr)": {
+        "original": "For 2 guitars, treble instrument (arr)",
+        "zh": "2把吉他、高音乐器·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 mandolins, guitar, mandola and mandolon-cello (arr)": {
+        "original": "For 2 mandolins, guitar, mandola and mandolon-cello (arr)",
+        "zh": "2把曼陀林、吉他、曼陀拉、曼陀隆大提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 treble instruments, guitar (arr)": {
+        "original": "For 2 treble instruments, guitar (arr)",
+        "zh": "2件高音乐器、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 2 violins, viola, cello, double bass, guitar and accordion (arr)": {
+        "original": "For 2 violins, viola, cello, double bass, guitar and accordion (arr)",
+        "zh": "2把小提琴、中提琴、大提琴、低音提琴、吉他、手风琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 3 guitars, 2 mandolins, mandola, bass instrument (arr)": {
+        "original": "For 3 guitars, 2 mandolins, mandola, bass instrument (arr)",
+        "zh": "3把吉他、2把曼陀林、曼陀拉、低音乐器·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 3 mandolins, mandola, mandocello, guitar, double bass (arr)": {
+        "original": "For 3 mandolins, mandola, mandocello, guitar, double bass (arr)",
+        "zh": "3把曼陀林、曼陀拉、曼陀大提琴、吉他、低音提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 3 piccolos, 7 flutes, tuba, guitar (arr)": {
+        "original": "For 3 piccolos, 7 flutes, tuba, guitar (arr)",
+        "zh": "3支短笛、7支长笛、大号、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For 4 flutes, guitar, double bass (arr)": {
+        "original": "For 4 flutes, guitar, double bass (arr)",
+        "zh": "4支长笛、吉他、低音提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For accordion, guitar, 2 violins, viola, cello and double bass (arr)": {
+        "original": "For accordion, guitar, 2 violins, viola, cello and double bass (arr)",
+        "zh": "手风琴、吉他、2把小提琴、中提琴、大提琴、低音提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For accordion, percussion, guitar, violin, cello, double bass, piano (arr)": {
+        "original": "For accordion, percussion, guitar, violin, cello, double bass, piano (arr)",
+        "zh": "手风琴、打击乐、吉他、小提琴、大提琴、低音提琴、钢琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For cello and piano harp guitar or for cello duo (arr)": {
+        "original": "For cello and piano harp guitar or for cello duo (arr)",
+        "zh": "大提琴与 piano harp guitar，或大提琴二重奏·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "原分类 piano harp guitar 缺少分隔、含义不明确；保留该片段，不沿用无原文依据的“钢琴式竖琴吉他”释义。"
+      },
+      "For clarinet, 2 guitars and violin (arr)": {
+        "original": "For clarinet, 2 guitars and violin (arr)",
+        "zh": "单簧管、2把吉他、小提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For clarinet, guitar, mandolin, violin, viola and cello (arr)": {
+        "original": "For clarinet, guitar, mandolin, violin, viola and cello (arr)",
+        "zh": "单簧管、吉他、曼陀林、小提琴、中提琴、大提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute or guitar and piano (arr)": {
+        "original": "For flute or guitar and piano (arr)",
+        "zh": "长笛或吉他、钢琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute or violin and guitar (arr)": {
+        "original": "For flute or violin and guitar (arr)",
+        "zh": "长笛或小提琴、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute violin and guitar (arr)": {
+        "original": "For flute violin and guitar (arr)",
+        "zh": "长笛、小提琴、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "规范中文乐器分隔，保留原分类身份。"
+      },
+      "For flute, 2 guitars, cello (arr)": {
+        "original": "For flute, 2 guitars, cello (arr)",
+        "zh": "长笛、2把吉他、大提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar and cello (arr)": {
+        "original": "For flute, guitar and cello (arr)",
+        "zh": "长笛、吉他、大提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, 2 violins, viola and cello (arr)": {
+        "original": "For flute, guitar, 2 violins, viola and cello (arr)",
+        "zh": "长笛、吉他、2把小提琴、中提琴、大提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, harpsichord (arr)": {
+        "original": "For flute, guitar, harpsichord (arr)",
+        "zh": "长笛、吉他、羽管键琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, piano (arr)": {
+        "original": "For flute, guitar, piano (arr)",
+        "zh": "长笛、吉他、钢琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, viola (arr)": {
+        "original": "For flute, guitar, viola (arr)",
+        "zh": "长笛、吉他、中提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, viola, cello (arr)": {
+        "original": "For flute, guitar, viola, cello (arr)",
+        "zh": "长笛、吉他、中提琴、大提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, violin (arr)": {
+        "original": "For flute, guitar, violin (arr)",
+        "zh": "长笛、吉他、小提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, violin and cello (arr)": {
+        "original": "For flute, guitar, violin and cello (arr)",
+        "zh": "长笛、吉他、小提琴、大提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, violin, cello, double bass (arr)": {
+        "original": "For flute, guitar, violin, cello, double bass (arr)",
+        "zh": "长笛、吉他、小提琴、大提琴、低音提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, violin, cello, piano (arr)": {
+        "original": "For flute, guitar, violin, cello, piano (arr)",
+        "zh": "长笛、吉他、小提琴、大提琴、钢琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, guitar, violin, contrabass (arr)": {
+        "original": "For flute, guitar, violin, contrabass (arr)",
+        "zh": "长笛、吉他、小提琴、低音提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, violin and guitar (arr)": {
+        "original": "For flute, violin and guitar (arr)",
+        "zh": "长笛、小提琴、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute, violin, cello and guitar (arr)": {
+        "original": "For flute, violin, cello and guitar (arr)",
+        "zh": "长笛、小提琴、大提琴、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For flute,violin and guitar (arr)": {
+        "original": "For flute,violin and guitar (arr)",
+        "zh": "长笛、小提琴、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins and piano (arr)": {
+        "original": "For guitar, 2 mandolins and piano (arr)",
+        "zh": "吉他、2把曼陀林、钢琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins, mandola, bass instrument (arr)": {
+        "original": "For guitar, 2 mandolins, mandola, bass instrument (arr)",
+        "zh": "吉他、2把曼陀林、曼陀拉、低音乐器·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins, mandola, double bass (arr)": {
+        "original": "For guitar, 2 mandolins, mandola, double bass (arr)",
+        "zh": "吉他、2把曼陀林、曼陀拉、低音提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins, mandola, mandocello, double bass (arr)": {
+        "original": "For guitar, 2 mandolins, mandola, mandocello, double bass (arr)",
+        "zh": "吉他、2把曼陀林、曼陀拉、曼陀大提琴、低音提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 mandolins, mandola, piano (arr)": {
+        "original": "For guitar, 2 mandolins, mandola, piano (arr)",
+        "zh": "吉他、2把曼陀林、曼陀拉、钢琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 2 treble, bass instruments (arr)": {
+        "original": "For guitar, 2 treble, bass instruments (arr)",
+        "zh": "吉他、2件高音乐器、低音乐器·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 3 unspecified instruments (arr)": {
+        "original": "For guitar, 3 unspecified instruments (arr)",
+        "zh": "吉他、3件未指定乐器·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 4 mandolins, double bass (arr)": {
+        "original": "For guitar, 4 mandolins, double bass (arr)",
+        "zh": "吉他、4把曼陀林、低音提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, 4 unspecified instruments (arr)": {
+        "original": "For guitar, 4 unspecified instruments (arr)",
+        "zh": "吉他、4件未指定乐器·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, accordion, violin, double bass and piano (arr)": {
+        "original": "For guitar, accordion, violin, double bass and piano (arr)",
+        "zh": "吉他、手风琴、小提琴、低音提琴、钢琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, cello, piano (arr)": {
+        "original": "For guitar, cello, piano (arr)",
+        "zh": "吉他、大提琴、钢琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, mandolin, piano (arr)": {
+        "original": "For guitar, mandolin, piano (arr)",
+        "zh": "吉他、曼陀林、钢琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, strings, continuo (arr)": {
+        "original": "For guitar, strings, continuo (arr)",
+        "zh": "吉他、弦乐、通奏低音·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, treble instrument (arr)": {
+        "original": "For guitar, treble instrument (arr)",
+        "zh": "吉他、高音乐器·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, treble, bass instruments (arr)": {
+        "original": "For guitar, treble, bass instruments (arr)",
+        "zh": "吉他、高音乐器、低音乐器·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For guitar, violin, viola, continuo (arr)": {
+        "original": "For guitar, violin, viola, continuo (arr)",
+        "zh": "吉他、小提琴、中提琴、通奏低音·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For hand saw, bandoneon, keyboard, guitar, violin, cello and double bass (arr)": {
+        "original": "For hand saw, bandoneon, keyboard, guitar, violin, cello and double bass (arr)",
+        "zh": "音乐锯、班多钮手风琴、键盘乐器、吉他、小提琴、大提琴、低音提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For mandolin and piano or guitar (arr)": {
+        "original": "For mandolin and piano or guitar (arr)",
+        "zh": "曼陀林、钢琴或吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For mandolin or violin and guitar (arr)": {
+        "original": "For mandolin or violin and guitar (arr)",
+        "zh": "曼陀林或小提琴、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For mandolin or violin, guitar or harp guitar (arr)": {
+        "original": "For mandolin or violin, guitar or harp guitar (arr)",
+        "zh": "曼陀林或小提琴、吉他或竖琴吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "harp guitar 作为复合乐器名称译为竖琴吉他，不拆成两件乐器。"
+      },
+      "For mandolin, 2nd mandolin and piano, guitar ad libitum (arr)": {
+        "original": "For mandolin, 2nd mandolin and piano, guitar ad libitum (arr)",
+        "zh": "曼陀林、第二曼陀林、钢琴、吉他（可选）·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For oboe, guitar, harpsichord (arr)": {
+        "original": "For oboe, guitar, harpsichord (arr)",
+        "zh": "双簧管、吉他、羽管键琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For percussion, guitar, 2 mandolins, mandola, mandocello, double bass (arr)": {
+        "original": "For percussion, guitar, 2 mandolins, mandola, mandocello, double bass (arr)",
+        "zh": "打击乐、吉他、2把曼陀林、曼陀拉、曼陀大提琴、低音提琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For recorder, guitar, harpsichord (arr)": {
+        "original": "For recorder, guitar, harpsichord (arr)",
+        "zh": "竖笛、吉他、羽管键琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For treble instrument, percussion, guitar, piano (arr)": {
+        "original": "For treble instrument, percussion, guitar, piano (arr)",
+        "zh": "高音乐器、打击乐、吉他、钢琴·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For violin or flute and 2 guitars (arr)": {
+        "original": "For violin or flute and 2 guitars (arr)",
+        "zh": "小提琴或长笛、2把吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      },
+      "For violin or flute and guitar (arr)": {
+        "original": "For violin or flute and guitar (arr)",
+        "zh": "小提琴或长笛、吉他·改编",
+        "status": "reference",
+        "basis": "approved_imslp_category_label_review_2026_09_29",
+        "reason": "对照批准来源分类复核中文乐器、数量与原作/改编标签；分类译名不等于每份谱面的编制已核验。"
+      }
+    },
+    "classclef": {
+      "page:3952": {
+        "original": "5914 Classical and Latin Guitar Tabs, PDF, MIDI",
+        "zh": "5914 首古典与拉丁吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "posts-only": {
+        "original": "Additional indexed scores",
+        "zh": "其他已索引乐谱",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:24031": {
+        "original": "Agustin Barrios Mangore (Classical Guitar Tabs)",
+        "zh": "阿古斯丁·巴里奥斯·曼戈雷（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:32832": {
+        "original": "Andres Segovia (Classical Guitar Tabs)",
+        "zh": "安德烈斯·塞戈维亚（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:31106": {
+        "original": "Anton Diabelli (Classical Guitar Tabs)",
+        "zh": "安东·迪亚贝利（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:40151": {
+        "original": "Antonio Lauro (Classical Guitar Tabs)",
+        "zh": "安东尼奥·劳罗（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:32544": {
+        "original": "Astor Piazzolla (Classical Guitar Tabs)",
+        "zh": "阿斯托尔·皮亚佐拉（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:3954": {
+        "original": "B: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "B：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:39200": {
+        "original": "Baden Powell (Classical Guitar Tabs)",
+        "zh": "巴登·鲍威尔（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:5110": {
+        "original": "Bartolome Calatayud (Classical Guitar Tabs)",
+        "zh": "巴托洛梅·卡拉塔尤德（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:3968": {
+        "original": "C: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "C：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:30663": {
+        "original": "Chet Atkins (Fingerstyle Guitar Tabs)",
+        "zh": "切特·阿特金斯（指弹吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:32845": {
+        "original": "Christopher Parkening (Classical Guitar Tabs)",
+        "zh": "克里斯托弗·帕肯宁（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:3970": {
+        "original": "D: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "D：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:32365": {
+        "original": "Dionisio Aguado (Classical Guitar Tab)",
+        "zh": "迪奥尼西奥·阿瓜多（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:30160": {
+        "original": "Domenico Scarlatti (Classical Guitar Tabs)",
+        "zh": "多梅尼科·斯卡拉蒂（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:3974": {
+        "original": "E: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "E：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:24115": {
+        "original": "Elias Mertel (Classical Guitar Tabs)",
+        "zh": "埃利亚斯·默特尔（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:30149": {
+        "original": "Ernst Gottlieb Baron (Classical Guitar Tabs)",
+        "zh": "恩斯特·戈特利布·巴隆（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:3972": {
+        "original": "F: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "F：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:24098": {
+        "original": "Ferdinando Carulli (Classical Guitar Tabs)",
+        "zh": "费迪南多·卡鲁利（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:30165": {
+        "original": "Fernando Sor (Classical Guitar Tabs)",
+        "zh": "费尔南多·索尔（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:30169": {
+        "original": "Francisco Tarrega (Classical Guitar Tabs)",
+        "zh": "弗朗西斯科·塔雷加（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:30494": {
+        "original": "Frederic Chopin (Classical Guitar Tabs)",
+        "zh": "弗雷德里克·肖邦（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:3998": {
+        "original": "Full Song List L",
+        "zh": "L：完整曲目目录",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:3976": {
+        "original": "G: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "G：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:30157": {
+        "original": "Gaspar Sanz (Classical Guitar Tabs)",
+        "zh": "加斯帕·桑斯（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:3978": {
+        "original": "H: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "H：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:33664": {
+        "original": "Harry Sacksioni (Guitar Tabs)",
+        "zh": "哈里·萨克西奥尼（吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:3979": {
+        "original": "I: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "I：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:3994": {
+        "original": "J: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "J：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:40680": {
+        "original": "Joao Pernambuco (Classical Guitar Tabs)",
+        "zh": "若昂·伯南布哥（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:32651": {
+        "original": "Joep Wanders (Guitar Tabs)",
+        "zh": "约普·万德尔斯（吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:30513": {
+        "original": "Johann Kaspar Mertz (Classical Guitar Tabs)",
+        "zh": "约翰·卡斯帕·默茨（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:4842": {
+        "original": "Johann Sebastian Bach (Classical Guitar Tabs)",
+        "zh": "约翰·塞巴斯蒂安·巴赫（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:30983": {
+        "original": "John Dowland (Classical Guitar Tabs)",
+        "zh": "约翰·道兰（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:32939": {
+        "original": "John Fahey (Fingerstyle Guitar Tabs)",
+        "zh": "约翰·费伊（指弹吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:29949": {
+        "original": "John Renbourn (Guitar Tabs)",
+        "zh": "约翰·伦伯恩（吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:32840": {
+        "original": "John Williams (Classical Guitar Tabs)",
+        "zh": "约翰·威廉斯（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:30176": {
+        "original": "Jorge Cardoso (Classical Guitar Tabs)",
+        "zh": "豪尔赫·卡多索（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:55306": {
+        "original": "Julio Sagreras (Classical Guitar Tabs)",
+        "zh": "胡里奥·萨格雷拉斯（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:3996": {
+        "original": "K: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "K：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:34133": {
+        "original": "L: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "L：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:30183": {
+        "original": "Leo Brouwer (Classical Guitar Tabs)",
+        "zh": "莱奥·布劳威尔（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:24040": {
+        "original": "Ludwig Van Beethoven (Classical Guitar Tabs)",
+        "zh": "路德维希·范·贝多芬（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:4001": {
+        "original": "M: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "M：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:32928": {
+        "original": "Manolo Sanlucar (Flamenco Guitar Tabs)",
+        "zh": "马诺洛·桑卢卡尔（弗拉门戈吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:32945": {
+        "original": "Masaaki Kishibe (Fingerstyle Guitar Tabs)",
+        "zh": "岸部真明（指弹吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。",
+        "source_refs": [
+          "https://masaaki-kishibe.com/profile/"
+        ]
+      },
+      "page:24070": {
+        "original": "Matteo Carcassi (Classical Guitar Tabs)",
+        "zh": "马泰奥·卡尔卡西（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:30798": {
+        "original": "Mauro Giuliani (Classical Guitar Tabs)",
+        "zh": "毛罗·朱利安尼（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:4003": {
+        "original": "N: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "N：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:24071": {
+        "original": "Napoleon Coste (Classical Guitar Tabs)",
+        "zh": "拿破仑·科斯特（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:55832": {
+        "original": "Niccolo Paganini (Classical Guitar Tabs)",
+        "zh": "尼科洛·帕格尼尼（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:4005": {
+        "original": "O: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "O：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:4007": {
+        "original": "P: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "P：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:30560": {
+        "original": "Paco de Lucia (Flamenco Guitar Tabs)",
+        "zh": "帕科·德·卢西亚（弗拉门戈吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:31203": {
+        "original": "Pierre Dubut",
+        "zh": "皮埃尔·迪比",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:30473": {
+        "original": "Pyotr Ilyich Tchaikovsky (Classical Guitar Tabs)",
+        "zh": "彼得·伊里奇·柴可夫斯基（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:4262": {
+        "original": "Q: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "Q：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:4009": {
+        "original": "R: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "R：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:24107": {
+        "original": "Rafael Marin",
+        "zh": "拉斐尔·马林",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:53653": {
+        "original": "Roland Dyens (Classical Guitar Tabs)",
+        "zh": "罗兰·迪昂（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:4011": {
+        "original": "S: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "S：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:32924": {
+        "original": "Sabicas (Flamenco Guitar Tabs)",
+        "zh": "萨比卡斯（弗拉门戈吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:29955": {
+        "original": "Stepan Rak (Classical Guitar Tabs)",
+        "zh": "什捷潘·拉克（古典吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:39563": {
+        "original": "Sungha Jung (Fingerstyle Guitar Tabs)",
+        "zh": "郑晟河（指弹吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。",
+        "source_refs": [
+          "https://wsm.asia/2025-sungha-jung-live-in-taiwan/"
+        ]
+      },
+      "page:4012": {
+        "original": "T: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "T：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:29594": {
+        "original": "The Beatles (Guitar Tabs)",
+        "zh": "披头士乐队（吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:32934": {
+        "original": "Tomatito (Flamenco Guitar Tabs)",
+        "zh": "托马蒂托（弗拉门戈吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:32941": {
+        "original": "Tommy Emmanuel (Fingerstyle Guitar Tabs)",
+        "zh": "汤米·伊曼纽尔（指弹吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:4017": {
+        "original": "U: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "U：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:4014": {
+        "original": "V: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "V：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:32931": {
+        "original": "Vicente Amigo (Flamenco Guitar Tabs)",
+        "zh": "比森特·阿米戈（弗拉门戈吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:4021": {
+        "original": "W: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "W：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:30271": {
+        "original": "William Ackerman (Guitar Tab)",
+        "zh": "威廉·阿克曼（吉他六线谱）",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。 人名采用 musicians_zh.json 中对应的参考写法，不将目录署名扩展成作品作者认定。"
+      },
+      "page:4023": {
+        "original": "Y: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "Y：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      },
+      "page:4025": {
+        "original": "Z: Classical Guitar Tabs, PDF, MIDI",
+        "zh": "Z：古典吉他六线谱、PDF、MIDI",
+        "status": "reference",
+        "basis": "classclef_directory_label_review_2026_09_29",
+        "reason": "只翻译来源目录标题；不推断曲目编制、原作/改编、难度或演奏人数。"
+      }
+    }
+  }
+}

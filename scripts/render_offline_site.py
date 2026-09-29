@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import copy
 import json
 import os
 import re
@@ -40,7 +41,7 @@ def validate_readable_pdf(path: Path) -> None:
             raise ValueError("PDF structure is invalid")
 
 
-def checked_score(root: Path, category: str, record: dict) -> dict | None:
+def checked_score(root: Path, category: str, record: dict, *, metadata_only: bool = False) -> dict | None:
     """Expose only category-local, structurally valid, source-matching scores."""
     relative = record.get("relative_path", "")
     parts = PurePosixPath(relative)
@@ -56,15 +57,21 @@ def checked_score(root: Path, category: str, record: dict) -> dict | None:
         size = record.get("download_expected_size") or record.get("expected_size")
         if size and before.st_size != int(size):
             return None
-        validate_readable_pdf(path)
-        expected = record.get("download_sha1") or record.get("sha1_imslp")
-        sha1, sha256 = hashlib.sha1(), hashlib.sha256()
-        with path.open("rb") as handle:
-            for block in iter(lambda: handle.read(1024 * 1024), b""):
-                sha1.update(block)
-                sha256.update(block)
-        if expected and sha1.hexdigest() != expected:
-            return None
+        content_hash = ""
+        if metadata_only:
+            if not before.st_size:
+                return None
+        else:
+            validate_readable_pdf(path)
+            expected = record.get("download_sha1") or record.get("sha1_imslp")
+            sha1, sha256 = hashlib.sha1(), hashlib.sha256()
+            with path.open("rb") as handle:
+                for block in iter(lambda: handle.read(1024 * 1024), b""):
+                    sha1.update(block)
+                    sha256.update(block)
+            if expected and sha1.hexdigest() != expected:
+                return None
+            content_hash = sha256.hexdigest()
         after = path.stat()
         if (before.st_size, before.st_mtime_ns, before.st_ctime_ns) != (after.st_size, after.st_mtime_ns, after.st_ctime_ns):
             return None
@@ -73,11 +80,11 @@ def checked_score(root: Path, category: str, record: dict) -> dict | None:
     return {
         "label": record.get("description") or record.get("filename") or parts.name,
         "href": urllib.parse.quote(f"{category}/{relative}", safe="/._-~()"),
-        "_sha256": sha256.hexdigest(),
+        "_sha256": content_hash,
     }
 
 
-def checked_reused_imslp_asset(root: Path, asset: dict) -> dict | None:
+def checked_reused_imslp_asset(root: Path, asset: dict, *, metadata_only: bool = False) -> dict | None:
     """Reuse an approved existing score only with exact manifest evidence."""
     reference = asset.get("reused_from_manifest", "")
     if not isinstance(reference, str):
@@ -107,8 +114,8 @@ def checked_reused_imslp_asset(root: Path, asset: dict) -> dict | None:
             for row in read_json(review_path)["entries"]
         ):
             return None
-        score = checked_score(root, category, record)
-        if (score is None or score["_sha256"] != asset.get("sha256")
+        score = checked_score(root, category, record, metadata_only=metadata_only)
+        if (score is None or (not metadata_only and score["_sha256"] != asset.get("sha256"))
                 or (root / asset["local_path"]).stat().st_size != asset.get("size")):
             return None
         score["label"] = asset.get("label") or score["label"]
@@ -117,12 +124,12 @@ def checked_reused_imslp_asset(root: Path, asset: dict) -> dict | None:
         return None
 
 
-def checked_source_asset(root: Path, source_id: str, asset: dict) -> dict | None:
+def checked_source_asset(root: Path, source_id: str, asset: dict, *, metadata_only: bool = False) -> dict | None:
     """Validate a new adapter's immutable object before exposing a local link."""
     if asset.get("status") != "verified" or asset.get("format") != "PDF":
         return None
     if asset.get("storage_source") == "imslp":
-        return checked_reused_imslp_asset(root, asset)
+        return checked_reused_imslp_asset(root, asset, metadata_only=metadata_only)
     relative = asset.get("local_path", "")
     parts = PurePosixPath(relative)
     if (asset.get("status") != "verified" or asset.get("format") != "PDF"
@@ -137,23 +144,43 @@ def checked_source_asset(root: Path, source_id: str, asset: dict) -> dict | None
         if not path.resolve().is_relative_to((root / "sources" / source_id).resolve()) or not path.is_file():
             return None
         before = path.stat()
-        if before.st_size != asset.get("size"):
+        if not before.st_size or before.st_size != asset.get("size"):
             return None
-        validate_readable_pdf(path)
-        with path.open("rb") as handle:
-            if hashlib.file_digest(handle, "sha256").hexdigest() != expected:
-                return None
+        if not metadata_only:
+            validate_readable_pdf(path)
+            with path.open("rb") as handle:
+                if hashlib.file_digest(handle, "sha256").hexdigest() != expected:
+                    return None
         after = path.stat()
         if (before.st_size, before.st_mtime_ns, before.st_ctime_ns) != (after.st_size, after.st_mtime_ns, after.st_ctime_ns):
             return None
     except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired):
         return None
-    return {"label": asset.get("label") or "PDF", "href": urllib.parse.quote(relative, safe="/._-~()"), "_sha256": expected}
+    return {"label": asset.get("label") or "PDF", "href": urllib.parse.quote(relative, safe="/._-~()"),
+            "_sha256": "" if metadata_only else expected}
 
 
-def build_offline_catalog(root: Path) -> tuple[dict, dict]:
+def offline_input_fingerprint(root: Path) -> dict:
+    """Hash small source/configuration inputs, never score-file contents."""
+    paths = {Path("config") / name for name in
+             ("categories.json", "mixed_categories.json", "sources.json", "score_exclusions.json")}
+    paths.update(Path(row["name"]) / "metadata/score_manifest.json" for row in configured_categories(root))
+    if (root / "config/sources.json").is_file():
+        paths.update(Path(row["catalog"]) for row in load_registry(root) if row["adapter"] == "normalized_catalog")
+    inputs = {}
+    for relative in sorted(paths):
+        path = root / relative
+        if relative.is_absolute() or ".." in relative.parts or not path.resolve().is_relative_to(root):
+            raise ValueError("offline input must remain inside the library")
+        inputs[relative.as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest() if path.is_file() else None
+    return {"schema_version": 1, "inputs": inputs}
+
+
+def build_offline_catalog(root: Path, *, _metadata_only: bool = False, _data: dict | None = None) -> tuple[dict, dict]:
+    """Build editions; the private fast mode is only for comparing an old snapshot."""
     root = root.resolve()
-    data = build_public_catalog(root)
+    fingerprint = offline_input_fingerprint(root)
+    data = build_public_catalog(root) if _data is None else _data
     works = {work["id"]: work for work in data["works"]}
     editions = {}
     jobs = []
@@ -192,7 +219,7 @@ def build_offline_catalog(root: Path) -> tuple[dict, dict]:
     source_hashes = {"imslp": set()}
     source_records = {"imslp": {"pdf_records": len(jobs), "verified_records": 0}}
     with ThreadPoolExecutor(max_workers=8) as pool:
-        results = pool.map(lambda job: None if job[3] else checked_score(root, job[1], job[2]), jobs)
+        results = pool.map(lambda job: None if job[3] else checked_score(root, job[1], job[2], metadata_only=_metadata_only), jobs)
         for index, (job, score) in enumerate(zip(jobs, results, strict=True), 1):
             edition = editions[job[0]]
             if score is None:
@@ -202,8 +229,9 @@ def build_offline_catalog(root: Path) -> tuple[dict, dict]:
                     edition["exclusion_reason"] = job[3]
             else:
                 content_hash = score.pop("_sha256")
-                unique_hashes.add(content_hash)
-                source_hashes["imslp"].add(content_hash)
+                if content_hash:
+                    unique_hashes.add(content_hash)
+                    source_hashes["imslp"].add(content_hash)
                 edition["files"].append(score)
                 downloaded += 1
                 source_records["imslp"]["verified_records"] += 1
@@ -234,12 +262,13 @@ def build_offline_catalog(root: Path) -> tuple[dict, dict]:
                     editions[(category_id, row["id"])] = edition
                     works[row["id"]]["local_editions"].append(edition)
             with ThreadPoolExecutor(max_workers=8) as pool:
-                scores = pool.map(lambda job: checked_source_asset(root, source["id"], job[1]), asset_jobs)
+                scores = pool.map(lambda job: checked_source_asset(root, source["id"], job[1], metadata_only=_metadata_only), asset_jobs)
                 for (work_id, asset), score in zip(asset_jobs, scores, strict=True):
                     if score:
                         content_hash = score.pop("_sha256")
-                        unique_hashes.add(content_hash)
-                        source_hashes[source["id"]].add(content_hash)
+                        if content_hash:
+                            unique_hashes.add(content_hash)
+                            source_hashes[source["id"]].add(content_hash)
                         downloaded += 1
                         source_records[source["id"]]["verified_records"] += 1
                     for category_id in works[work_id]["category_ids"]:
@@ -250,8 +279,9 @@ def build_offline_catalog(root: Path) -> tuple[dict, dict]:
                             edition["unavailable_count"] += 1
     # This payload is never written into public_site/.
     data.pop("integrity", None)
-    for source_id, hashes in source_hashes.items():
-        source_records[source_id]["unique_pdf_contents"] = len(hashes)
+    if not _metadata_only:
+        for source_id, hashes in source_hashes.items():
+            source_records[source_id]["unique_pdf_contents"] = len(hashes)
     report = {
         "categories": len(data["categories"]),
         "works": data["summary"]["category_record_count"],
@@ -259,10 +289,14 @@ def build_offline_catalog(root: Path) -> tuple[dict, dict]:
         "pdf_records": total_records,
         "downloaded": downloaded,
         "unavailable": total_records - downloaded,
-        "unique_pdf_contents": len(unique_hashes),
         "by_source": source_records,
         "excluded_memberships": sum(bool(job[3]) for job in jobs),
     }
+    if not _metadata_only:
+        report["unique_pdf_contents"] = len(unique_hashes)
+    if offline_input_fingerprint(root) != fingerprint:
+        raise ValueError("offline source/configuration inputs changed during validation; retry the render")
+    data["offline_inputs"] = fingerprint
     data["offline_summary"] = report
     return data, report
 
@@ -306,3 +340,78 @@ def write_offline_page(root: Path, data: dict, report: dict) -> dict:
 def render(root: Path) -> dict:
     data, report = build_offline_catalog(root)
     return write_offline_page(root, data, report)
+
+
+def refresh_display_metadata(root: Path) -> dict:
+    """Refresh translations/UI while retaining the previous verified file snapshot.
+
+    This is intentionally not a PDF integrity check. Source identities, original
+    titles, memberships and formats must be unchanged. A full render is required
+    after acquisition, file, manifest or instrumentation changes.
+    """
+    root = root.resolve()
+    page = (root / "index.html").read_text(encoding="utf-8")
+    matches = re.findall(r'<script type="application/json" id="offline-data">(.*?)</script>', page, re.S)
+    if len(matches) != 1:
+        raise ValueError("metadata refresh requires one previously verified offline snapshot")
+    previous = json.loads(matches[0])["data"]
+    inputs = offline_input_fingerprint(root)
+    if "offline_inputs" in previous and previous["offline_inputs"] != inputs:
+        raise ValueError("offline manifest/configuration inputs changed; run a full offline render")
+    current = build_public_catalog(root)
+    from validate_public_site import validate_payload
+    validate_payload(current)
+    for collection, fields in (("works", ("id", "source_id", "source_record_id", "title_en", "composer_en", "category_ids", "formats", "resource_type", "source_url")),
+                               ("categories", ("id", "source_id", "source_category_id", "name", "kind", "family", "source_url"))):
+        old = {row["id"]: row for row in previous[collection]}
+        if len(old) != len(previous[collection]) or set(old) != {row["id"] for row in current[collection]}:
+            raise ValueError(f"{collection} identities changed; run a full offline render")
+        for row in current[collection]:
+            before = old[row["id"]]
+            if collection == "works":
+                from catalog_translations import display_source_title
+                before = {**before, "title_en": display_source_title(before["title_en"])}
+            if any(before.get(key) != row.get(key) for key in fields):
+                raise ValueError(f"{collection} source metadata changed: {row['id']}; run a full offline render")
+    # Reuse the production membership/exclusion/archive logic without reading
+    # score bytes. This also bootstraps legacy pages that lack input fingerprints:
+    # every old part, unavailable count and legacy-page link must agree exactly.
+    current, mapping_report = build_offline_catalog(root, _metadata_only=True, _data=current)
+    if current["offline_inputs"] != inputs:
+        raise ValueError("offline inputs changed during metadata refresh; retry the render")
+    for collection, key in (("works", "local_editions"), ("categories", "local_href")):
+        old = {row["id"]: row for row in previous[collection]}
+        for row in current[collection]:
+            if row.get(key) != old[row["id"]].get(key):
+                raise ValueError(f"offline links/availability or exclusions changed: {row['id']}; run a full offline render")
+    old_report = previous["offline_summary"]
+    for key, value in mapping_report.items():
+        if key == "by_source":
+            prior = old_report.get(key, {})
+            if set(prior) != set(value) or any(prior[source].get(field) != count
+                    for source, counts in value.items() for field, count in counts.items()):
+                raise ValueError("offline source availability counts changed; run a full offline render")
+        elif old_report.get(key) != value:
+            raise ValueError("offline availability counts changed; run a full offline render")
+    # Check every retained link stays within the library and still exists.
+    hrefs = {file["href"] for work in current["works"] for edition in work["local_editions"] for file in edition["files"]}
+    hrefs.update(category["local_href"] for category in current["categories"] if category.get("local_href"))
+    for href in hrefs:
+        parsed = urllib.parse.urlsplit(href)
+        relative = urllib.parse.unquote(parsed.path)
+        parts = PurePosixPath(relative)
+        path = root / relative
+        if (parsed.scheme or parsed.netloc or parsed.query or parsed.fragment or "\\" in relative
+                or parts.is_absolute() or ".." in parts.parts or not path.resolve().is_relative_to(root)
+                or not path.is_file() or not path.stat().st_size):
+            raise ValueError("retained offline link is unsafe or unavailable; run a full offline render")
+    current.pop("integrity", None)
+    report = copy.deepcopy(previous["offline_summary"])
+    current["offline_summary"] = report
+    if offline_input_fingerprint(root) != inputs:
+        raise ValueError("offline inputs changed during metadata refresh; retry the render")
+    result = write_offline_page(root, current, report)
+    result["refresh_method"] = "display metadata, manifest/exclusion mapping and file existence/size only; preceding PDF integrity checks retained"
+    result["input_guard"] = "checked existing fingerprint" if "offline_inputs" in previous else "bootstrapped from matching legacy link/availability mapping"
+    result["checked_local_paths"] = len(hrefs)
+    return result

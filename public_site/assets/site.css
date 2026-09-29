@@ -129,6 +129,9 @@ kbd { padding: 1px 7px; color: #858e7f; border: 1px solid var(--rule); border-ra
 .result-meta { margin-top: auto; }
 .result-composer { display: flex; flex-wrap: wrap; gap: 2px 6px; margin: 0 0 13px; color: var(--ink); font-size: 12px; line-height: 1.5; }
 .result-composer span { color: var(--muted); font: 11px/1.6 var(--sans); }
+.translation-note, .result-composer .translation-note { display: inline-block; width: fit-content; padding: 1px 5px; border: 1px solid var(--rule); border-radius: 2px; color: var(--muted); font: 10px/1.6 var(--sans); }
+.result-title > .translation-note { margin-top: 6px; }
+.category-card > .translation-note { margin: -9px 0 12px; }
 .category-list { display: flex; flex-wrap: wrap; gap: 5px; }
 .category-chip { display: block; max-width: 100%; padding: 3px 6px; border: 1px solid #e3e7d9; border-radius: 2px; background: #f7f8f2; color: #607057; font-size: 10px; line-height: 1.5; text-align: left; overflow-wrap: anywhere; }
 .category-chip:hover { color: var(--accent); border-color: #c9c4af; }

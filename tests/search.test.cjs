@@ -376,3 +376,66 @@ test('reference resources have a searchable label and distinct card label withou
   const header = card.children.find(node => node.className === 'result-header');
   assert.equal(header.children.find(node => node.className === 'result-kind').textContent, '参考资料');
 });
+
+test('field translation notes distinguish review needs and retained text while keeping the original', () => {
+  const {context} = appContext();
+  const original = multiSourceIndex().search('GPX').matches[0];
+  const match = {...original, item:{...original.item, title_zh:'《阿尔罕布拉宫的回忆》', translation:{
+    title:{status:'machine', basis:'machine', reason:'机器参考译文，需要复核。'},
+    composer:{status:'retained', basis:'source_name', reason:'保留来源原署名。'},
+  }}};
+  const descendants = node => [node, ...node.children.flatMap(descendants)];
+  const card = context.resultCard(match, 0);
+  const all = descendants(card);
+  assert.ok(all.some(node => node.textContent === '阿尔罕布拉宫的回忆'));
+  assert.ok(all.some(node => node.textContent === 'Recuerdos de la Alhambra'));
+  assert.deepEqual(all.filter(node => node.className === 'translation-note').map(node => node.textContent), ['曲名待复核','保留原名']);
+  assert.equal(all.find(node => node.textContent === '保留原名').title, '保留来源原署名。');
+  for (const status of ['reviewed','reference','not_applicable']) {
+    const node = {children:[], append(child) { this.children.push(child); }};
+    context.appendTranslationNote(node, {status}, 'title');
+    assert.equal(node.children.length, 0);
+  }
+  const category = {children:[], append(child) { this.children.push(child); }};
+  context.appendTranslationNote(category, {status:'untranslated'}, 'category');
+  assert.equal(category.children[0].textContent, '分类未译');
+});
+
+test('published ClassClef Chinese titles and musicians are displayed and searchable within their own memberships', () => {
+  const catalog = JSON.parse(fs.readFileSync(path.join(__dirname, '../public_site/data/catalog.json'), 'utf8'));
+  const aliases = JSON.parse(fs.readFileSync(path.join(__dirname, '../public_site/data/search-aliases.json'), 'utf8'));
+  assert.equal(catalog.translation_schema_version, 1, 'Published data must declare the field-level translation contract');
+  const engine = require(enginePath);
+  const index = engine.createIndex(catalog, aliases);
+  const cases = [
+    ['阿尔罕布拉宫的回忆', 'classclef:4e6dc4b8d1a61cd91b391411', 'title'],
+    ['阿斯图里亚斯', 'classclef:db0d884a6a21c4134cf875f8', 'title'],
+    ['绿袖子', 'classclef:ac5b2789fb9c2e2b7514e792', 'title'],
+    ['披头士', 'classclef:75c4bf411c28ac07c037c300', 'composer'],
+  ];
+  for (const [query, id, field] of cases) {
+    const item = catalog.works.find(row => row.id === id);
+    assert.ok(item, id);
+    assert.match(item[`${field}_zh`], /\p{Script=Han}/u, `${query}: aliases alone do not provide a Chinese display label`);
+    assert.ok(['reviewed','reference','machine'].includes(item.translation[field].status));
+    const response = index.search(query, {source:'classclef'});
+    assert.ok(ids(response).includes(id), `${query}: expected source record missing`);
+    assert.ok(response.matches.every(match => match.item.source_id === 'classclef'));
+    const category = String(item.category_ids[0]);
+    const filters = {source:'classclef', category};
+    const scoped = index.search(query, filters);
+    assert.ok(ids(scoped).includes(id), `${query}: expected category record missing`);
+    assert.ok(scoped.matches.every(match => match.categories.every(row => String(row.id) === category)));
+    assert.deepEqual(ids(index.search(query, {source:'imslp', category})), []);
+    const other = catalog.categories.find(row => row.source_id === 'classclef' && !item.category_ids.includes(row.id));
+    assert.ok(!ids(index.search(query, {source:'classclef', category:String(other.id)})).includes(id));
+    const suggestions = index.suggest(query, filters);
+    assert.ok(suggestions.length > 0, `${query}: no scoped suggestion`);
+    for (const suggestion of suggestions) {
+      const selected = index.search(suggestion.query, filters);
+      assert.ok(selected.matches.length > 0);
+      assert.ok(selected.matches.every(match => match.item.source_id === 'classclef'
+        && match.categories.every(row => String(row.id) === category)));
+    }
+  }
+});
