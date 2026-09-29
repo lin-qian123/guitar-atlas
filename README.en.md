@@ -49,6 +49,8 @@ Both editions apply durable translations by source and stable ID. Missing review
 
 The 849 Python tests, 34 Node search tests, public privacy validation, and translation audit pass. Browser checks cover Chinese titles and names, category filtering, and retention labels. Public/offline display data matches field for field; 31,143 local PDF paths and all 6 exclusions pass the link audit.
 
+Repair [`f1474e0`](https://github.com/lin-qian123/guitar-atlas/commit/f1474e04eecedb1d11f62c10a3f2eddfee215492) is deployed with a successful [workflow](https://github.com/lin-qian123/guitar-atlas/actions/runs/36516382617). All 10 served public files match local SHA-256 digests, and live Chinese search passes browser checks.
+
 This refresh synchronizes the public catalog, offline home, and display text in all 352 legacy category directories. The offline home is checked against current manifests, exclusions, memberships, links, and file sizes while retaining the preceding integrity results. Full PDF hashing and parsing are not repeated. The file-coverage gaps and instrumentation-review boundaries in the 2026-09-28 snapshot below remain open.
 
 ### Catalog snapshot: 2026-09-28
