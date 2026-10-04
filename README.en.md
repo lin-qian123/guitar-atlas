@@ -22,7 +22,7 @@ Records retain their source identity, editions, and category memberships. Simila
 
 ## 2026-10-04 update
 
-This version includes the completed 16-source catalog, Chinese title review, relevance and repertoire ranking, compact search data, bilingual naming and generated illustrations. A fresh production export preserves the decoded data; 1,256 Python and 66 Node tests plus public-boundary, translation and text audits passed. Source notices cover all 16 registered sources. Pages publishes only the score-file-free `public_site/`; repository and live deployment are verified separately in the [publication receipt](docs/research/2026-10-04-publication.md).
+This version includes the 16-source catalog, Chinese title review, relevance and repertoire ranking, compact search data, bilingual naming and generated illustrations. A fresh production export preserves the decoded data; 1,256 Python and 66 Node tests plus public-boundary, translation and text audits passed. Source notices cover all 16 registered sources. GitHub main is synchronized and Pages deployed successfully, publishing only the score-file-free `public_site/`. All 22 HTTP-accessible site files match local bytes; live category and Chinese search checks passed. See the [publication receipt](docs/research/2026-10-04-publication.md). Local-only or undeployed statements below describe historical implementation snapshots; these changes are included in this release.
 
 ## Generated category illustrations: 2026-10-04
 
