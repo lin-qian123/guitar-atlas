@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "id": "cglib:49915",
+      "original": "La mendozina, Op.41",
+      "original_composer": "Alais. Juan",
+      "zh": "《门多萨姑娘，作品41》",
+      "status": "reference",
+      "basis": "exact_source_title_contextual_toponym_reference_2026_10_04",
+      "reason": "对照完整舞曲题名与门多萨地域词义，采用自然参考译名门多萨姑娘，保留明确曲号/体裁；不据题名推定人物身份。",
+      "source_refs": [
+        "https://www.cglib.org/la-mendozina-op-41/",
+        "https://www.mofcom.gov.cn/dl/gbdqzn/upload/agenting.pdf",
+        "https://dle.rae.es/mendocino"
+      ],
+      "reviewer": "Codex finite actual regional title semantics review 2026-10-04",
+      "review_method": "exact_full_title_and_attribution_regional_context",
+      "display_original": "La mendozina, Op.41",
+      "display_zh": "《门多萨姑娘，作品41》",
+      "before_zh": "《Mendoza 女子，作品41》",
+      "before_display_zh": "《Mendoza 女子，作品41》"
+    },
+    {
+      "id": "cglib:13067",
+      "original": "Op.41 La Mendozina (Zamacueca)",
+      "original_composer": "Alais. Juan",
+      "display_original": "Op.41 La Mendozina (Zamacueca)",
+      "zh": "《门多萨姑娘（扎马库埃卡舞曲），作品41》",
+      "display_zh": "《门多萨姑娘（扎马库埃卡舞曲），作品41》",
+      "status": "reference",
+      "basis": "exact_source_title_contextual_toponym_reference_2026_10_04",
+      "reason": "对照完整舞曲题名与门多萨地域词义，采用自然参考译名门多萨姑娘，保留明确曲号/体裁；不据题名推定人物身份。",
+      "source_refs": [
+        "https://www.cglib.org/op-41-la-mendozina-zamacueca/",
+        "https://www.mofcom.gov.cn/dl/gbdqzn/upload/agenting.pdf",
+        "https://dle.rae.es/mendocino"
+      ],
+      "before_zh": "《作品41：Mendoza 女子(扎马库埃卡舞曲)》",
+      "before_display_zh": "《作品41：Mendoza 女子(扎马库埃卡舞曲)》",
+      "reviewer": "Codex finite actual regional title semantics review 2026-10-04",
+      "review_method": "exact_full_title_and_attribution_regional_context"
+    },
+    {
+      "id": "cglib:54934",
+      "original": "La mendozina, Op.41 (Alais, Juan)",
+      "original_composer": "Marieh Collection",
+      "zh": "《门多萨姑娘，作品41》",
+      "status": "reference",
+      "basis": "exact_source_title_contextual_toponym_reference_2026_10_04",
+      "reason": "对照完整舞曲题名与门多萨地域词义，采用自然参考译名门多萨姑娘，保留明确曲号/体裁；不据题名推定人物身份。",
+      "source_refs": [
+        "https://www.cglib.org/la-mendozina-op-41-alais-juan/",
+        "https://www.mofcom.gov.cn/dl/gbdqzn/upload/agenting.pdf",
+        "https://dle.rae.es/mendocino"
+      ],
+      "reviewer": "Codex finite actual regional title semantics review 2026-10-04",
+      "review_method": "exact_full_title_and_attribution_regional_context",
+      "display_original": "La mendozina, Op.41 (Alais, Juan)",
+      "display_zh": "《门多萨姑娘，作品41》",
+      "before_zh": "《Mendoza 女子，作品41》",
+      "before_display_zh": "《Mendoza 女子，作品41》"
+    },
+    {
+      "id": "cglib:48916",
+      "original": "Santanderina",
+      "original_composer": "Azpiazu. Jose",
+      "zh": "《桑坦德姑娘》",
+      "status": "reference",
+      "basis": "exact_source_title_contextual_toponym_reference_2026_10_04",
+      "reason": "Santanderina在曲名中作地域女性名词，参考译作桑坦德姑娘；SGAE确认原曲题名，未凭词形推定具体女性身份。",
+      "source_refs": [
+        "https://www.cglib.org/santanderina/",
+        "https://es.china-embassy.gov.cn/zxgx/201704/t20170425_3229469.htm",
+        "https://dle.rae.es/santanderino",
+        "https://archivo.sgae.es/heritageobject/juventud--musica-facil-para-guitarra-en-dificultad-progresiva--cuaderno-ii--jose-de-azpiazu/"
+      ],
+      "reviewer": "Codex finite actual regional title semantics review 2026-10-04",
+      "review_method": "exact_full_title_and_attribution_regional_context",
+      "display_original": "Santanderina",
+      "display_zh": "《桑坦德姑娘》",
+      "before_zh": "《Santander 女子》",
+      "before_display_zh": "《Santander 女子》"
+    },
+    {
+      "id": "cglib:54930",
+      "original": "La Salteña (Quijano, Pedro Miguel)",
+      "original_composer": "Marieh Collection",
+      "zh": "《萨尔塔姑娘》",
+      "status": "reference",
+      "basis": "exact_source_title_contextual_toponym_reference_2026_10_04",
+      "reason": "对照完整扎马库埃卡题名及萨尔塔地域词义，采用自然参考译名萨尔塔姑娘；不把女性形式统一当作音乐演员或作曲者。",
+      "source_refs": [
+        "https://www.cglib.org/la-saltena-quijano-pedro-miguel/",
+        "https://www.mofcom.gov.cn/dl/gbdqzn/upload/agenting.pdf",
+        "https://dle.rae.es/salte%C3%B1o",
+        "https://isfd805-chu.infd.edu.ar/sitio/upload/BIBLIOTECA_ISFDA_N_805-INVENTARIO_PARTITURAS.pdf"
+      ],
+      "reviewer": "Codex finite actual regional title semantics review 2026-10-04",
+      "review_method": "exact_full_title_and_attribution_regional_context",
+      "display_original": "La Salteña (Quijano, Pedro Miguel)",
+      "display_zh": "《萨尔塔姑娘》",
+      "before_zh": "《Salta 女子》",
+      "before_display_zh": "《Salta 女子》"
+    },
+    {
+      "id": "cglib:13250",
+      "original": "(Quijano) La Saltena Zamacueca",
+      "original_composer": "Del Valle. Adela",
+      "display_original": "(Quijano) La Saltena Zamacueca",
+      "zh": "《萨尔塔姑娘：扎马库埃卡舞曲（原题署名：Quijano）》",
+      "display_zh": "《萨尔塔姑娘：扎马库埃卡舞曲》",
+      "status": "reference",
+      "basis": "exact_source_title_contextual_toponym_reference_2026_10_04",
+      "reason": "对照完整扎马库埃卡题名及萨尔塔地域词义，采用自然参考译名萨尔塔姑娘；不把女性形式统一当作音乐演员或作曲者。",
+      "source_refs": [
+        "https://www.cglib.org/quijano-la-saltena-zamacueca/",
+        "https://www.mofcom.gov.cn/dl/gbdqzn/upload/agenting.pdf",
+        "https://dle.rae.es/salte%C3%B1o",
+        "https://isfd805-chu.infd.edu.ar/sitio/upload/BIBLIOTECA_ISFDA_N_805-INVENTARIO_PARTITURAS.pdf"
+      ],
+      "before_zh": "《Salta 女子扎马库埃卡舞曲（原题署名：Quijano）》",
+      "before_display_zh": "《Salta 女子扎马库埃卡舞曲》",
+      "reviewer": "Codex finite actual regional title semantics review 2026-10-04",
+      "review_method": "exact_full_title_and_attribution_regional_context"
+    },
+    {
+      "id": "cglib:13580",
+      "original": "La Saltena (Zamacueca)",
+      "original_composer": "Quijano. Pedro",
+      "display_original": "La Saltena (Zamacueca)",
+      "zh": "《萨尔塔姑娘（扎马库埃卡舞曲）》",
+      "display_zh": "《萨尔塔姑娘（扎马库埃卡舞曲）》",
+      "status": "reference",
+      "basis": "exact_source_title_contextual_toponym_reference_2026_10_04",
+      "reason": "对照完整扎马库埃卡题名及萨尔塔地域词义，采用自然参考译名萨尔塔姑娘；不把女性形式统一当作音乐演员或作曲者。",
+      "source_refs": [
+        "https://www.cglib.org/la-saltena-zamacueca/",
+        "https://www.mofcom.gov.cn/dl/gbdqzn/upload/agenting.pdf",
+        "https://dle.rae.es/salte%C3%B1o",
+        "https://isfd805-chu.infd.edu.ar/sitio/upload/BIBLIOTECA_ISFDA_N_805-INVENTARIO_PARTITURAS.pdf"
+      ],
+      "before_zh": "《Salta 女子(扎马库埃卡舞曲)》",
+      "before_display_zh": "《Salta 女子(扎马库埃卡舞曲)》",
+      "reviewer": "Codex finite actual regional title semantics review 2026-10-04",
+      "review_method": "exact_full_title_and_attribution_regional_context"
+    },
+    {
+      "id": "cglib:13578",
+      "original": "La Saltena (Zamacueca) para dos guitarras",
+      "original_composer": "Quijano. Pedro",
+      "display_original": "La Saltena (Zamacueca) para dos guitarras",
+      "zh": "《萨尔塔姑娘（扎马库埃卡舞曲，双吉他）》",
+      "display_zh": "《萨尔塔姑娘（扎马库埃卡舞曲，双吉他）》",
+      "status": "reference",
+      "basis": "exact_source_title_contextual_toponym_reference_2026_10_04",
+      "reason": "对照完整扎马库埃卡题名及萨尔塔地域词义，采用自然参考译名萨尔塔姑娘；不把女性形式统一当作音乐演员或作曲者。",
+      "source_refs": [
+        "https://www.cglib.org/la-saltena-zamacueca-para-dos-guitarras/",
+        "https://www.mofcom.gov.cn/dl/gbdqzn/upload/agenting.pdf",
+        "https://dle.rae.es/salte%C3%B1o",
+        "https://isfd805-chu.infd.edu.ar/sitio/upload/BIBLIOTECA_ISFDA_N_805-INVENTARIO_PARTITURAS.pdf"
+      ],
+      "before_zh": "《Salta 女子(扎马库埃卡舞曲)（为双吉他而作）》",
+      "before_display_zh": "《Salta 女子(扎马库埃卡舞曲)（为双吉他而作）》",
+      "reviewer": "Codex finite actual regional title semantics review 2026-10-04",
+      "review_method": "exact_full_title_and_attribution_regional_context"
+    },
+    {
+      "id": "cglib:57000",
+      "original": "La Salteña",
+      "original_composer": "Quijano. Pedro Miguel",
+      "zh": "《萨尔塔姑娘》",
+      "status": "reference",
+      "basis": "exact_source_title_contextual_toponym_reference_2026_10_04",
+      "reason": "对照完整扎马库埃卡题名及萨尔塔地域词义，采用自然参考译名萨尔塔姑娘；不把女性形式统一当作音乐演员或作曲者。",
+      "source_refs": [
+        "https://www.cglib.org/la-saltena/",
+        "https://www.mofcom.gov.cn/dl/gbdqzn/upload/agenting.pdf",
+        "https://dle.rae.es/salte%C3%B1o",
+        "https://isfd805-chu.infd.edu.ar/sitio/upload/BIBLIOTECA_ISFDA_N_805-INVENTARIO_PARTITURAS.pdf"
+      ],
+      "reviewer": "Codex finite actual regional title semantics review 2026-10-04",
+      "review_method": "exact_full_title_and_attribution_regional_context",
+      "display_original": "La Salteña",
+      "display_zh": "《萨尔塔姑娘》",
+      "before_zh": "《Salta 女子》",
+      "before_display_zh": "《Salta 女子》"
+    },
+    {
+      "id": "cglib:39748",
+      "original": "Conversa De Baiana by Dilermando Reis",
+      "original_composer": "Reis. Dilermando",
+      "zh": "《巴伊亚姑娘的谈话》",
+      "status": "reference",
+      "basis": "exact_source_title_contextual_toponym_reference_2026_10_04",
+      "reason": "Priberam的baiana为巴伊亚女子，整句以巴伊亚姑娘自然表达；保留谈话/心上人的完整题意，不补入实际人物。",
+      "source_refs": [
+        "https://www.cglib.org/conversa-de-baiana-by-dilermando-reis/",
+        "https://br.china-embassy.gov.cn/gzbx/202104/t20210416_9079094.htm",
+        "https://dicionario.priberam.org/baiana"
+      ],
+      "reviewer": "Codex finite actual regional title semantics review 2026-10-04",
+      "review_method": "exact_full_title_and_attribution_regional_context",
+      "display_original": "Conversa De Baiana",
+      "display_zh": "《巴伊亚姑娘的谈话》",
+      "before_zh": "《Bahia女子的谈话》",
+      "before_display_zh": "《Bahia女子的谈话》"
+    },
+    {
+      "id": "cglib:39762",
+      "original": "Xodo Da Baiana by Dilermando Reis",
+      "original_composer": "Reis. Dilermando",
+      "zh": "《巴伊亚姑娘的心上人》",
+      "status": "reference",
+      "basis": "exact_source_title_contextual_toponym_reference_2026_10_04",
+      "reason": "Priberam的baiana为巴伊亚女子，整句以巴伊亚姑娘自然表达；保留谈话/心上人的完整题意，不补入实际人物。",
+      "source_refs": [
+        "https://www.cglib.org/xodo-da-baiana-by-dilermando-reis/",
+        "https://br.china-embassy.gov.cn/gzbx/202104/t20210416_9079094.htm",
+        "https://dicionario.priberam.org/baiana"
+      ],
+      "reviewer": "Codex finite actual regional title semantics review 2026-10-04",
+      "review_method": "exact_full_title_and_attribution_regional_context",
+      "display_original": "Xodo Da Baiana",
+      "display_zh": "《巴伊亚姑娘的心上人》",
+      "before_zh": "《Bahia女子的心上人》",
+      "before_display_zh": "《Bahia女子的心上人》"
+    },
+    {
+      "id": "cglib:1785",
+      "original": "Op. 332 La Parisienne, Marche nationale variee",
+      "original_composer": "Carulli. Ferdinando",
+      "display_original": "Op. 332 La Parisienne, Marche nationale variee",
+      "zh": "《巴黎之歌：民族进行曲变奏，作品332》",
+      "display_zh": "《巴黎之歌：民族进行曲变奏，作品332》",
+      "status": "reference",
+      "basis": "exact_source_title_contextual_toponym_reference_2026_10_04",
+      "reason": "原题明确Marche nationale variée；结合BnF记录的La Parisienne爱国歌曲主题语境，参考译作巴黎之歌的进行曲变奏，保留作品332，不机械译为巴黎女子或建立版本同一性。",
+      "source_refs": [
+        "https://www.cglib.org/op-332-la-parisienne-marche-nationale-variee/",
+        "https://catalogue.bnf.fr/ark:/12148/cb44858761h"
+      ],
+      "before_zh": "《作品332：巴黎女子：民族进行曲变奏》",
+      "before_display_zh": "《作品332：巴黎女子：民族进行曲变奏》",
+      "reviewer": "Codex finite actual regional title semantics review 2026-10-04",
+      "review_method": "exact_full_title_and_attribution_regional_context"
+    },
+    {
+      "id": "cglib:7197",
+      "original": "Rapsodia valenciana",
+      "original_composer": "Pujol. Emilio",
+      "zh": "《瓦伦西亚狂想曲》",
+      "status": "reference",
+      "basis": "exact_source_title_contextual_toponym_reference_2026_10_04",
+      "reason": "valenciana修饰Rapsodia，是瓦伦西亚风格的狂想曲，不表示女性人物；保留明确音乐形式。",
+      "source_refs": [
+        "https://www.cglib.org/rapsodia-valenciana/",
+        "https://es.china-embassy.gov.cn/chn/sghd/200406/t20040630_3229630.htm"
+      ],
+      "reviewer": "Codex finite actual regional title semantics review 2026-10-04",
+      "review_method": "exact_full_title_and_attribution_regional_context",
+      "display_original": "Rapsodia valenciana",
+      "display_zh": "《瓦伦西亚狂想曲》",
+      "before_zh": "《Valencia 狂想曲》",
+      "before_display_zh": "《Valencia 狂想曲》"
+    },
+    {
+      "id": "cglib:15686",
+      "original": "Serenata salteña",
+      "original_composer": "Guestrin. Néstor",
+      "display_original": "Serenata salteña",
+      "zh": "《萨尔塔小夜曲》",
+      "display_zh": "《萨尔塔小夜曲》",
+      "status": "reference",
+      "basis": "exact_source_title_contextual_toponym_reference_2026_10_04",
+      "reason": "salteña在Serenata后是地域修饰语，不是女子或人名；使用成熟地名萨尔塔，保留小夜曲体裁。",
+      "source_refs": [
+        "https://www.cglib.org/serenata-saltena/",
+        "https://www.mofcom.gov.cn/dl/gbdqzn/upload/agenting.pdf",
+        "https://dle.rae.es/salte%C3%B1o"
+      ],
+      "before_zh": "《Salta小夜曲》",
+      "before_display_zh": "《Salta小夜曲》",
+      "reviewer": "Codex finite actual regional title semantics review 2026-10-04",
+      "review_method": "exact_full_title_and_attribution_regional_context"
+    }
+  ]
+}

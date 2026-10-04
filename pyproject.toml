@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "guitar-atlas"
 version = "0.2.0"
 requires-python = ">=3.12"
-description = "A source-attributed guitar score catalog and local offline library"
+description = "Guitar Atlas (六弦漫行): a source-attributed guitar score catalog and local offline library"
 dependencies = ["pypdf>=6.8,<7", "beautifulsoup4>=4.12,<5", "requests>=2.32,<3"]
 
 [project.optional-dependencies]
@@ -17,3 +17,4 @@ where = ["scripts"]
 
 [tool.pytest.ini_options]
 pythonpath = ["scripts", "."]
+testpaths = ["tests"]

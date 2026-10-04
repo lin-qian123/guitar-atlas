@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "id": "cglib:54488",
+      "original": "Granainas",
+      "original_composer": "Macchi. Claudio",
+      "display_original": "Granainas",
+      "display_zh": "《格拉纳达风格弗拉门戈曲（Granainas）》",
+      "zh": "《格拉纳达风格弗拉门戈曲（Granainas）》",
+      "status": "reference",
+      "basis": "cglib_late_primary_music_term_recheck_2026_10_04",
+      "reason": "对照完整曲名与RAE音乐义项，granaína为弗拉门戈曲种；保留原题复数及省略字形，未认定惯用中文题名。",
+      "source_refs": [
+        "https://dle.rae.es/grana%C3%ADna"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_contextual_music_term_semantic"
+    },
+    {
+      "id": "cglib:56832",
+      "original": "Ponteios",
+      "original_composer": "Pinto. Aloysio de Alencar",
+      "display_original": "Ponteios",
+      "display_zh": "《拨弦风格曲（Ponteios）》",
+      "zh": "《拨弦风格曲（Ponteios）》",
+      "status": "reference",
+      "basis": "cglib_late_primary_music_term_recheck_2026_10_04",
+      "reason": "对照完整器乐题名与巴西音乐词义研究，Ponteios为源于拨弦的前奏或即兴性曲目名称，不推定为实际演奏技法或其它作曲家的作品。",
+      "source_refs": [
+        "https://www.lume.ufrgs.br/bitstream/handle/10183/108417/000125225.pdf",
+        "https://dicionario.priberam.org/ponteio"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_contextual_music_term_semantic"
+    }
+  ]
+}

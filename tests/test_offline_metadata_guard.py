@@ -8,6 +8,7 @@ from pathlib import Path
 import pytest
 
 import render_offline_site as offline
+from catalog_payload import unpack_payload
 from tests.basic_helpers import write_json, write_minimal_pdf
 from tests.test_catalog_sources import add_source
 from tests.test_master_index import manifest_record, offline_library, render
@@ -15,7 +16,7 @@ from tests.test_master_index import manifest_record, offline_library, render
 
 def payload(root: Path) -> dict:
     html = (root / "index.html").read_text()
-    return json.loads(re.search(r'<script type="application/json" id="offline-data">(.*?)</script>', html, re.S)[1])
+    return unpack_payload(json.loads(re.search(r'<script type="application/json" id="offline-data">(.*?)</script>', html, re.S)[1]))
 
 
 def legacy_snapshot(root: Path) -> tuple[str, dict]:

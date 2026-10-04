@@ -4,8 +4,8 @@
 
 - 日期：2026-08-30
 - 状态：用户已批准最终落盘规格；分块实施计划已完成审查与修订，尚未执行迁移或下载
-- 根目录：`/Volumes/PHILIPS/programs/muse-cache/imslp`
-- 总入口：`file:///Volumes/PHILIPS/programs/muse-cache/imslp/index.html`
+- 根目录：`/Volumes/PHILIPS/programs/muse-cache/guitar-atlas`
+- 总入口：`file:///Volumes/PHILIPS/programs/muse-cache/guitar-atlas/index.html`
 - 实施计划：`.agents/superpowers/specs/2026-08-30-imslp-guitar-library-implementation.md`
 
 ## 1. 目标
@@ -283,7 +283,7 @@ IMSLP 文件 ID 用于来源关联，内部 SHA-256 才是对象身份。相同�
 
 旧入口会变为：
 
-`file:///Volumes/PHILIPS/programs/muse-cache/imslp/For%203%20guitars%20(arr)/index.html`
+`file:///Volumes/PHILIPS/programs/muse-cache/guitar-atlas/For%203%20guitars%20(arr)/index.html`
 
 ## 8. 执行阶段
 

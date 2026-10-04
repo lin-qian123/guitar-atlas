@@ -169,10 +169,10 @@ def test_public_frontend_uses_imslp_links_without_pdf_links() -> None:
     assert ".pdf" not in (index + script).casefold()
     assert "本地" not in index
     assert "--ink" in styles
-    assert 'src="assets/archive-hero.webp"' in index
-    hero = (ROOT / "public_site/assets/archive-hero.webp").read_bytes()
+    assert 'src="assets/archive-cover.webp"' in index
+    hero = (ROOT / "public_site/assets/archive-cover.webp").read_bytes()
     assert hero.startswith(b"RIFF") and hero[8:12] == b"WEBP"
-    favicon = (ROOT / "public_site/assets/favicon.png").read_bytes()
+    favicon = (ROOT / "public_site/assets/rosette-touch.png").read_bytes()
     assert favicon.startswith(b"\x89PNG\r\n\x1a\n")
 
 
@@ -270,4 +270,32 @@ def test_public_validator_rejects_private_auxiliary_exports(tmp_path: Path, extr
         write_json(tmp_path / "private/review.json", private)
         (site / "extra").symlink_to(tmp_path / "private", target_is_directory=True)
     with pytest.raises(validator["PublicSiteValidationError"], match="forbidden|symbolic"):
+        validator["validate_public_site"](site)
+
+
+def test_compact_public_projection_and_ranking_must_match_canonical_ids(tmp_path: Path) -> None:
+    from catalog_payload import pack_payload
+    from catalog_ranking import build_ranking
+
+    make_library(tmp_path)
+    payload = public_exporter()["build_public_catalog"](tmp_path)
+    site = tmp_path / "public_site"
+    shutil.copytree(ROOT / "public_site/assets", site / "assets")
+    shutil.copy2(ROOT / "public_site/index.html", site / "index.html")
+    write_json(site / "data/catalog.json", payload)
+    write_json(site / "data/search-aliases.json", {"schema_version": 1, "composers": {}, "works": {}})
+    write_json(site / "data/catalog.compact.json", pack_payload(payload))
+    ranking = build_ranking(tmp_path, payload)
+    write_json(site / "data/ranking.json", ranking)
+    validator = public_validator()
+    validator["validate_public_site"](site)
+    changed = json.loads(json.dumps(payload))
+    changed["works"][0]["title_en"] = "Different snapshot"
+    write_json(site / "data/catalog.compact.json", pack_payload(changed))
+    with pytest.raises(validator["PublicSiteValidationError"], match="differs from"):
+        validator["validate_public_site"](site)
+    write_json(site / "data/catalog.compact.json", pack_payload(payload))
+    ranking["works"]["unrelated-source:42"] = 60
+    write_json(site / "data/ranking.json", ranking)
+    with pytest.raises(validator["PublicSiteValidationError"], match="unknown identity"):
         validator["validate_public_site"](site)

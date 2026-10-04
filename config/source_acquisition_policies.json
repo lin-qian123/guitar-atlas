@@ -1,0 +1,1257 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-01T05:55:25.248093+00:00",
+  "candidate_count": 34,
+  "purpose": "Per-source metadata/discovery/file-acquisition policy ledger; not a production source registry",
+  "public_export": "Source pages and factual metadata only; never score files, assets, checkout links, local paths or hashes",
+  "states": {
+    "implemented": 3,
+    "metadata_only": 11,
+    "blocked": 4,
+    "requires_permission": 15,
+    "unavailable": 1
+  },
+  "sources": [
+    {
+      "source_id": "mutopia",
+      "name": "Mutopia",
+      "checked_at": "2026-10-01T05:55:22.866238+00:00",
+      "status": "implemented",
+      "registered": true,
+      "scope": "official Guitar directory; native instrument declarations retained separately",
+      "directory_url": "https://www.mutopiaproject.org/cgibin/make-table.cgi?Instrument=Guitar",
+      "metadata_policy": "source-attributed factual catalog navigation",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Per-record license; sample CC BY-SA 4.0",
+      "evidence_urls": [
+        "https://www.mutopiaproject.org/cgibin/make-table.cgi?Instrument=Guitar",
+        "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2041"
+      ],
+      "reason": "Catalog integration includes verified local PDF manifest entries; unique physical PDFs and category instrumentation require their separate verification reports",
+      "catalog": "sources/mutopia/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-01T04:42:58.001523+00:00",
+        "discovery_complete": true,
+        "page_count": 435,
+        "scope": "official Guitar directory; native instrument declarations retained separately",
+        "scope_version": "2026-10-01.1",
+        "directory_url": "https://www.mutopiaproject.org/cgibin/make-table.cgi?Instrument=Guitar",
+        "repository": {
+          "repository": "https://github.com/MutopiaProject/MutopiaProject",
+          "commit": "2144afd6f52d56c5b6995b8b589ef1268b3139f0",
+          "committed_at": "2024-11-07T21:28:28Z"
+        },
+        "directory_discovery_complete": true,
+        "snapshot_basis": "cached official directory and detail pages; fixed Git tree provenance",
+        "detail_page_count": 395
+      },
+      "source_record_count": 392,
+      "category_count": 1,
+      "category_membership_count": 392,
+      "asset_status_counts": {
+        "metadata_only": 798,
+        "restricted": 16,
+        "verified": 796
+      },
+      "verified_pdf_manifest_count": 796,
+      "pending_or_restricted_assets": 814,
+      "discovery_complete": true,
+      "discovery_command": "see source-owned production entrypoint"
+    },
+    {
+      "source_id": "boije",
+      "name": "Boije Collection",
+      "checked_at": "2026-10-01T05:55:22.872961+00:00",
+      "status": "metadata_only",
+      "registered": true,
+      "scope": "official complete alphabetical collection index; explicit scoring exclusions retained",
+      "directory_url": "https://old.capricemusic.se/musikochteaterbiblioteket/ladda-ner-noter/boijes-samling/boijes-samling-a/",
+      "metadata_policy": "source-attributed factual catalog navigation",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Institutional attribution and publication conditions; instrumentation selection required",
+      "evidence_urls": [
+        "https://old.capricemusic.se/musikochteaterbiblioteket/ladda-ner-noter/boijes-samling/boijes-samling-a/",
+        "https://urn.kb.se/resolve?urn=urn%3Anbn%3Ase%3Astatensmusikverk-4047"
+      ],
+      "reason": "Production catalog discovered; PDF permission/integrity and translation evidence remain independently recorded",
+      "catalog": "sources/boije/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-01T04:45:34+00:00",
+        "discovery_complete": true,
+        "page_count": 24,
+        "scope_version": 1,
+        "scope": "official complete alphabetical collection index; explicit scoring exclusions retained",
+        "instrumentation_review_complete": false
+      },
+      "source_record_count": 1154,
+      "category_count": 23,
+      "category_membership_count": 1460,
+      "asset_status_counts": {
+        "restricted": 1154
+      },
+      "verified_pdf_manifest_count": 0,
+      "pending_or_restricted_assets": 1154,
+      "discovery_complete": true,
+      "discovery_command": "see source-owned production entrypoint"
+    },
+    {
+      "source_id": "guitarschool",
+      "name": "The Guitar School - Iceland",
+      "checked_at": "2026-10-01T05:55:22.882897+00:00",
+      "status": "implemented",
+      "registered": true,
+      "scope": "All English directory records; free licensed PDFs only for acquisition",
+      "directory_url": "https://classicalguitarschool.azurewebsites.net/en/All",
+      "metadata_policy": "source-attributed factual catalog navigation",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Free and paid mixed; sample CC BY-NC 4.0 only",
+      "evidence_urls": [
+        "https://classicalguitarschool.azurewebsites.net/en/All",
+        "https://classicalguitarschool.azurewebsites.net/en/Download/4007"
+      ],
+      "reason": "Catalog integration includes verified local PDF manifest entries; unique physical PDFs and category instrumentation require their separate verification reports",
+      "catalog": "sources/guitarschool/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-01T04:42:48.078466+00:00",
+        "discovery_complete": true,
+        "page_count": 379,
+        "scope": "All English directory records; free licensed PDFs only for acquisition",
+        "scope_version": "2026-10-01.1",
+        "directory_url": "https://classicalguitarschool.azurewebsites.net/en/All",
+        "directory_discovery_complete": true,
+        "source_summary_text": "Authors: 114 • Pages: 3726 • Files: 370 • Modified: 2026-09-24",
+        "declared_file_records": 370,
+        "detail_page_count": 370,
+        "directory_counts": {
+          "All": 370,
+          "Methods": 8,
+          "Studies": 18,
+          "Collections": 10,
+          "Solo": 178,
+          "Duos": 56,
+          "Trios": 69,
+          "Quartets": 23,
+          "Catalogues": 3,
+          "Theory": 5
+        },
+        "directory_evidence": {
+          "Theory": {
+            "status": "unavailable_404",
+            "raw_source_url": "https://classicalguitarschool.azurewebsites.net/en/Theory",
+            "fallback_url": "https://classicalguitarschool.azurewebsites.net/en/All",
+            "membership_basis": "record_page_source_category_header"
+          }
+        }
+      },
+      "source_record_count": 370,
+      "category_count": 10,
+      "category_membership_count": 740,
+      "asset_status_counts": {
+        "failed": 1,
+        "verified": 254
+      },
+      "verified_pdf_manifest_count": 254,
+      "pending_or_restricted_assets": 1,
+      "discovery_complete": true,
+      "discovery_command": "see source-owned production entrypoint"
+    },
+    {
+      "source_id": "dga",
+      "name": "Digital Guitar Archive",
+      "checked_at": "2026-10-01T05:55:22.886520+00:00",
+      "status": "metadata_only",
+      "registered": true,
+      "scope": "advertised official legacy API multilingual full-text keyword union; keyword discovery only",
+      "directory_url": "https://digitalguitararchive.com/archive/",
+      "metadata_policy": "source-attributed factual catalog navigation",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "API documented; database republication basis unverified; files held by institutions",
+      "evidence_urls": [
+        "https://digitalguitararchive.com/archive/",
+        "https://digitalguitararchive.com/archive/api/record/1260"
+      ],
+      "reason": "Production catalog discovered; PDF permission/integrity and translation evidence remain independently recorded",
+      "catalog": "sources/dga/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-01T04:45:44+00:00",
+        "discovery_complete": true,
+        "page_count": 59,
+        "scope_version": 1,
+        "scope": "advertised official legacy API multilingual full-text keyword union; keyword discovery only",
+        "keywords": [
+          "guitar",
+          "guitare",
+          "guitarra",
+          "gitarr",
+          "chitarra"
+        ],
+        "query_counts": {
+          "guitar": 4583,
+          "guitare": 3233,
+          "guitarra": 659,
+          "gitarr": 30,
+          "chitarra": 1544
+        },
+        "upstream_drift": "legacy sources sum and homepage advertised record count differ; not comparable",
+        "instrumentation_review_complete": false,
+        "new_omeka_scope": "not acquired or equated to legacy IDs"
+      },
+      "source_record_count": 7481,
+      "category_count": 16,
+      "category_membership_count": 7481,
+      "asset_status_counts": {},
+      "verified_pdf_manifest_count": 0,
+      "pending_or_restricted_assets": 0,
+      "discovery_complete": true,
+      "discovery_command": "see source-owned production entrypoint"
+    },
+    {
+      "source_id": "rism",
+      "name": "RISM Online",
+      "checked_at": "2026-10-01T05:55:23.016885+00:00",
+      "status": "metadata_only",
+      "registered": true,
+      "scope": "official q=guitar full-text keyword discovery; scoring not approved",
+      "directory_url": "https://rism.online/",
+      "metadata_policy": "source-attributed factual catalog navigation",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "RISM metadata CC BY 3.0; external scans separate",
+      "evidence_urls": [
+        "https://rism.online/",
+        "https://rism.online/sources/452020028"
+      ],
+      "reason": "Production catalog discovered; PDF permission/integrity and translation evidence remain independently recorded",
+      "catalog": "sources/rism/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-01T04:46:34+00:00",
+        "discovery_complete": true,
+        "page_count": 12,
+        "scope_version": 1,
+        "scope": "official q=guitar full-text keyword discovery; scoring not approved",
+        "instrumentation_review_complete": false,
+        "reported_total": 1189,
+        "resource_details_complete": true
+      },
+      "source_record_count": 672,
+      "category_count": 1,
+      "category_membership_count": 672,
+      "asset_status_counts": {},
+      "verified_pdf_manifest_count": 0,
+      "pending_or_restricted_assets": 0,
+      "discovery_complete": true,
+      "discovery_command": "see source-owned production entrypoint"
+    },
+    {
+      "source_id": "delcamp",
+      "name": "Delcamp / Classical-guitar-sheet-music.com",
+      "checked_at": "2026-10-01T05:55:23.408773+00:00",
+      "status": "implemented",
+      "registered": true,
+      "scope": "All PDF edition/collection anchors on the homepage and directly linked site directory pages; same native PDF path merges memberships; collection internal works are not counted as separate records",
+      "directory_url": "https://www.classical-guitar-sheet-music.com/",
+      "metadata_policy": "source-attributed factual catalog navigation",
+      "file_policy": "Explicit individual non-commercial use allowed; redistribution prohibited; shared verifier must validate each PDF",
+      "research_rights_observation": "Opened 2026 Tarrega editing PDF limits personal use and redistribution",
+      "evidence_urls": [
+        "https://www.classical-guitar-sheet-music.com/",
+        "https://www.classical-guitar-sheet-music.com/francisco-tarrega/"
+      ],
+      "reason": "Catalog integration includes verified local PDF manifest entries; unique physical PDFs and category instrumentation require their separate verification reports",
+      "robots": {
+        "robots_status": 404,
+        "robots_url": "https://www.classical-guitar-sheet-music.com/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:24.792338+00:00",
+        "directory_status": 200,
+        "final_url": "https://www.classical-guitar-sheet-music.com/",
+        "error": null
+      },
+      "catalog": "sources/delcamp/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-01T04:43:54.973952+00:00",
+        "completed_at": "2026-10-01T04:51:58.071508+00:00",
+        "discovery_complete": true,
+        "page_count": 54,
+        "scope": "All PDF edition/collection anchors on the homepage and directly linked site directory pages; same native PDF path merges memberships; collection internal works are not counted as separate records",
+        "metadata_only": true,
+        "fresh_file_integrity_verification": false,
+        "fresh_instrumentation_verification": false,
+        "selected_directory_count": 53,
+        "failed_directory_count": 0,
+        "count_basis": "PDF edition or collection records, not the site's 18000-piece marketing total"
+      },
+      "source_record_count": 2911,
+      "category_count": 52,
+      "category_membership_count": 9346,
+      "asset_status_counts": {
+        "failed": 3,
+        "verified": 2908
+      },
+      "verified_pdf_manifest_count": 2908,
+      "pending_or_restricted_assets": 3,
+      "discovery_complete": true,
+      "discovery_command": "python scripts/discover_additional_sources.py --root . --source delcamp"
+    },
+    {
+      "source_id": "cglib",
+      "name": "Classical Guitar Library",
+      "checked_at": "2026-10-01T05:55:23.721002+00:00",
+      "status": "metadata_only",
+      "registered": true,
+      "scope": "All publicly exposed CMS posts with composer-index category; exclude voice tags and non-score editorial/accessory categories; source instrumentation remains unverified",
+      "directory_url": "https://www.cglib.org/composers/",
+      "metadata_policy": "site metadata attributed under stated CC BY-SA 4.0; PDF rights remain per edition",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Footer CC BY-SA 4.0; score-specific rights disclaimer retained",
+      "evidence_urls": [
+        "https://www.cglib.org/composers/",
+        "https://www.cglib.org/walzer-guirlande-in-e-major-op-47/"
+      ],
+      "reason": "Production catalog discovered; PDF permission/integrity and translation evidence remain independently recorded",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.cglib.org/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:24.793149+00:00",
+        "directory_status": 200,
+        "final_url": "https://www.cglib.org/composers/",
+        "error": null
+      },
+      "catalog": "sources/cglib/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-01T04:44:02.090973+00:00",
+        "completed_at": "2026-10-01T04:46:03.195581+00:00",
+        "discovery_complete": true,
+        "page_count": 196,
+        "scope": "All publicly exposed CMS posts with composer-index category; exclude voice tags and non-score editorial/accessory categories; source instrumentation remains unverified",
+        "metadata_only": true,
+        "fresh_file_integrity_verification": false,
+        "fresh_instrumentation_verification": false,
+        "cms_total_posts": 17574,
+        "cms_total_post_pages": 176,
+        "excluded_record_count": 1030,
+        "cms_returned_unique_post_count": 17574,
+        "composer_index_link_count": 1751,
+        "coverage_basis": "frozen CMS pagination; not a unique musical-work count"
+      },
+      "source_record_count": 16544,
+      "category_count": 1677,
+      "category_membership_count": 16555,
+      "asset_status_counts": {},
+      "verified_pdf_manifest_count": 0,
+      "pending_or_restricted_assets": 0,
+      "discovery_complete": true,
+      "discovery_command": "python scripts/discover_additional_sources.py --root . --source cglib"
+    },
+    {
+      "source_id": "classicalguitarshed",
+      "name": "Classical Guitar Shed",
+      "checked_at": "2026-10-01T05:55:24.280151+00:00",
+      "status": "blocked",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://classicalguitarshed.com/sm-guitar-arrangements/",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Usage paragraph only official search extract; preserve copyright and attribution; full policy pending",
+      "evidence_urls": [
+        "https://classicalguitarshed.com/sm-guitar-arrangements/",
+        "https://classicalguitarshed.com/sm-bach-bourree-duo/"
+      ],
+      "reason": "Current robots returns 403; full production usage policy cannot be acquired without access clarification",
+      "robots": {
+        "robots_status": 403,
+        "robots_url": "https://classicalguitarshed.com/robots.txt",
+        "robots_allowed": false
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:24.792915+00:00",
+        "directory_status": null,
+        "final_url": null,
+        "error": null
+      }
+    },
+    {
+      "source_id": "werner",
+      "name": "This is Classical Guitar / Werner Guitar Editions",
+      "checked_at": "2026-10-01T05:55:24.308907+00:00",
+      "status": "metadata_only",
+      "registered": true,
+      "scope": "Every same-site repertoire and collection entry in the canonical Sheet Music & Collections with Videos directory; linked editor shop not counted independently; edition PDFs remain restricted",
+      "directory_url": "https://www.thisisclassicalguitar.com/sheet-music-for-classical-guitar/",
+      "metadata_policy": "source-attributed factual catalog navigation",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Opened free collection PDF All Rights Reserved; no blanket reuse basis",
+      "evidence_urls": [
+        "https://www.thisisclassicalguitar.com/sheet-music-for-classical-guitar/",
+        "https://www.thisisclassicalguitar.com/late-beginner-collection-free-pdf/"
+      ],
+      "reason": "Production catalog discovered; PDF permission/integrity and translation evidence remain independently recorded",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.thisisclassicalguitar.com/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:24.792971+00:00",
+        "directory_status": 200,
+        "final_url": "https://www.thisisclassicalguitar.com/sheet-music-for-classical-guitar/",
+        "error": null
+      },
+      "catalog": "sources/werner/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-01T04:47:49.570451+00:00",
+        "completed_at": "2026-10-01T04:52:30.789942+00:00",
+        "discovery_complete": true,
+        "page_count": 301,
+        "scope": "Every same-site repertoire and collection entry in the canonical Sheet Music & Collections with Videos directory; linked editor shop not counted independently; edition PDFs remain restricted",
+        "metadata_only": true,
+        "fresh_file_integrity_verification": false,
+        "fresh_instrumentation_verification": false
+      },
+      "source_record_count": 308,
+      "category_count": 4,
+      "category_membership_count": 333,
+      "asset_status_counts": {
+        "restricted": 60
+      },
+      "verified_pdf_manifest_count": 0,
+      "pending_or_restricted_assets": 60,
+      "discovery_complete": true,
+      "discovery_command": "python scripts/discover_additional_sources.py --root . --source werner"
+    },
+    {
+      "source_id": "tecla",
+      "name": "Tecla Editions",
+      "checked_at": "2026-10-01T05:55:24.373854+00:00",
+      "status": "blocked",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://tecla.com/tecla-digital-downloads-complete-list/",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Modern engraving rights; zero-price checkout not executed",
+      "evidence_urls": [
+        "https://tecla.com/tecla-digital-downloads-complete-list/",
+        "https://tecla.com/shop/digital-downloads-pdfs/carcassi-matteo-pdfs/carcassi-etude-op-60-no-2-pdf-free/"
+      ],
+      "reason": "Current robots returns 403; zero-price items require checkout; no automatic access or acquisition performed",
+      "robots": {
+        "robots_status": 403,
+        "robots_url": "https://tecla.com/robots.txt",
+        "robots_allowed": false
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:24.792787+00:00",
+        "directory_status": null,
+        "final_url": null,
+        "error": null
+      }
+    },
+    {
+      "source_id": "bergmann",
+      "name": "Bergmann Edition",
+      "checked_at": "2026-10-01T05:55:24.400890+00:00",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://bergmann-edition.com/collections/contemporary-1",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Paid editions; service reuse restriction; metadata cooperation unverified",
+      "evidence_urls": [
+        "https://bergmann-edition.com/collections/contemporary-1",
+        "https://bergmann-edition.com/collections/contemporary-1/products/boyko-suite-no-3"
+      ],
+      "reason": "Commercial publisher terms restrict copying/utilization; metadata reuse partnership unresolved",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://bergmann-edition.com/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:24.793362+00:00",
+        "directory_status": null,
+        "final_url": null,
+        "error": null
+      }
+    },
+    {
+      "source_id": "andrewyork",
+      "name": "Andrew York",
+      "checked_at": "2026-10-01T05:55:24.425487+00:00",
+      "status": "metadata_only",
+      "registered": true,
+      "scope": "Every product in guitar solo, collection, duo, quartet and instrumental ensemble sections of the author catalog; voice, piano/harp alternatives, contrabass and orchestral descriptions excluded; no checkout",
+      "directory_url": "https://andrewyork.net/sheetmusicdownloads.html",
+      "metadata_policy": "source-attributed factual catalog navigation",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Three zero-price titles; no checkout or open license confirmed",
+      "evidence_urls": [
+        "https://andrewyork.net/sheetmusicdownloads.html",
+        "https://andrewyork.net/scores/BluesforJD.html"
+      ],
+      "reason": "Production catalog discovered; PDF permission/integrity and translation evidence remain independently recorded",
+      "robots": {
+        "robots_status": 404,
+        "robots_url": "https://andrewyork.net/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:24.793307+00:00",
+        "directory_status": 200,
+        "final_url": "https://andrewyork.net/sheetmusicdownloads.html",
+        "error": null
+      },
+      "catalog": "sources/andrewyork/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-01T04:47:49.577452+00:00",
+        "completed_at": "2026-10-01T04:51:58.427517+00:00",
+        "discovery_complete": true,
+        "page_count": 108,
+        "scope": "Every product in guitar solo, collection, duo, quartet and instrumental ensemble sections of the author catalog; voice, piano/harp alternatives, contrabass and orchestral descriptions excluded; no checkout",
+        "metadata_only": true,
+        "fresh_file_integrity_verification": false,
+        "fresh_instrumentation_verification": false,
+        "excluded_catalogue_occurrence_count": 14
+      },
+      "source_record_count": 107,
+      "category_count": 6,
+      "category_membership_count": 129,
+      "asset_status_counts": {},
+      "verified_pdf_manifest_count": 0,
+      "pending_or_restricted_assets": 0,
+      "discovery_complete": true,
+      "discovery_command": "python scripts/discover_additional_sources.py --root . --source andrewyork"
+    },
+    {
+      "source_id": "guitardownunder",
+      "name": "Guitar Downunder",
+      "checked_at": "2026-10-01T05:55:24.504738+00:00",
+      "status": "metadata_only",
+      "registered": true,
+      "scope": "Complete classical, fingerstyle and ensemble tables; duplicate responsive tables merged by native score path; explicitly excluded instrument labels omitted",
+      "directory_url": "https://www.guitardownunder.com/classical.php",
+      "metadata_policy": "source-attributed factual catalog navigation",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Homepage All Rights Reserved; bulk and reuse unverified",
+      "evidence_urls": [
+        "https://www.guitardownunder.com/classical.php",
+        "https://www.guitardownunder.com/_scores/lagrima.php"
+      ],
+      "reason": "Production catalog discovered; PDF permission/integrity and translation evidence remain independently recorded",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.guitardownunder.com/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:24.792882+00:00",
+        "directory_status": 200,
+        "final_url": "https://www.guitardownunder.com/classical.php",
+        "error": null
+      },
+      "catalog": "sources/guitardownunder/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-01T04:47:49.570236+00:00",
+        "completed_at": "2026-10-01T04:51:22.030424+00:00",
+        "discovery_complete": true,
+        "page_count": 322,
+        "scope": "Complete classical, fingerstyle and ensemble tables; duplicate responsive tables merged by native score path; explicitly excluded instrument labels omitted",
+        "metadata_only": true,
+        "fresh_file_integrity_verification": false,
+        "fresh_instrumentation_verification": false,
+        "excluded_record_count": 8
+      },
+      "source_record_count": 324,
+      "category_count": 3,
+      "category_membership_count": 328,
+      "asset_status_counts": {
+        "restricted": 325
+      },
+      "verified_pdf_manifest_count": 0,
+      "pending_or_restricted_assets": 325,
+      "discovery_complete": true,
+      "discovery_command": "python scripts/discover_additional_sources.py --root . --source guitardownunder"
+    },
+    {
+      "source_id": "freeguitarmusic",
+      "name": "FreeGuitarMusic.Net",
+      "checked_at": "2026-10-01T05:55:24.570791+00:00",
+      "status": "metadata_only",
+      "registered": true,
+      "scope": "Every named score anchor and explicitly named PDF viewer in the Modern and Classical Fingerstyle Solos directory; lesson guide links excluded; no Drive-file acquisition",
+      "directory_url": "https://www.freeguitarmusic.net/fingerstyle/modern-and-classical-solos",
+      "metadata_policy": "source-attributed factual catalog navigation",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "PDF access not established; permissions unspecified",
+      "evidence_urls": [
+        "https://www.freeguitarmusic.net/fingerstyle/modern-and-classical-solos",
+        "https://drive.google.com/file/d/1bXYGDsaUHAFQg1nVKRHokkXAI4ARxWve/view?usp=sharing"
+      ],
+      "reason": "Production catalog discovered; PDF permission/integrity and translation evidence remain independently recorded",
+      "robots": {
+        "robots_status": 404,
+        "robots_url": "https://www.freeguitarmusic.net/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:26.626701+00:00",
+        "directory_status": 200,
+        "final_url": "https://www.freeguitarmusic.net/fingerstyle/modern-and-classical-solos",
+        "error": null
+      },
+      "catalog": "sources/freeguitarmusic/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-01T04:47:51.228631+00:00",
+        "completed_at": "2026-10-01T04:53:20.965243+00:00",
+        "discovery_complete": true,
+        "page_count": 1,
+        "scope": "Every named score anchor and explicitly named PDF viewer in the Modern and Classical Fingerstyle Solos directory; lesson guide links excluded; no Drive-file acquisition",
+        "metadata_only": true,
+        "fresh_file_integrity_verification": false,
+        "fresh_instrumentation_verification": false,
+        "scope_boundary": "the selected modern/classical directory only; PDF filenames retained where composer attribution is absent"
+      },
+      "source_record_count": 14,
+      "category_count": 1,
+      "category_membership_count": 14,
+      "asset_status_counts": {
+        "restricted": 14
+      },
+      "verified_pdf_manifest_count": 0,
+      "pending_or_restricted_assets": 14,
+      "discovery_complete": true,
+      "discovery_command": "python scripts/discover_additional_sources.py --root . --source freeguitarmusic"
+    },
+    {
+      "source_id": "classicalguitarorg",
+      "name": "ClassicalGuitar.org",
+      "checked_at": "2026-10-01T05:55:24.621665+00:00",
+      "status": "metadata_only",
+      "registered": true,
+      "scope": "Every explicitly labeled free-music, free-exercise and free-ebook entry in the Free Stuff directory; no newsletter subscription or checkout; books separately labeled references",
+      "directory_url": "https://www.classicalguitar.org/free/",
+      "metadata_policy": "source-attributed factual catalog navigation",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Separate article, original composition, free public-domain and purchased-product rules",
+      "evidence_urls": [
+        "https://www.classicalguitar.org/free/",
+        "https://www.classicalguitar.org/about/site-policies/"
+      ],
+      "reason": "Production catalog discovered; PDF permission/integrity and translation evidence remain independently recorded",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.classicalguitar.org/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:26.942804+00:00",
+        "directory_status": 200,
+        "final_url": "https://www.classicalguitar.org/free/",
+        "error": null
+      },
+      "catalog": "sources/classicalguitarorg/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-01T04:47:49.552994+00:00",
+        "completed_at": "2026-10-01T04:47:51.227159+00:00",
+        "discovery_complete": true,
+        "page_count": 2,
+        "scope": "Every explicitly labeled free-music, free-exercise and free-ebook entry in the Free Stuff directory; no newsletter subscription or checkout; books separately labeled references",
+        "metadata_only": true,
+        "fresh_file_integrity_verification": false,
+        "fresh_instrumentation_verification": false
+      },
+      "source_record_count": 14,
+      "category_count": 3,
+      "category_membership_count": 14,
+      "asset_status_counts": {
+        "restricted": 13
+      },
+      "verified_pdf_manifest_count": 0,
+      "pending_or_restricted_assets": 13,
+      "discovery_complete": true,
+      "discovery_command": "python scripts/discover_additional_sources.py --root . --source classicalguitarorg"
+    },
+    {
+      "source_id": "gallica",
+      "name": "BnF Gallica",
+      "checked_at": "2026-10-01T05:55:24.685417+00:00",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://gallica.bnf.fr/",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "BnF metadata open license; scanned-content current policy and availability pending",
+      "evidence_urls": [
+        "https://gallica.bnf.fr/",
+        "https://catalogue.bnf.fr/ark:/12148/cb428940797"
+      ],
+      "reason": "Current robots disallows query-bearing and SRU search paths; official API documentation and robot permission need reconciliation",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://gallica.bnf.fr/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:27.120654+00:00",
+        "directory_status": 200,
+        "final_url": "https://gallica.bnf.fr/accueil/fr/html/accueil-fr",
+        "error": null
+      }
+    },
+    {
+      "source_id": "loc",
+      "name": "Library of Congress",
+      "checked_at": "2026-10-01T05:55:24.708760+00:00",
+      "status": "metadata_only",
+      "registered": true,
+      "scope": "Official notated-music JSON API keyword guitar; retained only LoC item pages, excluded finding aids and explicit songs/voice/bass/electric/orchestral subjects; keyword candidates are not instrumentation-verified",
+      "directory_url": "https://www.loc.gov/notated-music/collections/",
+      "metadata_policy": "source-attributed factual catalog navigation",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Sample collection rights indexed as freely reusable; not all LoC; file unverified",
+      "evidence_urls": [
+        "https://www.loc.gov/notated-music/collections/",
+        "https://www.loc.gov/item/2023813885/"
+      ],
+      "reason": "Production catalog discovered; PDF permission/integrity and translation evidence remain independently recorded",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.loc.gov/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:27.776448+00:00",
+        "directory_status": 403,
+        "final_url": "https://www.loc.gov/notated-music/collections/",
+        "error": null
+      },
+      "catalog": "sources/loc/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-01T04:47:51.321486+00:00",
+        "completed_at": "2026-10-01T04:53:20.966900+00:00",
+        "discovery_complete": true,
+        "page_count": 1,
+        "scope": "Official notated-music JSON API keyword guitar; retained only LoC item pages, excluded finding aids and explicit songs/voice/bass/electric/orchestral subjects; keyword candidates are not instrumentation-verified",
+        "metadata_only": true,
+        "fresh_file_integrity_verification": false,
+        "fresh_instrumentation_verification": false,
+        "query": "notated-music?q=guitar",
+        "query_returned_count": 14,
+        "omitted_count": 9
+      },
+      "source_record_count": 5,
+      "category_count": 1,
+      "category_membership_count": 5,
+      "asset_status_counts": {},
+      "verified_pdf_manifest_count": 0,
+      "pending_or_restricted_assets": 0,
+      "discovery_complete": true,
+      "discovery_command": "python scripts/discover_additional_sources.py --root . --source loc"
+    },
+    {
+      "source_id": "rischel",
+      "name": "Royal Danish Library / Rischel & Birket-Smith",
+      "checked_at": "2026-10-01T05:55:24.776283+00:00",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://www.kb.dk/en/find-materials/collections/sheet-music-collection",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Collection exists; current dedicated entry and content permissions not established",
+      "evidence_urls": [
+        "https://www.kb.dk/en/find-materials/collections/sheet-music-collection"
+      ],
+      "reason": "Institutional sheet-music collection page exists; current dedicated collection endpoint and item IDs unresolved",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.kb.dk/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:28.982766+00:00",
+        "directory_status": 200,
+        "final_url": "https://www.kb.dk/en/find-materials/collections/sheet-music-collection",
+        "error": null
+      }
+    },
+    {
+      "source_id": "riam_hudleston",
+      "name": "RIAM Hudleston Collection",
+      "checked_at": "2026-10-01T05:55:24.794494+00:00",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://www.riam.ie/digital-media/",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Personal non-commercial; substantial archive/whole volume downloading requires prior permission",
+      "evidence_urls": [
+        "https://www.riam.ie/digital-media/",
+        "https://www.riam.ie/student-life/library/special-collections"
+      ],
+      "reason": "Substantial archive or whole-volume downloads require prior permission",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.riam.ie/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:29.032533+00:00",
+        "directory_status": null,
+        "final_url": null,
+        "error": null
+      }
+    },
+    {
+      "source_id": "internetarchive",
+      "name": "Internet Archive",
+      "checked_at": "2026-10-01T05:55:24.813636+00:00",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://archive.org/advancedsearch.php",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Uploader rights not guaranteed; sample is IMSLP mirror",
+      "evidence_urls": [
+        "https://archive.org/advancedsearch.php",
+        "https://archive.org/details/imslp-complte-pour-la-guitare-sor-fernando"
+      ],
+      "reason": "Official API exists, but approved institutional uploader whitelist and independent-guitar edition scope remain unestablished",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://archive.org/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:30.025170+00:00",
+        "directory_status": 200,
+        "final_url": "https://archive.org/advancedsearch.php",
+        "error": null
+      }
+    },
+    {
+      "source_id": "cantorion",
+      "name": "Cantorion",
+      "checked_at": "2026-10-01T05:55:24.835862+00:00",
+      "status": "metadata_only",
+      "registered": true,
+      "scope": "Public Guitar instrument search pages allowed by current robots; pagination denials retained as an incomplete boundary; explicit voice/bass/electric/orchestra instrumentation excluded; mirrored editions preserve Cantorion IDs",
+      "directory_url": "https://es.cantorion.org/musicsearch/instruments/Guitar",
+      "metadata_policy": "source-attributed factual catalog navigation",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Per-record license; sample All rights reserved; some Mutopia mirrors",
+      "evidence_urls": [
+        "https://es.cantorion.org/musicsearch/instruments/Guitar",
+        "https://cantorion.org/music/957/Incursions"
+      ],
+      "reason": "Production catalog discovered; PDF permission/integrity and translation evidence remain independently recorded",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://es.cantorion.org/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:30.380345+00:00",
+        "directory_status": 200,
+        "final_url": "https://es.cantorion.org/musicsearch/instruments/Guitar",
+        "error": null
+      },
+      "catalog": "sources/cantorion/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-01T04:47:49.543556+00:00",
+        "completed_at": "2026-10-01T04:51:57.556977+00:00",
+        "discovery_complete": false,
+        "page_count": 1,
+        "scope": "Public Guitar instrument search pages allowed by current robots; pagination denials retained as an incomplete boundary; explicit voice/bass/electric/orchestra instrumentation excluded; mirrored editions preserve Cantorion IDs",
+        "metadata_only": true,
+        "fresh_file_integrity_verification": false,
+        "fresh_instrumentation_verification": false,
+        "source_search_stated_count": 574,
+        "excluded_record_count": 0,
+        "search_page_count": 29,
+        "continuation_error": "robots or unavailable robots prevents discovery: https://cantorion.org/musicsearch/instruments/Guitar?page=2&form_advanced__action=",
+        "no_cross_source_identity_merge": true
+      },
+      "source_record_count": 20,
+      "category_count": 1,
+      "category_membership_count": 20,
+      "asset_status_counts": {},
+      "verified_pdf_manifest_count": 0,
+      "pending_or_restricted_assets": 0,
+      "discovery_complete": false,
+      "discovery_command": "python scripts/discover_additional_sources.py --root . --source cantorion"
+    },
+    {
+      "source_id": "freescores",
+      "name": "Free-scores.com",
+      "checked_at": "2026-10-01T05:55:24.875557+00:00",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://www.free-scores.com/free-sheet-music.php?CATEGORIE=999",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Terms 10.3 requires prior written permission for substantial/repeated automated database use",
+      "evidence_urls": [
+        "https://www.free-scores.com/free-sheet-music.php?CATEGORIE=999",
+        "https://www.free-scores.com/download-sheet-music.php?pdf=34385"
+      ],
+      "reason": "Terms 10.3 require prior written permission for substantial/repeated automated database use",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.free-scores.com/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:30.768123+00:00",
+        "directory_status": null,
+        "final_url": null,
+        "error": null
+      }
+    },
+    {
+      "source_id": "eightnotes",
+      "name": "8notes",
+      "checked_at": "2026-10-01T05:55:24.898850+00:00",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://www.8notes.com/guitar/",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "PDF Premium; digital copying/sharing modern editions restricted",
+      "evidence_urls": [
+        "https://www.8notes.com/guitar/",
+        "https://www.8notes.com/scores/578.asp"
+      ],
+      "reason": "Modern editions copying/sharing restricted; corpus metadata reuse and premium acquisition permission unresolved",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.8notes.com/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:30.856722+00:00",
+        "directory_status": 200,
+        "final_url": "https://www.8notes.com/guitar/",
+        "error": null
+      }
+    },
+    {
+      "source_id": "musopen",
+      "name": "Musopen",
+      "checked_at": "2026-10-01T05:55:24.925485+00:00",
+      "status": "blocked",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://musopen.org/music/instrument/guitar/",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Personal temporary single-copy license; mirrors and transfer restricted; key field conflict",
+      "evidence_urls": [
+        "https://musopen.org/music/instrument/guitar/",
+        "https://musopen.org/music/13022-julia-florida-barcarolle/"
+      ],
+      "reason": "Reuse is limited to personal temporary single copies; mirrors/transfer restricted; robots 403",
+      "robots": {
+        "robots_status": 403,
+        "robots_url": "https://musopen.org/robots.txt",
+        "robots_allowed": false
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:30.994840+00:00",
+        "directory_status": null,
+        "final_url": null,
+        "error": null
+      }
+    },
+    {
+      "source_id": "sheetmusicplus",
+      "name": "Sheet Music Plus",
+      "checked_at": "2026-10-01T05:55:24.957232+00:00",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://www.sheetmusicplus.com/en/category/instruments/guitar/guitar-solo/",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Paid score; watermark and copy limits; metadata API/automation unverified",
+      "evidence_urls": [
+        "https://www.sheetmusicplus.com/en/category/instruments/guitar/guitar-solo/",
+        "https://www.sheetmusicplus.com/en/product/hoy-y-siempre-20741254.html"
+      ],
+      "reason": "Commercial metadata cooperation/API and automated reuse permission not established",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.sheetmusicplus.com/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:31.141149+00:00",
+        "directory_status": 200,
+        "final_url": "https://www.sheetmusicplus.com/en/category/instruments/guitar/guitar-solo/",
+        "error": null
+      }
+    },
+    {
+      "source_id": "guitarworld_cn",
+      "name": "吉他世界",
+      "checked_at": "2026-10-01T05:55:24.983727+00:00",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://www.guitarworld.com.cn/pu/top/cat/1",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Login/purchase sample; actual exported format and external acquisition permission pending",
+      "evidence_urls": [
+        "https://www.guitarworld.com.cn/pu/top/cat/1",
+        "https://www.guitarworld.com.cn/pu/q84335"
+      ],
+      "reason": "Public paid/login score metadata exists; third-party corpus reuse and approved non-vocal instrument scope unresolved",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.guitarworld.com.cn/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:32.536395+00:00",
+        "directory_status": 200,
+        "final_url": "https://www.guitarworld.com.cn/pu/top/cat/1",
+        "error": null
+      }
+    },
+    {
+      "source_id": "jitashe",
+      "name": "吉他社",
+      "checked_at": "2026-10-01T05:55:25.004801+00:00",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://www.jitashe.org/artist/9684/",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Uploader rights and on-site publication permission do not establish third-party reuse",
+      "evidence_urls": [
+        "https://www.jitashe.org/artist/9684/",
+        "https://www.jitashe.org/tab/1333502/"
+      ],
+      "reason": "Uploader and on-site publication permissions do not establish third-party corpus reuse; scope includes vocal/electric/bass",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.jitashe.org/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:32.537829+00:00",
+        "directory_status": 200,
+        "final_url": "https://www.jitashe.org/artist/9684/",
+        "error": null
+      }
+    },
+    {
+      "source_id": "musescore",
+      "name": "MuseScore.com",
+      "checked_at": "2026-10-01T05:55:25.029743+00:00",
+      "status": "blocked",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://musescore.com/sheetmusic/guitar",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Personal rights; terms restrict platform-external automated systems",
+      "evidence_urls": [
+        "https://musescore.com/sheetmusic/guitar",
+        "https://musescore.com/user/51380273/scores/11278984"
+      ],
+      "reason": "Terms restrict external automated systems; current robots also denies guitar directory",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://musescore.com/robots.txt",
+        "robots_allowed": false
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:33.343797+00:00",
+        "directory_status": null,
+        "final_url": null,
+        "error": null
+      }
+    },
+    {
+      "source_id": "musicnotes",
+      "name": "Musicnotes",
+      "checked_at": "2026-10-01T05:55:25.060984+00:00",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://www.musicnotes.com/instruments/guitar",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Personal product licenses; terms prohibit scripts/codes for automated access",
+      "evidence_urls": [
+        "https://www.musicnotes.com/instruments/guitar",
+        "https://www.musicnotes.com/sheetmusic/back-to-the-future/back-to-the-future/MN0101823"
+      ],
+      "reason": "Terms prohibit scripts/codes for automated access",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.musicnotes.com/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:33.716817+00:00",
+        "directory_status": null,
+        "final_url": null,
+        "error": null
+      }
+    },
+    {
+      "source_id": "nkoda",
+      "name": "nkoda",
+      "checked_at": "2026-10-01T05:55:25.086138+00:00",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://www.nkoda.com/",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Library scores not downloadable or printable; app cache distinct",
+      "evidence_urls": [
+        "https://www.nkoda.com/",
+        "https://www.nkoda.com/work/Preludio"
+      ],
+      "reason": "Subscription/app library; stable edition IDs and public metadata reuse basis not established",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.nkoda.com/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:33.966666+00:00",
+        "directory_status": 200,
+        "final_url": "https://www.nkoda.com/",
+        "error": null
+      }
+    },
+    {
+      "source_id": "mysongbook",
+      "name": "mySongBook",
+      "checked_at": "2026-10-01T05:55:25.113683+00:00",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://www.guitar-pro.com/tabs",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Official library cannot be saved as score files; player access only",
+      "evidence_urls": [
+        "https://www.guitar-pro.com/tabs",
+        "https://www.guitar-pro.com/tabs/t/7510-preludio-n20"
+      ],
+      "reason": "Official scores available through player only; edition metadata cooperation unresolved",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.guitar-pro.com/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:34.208329+00:00",
+        "directory_status": 200,
+        "final_url": "https://www.guitar-pro.com/tabs",
+        "error": null
+      }
+    },
+    {
+      "source_id": "songsterr",
+      "name": "Songsterr",
+      "checked_at": "2026-10-01T05:55:25.139885+00:00",
+      "status": "unavailable",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://www.songsterr.com/?inst=guitar",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Plus personal downloads; automation policy and ai.txt not fully verified",
+      "evidence_urls": [
+        "https://www.songsterr.com/?inst=guitar",
+        "https://www.songsterr.com/a/wsa/francisco-tarrega-gran-vals-classical-guitar-tab-s3888279"
+      ],
+      "reason": "Current directory returned HTTP 103 without a catalog; automation/AI policy unresolved",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.songsterr.com/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:34.634916+00:00",
+        "directory_status": 103,
+        "final_url": "https://www.songsterr.com/?inst=guitar",
+        "error": null
+      }
+    },
+    {
+      "source_id": "ultimateguitar",
+      "name": "Ultimate Guitar",
+      "checked_at": "2026-10-01T05:55:25.155105+00:00",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://www.ultimate-guitar.com/explore",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Official tabs cannot download; user GP/PTB individual downloads; personal file transfer restriction",
+      "evidence_urls": [
+        "https://www.ultimate-guitar.com/explore"
+      ],
+      "reason": "Large mixed user catalog; automation, metadata reuse and approved non-vocal instrument scope unresolved",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.ultimate-guitar.com/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:34.872660+00:00",
+        "directory_status": 200,
+        "final_url": "https://www.ultimate-guitar.com/explore",
+        "error": null
+      }
+    },
+    {
+      "source_id": "ccguitar",
+      "name": "虫虫吉他",
+      "checked_at": "2026-10-01T05:55:25.189843+00:00",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "candidate only; no site-wide coverage claimed",
+      "directory_url": "https://www.ccguitar.cn/album/1541217.htm",
+      "metadata_policy": "unverified",
+      "file_policy": "no acquisition without explicit record/edition evidence",
+      "research_rights_observation": "Official index only for some pages; current file, account, pricing and reuse policies incomplete",
+      "evidence_urls": [
+        "https://www.ccguitar.cn/album/1541217.htm",
+        "https://www.ccguitar.cn/cchtml/941357789.htm"
+      ],
+      "reason": "Current directory is reachable; external score/metadata reuse rights and approved non-vocal instrument scope unresolved",
+      "robots": {
+        "robots_status": 200,
+        "robots_url": "https://www.ccguitar.cn/robots.txt",
+        "robots_allowed": true
+      },
+      "entry_probe": {
+        "checked_at": "2026-10-01T04:36:34.980618+00:00",
+        "directory_status": 200,
+        "final_url": "https://www.ccguitar.cn/album/1541217.htm",
+        "error": null
+      }
+    }
+  ]
+}

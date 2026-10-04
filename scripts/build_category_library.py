@@ -64,8 +64,8 @@ if not TARGET_INSTRUMENT:
 if not TARGET_INSTRUMENT:
     raise RuntimeError("Unable to derive the target IMSLP instrumentation")
 CATEGORY_URL = "https://imslp.org/wiki/" + urllib.parse.quote(CATEGORY.replace(" ", "_"), safe="_():,'-.~")
-USER_AGENT = f"Codex-IMSLP-{CATEGORY_NAME.replace(' ', '-')}-Library/1.0 (personal research library)"
-LIBRARY_TITLE = f"IMSLP {CATEGORY_NAME} 乐谱库"
+USER_AGENT = f"GuitarAtlas/0.2 (IMSLP category library: {CATEGORY_NAME.replace(' ', '-')})"
+LIBRARY_TITLE = f"六弦漫行 · Guitar Atlas｜IMSLP {CATEGORY_NAME} 乐谱库"
 PDF_KIND_LABEL = os.environ.get("IMSLP_PDF_KIND_LABEL", "").strip()
 if not PDF_KIND_LABEL:
     PDF_KIND_LABEL = "吉他 PDF" if GUITAR_COUNT == 1 else f"{GUITAR_COUNT}把吉他 PDF"

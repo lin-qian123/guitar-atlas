@@ -37,7 +37,7 @@ def translate_batch(values: list[str], retries: int = 3) -> list[str]:
     )
     request = urllib.request.Request(
         f"{ENDPOINT}?{query}",
-        headers={"User-Agent": "Codex-IMSLP-Library/1.0", "Accept": "application/json"},
+        headers={"User-Agent": "GuitarAtlas/0.2 (reference translation maintenance)", "Accept": "application/json"},
     )
     for attempt in range(retries):
         try:

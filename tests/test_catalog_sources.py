@@ -7,17 +7,48 @@ from pathlib import Path
 
 import pytest
 
-from catalog_sources import validate_source_url
+from catalog_sources import load_registry, validate_source_url
 from export_public_site import build_public_catalog, PublicExportError
 from render_offline_site import build_offline_catalog, checked_source_asset
-from validate_public_site import validate_payload, PublicSiteValidationError
+from validate_public_site import validate_payload, check_forbidden, PublicSiteValidationError
 from tests.basic_helpers import ROOT, write_minimal_pdf
 from tests.test_public_site import make_library, write_json
 from tests.test_master_index import offline_library
 
 
+def test_human_scores_url_is_distinct_from_a_local_score_path() -> None:
+    check_forbidden("https://andrewyork.net/scores/4inAin4.html")
+    validate_source_url("https://andrewyork.net/scores/4inAin4.html", "andrewyork")
+    for value in ["For guitar/scores/work.pdf", "scores/private", "https://andrewyork.net/scores/work.pdf"]:
+        with pytest.raises(PublicSiteValidationError):
+            check_forbidden(value)
+
+
+@pytest.mark.parametrize("source_id", ["werner", "delcamp"])
+def test_site_compiler_is_not_an_edition_editor(tmp_path: Path, source_id: str) -> None:
+    make_library(tmp_path)
+    raw = add_source(tmp_path)
+    registry = json.loads((tmp_path / "config/sources.json").read_text())
+    source = registry["sources"][1]
+    source["id"] = source_id
+    raw["source_id"] = source_id
+    item = raw["works"][0]
+    item["id"] = source_id + ":42"
+    item["metadata"] = {"editor": "Website compiler"}
+    write_json(tmp_path / "config/sources.json", registry)
+    write_json(tmp_path / source["catalog"], raw)
+    projected = next(row for row in build_public_catalog(tmp_path)["works"] if row["source_id"] == source_id)
+    assert "editor" not in projected["details"]
+    item["metadata"]["editor_evidence"] = "Explicit edition title page attribution"
+    write_json(tmp_path / source["catalog"], raw)
+    projected = next(row for row in build_public_catalog(tmp_path)["works"] if row["source_id"] == source_id)
+    assert projected["details"]["editor"] == "Website compiler"
+
+
 def add_source(root: Path) -> dict:
-    shutil.copy(ROOT / "config/sources.json", root / "config/sources.json")
+    registry = json.loads((ROOT / "config/sources.json").read_text())
+    registry["sources"] = [row for row in registry["sources"] if row["id"] in {"imslp", "classclef"}]
+    write_json(root / "config/sources.json", registry)
     path = write_minimal_pdf(root / "sources/classclef/objects/example.pdf")
     asset = {"format": "PDF", "label": "TAB", "status": "verified", "size": path.stat().st_size,
              "sha256": hashlib.sha256(path.read_bytes()).hexdigest(), "local_path": str(path.relative_to(root)),
@@ -46,7 +77,7 @@ def test_public_projection_preserves_source_identity_and_removes_private_assets(
     serialized = json.dumps(data)
     for private in ["assets", "local_path", "sha256", "private.pdf", "objects/example.pdf"]:
         assert private not in serialized
-    assert validate_payload(data)["unique_works"] == 2
+    assert validate_payload(data, registry=load_registry(tmp_path))["unique_works"] == 2
 
 
 @pytest.mark.parametrize("url", ["https://www.classclef.com/pdf/test.pdf", "https://www.classclef.com/midi/test.mid",
@@ -72,7 +103,7 @@ def test_validator_rejects_cross_source_membership(tmp_path: Path) -> None:
     data = build_public_catalog(tmp_path)
     next(row for row in data["works"] if row["source_id"] == "classclef")["category_ids"] = [0]
     with pytest.raises(PublicSiteValidationError, match="crosses source"):
-        validate_payload(data)
+        validate_payload(data, registry=load_registry(tmp_path))
 
 
 @pytest.mark.parametrize("field,value", [("title_zh", {}), ("composer_zh", None), ("formats", {}), ("formats", ["EXE"]), ("formats", ["PDF", "PDF"]), ("source_record_id", "other"), ("resource_type", {})])
@@ -82,7 +113,7 @@ def test_validator_rejects_payloads_that_cannot_be_rendered(tmp_path: Path, fiel
     data = build_public_catalog(tmp_path)
     next(row for row in data["works"] if row["source_id"] == "classclef")[field] = value
     with pytest.raises(PublicSiteValidationError):
-        validate_payload(data)
+        validate_payload(data, registry=load_registry(tmp_path))
 
 
 def test_offline_multisource_assets_are_revalidated_and_shared_content_counted_once(tmp_path: Path) -> None:

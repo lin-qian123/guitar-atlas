@@ -3,76 +3,84 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Guitar Atlas 吉他乐谱图谱，汇集 IMSLP 与 ClassClef 的来源目录，提供曲名、音乐家、来源、编制与格式检索。">
-  <meta name="theme-color" content="#f7f5ef">
-  <meta property="og:title" content="Guitar Atlas｜吉他乐谱图谱">
-  <meta property="og:description" content="汇集 IMSLP 与 ClassClef，保留来源分类、原文署名与独立记录，提供统一检索。">
+  <meta name="description" content="六弦漫行（Guitar Atlas），汇集多个网站与馆藏的吉他乐谱目录，提供曲名、音乐家、来源、编制与格式检索。">
+  <meta name="theme-color" content="#f6f3ec">
+  <meta property="og:title" content="六弦漫行｜Guitar Atlas">
+  <meta property="og:description" content="统一整理多网站与历史馆藏，提供共同分类、中英文检索与版本关联。">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://lin-qian123.github.io/guitar-atlas/assets/archive-hero.webp">
+  <meta property="og:image" content="https://lin-qian123.github.io/guitar-atlas/assets/archive-cover.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <title>Guitar Atlas｜吉他乐谱图谱</title>
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="apple-touch-icon" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/site.css">
+  <title>六弦漫行｜Guitar Atlas</title>
+  <link rel="icon" type="image/svg+xml" href="assets/rosette.svg">
+  <link rel="apple-touch-icon" href="assets/rosette-touch.png">
+  <link rel="stylesheet" href="assets/site.css?v=c003e06a07">
+  <script src="assets/catalog-codec.js" defer></script>
   <script src="assets/search.js" defer></script>
-  <script src="assets/app.js" defer></script>
+  <script src="assets/app.js?v=a4193cc456" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#search">跳至检索</a>
   <header class="masthead shell">
-    <a class="brand" href="./" aria-label="Guitar Atlas 首页"><img src="assets/favicon.png" alt="" width="40" height="40"><span>Guitar <em>Atlas</em></span></a>
-    <nav aria-label="主导航"><a href="#catalog">分类</a><a href="#about">说明</a><a href="https://github.com/lin-qian123/guitar-atlas" lang="en">GitHub ↗</a></nav>
+    <a class="brand" href="./" aria-label="Guitar Atlas 首页"><svg class="brand-mark" width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true"><circle cx="18" cy="18" r="16"/><circle cx="18" cy="18" r="11"/><path d="M13 4v28M15 3v30M17 2v32M19 2v32M21 3v30M23 4v28"/></svg><span lang="en">Guitar <em>Atlas</em></span></a>
+    <nav aria-label="主导航"><a href="#catalog"><span aria-hidden="true">01</span> 分类目录</a><a href="#about"><span aria-hidden="true">02</span> 关于</a><a class="nav-external" href="https://github.com/lin-qian123/guitar-atlas" lang="en">GitHub <span aria-hidden="true">↗</span></a></nav>
   </header>
   <main>
     <section class="hero shell" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow">多来源吉他乐谱目录 <span aria-hidden="true">/</span> <span lang="en">GUITAR ATLAS</span></p>
-        <h1 id="hero-title">吉他乐谱<br><em>图谱</em></h1>
-        <p class="lede">汇集 IMSLP 与 ClassClef，统一浏览与检索。<br>保留来源分类、原文标题与音乐家署名。</p>
-        <div class="hero-bottom"><a class="browse-link" href="#catalog">浏览分类 <span aria-hidden="true">↗</span></a><p class="collection-count"><strong id="stat-works">—</strong> 条作品记录<span> · </span><strong id="stat-categories">—</strong> 个分类</p></div>
+        <p class="eyebrow"><span class="eyebrow-rule" aria-hidden="true"></span>吉他乐谱与历史馆藏</p>
+        <h1 id="hero-title" aria-label="六弦漫行">六弦<em>漫行</em></h1>
+        <p class="lede">独奏、重奏与馆藏。<br>检索曲目与音乐家。</p>
+        <a class="browse-link" href="#catalog">浏览乐谱目录 <span class="link-arrow" aria-hidden="true">↗</span></a>
+        <div class="collection-count" aria-label="目录规模"><div><strong id="stat-works">—</strong><span>作品记录</span></div><div><strong id="stat-categories">—</strong><span>来源分类</span></div><div><strong id="stat-sources">—</strong><span>收录来源</span></div></div>
       </div>
       <figure class="hero-art">
-        <div class="art-frame"><img src="assets/archive-hero.webp" alt="古典吉他与摊开的旧谱页" width="1672" height="941" fetchpriority="high"></div>
-        <figcaption><span lang="en">CLASSICAL GUITAR</span><span>吉他与旧谱</span></figcaption>
+        <div class="art-frame"><img src="assets/archive-cover.webp" alt="古典吉他与摊开的旧谱页，深色背景中的木纹与乐谱细节" width="1100" height="620" fetchpriority="high"></div>
+        <figcaption><span class="plate-number" lang="en">FIG. 01</span><span>吉他与旧谱</span><span class="plate-rule" aria-hidden="true"></span></figcaption>
       </figure>
     </section>
-    <section class="catalog shell" id="catalog" aria-labelledby="catalog-title">
-      <div class="catalog-heading"><h2 id="catalog-title">乐谱分类库</h2><p id="catalog-description">保留来源分类；IMSLP 按编制，ClassClef 按站内目录。</p></div>
+    <section class="catalog shell" id="catalog" aria-labelledby="catalog-title" data-view="categories">
+      <div class="section-marker"><span lang="en">01 / THE CATALOG</span><span aria-hidden="true">曲目 / 音乐家 / 编制</span></div>
+      <div class="catalog-heading"><h2 id="catalog-title">乐谱分类库</h2><p id="catalog-description">按编制与用途浏览，或直接检索曲名。</p></div>
       <div class="search-panel">
         <form id="search-form" class="search-box" role="search">
           <label class="sr-only" for="search">搜索曲名、音乐家、来源、编制或格式</label>
-          <span class="search-symbol" aria-hidden="true">⌕</span>
-          <input id="search" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-options" autocomplete="off" spellcheck="false" placeholder="曲名、音乐家、来源或格式" aria-describedby="status">
+          <svg class="search-symbol" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+          <input id="search" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-options" autocomplete="off" spellcheck="false" placeholder="搜曲名、音乐家，或作品号…" aria-describedby="status">
           <kbd aria-hidden="true">/</kbd><button class="search-submit" type="submit">检索 <span aria-hidden="true">→</span></button>
         </form>
         <ul id="search-options" class="search-options" role="listbox" aria-label="搜索建议" hidden></ul>
         <div class="search-bottom">
-          <p class="search-help">支持中英文、常见异译名与拼写容错。</p>
+          <p class="search-help">检索按匹配度，分类按参考知名度排序。</p>
           <details class="filter-drawer" id="filter-drawer">
             <summary>筛选条件 <span aria-hidden="true">+</span></summary>
             <div class="filters">
+              <label>共同分类<select id="topic-filter"><option value="all">全部共同分类</option></select></label>
               <label>数据来源<select id="source-filter"><option value="all">全部来源</option></select></label>
-              <label>编制 / 来源目录<select id="family-filter"><option value="all">全部组别</option></select></label>
+              <label>来源分类组别<select id="family-filter"><option value="all">全部组别</option></select></label>
               <label>作品类型<select id="kind-filter"><option value="all">全部类型</option><option value="original">原作</option><option value="arrangement">改编</option><option value="unspecified">来源未标注</option></select></label>
-              <label>具体分类<select id="category-filter"><option value="all">全部分类</option></select></label>
+              <label>来源原分类<select id="category-filter"><option value="all">全部分类</option></select></label>
             </div>
           </details>
         </div>
       </div>
-      <div class="browse-row"><span class="browse-label">分类组别</span><div id="family-shortcuts" class="family-shortcuts" aria-label="按编制或来源目录浏览"></div></div>
-      <div class="results-toolbar"><p id="status" role="status">正在载入目录…</p><div><button id="back-to-categories" type="button" hidden>返回分类库</button><button id="clear" type="button">重置条件</button><button id="share" type="button">复制链接 ↗</button></div></div>
-      <p id="search-hint" class="search-hint" hidden></p>
-      <div id="error" class="error" role="alert" hidden></div>
-      <div id="category-directory" class="category-directory" aria-label="乐谱分类目录" aria-busy="true"></div>
-      <div id="results" class="results" aria-busy="true" hidden></div>
-      <button id="load-more" class="load-more" type="button" hidden>加载更多作品 <span aria-hidden="true">↓</span></button>
+      <div class="catalog-workspace">
+        <div class="browse-row"><span class="browse-label">编制与用途 <span lang="en">INDEX</span></span><div id="family-shortcuts" class="family-shortcuts" aria-label="按共同编制与用途浏览"></div></div>
+        <div class="catalog-content">
+          <div class="results-toolbar"><p id="status" role="status">正在载入目录…</p><div><button id="back-to-categories" type="button" hidden>返回分类库</button><button id="clear" type="button">重置条件</button><button id="share" type="button">复制链接 ↗</button></div></div>
+          <p id="search-hint" class="search-hint" hidden></p>
+          <div id="error" class="error" role="alert" hidden></div>
+          <div id="category-directory" class="category-directory" aria-label="乐谱分类目录" aria-busy="true"></div>
+          <div id="results" class="results" aria-busy="true" hidden></div>
+          <button id="load-more" class="load-more" type="button" hidden>加载更多作品 <span aria-hidden="true">↓</span></button>
+        </div>
+      </div>
     </section>
     <aside class="about shell" id="about" aria-labelledby="about-title">
-      <div><p class="eyebrow" lang="en">ABOUT THE CATALOG</p><h2 id="about-title">项目范围与来源</h2></div>
-      <div class="about-copy"><p>Guitar Atlas 是可扩展的多来源吉他乐谱目录，当前整理 IMSLP 与 ClassClef。不同来源的作品记录分别保留；中文译名作为参考，未译条目显示原文。</p><p>IMSLP 保留编制与原作 / 改编分类。ClassClef 保留站内目录，未标注的编制与作品类型不作推定。乐谱与使用条件请查看各来源页面。</p><a href="https://github.com/lin-qian123/guitar-atlas">项目文档与源码 <span aria-hidden="true">↗</span></a></div>
+      <div class="about-intro"><p class="eyebrow" lang="en">02 / THE COLLECTION</p><h2 id="about-title">不同的谱源，<br>同一张目录。</h2><p class="about-note">六弦漫行 / Guitar Atlas</p><a href="https://github.com/lin-qian123/guitar-atlas">项目文档与源码 <span aria-hidden="true">↗</span></a></div>
+      <div class="about-copy"><p>汇集开放谱源、教学曲目与历史馆藏。曲名和音乐家可用中英文检索，原题、来源署名与版本资料完整保留。</p><p>每个来源的分类仍可浏览；编制和版本尚未明确时如实标注。乐谱与使用条件请查看各来源页面。</p><div class="source-heading">收录来源 <span lang="en">SOURCES</span></div><div id="source-index" class="source-index" aria-label="按来源浏览"></div></div>
     </aside>
   </main>
-  <footer class="shell"><span>Guitar Atlas <span class="footer-note">· 独立整理，非来源网站官方项目</span></span><a href="#">返回顶部 ↑</a></footer>
+  <footer class="shell"><span class="footer-brand" lang="en">Guitar <em>Atlas</em></span><span class="footer-note">六弦漫行 · 独立整理，非来源网站官方项目</span><a href="#">回到页首 <span aria-hidden="true">↑</span></a></footer>
   <noscript>分类浏览与检索功能需要启用 JavaScript。</noscript>
 </body>
 </html>

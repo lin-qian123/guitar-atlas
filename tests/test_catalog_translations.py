@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from catalog_sources import load_registry
+
 import copy
 import json
 from pathlib import Path
@@ -38,7 +40,7 @@ def test_persistent_translation_survives_source_metadata_rebuild(tmp_path):
     assert work['translation']['title']['status'] == 'reference'
     assert work['translation_status'] == 'untranslated'  # Composer is still missing.
     assert second['translation_summary'] == translation_summary(second)
-    validate_payload(second)
+    validate_payload(second, registry=load_registry(tmp_path))
 
 
 @pytest.mark.parametrize('fault', ['original', 'identity'])
@@ -123,10 +125,30 @@ def test_broken_inline_source_download_link_is_not_exported(tmp_path):
     assert work['title_en']=='Naquele Tempo'
     assert 'source_title_note' in work
     assert json.loads((tmp_path/'sources/classclef/catalog.json').read_text())['works'][0]['title_en']==original
-    validate_payload(data)
+    validate_payload(data, registry=load_registry(tmp_path))
     work['title_en']=original
     with pytest.raises(PublicSiteValidationError,match='forbidden public'):
-        validate_payload(data)
+        validate_payload(data, registry=load_registry(tmp_path))
+
+
+def test_imslp_explicit_retention_is_not_reviewed_by_a_chinese_number(tmp_path):
+    make_library(tmp_path)
+    add_source(tmp_path)
+    data = build_public_catalog(tmp_path)
+    imslp = next(r for r in data['works'] if r['source_id'] == 'imslp')
+    reason = '原题专名有不同语言词义，未确认作者命名意图，保留原词与编号。'
+    write_json(tmp_path / 'metadata/translations/title_overrides_reviewed_zh.json', {
+        'schema_version': 1, 'entries': [{
+            'work_id': imslp['id'], 'title_en': imslp['title_en'],
+            'title_zh': '《Bribes第1号》', 'basis': 'semantic_correction',
+            'reason': '编号已核对。', 'retention_reason': reason,
+        }],
+    })
+    apply_translations(tmp_path, data)
+    assert imslp['title_zh'] == '《Bribes第1号》'
+    assert imslp['translation']['title']['status'] == 'retained'
+    assert imslp['translation']['title']['reason'] == reason
+    assert data['translation_summary']['imslp']['title']['retained'] == 1
 
 
 def test_metadata_refresh_preserves_all_verified_parts_and_backup(tmp_path):
@@ -139,7 +161,10 @@ def test_metadata_refresh_preserves_all_verified_parts_and_backup(tmp_path):
     report=refresh_display_metadata(tmp_path)
     assert report['checked_local_paths']==4
     assert 'PDF integrity' in report['refresh_method']
-    assert '《新参考译名》' in (tmp_path/'index.html').read_text()
+    from tests.test_offline_metadata_guard import payload
+    fresh = payload(tmp_path)['data']
+    assert {work['title_zh'] for work in fresh['works']} == {'《新参考译名》'}
+    assert [work['local_editions'] for work in fresh['works']] == [work['local_editions'] for work in old['data']['works']]
     assert any(p.read_text()==html for p in (tmp_path/'backups/offline-ui').glob('*.html'))
 
 

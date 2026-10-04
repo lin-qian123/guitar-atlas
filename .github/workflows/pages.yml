@@ -34,11 +34,13 @@ jobs:
         with:
           node-version: '22'
       - name: Test browser search engine
-        run: node --test tests/search.test.cjs
+        run: node --test tests/*.test.cjs
       - name: Validate public catalog boundary
         run: python scripts/validate_public_site.py public_site
       - name: Validate translation coverage and review states
         run: python scripts/audit_translations.py
+      - name: Validate display titles and catalog text
+        run: python scripts/audit_catalog_text.py
 
   deploy:
     needs: test

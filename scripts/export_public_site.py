@@ -340,7 +340,13 @@ def export_public_catalog(root: Path, output: Path) -> dict[str, object]:
     payload = build_public_catalog(root)
     from validate_public_site import validate_payload
     validate_payload(payload)
+    from catalog_payload import pack_payload
+    from catalog_ranking import build_ranking
+    compact = pack_payload(payload)
+    ranking = build_ranking(root, payload)
     write_json_atomic(output, payload)
+    write_json_atomic(output.with_name(f"{output.stem}.compact{output.suffix}"), compact)
+    write_json_atomic(output.with_name("ranking.json"), ranking)
     return payload
 
 

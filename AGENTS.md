@@ -1,15 +1,27 @@
-# Guitar Atlas project instructions
+# 六弦漫行 / Guitar Atlas project instructions
 
-Guitar Atlas is a reproducible, source-attributed guitar score catalog and
-local offline library. The current sources are IMSLP and ClassClef; the
-architecture must allow additional websites without renaming the project or
+Guitar Atlas, named **六弦漫行** in Chinese, is a reproducible,
+source-attributed guitar score catalog and local offline library. Use
+`六弦漫行` for the Chinese name and `Guitar Atlas` for the unchanged English
+name. The page's upper-left navigation brand displays `Guitar Atlas`; the
+Chinese main heading displays `六弦漫行`, and the bilingual page title is
+`六弦漫行｜Guitar Atlas`. Approved sources and frozen scopes are registered in
+`config/sources.json`; the architecture supports additional websites without renaming the project or
 conflating their identities, categories, licensing, or review status. The GitHub
-repository is `guitar-atlas`; the existing local directory may remain `imslp`.
+repository, local root directory and Python package remain `guitar-atlas`.
+The existing Codex project remains named `Guitar Atlas`.
+Display-name changes do not rename repositories, directories, source IDs,
+native titles or record identities. Historical receipts may retain
+the name used at their date. `imslp` remains only where it identifies the actual
+source or adapter.
 
 ## Shared source and storage contract
 
 - Register sources and approved page hosts in `config/sources.json`. Keep each
   source's discovery, extraction, and validation rules in its own adapter.
+- Keep source-discovery studies and candidate inventories in `docs/research/`.
+  Research candidates are not registered sources or acquisition authorization;
+  preserve separate evidence for metadata reuse and file acquisition.
 - Identify records with a source and its native record ID; the public schema
   uses `source_id` plus `source_record_id`. Preserve native IDs such as IMSLP
   `work_id`. Merge category memberships within that identity.
@@ -54,6 +66,63 @@ repository is `guitar-atlas`; the existing local directory may remain `imslp`.
   snapshots, or generated category/offline catalogs. Reviewed translation
   source files and the compiled work-ID catalog under `metadata/translations/`
   remain versioned review assets, not generated category catalogs.
+
+## Additional adapters and unified catalog
+
+- Use `scripts/discover_open_sources.py`, `scripts/discover_archive_sources.py`,
+  and `scripts/discover_additional_sources.py` for the approved adapters under
+  `scripts/source_adapters/`. Freeze raw discovery and exclusion evidence under
+  `sources/<source>/`; distinguish discovered scope, accepted records, and
+  successful details. Candidate policies remain in
+  `config/source_acquisition_policies.json` and are not acquisition permission.
+- `scripts/catalog_unification.py` owns shared topics and typed relationships.
+  Shared topics are independent of native source categories; preserve exact
+  category memberships when applying source/kind/category/topic filters.
+  Bare `Guitar`, `Classical Guitar`, or RISM `guit` establishes an instrument,
+  not a solo player count. Pending scope declarations remain unclassified.
+- Relationships require explicit upstream file references, freshly verified
+  PDF content, exact DGA institution/native shelfmark evidence, or explicitly
+  typed source collection membership. Empty URLs, generic site pages, names,
+  titles, and untyped parent IDs are never holding/file identity evidence.
+- Where a directory has no native record ID, use a documented deterministic
+  locator digest (Delcamp and four GuitarDownunder file locators use
+  `pdf:<SHA-256 of the exact original locator>`). Keep the
+  exact locator and the identity map privately; do not expose score paths as
+  public record IDs. Preserve existing native IDs at other sources.
+- `scripts/acquire_source_assets.py` processes only adapter-approved `pending`
+  PDF assets, with wildcard-aware robots rules, approved endpoint hosts,
+  shared request clocks and at most two streamed responses per source.
+  Challenges/401/403/429 stop that source; untouched jobs remain pending.
+  ZIPs must validate every PDF member and reject unsafe paths/expansion.
+  Store verified bytes immutably in `sources/objects/sha256/` and retain
+  source-local hard links and receipts. This does not establish complete
+  physical deduplication of the legacy IMSLP library.
+- After acquisition stops, run `python scripts/deduplicate_added_pdfs.py --root .`
+  before `--apply`. Only fresh SHA-1/size upstream candidate matching plus
+  SHA-256, PDF parsing and complete path checks permit hard links. Re-run the
+  dry check after applying. The original ClassClef deduplicator remains separate.
+  `verified_source_relations.py` exposes only known record-ID pairs from a
+  current, completed journal after rechecking inputs and files. Stale, active or
+  incomplete evidence cannot establish public content relationships. Include
+  that journal in the offline input fingerprint and do a full render afterward.
+- Keep exact original guards in `metadata/translations/source_titles_zh.json`
+  and source-scoped musician/category assets. The reference terminology asset
+  is `expansion_terminology_zh.json`; its source guards and contexts apply.
+  `review_source_translations.py` preserves reviewed exact correspondences,
+  constrained reference terminology, and explicitly marked machine drafts.
+  A translation service result is never semantic review. Machine drafts
+  remain a failed publication audit until reviewed; retain uncertain names
+  with a concrete reason instead of claiming a conventional Chinese identity.
+- Public projections may contain source edition/role/license descriptors but
+  never private local inventory, download endpoints, hashes or filesystem
+  fields. Source metadata availability and local file integrity are separate.
+  A site's compiler is not every edition's editor; library contributors are
+  not composers unless the source supplies that role.
+- Record source scope, exclusion/detail/download failures, translation states,
+  typed graph edges, manifest members, content hashes, paths and inodes in the
+  private run reports. Maintain a human-readable receipt in `docs/research/`
+  with `scripts/report_source_expansion.py`; do not claim source-wide coverage
+  for partial pagination or imply local changes were pushed/deployed.
 
 ## IMSLP adapter
 
@@ -119,6 +188,88 @@ repository is `guitar-atlas`; the existing local directory may remain `imslp`.
 
 ## Public and offline editions
 
+- Maintain the shared score-publication/collection-index presentation: system
+  Chinese serif and self-hosted Latin display type, fine rules, layered rounded
+  collection cards, legible controls, responsive records and reduced-motion support.
+  Keep font licenses and illustration provenance. Update CSS/app cache versions
+  when their bytes change; offline script injection must support those query
+  strings. Measure actually referenced assets separately from historical files
+  and catalog data. Design evidence is in
+  `docs/research/2026-10-04-generated-category-art.md` and the preceding rounded
+  layout receipt. Prefer model-generated artwork for meaningful illustrations;
+  keep prompts/provenance and use a compressed shared atlas for category art.
+  Decoration does not establish instrumentation or player-count evidence. Prefer
+  in-place CSS edits, one optimized hero and one reusable category atlas; do not
+  accumulate complete style overrides or decorative libraries.
+- Audit text with `scripts/audit_catalog_text.py` as well as the translation
+  coverage audit. Inspect every record, category, edition-detail and collection
+  text field; distinguish detected defects, semantic review clues and legitimate
+  bibliographic annotations. This audit is not authoritative-name certification.
+- Keep machine title drafts available for review and retrieval, but use the
+  source title as the primary heading until a supported reference or conventional
+  Chinese title exists. Contextual repairs do not by themselves upgrade a draft.
+  A complete constrained music grammar or an exact title/attribution review may
+  establish a reference translation; preserve guards and review evidence.
+- Separate primary display titles/names from source bibliographic transcriptions
+  with explicit display fields and typed detail notes. Preserve original guards,
+  source identities, full searchable provenance and legitimate supplied titles.
+  Never delete all brackets, invent missing characters, infer a composer from a
+  book title, or treat source-author/editor/performer labels as composer evidence.
+- Keep the complete frozen title decisions under
+  `metadata/translations/review_2026-10-03/`. Apply them with
+  `scripts/apply_title_review.py` only after full source-ID, original-title and
+  attribution coverage checks. Exact primary-title decisions additionally guard
+  `display_original`; a new projection boundary requires review rather than
+  silently dropping a checked Chinese heading. Detailed review ledgers and
+  references stay outside the compact browser payload.
+- Display-only whitespace normalization keeps native titles verbatim. The
+  exact 2026-10-04 spacing-boundary rebase is recorded in
+  `review_2026-10-03/display_spacing_guard_rebase.json`; never replace an exact
+  display guard with fuzzy or normalized-string acceptance at publication.
+- Apply the final credit/display supplement only after its exact preceding
+  `before_zh` and `before_display_zh` agree with the full semantic decision.
+  Keep complete reference transcriptions in edition details after the final
+  primary-title override. Reading notes and source responsibility labels are
+  not title words; real supplied titles, numbering and musical content remain.
+- Final production-projection supplements are sequential reviews of the
+  preceding complete/display Chinese values. Exact reasons may retain an
+  unsupported phonetic name or ambiguous source title in its original language;
+  neither Chinese metadata labels nor a mechanical display fallback establishes
+  a translated primary title. Refresh legacy category views with
+  `scripts/refresh_legacy_category_display.py`, preserving source manifests and
+  every existing link; its default is a dry run.
+- Run the actual-headline supplements after the final projection stage, with
+  the same exact native/display and preceding Chinese guards. Move review
+  labels and archival folio locations to complete edition transcriptions;
+  keep actual book numbers and musical catalogue identifiers. The text audit
+  rejects explicit review labels in primary headings while preserving them in
+  details. A passing terminology scan alone is not semantic certification.
+- Delcamp source attributions sometimes contain actual title words. Only the
+  frozen exact display mappings in `catalog_display.py` may separate them;
+  never consume a title merely because it equals the contaminated attribution.
+  Preserve the original attribution and unspecified source role. In archival
+  slash-separated transcriptions, require an explicit responsibility boundary,
+  not a surname mentioned somewhere later in the string.
+- Wrap Chinese titles using balanced title marks. Strip only an actual outer
+  enclosure; never use character-set stripping that removes nested closing marks.
+
+- Keep recognition references in `metadata/ranking/recognition.json`, with
+  exact source full-name keys and stable work IDs guarded by original title
+  and attribution. Compile small numeric display weights through
+  `catalog_ranking.py` into public `data/ranking.json`; weights are curated
+  repertoire familiarity, not measured traffic or identity evidence.
+  Search relevance always precedes these weights; no-query browsing uses
+  descending weight with stable composer/title/ID ties. Preserve all query
+  terms and same-membership filters, including strong name boundaries.
+- Use `catalog_payload.py` and `assets/catalog-codec.js` for lossless compact
+  browser transport. Keep canonical JSON for audit and compatibility fallback.
+  Validate decoded compact public data against the canonical catalog and reject
+  unused transport table entries; compression never exempts privacy checks.
+  Offline snapshots embed catalog, aliases and ranking without remote fetches;
+  decode both compact and legacy snapshots before metadata refresh guards.
+  Build full-text fields and fuzzy vocabulary lazily; do not inflate initial
+  category browsing with whole-catalog tokenization or large DOM result lists.
+
 - Keep persistent display translations in `metadata/translations/`: IMSLP
   work-ID title overrides, ClassClef full-ID title entries, source-scoped
   `musicians_zh.json`, and source-scoped `categories_zh.json`. Apply them after
@@ -179,3 +330,9 @@ repository is `guitar-atlas`; the existing local directory may remain `imslp`.
   when changing or publishing public search behavior.
 - Publish GitHub Pages from `public_site/` only. Verify the pushed Git commit
   and deployed page separately; local output does not establish remote success.
+- Before publication, run the complete Python suite, every `tests/*.test.cjs`
+  Node test, both translation/text audits and the public boundary validator.
+  Inspect the staged file set for private source snapshots, local catalogs,
+  downloads and credentials. Keep the canonical catalog compatibility fallback.
+  Record the exact remote ref, successful Pages workflow head and live asset
+  byte parity in the publication receipt before reporting success.

@@ -8,9 +8,11 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
-from urllib.parse import unquote, urlparse
+from urllib.parse import parse_qsl, unquote, urlparse
 
 REGISTRY_PATH = Path(__file__).resolve().parents[1] / "config/sources.json"
+PUBLIC_FORMATS = {"PDF", "GPX", "MIDI", "GP3", "GP4", "GP5", "GP6", "GP7", "GP8", "GP", "MUSICXML", "LILYPOND", "IMAGE", "ONLINE", "UNSPECIFIED"}
+PUBLIC_METADATA = {"instrumentation", "arranger", "editor", "transcriber", "opus", "license", "source_edition", "difficulty", "publisher", "publication_date", "pages", "record_level", "collection", "language", "key", "period", "catalogue_number", "source_call", "institution", "license_note", "availability", "description", "component_count", "contributors", "isbn", "original_arrangement_status", "source_type", "title_annotations", "responsibility_statement", "source_title_transcription", "translated_title_transcription", "source_attribution_note", "dimensions", "physical_description", "text_quality_note", "attribution_role", "material_type"}
 
 
 def load_registry(root: Path | None = None) -> list[dict]:
@@ -43,11 +45,23 @@ def validate_source_url(value: str, source_id: str, registry: list[dict] | None 
         raise ValueError(f"unknown source: {source_id}")
     url = urlparse(value)
     decoded = unquote(url.path).casefold()
+    rules = source.get("page_url_rules", [])
+    matched_rule = next((rule for rule in rules if re.fullmatch(rule["path"], url.path)), None)
+    pairs = parse_qsl(url.query, keep_blank_values=True)
+    query_ok = not url.query
+    if matched_rule and url.query:
+        approved = matched_rule.get("query", {})
+        query_ok = (len(pairs) == len(approved) and len({key for key, _ in pairs}) == len(pairs)
+                    and all(key in approved and re.fullmatch(approved[key], val) for key, val in pairs))
+    dedicated_page = bool(matched_rule and matched_rule.get("human_page"))
+    if rules and not homepage and not matched_rule and value != source["homepage"]:
+        raise ValueError(f"unapproved {source_id} source page path: {value!r}")
     if (url.scheme != "https" or url.hostname not in source["allowed_hosts"]
             or url.username or url.password or url.port not in (None, 443)
-            or url.query or url.fragment or "\\" in value
-            or re.search(r"\.(?:pdf|mid|midi|gpx|gp[3-8]|zip)(?:$|/)", decoded)
-            or any(segment in decoded for segment in ("/wp-content/", "/download/", "/special:", "/wiki/file:"))):
+            or not query_ok or url.fragment or "\\" in value
+            or re.search(r"\.(?:pdf|mid|midi|gpx|gp[3-8]|zip|mxl|musicxml|ly)(?:$|/)", decoded)
+            or any(segment in decoded for segment in ("/wp-content/", "/special:", "/wiki/file:"))
+            or ("/download/" in decoded and not dedicated_page)):
         raise ValueError(f"invalid {source_id} source page URL: {value!r}")
     if source_id == "imslp" and not homepage and not url.path.startswith("/wiki/"):
         raise ValueError(f"invalid IMSLP source page URL: {value!r}")
@@ -93,7 +107,7 @@ def merge_sources(root: Path, data: dict) -> dict:
             catalog = source_catalog(root, source)
             snapshot = catalog.get("snapshot", {})
             public_source["snapshot"] = {
-                key: snapshot[key] for key in ("frozen_at", "discovery_complete", "page_count") if key in snapshot
+                key: snapshot[key] for key in ("frozen_at", "discovery_complete", "page_count", "scope", "record_count", "detail_complete", "metadata_license") if key in snapshot
             }
             family = source["family"]
             if any(row["id"] == family for row in data["families"]):
@@ -126,7 +140,7 @@ def merge_sources(root: Path, data: dict) -> dict:
                     raise ValueError("invalid source work memberships")
                 category_ids = sorted(category_map[key] for key in memberships)
                 formats = sorted(set(str(value).upper() for value in raw.get("formats", [])))
-                if any(value not in {"PDF", "GPX", "MIDI", "GP3", "GP4", "GP5"} for value in formats):
+                if any(value not in PUBLIC_FORMATS for value in formats):
                     raise ValueError("unsupported source format label")
                 work = {
                     "id": identity, "source_record_id": identity.split(":", 1)[1],
@@ -140,6 +154,41 @@ def merge_sources(root: Path, data: dict) -> dict:
                     "resource_type": raw.get("resource_type", "score"),
                     "title_aliases": raw.get("title_aliases", []),
                 }
+                metadata = raw.get("metadata", {})
+                work["details"] = {key: str(metadata[key]) for key in PUBLIC_METADATA
+                                   if key in metadata and isinstance(metadata[key], (str, int, float)) and str(metadata[key]).strip()}
+                if source["id"] == "dga":
+                    fields = metadata.get("source_fields", {})
+                    raw_format = str(fields.get("format") or "").strip()
+                    notes = str(fields.get("source_notes1") or "").strip()
+                    if (raw_format in {"LP", "Audio CD", "Audio Kassette"}
+                            or re.match(r"^\d+\s+sound discs?\b", raw_format, re.I)
+                            or notes == "Tonaufnahme"):
+                        work["details"]["material_type"] = "recording"
+                    elif notes == "Zeitschrift":
+                        work["details"]["material_type"] = "journal"
+                    elif raw_format == "Broschüre" or notes == "Sekundärliteratur":
+                        work["details"]["material_type"] = "reference_text"
+                    if raw_format and ("material_type" in work["details"] or re.search(r"\bscore\b|\d\s*(?:cm|mm)\b", raw_format, re.I)):
+                        previous = work["details"].get("physical_description", "")
+                        work["details"]["physical_description"] = (previous + "；" if previous else "") + raw_format
+                for original, display in (("source_pages", "pages"), ("year", "publication_date"), ("date", "publication_date"), ("instruments", "instrumentation"), ("information", "description")):
+                    if display not in work["details"] and isinstance(metadata.get(original), (str, int, float)):
+                        if not re.search(r"https?://", str(metadata[original])):
+                            work["details"][display] = str(metadata[original])
+                declared_kind = metadata.get("original_arrangement_status", "unspecified")
+                work["declared_kind"] = declared_kind if declared_kind in {"original", "arrangement"} else "unspecified"
+                contents = metadata.get("collection_contents", [])
+                if isinstance(contents, list):
+                    work["contents"] = [value for value in contents if isinstance(value, str) and not re.search(r"https?://|\.(?:pdf|zip|mid|gpx)\b", value, re.I)]
+                contributors = metadata.get("contributors_original")
+                if isinstance(contributors, list):
+                    names = [value for value in contributors if isinstance(value, str)]
+                    if names:
+                        work["details"]["contributors"] = "；".join(names)
+                # The catalog site's editor is not necessarily an edition's editor.
+                if source["id"] in {"delcamp", "werner"} and not metadata.get("editor_evidence"):
+                    work["details"].pop("editor", None)
                 # Project a closed list of public fields; no assets, hashes or paths.
                 data["works"].append(work)
                 for key in category_ids:
@@ -156,4 +205,6 @@ def merge_sources(root: Path, data: dict) -> dict:
     )
     data["integrity"]["composer_count"] = len({work["composer_en"] for work in data["works"]})
     data["integrity"]["works_in_multiple_categories"] = sum(len(row["category_ids"]) > 1 for row in data["works"])
+    from catalog_unification import unify_catalog
+    unify_catalog(root, data, registry)
     return data

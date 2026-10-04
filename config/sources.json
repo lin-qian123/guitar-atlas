@@ -1,24 +1,328 @@
 {
   "schema_version": 1,
-  "version": "2026-09-28.1",
+  "version": "2026-10-01.1",
   "sources": [
     {
       "id": "imslp",
       "name": "IMSLP",
       "homepage": "https://imslp.org/",
-      "allowed_hosts": ["imslp.org"],
+      "allowed_hosts": [
+        "imslp.org"
+      ],
       "adapter": "imslp_categories"
     },
     {
       "id": "classclef",
       "name": "ClassClef",
       "homepage": "https://www.classclef.com/",
-      "allowed_hosts": ["www.classclef.com", "classclef.com"],
+      "allowed_hosts": [
+        "www.classclef.com",
+        "classclef.com"
+      ],
       "adapter": "normalized_catalog",
       "catalog": "sources/classclef/catalog.json",
       "family": "classclef",
       "family_name_zh": "ClassClef 来源目录",
       "family_name_en": "ClassClef collections"
+    },
+    {
+      "id": "mutopia",
+      "name": "Mutopia",
+      "homepage": "https://www.mutopiaproject.org/",
+      "allowed_hosts": [
+        "www.mutopiaproject.org",
+        "mutopiaproject.org"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/mutopia/catalog.json",
+      "family": "mutopia",
+      "family_name_zh": "Mutopia 来源目录",
+      "family_name_en": "Mutopia collections",
+      "asset_hosts": [
+        "www.mutopiaproject.org",
+        "mutopiaproject.org"
+      ],
+      "acquisition_settings": {
+        "delay": 0.8,
+        "formats": [
+          "PDF"
+        ],
+        "licensing": "per_record_and_official_license_details"
+      },
+      "page_url_rules": [
+        {
+          "path": "/cgibin/piece-info\\.cgi",
+          "query": {
+            "id": "[0-9]+"
+          },
+          "human_page": true
+        },
+        {
+          "path": "/cgibin/make-table\\.cgi",
+          "query": {
+            "Instrument": "Guitar"
+          },
+          "human_page": true
+        }
+      ]
+    },
+    {
+      "id": "guitarschool",
+      "name": "The Guitar School",
+      "homepage": "https://classicalguitarschool.azurewebsites.net/",
+      "allowed_hosts": [
+        "classical-guitar-school.com",
+        "classicalguitarschool.azurewebsites.net",
+        "www.classical-guitar-school.com"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/guitarschool/catalog.json",
+      "family": "guitarschool",
+      "asset_hosts": [
+        "classical-guitar-school.com",
+        "classicalguitarschool.azurewebsites.net",
+        "www.classical-guitar-school.com"
+      ],
+      "acquisition_settings": {
+        "delay": 0.8,
+        "formats": [
+          "PDF"
+        ],
+        "licensing": "explicit_per_record_free_creative_commons_only"
+      },
+      "family_name_zh": "The Guitar School 来源目录",
+      "family_name_en": "The Guitar School collections",
+      "page_url_rules": [
+        {
+          "path": "/en/Download/[0-9]+",
+          "query": {},
+          "human_page": true
+        },
+        {
+          "path": "/en/(?:Methods|Studies|Collections|Solo|Duos|Trios|Quartets|Catalogues|Theory|All)",
+          "query": {},
+          "human_page": true
+        }
+      ]
+    },
+    {
+      "id": "cglib",
+      "name": "Classical Guitar Library",
+      "homepage": "https://www.cglib.org/",
+      "allowed_hosts": [
+        "www.cglib.org"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/cglib/catalog.json",
+      "family": "cglib",
+      "family_name_zh": "Classical Guitar Library 来源目录",
+      "family_name_en": "Classical Guitar Library collections",
+      "page_url_rules": []
+    },
+    {
+      "id": "delcamp",
+      "name": "Delcamp",
+      "homepage": "https://www.classical-guitar-sheet-music.com/",
+      "allowed_hosts": [
+        "www.classical-guitar-sheet-music.com"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/delcamp/catalog.json",
+      "family": "delcamp",
+      "family_name_zh": "Delcamp 来源目录",
+      "family_name_en": "Delcamp collections",
+      "page_url_rules": [],
+      "asset_hosts": [
+        "www.classical-guitar-sheet-music.com",
+        "classical-guitar-sheet-music.com"
+      ],
+      "acquisition_settings": {
+        "delay": 1,
+        "licensing": "explicit_personal_noncommercial_only"
+      }
+    },
+    {
+      "id": "andrewyork",
+      "name": "Andrew York",
+      "homepage": "https://andrewyork.net/",
+      "allowed_hosts": [
+        "andrewyork.net"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/andrewyork/catalog.json",
+      "family": "andrewyork",
+      "family_name_zh": "Andrew York 来源目录",
+      "family_name_en": "Andrew York collections",
+      "page_url_rules": []
+    },
+    {
+      "id": "guitardownunder",
+      "name": "Guitar Downunder",
+      "homepage": "https://www.guitardownunder.com/",
+      "allowed_hosts": [
+        "www.guitardownunder.com"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/guitardownunder/catalog.json",
+      "family": "guitardownunder",
+      "family_name_zh": "Guitar Downunder 来源目录",
+      "family_name_en": "Guitar Downunder collections",
+      "page_url_rules": []
+    },
+    {
+      "id": "classicalguitarorg",
+      "name": "ClassicalGuitar.org",
+      "homepage": "https://www.classicalguitar.org/",
+      "allowed_hosts": [
+        "www.classicalguitar.org"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/classicalguitarorg/catalog.json",
+      "family": "classicalguitarorg",
+      "family_name_zh": "ClassicalGuitar.org 来源目录",
+      "family_name_en": "ClassicalGuitar.org collections",
+      "page_url_rules": []
+    },
+    {
+      "id": "freeguitarmusic",
+      "name": "FreeGuitarMusic.Net",
+      "homepage": "https://www.freeguitarmusic.net/",
+      "allowed_hosts": [
+        "www.freeguitarmusic.net"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/freeguitarmusic/catalog.json",
+      "family": "freeguitarmusic",
+      "family_name_zh": "FreeGuitarMusic.Net 来源目录",
+      "family_name_en": "FreeGuitarMusic.Net collections",
+      "page_url_rules": []
+    },
+    {
+      "id": "cantorion",
+      "name": "Cantorion",
+      "homepage": "https://cantorion.org/",
+      "allowed_hosts": [
+        "cantorion.org",
+        "es.cantorion.org"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/cantorion/catalog.json",
+      "family": "cantorion",
+      "family_name_zh": "Cantorion 来源目录",
+      "family_name_en": "Cantorion collections",
+      "page_url_rules": []
+    },
+    {
+      "id": "loc",
+      "name": "Library of Congress",
+      "homepage": "https://www.loc.gov/",
+      "allowed_hosts": [
+        "www.loc.gov"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/loc/catalog.json",
+      "family": "loc",
+      "family_name_zh": "Library of Congress 来源目录",
+      "family_name_en": "Library of Congress collections",
+      "page_url_rules": []
+    },
+    {
+      "id": "boije",
+      "name": "Boije Collection",
+      "homepage": "https://old.capricemusic.se/musikochteaterbiblioteket/ladda-ner-noter/boijes-samling/",
+      "allowed_hosts": [
+        "old.capricemusic.se"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/boije/catalog.json",
+      "family": "boije",
+      "family_name_zh": "布瓦耶历史馆藏",
+      "family_name_en": "Boije historical collection",
+      "asset_hosts": [
+        "urn.kb.se",
+        "boijefiles.musikverket.se"
+      ],
+      "metadata_basis": "official alphabetical index",
+      "file_acquisition": "free PDFs advertised; automated access blocked by asset robots/policy probe",
+      "page_url_rules": [
+        {
+          "path": "/musikochteaterbiblioteket/ladda-ner-noter/boijes-samling/(?:boijes-samling-(?:[a-z]|v-w|a-2)/)?",
+          "query": {},
+          "human_page": true
+        }
+      ]
+    },
+    {
+      "id": "dga",
+      "name": "Digital Guitar Archive",
+      "homepage": "https://digitalguitararchive.com/archive/",
+      "allowed_hosts": [
+        "digitalguitararchive.com",
+        "www.digitalguitararchive.com"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/dga/catalog.json",
+      "family": "dga",
+      "family_name_zh": "DGA历史书目",
+      "family_name_en": "DGA historical bibliography",
+      "metadata_basis": "advertised official legacy API; database reuse licence unspecified",
+      "file_acquisition": "not approved; source navigation only",
+      "page_url_rules": [
+        {
+          "path": "/archive/",
+          "query": {},
+          "human_page": true
+        }
+      ]
+    },
+    {
+      "id": "rism",
+      "name": "RISM",
+      "homepage": "https://rism.online/",
+      "allowed_hosts": [
+        "rism.online"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/rism/catalog.json",
+      "family": "rism",
+      "family_name_zh": "RISM音乐文献",
+      "family_name_en": "RISM musical sources",
+      "metadata_basis": "official JSON-LD API and Muscat SRU metadata; CC BY 3.0",
+      "file_acquisition": "not approved",
+      "page_url_rules": [
+        {
+          "path": "/sources/\\d+",
+          "query": {},
+          "human_page": true
+        },
+        {
+          "path": "/external/diamm/source/\\d+",
+          "query": {},
+          "human_page": true
+        },
+        {
+          "path": "/search",
+          "query": {
+            "q": "guitar",
+            "rows": "100"
+          },
+          "human_page": true
+        }
+      ]
+    },
+    {
+      "id": "werner",
+      "name": "This is Classical Guitar / Werner",
+      "homepage": "https://www.thisisclassicalguitar.com/",
+      "allowed_hosts": [
+        "www.thisisclassicalguitar.com"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/werner/catalog.json",
+      "family": "werner",
+      "family_name_zh": "This is Classical Guitar / Werner 来源目录",
+      "family_name_en": "This is Classical Guitar / Werner collections",
+      "page_url_rules": []
     }
   ]
 }

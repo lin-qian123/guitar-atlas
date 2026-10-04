@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED: Use superpowers:subagent-driven-development (if subagents available) or superpowers:executing-plans to implement this plan. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build, migrate, populate, and verify a resumable offline IMSLP library for the approved 29 pure-guitar categories at `/Volumes/PHILIPS/programs/muse-cache/imslp`.
+**Goal:** Build, migrate, populate, and verify a resumable offline IMSLP library for the approved 29 pure-guitar categories at `/Volumes/PHILIPS/programs/muse-cache/guitar-atlas`.
 
 **Architecture:** A Python 3.12 CLI freezes IMSLP metadata into immutable run snapshots, applies strict original/arrangement extraction rules, stores verified PDFs once by SHA-256, materializes category-local hardlinks or relative symlinks, and renders self-contained `file://` catalogs. Existing `for3guitars` data is imported through a journaled staging migration; all network, migration, and download operations are resumable and produce machine-readable evidence.
 
@@ -1648,7 +1648,7 @@ verify_library(root: Path, run_id: str, request: VerificationRequest) -> Verific
 
 - [ ] **Step 1: Document exact setup and recovery commands**
 
-  Add `python -m pip install -e '.[test]'`, required `node --version` for test execution, command examples with `--root /Volumes/PHILIPS/programs/muse-cache/imslp`, output locations, scope-specific verification paths, exit codes, bot-check pause behavior, membership-wait resume, migration rollback and the difference between downloaded, terminally unavailable and excluded scores.
+  Add `python -m pip install -e '.[test]'`, required `node --version` for test execution, command examples with `--root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas`, output locations, scope-specific verification paths, exit codes, bot-check pause behavior, membership-wait resume, migration rollback and the difference between downloaded, terminally unavailable and excluded scores.
 
 - [ ] **Step 2: Update project status without overstating completion**
 
@@ -1695,7 +1695,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
   ```bash
   set -euo pipefail
   MIGRATION_RUN_ID="migration-$(python -c 'from datetime import datetime, timezone; print(datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))')"
-  test ! -e "/Volumes/PHILIPS/programs/muse-cache/imslp/metadata/migrations/${MIGRATION_RUN_ID}.json"
+  test ! -e "/Volumes/PHILIPS/programs/muse-cache/guitar-atlas/metadata/migrations/${MIGRATION_RUN_ID}.json"
   ```
 
   Keep `MIGRATION_RUN_ID` for every dry-run, override, stage, recovery and activation command. If the shell is lost, recover the exact ID from the single audit/journal path already created; never generate a replacement for an in-progress migration.
@@ -1703,8 +1703,8 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
 - [ ] **Step 2: Run target-volume and immutable legacy preflight**
 
   ```bash
-  DOCTOR_JSON="$(python scripts/library.py doctor --root /Volumes/PHILIPS/programs/muse-cache/imslp)"
-  LEGACY_JSON="$(python scripts/library.py verify-legacy --root /Volumes/PHILIPS/programs/muse-cache/imslp --legacy for3guitars)"
+  DOCTOR_JSON="$(python scripts/library.py doctor --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas)"
+  LEGACY_JSON="$(python scripts/library.py verify-legacy --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --legacy for3guitars)"
   python -c 'import json,sys; d=json.load(sys.stdin); assert d["status"]=="success" and d["detail"]["volume_name"]=="PHILIPS" and d["counts"]["available_bytes"]>=d["counts"]["required_free_bytes"]' <<<"${DOCTOR_JSON}"
   python -c 'import json,sys; d=json.load(sys.stdin); c=d["counts"]; assert d["status"]=="success" and c=={"work_pages":456,"pdf_files":1451,"integrity_errors":0}' <<<"${LEGACY_JSON}"
   ```
@@ -1714,7 +1714,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
 - [ ] **Step 3: Run and validate the strict dry-run under that same ID**
 
   ```bash
-  if MIGRATION_DRY_JSON="$(python scripts/library.py migrate-legacy --dry-run --root /Volumes/PHILIPS/programs/muse-cache/imslp --legacy for3guitars --run-id "${MIGRATION_RUN_ID}")"; then
+  if MIGRATION_DRY_JSON="$(python scripts/library.py migrate-legacy --dry-run --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --legacy for3guitars --run-id "${MIGRATION_RUN_ID}")"; then
     MIGRATION_DRY_EXIT=0
   else
     MIGRATION_DRY_EXIT=$?
@@ -1732,7 +1732,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
   Rerun dry-run with the same ID, but validate the ready state with this separate post-review assertion (do not reuse Step 3’s intentionally incomplete assertion):
 
   ```bash
-  MIGRATION_READY_JSON="$(python scripts/library.py migrate-legacy --dry-run --root /Volumes/PHILIPS/programs/muse-cache/imslp --legacy for3guitars --run-id "${MIGRATION_RUN_ID}")"
+  MIGRATION_READY_JSON="$(python scripts/library.py migrate-legacy --dry-run --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --legacy for3guitars --run-id "${MIGRATION_RUN_ID}")"
   python -c 'import json,sys; d=json.load(sys.stdin); c=d["counts"]; assert d["run_id"]==sys.argv[1] and d["status"]=="success"; assert c["input"]==1451 and c["mixed_excluded"]==6 and c["work_level_review"]==77 and c["manual_review_count"]==0 and c["integrity_error_count"]==0' "${MIGRATION_RUN_ID}" <<<"${MIGRATION_READY_JSON}"
   ```
 
@@ -1741,7 +1741,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
 - [ ] **Step 5: Create verified backup/staging and capture the canonical artifact**
 
   ```bash
-  MIGRATION_STAGE_JSON="$(python scripts/library.py migrate-legacy --stage --root /Volumes/PHILIPS/programs/muse-cache/imslp --legacy for3guitars --run-id "${MIGRATION_RUN_ID}")"
+  MIGRATION_STAGE_JSON="$(python scripts/library.py migrate-legacy --stage --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --legacy for3guitars --run-id "${MIGRATION_RUN_ID}")"
   STAGING_REPORT_SHA256="$(python -c 'import json,sys; d=json.load(sys.stdin); a=d["artifacts"]["staging_verification"]; assert a["report"]["complete"] is True; assert len(a["report"]["facts"]["staging_tree_sha256"])==64; print(a["report"]["report_sha256"])' <<<"${MIGRATION_STAGE_JSON}")"
   STAGING_CANONICAL_PATH="$(python -c 'import json,sys; print(json.load(sys.stdin)["artifacts"]["staging_verification"]["canonical_path"])' <<<"${MIGRATION_STAGE_JSON}")"
   ```
@@ -1749,7 +1749,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
   Re-run and prove immutable reuse after full rechecking:
 
   ```bash
-  STAGING_RECHECK_JSON="$(python scripts/library.py verify --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${MIGRATION_RUN_ID}" --scope staging)"
+  STAGING_RECHECK_JSON="$(python scripts/library.py verify --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${MIGRATION_RUN_ID}" --scope staging)"
   python -c 'import json,sys; a=json.load(sys.stdin)["artifacts"]; assert a["canonical_path"]==sys.argv[1] and a["report"]["report_sha256"]==sys.argv[2] and a["report"]["complete"] is True' "${STAGING_CANONICAL_PATH}" "${STAGING_REPORT_SHA256}" <<<"${STAGING_RECHECK_JSON}"
   ```
 
@@ -1758,9 +1758,9 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
 - [ ] **Step 6: Use the exact recovery command after any interruption**
 
   ```bash
-  RECOVERY_JSON="$(python scripts/library.py recover-migration --root /Volumes/PHILIPS/programs/muse-cache/imslp --legacy for3guitars --run-id "${MIGRATION_RUN_ID}")"
+  RECOVERY_JSON="$(python scripts/library.py recover-migration --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --legacy for3guitars --run-id "${MIGRATION_RUN_ID}")"
   python -c 'import json,sys; d=json.load(sys.stdin); assert d["run_id"]==sys.argv[1] and d["detail"]["journal_state"] in {"planned","backup_verified","staging_verified","legacy_moved","category_activated","post_verified","rollback_required","rolled_back"}' "${MIGRATION_RUN_ID}" <<<"${RECOVERY_JSON}"
-  MIGRATION_STATUS_JSON="$(python scripts/library.py status --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${MIGRATION_RUN_ID}")"
+  MIGRATION_STATUS_JSON="$(python scripts/library.py status --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${MIGRATION_RUN_ID}")"
   ```
 
   For `planned|backup_verified|staging_verified`, rerun the interrupted dry-run/stage/activate command with the same ID. For `legacy_moved|category_activated`, recovery reconciles the exact path matrix and continues post-verification. For `rollback_required`, rerun recovery until `rolled_back` or a reported occupied-path blocker is removed explicitly; after `rolled_back`, the old tree is active and a corrected migration uses a new ID. Never manually rename/delete migration paths.
@@ -1768,9 +1768,9 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
 - [ ] **Step 7: Activate using only the captured staging report self-hash**
 
   ```bash
-  MIGRATION_ACTIVATE_JSON="$(python scripts/library.py migrate-legacy --activate --root /Volumes/PHILIPS/programs/muse-cache/imslp --legacy for3guitars --run-id "${MIGRATION_RUN_ID}" --confirm-staging-sha256 "${STAGING_REPORT_SHA256}")"
+  MIGRATION_ACTIVATE_JSON="$(python scripts/library.py migrate-legacy --activate --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --legacy for3guitars --run-id "${MIGRATION_RUN_ID}" --confirm-staging-sha256 "${STAGING_REPORT_SHA256}")"
   python -c 'import json,sys; d=json.load(sys.stdin); assert d["run_id"]==sys.argv[1] and d["status"]=="success"; assert len(d["artifacts"]["post_verification_sha256"])==64' "${MIGRATION_RUN_ID}" <<<"${MIGRATION_ACTIVATE_JSON}"
-  python scripts/library.py verify --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${MIGRATION_RUN_ID}" --scope category --category "For 3 guitars (arr)"
+  python scripts/library.py verify --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${MIGRATION_RUN_ID}" --scope category --category "For 3 guitars (arr)"
   ```
 
   Expected: journal is `post_verified`; the legacy tree is `backups/for3guitars-retired-${MIGRATION_RUN_ID}/`; the immutable migration-post wrapper still hashes its immutable category report after the repeated check; the new category opens locally and has no mixed-bass membership.
@@ -1804,7 +1804,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
 
   ```bash
   ALLOWLIST_BEFORE="$(shasum -a 256 config/categories.json | awk '{print $1}')"
-  DISCOVERY_JSON="$(python scripts/library.py discover --root /Volumes/PHILIPS/programs/muse-cache/imslp --phase standalone)"
+  DISCOVERY_JSON="$(python scripts/library.py discover --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --phase standalone)"
   python -c 'import json,sys; d=json.load(sys.stdin); assert d["command"]=="discover" and d["run_id"] is None and d["status"]=="success" and d["detail"]["phase"]=="standalone"; assert len(d["artifacts"]["report_sha256"])==64 and d["artifacts"]["report_path"]=="metadata/category_drift_report.json"' <<<"${DISCOVERY_JSON}"
   ALLOWLIST_AFTER="$(shasum -a 256 config/categories.json | awk '{print $1}')"
   test "${ALLOWLIST_AFTER}" = "${ALLOWLIST_BEFORE}"
@@ -1817,10 +1817,10 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
   ```bash
   LIBRARY_RUN_ID="library-$(python -c 'from datetime import datetime, timezone; print(datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))')"
   test "${LIBRARY_RUN_ID}" != "${MIGRATION_RUN_ID}"
-  test ! -e "/Volumes/PHILIPS/programs/muse-cache/imslp/metadata/runs/${LIBRARY_RUN_ID}.json"
-  test ! -e "/Volumes/PHILIPS/programs/muse-cache/imslp/metadata/runs/${LIBRARY_RUN_ID}-state.json"
-  test ! -e "/Volumes/PHILIPS/programs/muse-cache/imslp/metadata/operations/current-library-run.json"
-  if SNAPSHOT_JSON="$(python scripts/library.py snapshot --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --migration-run-id "${MIGRATION_RUN_ID}" --all-approved --run-context metadata/operations/current-library-run.json --new-context)"; then
+  test ! -e "/Volumes/PHILIPS/programs/muse-cache/guitar-atlas/metadata/runs/${LIBRARY_RUN_ID}.json"
+  test ! -e "/Volumes/PHILIPS/programs/muse-cache/guitar-atlas/metadata/runs/${LIBRARY_RUN_ID}-state.json"
+  test ! -e "/Volumes/PHILIPS/programs/muse-cache/guitar-atlas/metadata/operations/current-library-run.json"
+  if SNAPSHOT_JSON="$(python scripts/library.py snapshot --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --migration-run-id "${MIGRATION_RUN_ID}" --all-approved --run-context metadata/operations/current-library-run.json --new-context)"; then
     SNAPSHOT_EXIT=0
   else
     SNAPSHOT_EXIT=$?
@@ -1839,7 +1839,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
   set -euo pipefail
   LIBRARY_RUN_ID="$(python -c 'import json; d=json.load(open("metadata/operations/current-library-run.json")); assert d["status"] in {"creating","paused","complete","failed"}; print(d["run_id"])')"
   MIGRATION_RUN_ID="$(python -c 'import json; d=json.load(open("metadata/operations/current-library-run.json")); print(d["migration_run_id"])')"
-  if SNAPSHOT_JSON="$(python scripts/library.py snapshot --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --migration-run-id "${MIGRATION_RUN_ID}" --all-approved --run-context metadata/operations/current-library-run.json)"; then
+  if SNAPSHOT_JSON="$(python scripts/library.py snapshot --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --migration-run-id "${MIGRATION_RUN_ID}" --all-approved --run-context metadata/operations/current-library-run.json)"; then
     SNAPSHOT_EXIT=0
   else
     SNAPSHOT_EXIT=$?
@@ -1857,7 +1857,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
 - [ ] **Step 3: Capture immutable run-start drift and bind it to RunState**
 
   ```bash
-  START_DRIFT_JSON="$(python scripts/library.py discover --root /Volumes/PHILIPS/programs/muse-cache/imslp --compare-run "${LIBRARY_RUN_ID}" --phase start)"
+  START_DRIFT_JSON="$(python scripts/library.py discover --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --compare-run "${LIBRARY_RUN_ID}" --phase start)"
   python -c 'import json,sys; d=json.load(sys.stdin); a=d["artifacts"]; assert d["run_id"]==sys.argv[1] and d["status"]=="success" and d["detail"]["phase"]=="run_start"; assert a["report_path"]==f"metadata/runs/{sys.argv[1]}-category-drift-start.json" and len(a["report_sha256"])==64' "${LIBRARY_RUN_ID}" <<<"${START_DRIFT_JSON}"
   ```
 
@@ -1866,7 +1866,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
 - [ ] **Step 4: Extract strict memberships and clear manual review**
 
   ```bash
-  if EXTRACT_JSON="$(python scripts/library.py extract --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}")"; then
+  if EXTRACT_JSON="$(python scripts/library.py extract --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}")"; then
     EXTRACT_EXIT=0
   else
     EXTRACT_EXIT=$?
@@ -1879,16 +1879,16 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
   Inspect every row in `${MANUAL_REVIEW_PATH}` against its saved exact-revision evidence. If a row should match an approved rule, fix and test extraction code instead of overriding inclusion. For an evidence-backed exclusion, set `CATEGORY_NAME`, `PAGE_ID`, optional `SOURCE_ID`, and a nonblank `REVIEW_REASON` from that exact row, then run exactly one of:
 
   ```bash
-  REVIEW_JSON="$(python scripts/library.py review-extraction --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --category "${CATEGORY_NAME}" --page-id "${PAGE_ID}" --source-id "${SOURCE_ID}" --decision exclude --reason "${REVIEW_REASON}")"
+  REVIEW_JSON="$(python scripts/library.py review-extraction --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --category "${CATEGORY_NAME}" --page-id "${PAGE_ID}" --source-id "${SOURCE_ID}" --decision exclude --reason "${REVIEW_REASON}")"
   # Page-level alternative, used only when the source ID in the row is null:
-  # REVIEW_JSON="$(python scripts/library.py review-extraction --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --category "${CATEGORY_NAME}" --page-id "${PAGE_ID}" --page-level --decision exclude --reason "${REVIEW_REASON}")"
+  # REVIEW_JSON="$(python scripts/library.py review-extraction --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --category "${CATEGORY_NAME}" --page-id "${PAGE_ID}" --page-level --decision exclude --reason "${REVIEW_REASON}")"
   python -c 'import json,sys; d=json.load(sys.stdin); a=d["artifacts"]; assert d["status"]=="success" and d["counts"]=={"reviews_written":1}; assert len(a["review_sha256"])==64 and a["review_path"].startswith(f"metadata/overrides/extraction_reviews/{sys.argv[1]}/")' "${LIBRARY_RUN_ID}" <<<"${REVIEW_JSON}"
   ```
 
   The command derives the canonical decision digest and filename; do not hand-author either. After all exact rows are resolved, rerun and enforce readiness:
 
   ```bash
-  EXTRACT_READY_JSON="$(python scripts/library.py extract --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}")"
+  EXTRACT_READY_JSON="$(python scripts/library.py extract --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}")"
   python -c 'import json,sys; d=json.load(sys.stdin); c=d["counts"]; assert d["run_id"]==sys.argv[1] and d["status"]=="success" and c["manual_review_count"]==0; assert c["works"]>0 and c["sources"]>0 and c["memberships"]>0' "${LIBRARY_RUN_ID}" <<<"${EXTRACT_READY_JSON}"
   ```
 
@@ -1897,7 +1897,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
 - [ ] **Step 5: Generate and enforce the persisted full-run capacity gate**
 
   ```bash
-  if CAPACITY_JSON="$(python scripts/library.py capacity --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --all-approved --workers 2)"; then
+  if CAPACITY_JSON="$(python scripts/library.py capacity --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --all-approved --workers 2)"; then
     CAPACITY_EXIT=0
   else
     CAPACITY_EXIT=$?
@@ -1924,7 +1924,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
   LIBRARY_RUN_ID="$(python -c 'import json; d=json.load(open("metadata/operations/current-library-run.json")); assert d["status"]=="complete"; print(d["run_id"])')"
   MIGRATION_RUN_ID="$(python -c 'import json; d=json.load(open("metadata/operations/current-library-run.json")); print(d["migration_run_id"])')"
   test -f "metadata/migrations/${MIGRATION_RUN_ID}.json"
-  if CAPACITY_JSON="$(python scripts/library.py capacity --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --all-approved --workers 2)"; then
+  if CAPACITY_JSON="$(python scripts/library.py capacity --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --all-approved --workers 2)"; then
     CAPACITY_EXIT=0
   else
     CAPACITY_EXIT=$?
@@ -1949,7 +1949,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
 
   ```bash
   PILOT_FILE="metadata/runs/${LIBRARY_RUN_ID}-pilot-categories.json"
-  PILOT_SELECT_JSON="$(python scripts/library.py select-categories --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --preset pilot --output "${PILOT_FILE}")"
+  PILOT_SELECT_JSON="$(python scripts/library.py select-categories --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --preset pilot --output "${PILOT_FILE}")"
   python -c 'import json,sys; d=json.load(sys.stdin); a=d["artifacts"]; assert d["run_id"]==sys.argv[1] and d["status"]=="success" and d["detail"]["preset"]=="pilot"; assert a["selection_path"]==sys.argv[2] and len(a["selection_sha256"])==64; assert d["counts"]["categories"]==3 and d["counts"]["memberships"]>0' "${LIBRARY_RUN_ID}" "${PILOT_FILE}" <<<"${PILOT_SELECT_JSON}"
   ```
 
@@ -1962,16 +1962,16 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
   ```bash
   run_pilot() {
     PILOT_FILE="metadata/runs/${LIBRARY_RUN_ID}-pilot-categories.json"
-    if PILOT_DOWNLOAD_JSON="$(python scripts/library.py download --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --categories-file "${PILOT_FILE}" --workers 2)"; then
+    if PILOT_DOWNLOAD_JSON="$(python scripts/library.py download --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --categories-file "${PILOT_FILE}" --workers 2)"; then
       PILOT_EXIT=0
     else
       PILOT_EXIT=$?
     fi
     [ "${PILOT_EXIT}" -eq 0 ] || return "${PILOT_EXIT}"
-    PILOT_RENDER_JSON="$(python scripts/library.py render --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --categories-file "${PILOT_FILE}")" || return $?
-    PILOT_VERIFY_JSON="$(python scripts/library.py verify --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --scope categories-file --categories-file "${PILOT_FILE}")" || return $?
+    PILOT_RENDER_JSON="$(python scripts/library.py render --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --categories-file "${PILOT_FILE}")" || return $?
+    PILOT_VERIFY_JSON="$(python scripts/library.py verify --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --scope categories-file --categories-file "${PILOT_FILE}")" || return $?
     python -c 'import json,sys; d=json.load(sys.stdin); assert d["status"]=="success" and d["artifacts"]["report"]["complete"] is True' <<<"${PILOT_VERIFY_JSON}" || return 5
-    PILOT_STATUS_JSON="$(python scripts/library.py status --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --categories-file "${PILOT_FILE}")" || return $?
+    PILOT_STATUS_JSON="$(python scripts/library.py status --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --categories-file "${PILOT_FILE}")" || return $?
   }
   run_pilot
   ```
@@ -1994,13 +1994,13 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
   MULTI_FILE="metadata/runs/${LIBRARY_RUN_ID}-wave-multi.json"
   DUO_FILE="metadata/runs/${LIBRARY_RUN_ID}-wave-duo.json"
   SOLO_FILE="metadata/runs/${LIBRARY_RUN_ID}-wave-solo.json"
-  MULTI_JSON="$(python scripts/library.py select-categories --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --preset wave-multi --output "${MULTI_FILE}")"
-  DUO_JSON="$(python scripts/library.py select-categories --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --preset wave-duo --output "${DUO_FILE}")"
-  SOLO_JSON="$(python scripts/library.py select-categories --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --preset wave-solo --output "${SOLO_FILE}")"
+  MULTI_JSON="$(python scripts/library.py select-categories --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --preset wave-multi --output "${MULTI_FILE}")"
+  DUO_JSON="$(python scripts/library.py select-categories --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --preset wave-duo --output "${DUO_FILE}")"
+  SOLO_JSON="$(python scripts/library.py select-categories --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --preset wave-solo --output "${SOLO_FILE}")"
   python -c 'import json,sys; d=json.load(sys.stdin); assert d["status"]=="success" and d["detail"]["preset"]==sys.argv[1] and d["artifacts"]["selection_path"]==sys.argv[2] and len(d["artifacts"]["selection_sha256"])==64 and d["counts"]["categories"]>0' wave-multi "${MULTI_FILE}" <<<"${MULTI_JSON}"
   python -c 'import json,sys; d=json.load(sys.stdin); assert d["status"]=="success" and d["detail"]["preset"]==sys.argv[1] and d["artifacts"]["selection_path"]==sys.argv[2] and len(d["artifacts"]["selection_sha256"])==64 and d["counts"]["categories"]==2' wave-duo "${DUO_FILE}" <<<"${DUO_JSON}"
   python -c 'import json,sys; d=json.load(sys.stdin); assert d["status"]=="success" and d["detail"]["preset"]==sys.argv[1] and d["artifacts"]["selection_path"]==sys.argv[2] and len(d["artifacts"]["selection_sha256"])==64 and d["counts"]["categories"]==2' wave-solo "${SOLO_FILE}" <<<"${SOLO_JSON}"
-  PARTITION_JSON="$(python scripts/library.py select-categories --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --validate-wave-files "${MULTI_FILE}" "${DUO_FILE}" "${SOLO_FILE}")"
+  PARTITION_JSON="$(python scripts/library.py select-categories --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --validate-wave-files "${MULTI_FILE}" "${DUO_FILE}" "${SOLO_FILE}")"
   python -c 'import json,sys; d=json.load(sys.stdin); a=d["artifacts"]; c=d["counts"]; assert d["status"]=="success" and d["detail"]["validation"]=="pairwise-disjoint-complete"; assert a["validated_paths"]==sys.argv[1:] and len(a["partition_sha256"])==64; assert c["multi"]+c["duo"]+c["solo"]==c["total"] and c["duo"]==c["solo"]==2' "${MULTI_FILE}" "${DUO_FILE}" "${SOLO_FILE}" <<<"${PARTITION_JSON}"
   ```
 
@@ -2014,7 +2014,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
   run_wave_rollout() {
     for WAVE_NAME in wave-multi wave-duo wave-solo; do
       WAVE_FILE="metadata/runs/${LIBRARY_RUN_ID}-${WAVE_NAME}.json"
-      if WAVE_DOWNLOAD_JSON="$(python scripts/library.py download --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --categories-file "${WAVE_FILE}" --workers 2)"; then
+      if WAVE_DOWNLOAD_JSON="$(python scripts/library.py download --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --categories-file "${WAVE_FILE}" --workers 2)"; then
         WAVE_EXIT=0
       else
         WAVE_EXIT=$?
@@ -2024,10 +2024,10 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
         return "${WAVE_EXIT}"
       fi
       python -c 'import json,sys; d=json.load(sys.stdin); assert d["command"]=="download" and d["status"]=="success" and d["counts"]["pending"]==0 and d["counts"]["manual_review"]==0 and d["counts"]["wait_pending"]==0' <<<"${WAVE_DOWNLOAD_JSON}" || return 5
-      WAVE_RENDER_JSON="$(python scripts/library.py render --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --categories-file "${WAVE_FILE}")" || return $?
-      WAVE_VERIFY_JSON="$(python scripts/library.py verify --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --scope categories-file --categories-file "${WAVE_FILE}")" || return $?
+      WAVE_RENDER_JSON="$(python scripts/library.py render --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --categories-file "${WAVE_FILE}")" || return $?
+      WAVE_VERIFY_JSON="$(python scripts/library.py verify --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --scope categories-file --categories-file "${WAVE_FILE}")" || return $?
       python -c 'import json,sys; d=json.load(sys.stdin); assert d["status"]=="success" and d["artifacts"]["report"]["complete"] is True' <<<"${WAVE_VERIFY_JSON}" || return 5
-      WAVE_STATUS_JSON="$(python scripts/library.py status --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --categories-file "${WAVE_FILE}")" || return $?
+      WAVE_STATUS_JSON="$(python scripts/library.py status --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --categories-file "${WAVE_FILE}")" || return $?
       python -c 'import json,sys; d=json.load(sys.stdin); c=d["counts"]; assert d["status"]=="success" and c["pending"]==c["manual_review"]==c["wait_pending"]==0' <<<"${WAVE_STATUS_JSON}" || return 5
     done
   }
@@ -2055,7 +2055,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
 - [ ] **Step 1: Complete bilingual references**
 
   ```bash
-  if COVERAGE_REVIEW_JSON="$(python scripts/library.py translation-coverage --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --all-approved)"; then
+  if COVERAGE_REVIEW_JSON="$(python scripts/library.py translation-coverage --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --all-approved)"; then
     COVERAGE_REVIEW_EXIT=0
   else
     COVERAGE_REVIEW_EXIT=$?
@@ -2073,19 +2073,19 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
   Final gate:
 
   ```bash
-  COVERAGE_JSON="$(python scripts/library.py translation-coverage --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --all-approved)"
+  COVERAGE_JSON="$(python scripts/library.py translation-coverage --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --all-approved)"
   python -c 'import json,sys; d=json.load(sys.stdin); assert d["status"]=="success" and d["artifacts"]["complete"] is True and d["counts"]["composer_fallback"]==0 and d["counts"]["missing_composers"]==0 and d["counts"]["missing_titles"]==0' <<<"${COVERAGE_JSON}"
   ```
 
 - [ ] **Step 2: Render all final static artifacts**
 
-  Run: `python scripts/library.py render --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --all-approved`
+  Run: `python scripts/library.py render --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --all-approved`
 
   Expected: root and every nonempty category have HTML/Markdown/CSV/JSON outputs; search data is inline; no local `fetch()` exists; all links are relative and component-encoded.
 
 - [ ] **Step 3: Capture end-of-run drift**
 
-  Run: `python scripts/library.py discover --root /Volumes/PHILIPS/programs/muse-cache/imslp --compare-run "${LIBRARY_RUN_ID}" --phase end`
+  Run: `python scripts/library.py discover --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --compare-run "${LIBRARY_RUN_ID}" --phase end`
 
   Expected: additions/removals/revisions since snapshot are reported separately, `metadata/runs/${LIBRARY_RUN_ID}-category-drift-end.json` is immutable, its path/SHA-256 pair is stored in RunState, and the run snapshot remains unchanged.
 
@@ -2094,7 +2094,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
   Run:
 
   ```bash
-  FINAL_VERIFY_JSON="$(python scripts/library.py verify --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --scope all-approved)"
+  FINAL_VERIFY_JSON="$(python scripts/library.py verify --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --scope all-approved)"
   FINAL_CANONICAL_PATH="$(python -c 'import json,sys; d=json.load(sys.stdin); a=d["artifacts"]; assert a["report"]["complete"] is True; print(a["canonical_path"])' <<<"${FINAL_VERIFY_JSON}")"
   FINAL_REPORT_SHA256="$(python -c 'import json,sys; d=json.load(sys.stdin); print(d["artifacts"]["report"]["report_sha256"])' <<<"${FINAL_VERIFY_JSON}")"
   test "${#FINAL_REPORT_SHA256}" -eq 64
@@ -2107,7 +2107,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
 
 - [ ] **Step 5: Manually open the final entry**
 
-  Open `file:///Volumes/PHILIPS/programs/muse-cache/imslp/index.html`. Search one English composer, one Chinese composer, one English title and one Chinese title; filter original/arrangement and at least two guitar counts; open a PDF from the root and a category page.
+  Open `file:///Volumes/PHILIPS/programs/muse-cache/guitar-atlas/index.html`. Search one English composer, one Chinese composer, one English title and one Chinese title; filter original/arrangement and at least two guitar counts; open a PDF from the root and a category page.
 
   Expected: every interaction works without an HTTP server and each PDF opens from its category-local path.
 
@@ -2116,7 +2116,7 @@ Execute this entire chunk in one dedicated `zsh` session beginning with `set -eu
   First create the durable, fully validated completion record and assert it binds the variables captured above:
 
   ```bash
-  COMPLETION_JSON="$(python scripts/library.py status --root /Volumes/PHILIPS/programs/muse-cache/imslp --run-id "${LIBRARY_RUN_ID}" --all-approved --migration-run-id "${MIGRATION_RUN_ID}" --write-completion-record "metadata/operations/${LIBRARY_RUN_ID}-completion.json")"
+  COMPLETION_JSON="$(python scripts/library.py status --root /Volumes/PHILIPS/programs/muse-cache/guitar-atlas --run-id "${LIBRARY_RUN_ID}" --all-approved --migration-run-id "${MIGRATION_RUN_ID}" --write-completion-record "metadata/operations/${LIBRARY_RUN_ID}-completion.json")"
   COMPLETION_RECORD="$(python -c 'import json,sys; d=json.load(sys.stdin); a=d["artifacts"]; assert d["status"]=="success" and a["completion_record_alias"]==f"metadata/operations/{sys.argv[1]}-completion.json"; print(a["completion_record_path"])' "${LIBRARY_RUN_ID}" <<<"${COMPLETION_JSON}")"
   python -c 'import hashlib,json,sys; from pathlib import Path; p=Path(sys.argv[1]); d=json.load(open(p)); digest=d.pop("record_sha256"); encoded=json.dumps(d,ensure_ascii=False,sort_keys=True,separators=(",",":")).encode("utf-8"); assert digest==hashlib.sha256(encoded).hexdigest()==p.stem; assert p.as_posix()==f"metadata/operations/completions/{sys.argv[3]}/{digest}.json"; assert d["migration_run_id"]==sys.argv[2] and d["library_run_id"]==sys.argv[3]; assert d["capacity_canonical_path"]==sys.argv[4] and d["capacity_report_sha256"]==sys.argv[5]; assert d["verification_canonical_path"]==sys.argv[6] and d["verification_report_sha256"]==sys.argv[7] and d["verification_complete"] is True' "${COMPLETION_RECORD}" "${MIGRATION_RUN_ID}" "${LIBRARY_RUN_ID}" "${CAPACITY_CANONICAL_PATH}" "${CAPACITY_REPORT_SHA256}" "${FINAL_CANONICAL_PATH}" "${FINAL_REPORT_SHA256}"
   ```

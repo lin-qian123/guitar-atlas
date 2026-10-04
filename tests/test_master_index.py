@@ -11,6 +11,7 @@ import pytest
 
 from tests.basic_helpers import ROOT, write_json, write_minimal_pdf
 from tests.test_public_site import make_library
+from catalog_payload import unpack_payload
 
 
 def manifest_record(root: Path, category: str, relative: str = "scores/作者/作品/Complete Score.pdf") -> dict:
@@ -33,7 +34,7 @@ def render(root: Path) -> tuple[dict, str, dict]:
     html = (root / "index.html").read_text(encoding="utf-8")
     match = re.search(r'<script type="application/json" id="offline-data">(.*?)</script>', html)
     assert match, "Offline data must be embedded so file:// works without fetch"
-    return result, html, json.loads(match[1])
+    return result, html, unpack_payload(json.loads(match[1]))
 
 
 def test_offline_home_reuses_public_layout_and_search_with_embedded_data(tmp_path: Path) -> None:
@@ -47,6 +48,14 @@ def test_offline_home_reuses_public_layout_and_search_with_embedded_data(tmp_pat
     for name in ["site.css", "search.js", "app.js"]:
         assert f'public_site/assets/{name}' in html
     assert 'src="scripts/assets/offline-catalog.js"' in html
+    scripts = re.findall(r'<script src="([^"]+)"', html)
+    app_sources = [src for src in scripts if src.split("?", 1)[0] == "public_site/assets/app.js"]
+    assert len(app_sources) == 1
+    assert scripts.count("scripts/assets/offline-catalog.js") == 1
+    assert scripts.index("scripts/assets/offline-catalog.js") < scripts.index(app_sources[0])
+    # Cache-version queries must survive without losing the offline adapter.
+    public_app = re.search(r'<script src="assets/app\.js([^"]*)"', (ROOT / "public_site/index.html").read_text())
+    assert public_app and app_sources[0] == "public_site/assets/app.js" + public_app[1]
     assert 'id="results" class="results" aria-busy="true" hidden' in html
     assert "离线版" in html
     assert len(payload["data"]["works"]) == 1

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public_site/assets/readme-hero.svg" alt="Guitar Atlas — A multi-source guitar score catalog" width="100%">
+  <img src="public_site/assets/archive-cover.webp" alt="六弦漫行｜Guitar Atlas — A multi-source guitar score catalog" width="100%">
 </p>
 
 <p align="center">
@@ -11,14 +11,84 @@
 
 <p align="center">
   <img alt="Python 3.12+" src="https://img.shields.io/badge/Python-3.12%2B-17283b?style=flat-square">
-  <img alt="Sources IMSLP and ClassClef" src="https://img.shields.io/badge/sources-IMSLP_%2B_ClassClef-bd452f?style=flat-square">
+  <img alt="16 catalog sources" src="https://img.shields.io/badge/sources-16-bd452f?style=flat-square">
   <img alt="Public site excludes score files" src="https://img.shields.io/badge/public_site-score_files_excluded-a67542?style=flat-square">
   <img alt="License MIT and CC BY-SA 4.0" src="https://img.shields.io/badge/license-MIT_%2B_CC_BY--SA_4.0-17283b?style=flat-square">
 </p>
 
-**Guitar Atlas** is a guitar score catalog and local offline library designed for multiple sources. Its current sources are [IMSLP](https://imslp.org/) and [ClassClef](https://www.classclef.com/). It organizes source attribution, titles, musicians, and categories through independent source adapters, allowing other websites to be added later.
+**Guitar Atlas**, named **六弦漫行** in Chinese, is a guitar score catalog and local offline library with 16 registered websites and collections. A shared instrumentation and purpose directory searches native titles, Chinese reference names, musicians, formats and edition metadata across sources. Each source keeps its own adapter and resumable snapshot.
 
-Records retain their source identity, editions, and category memberships. Similar titles across websites are not automatically merged. Original titles and musician attributions remain intact; reviewed Chinese reference names assist discovery. The repository has been renamed from `imslp-guitar` to `guitar-atlas`; existing local directories do not need to move.
+Records retain their source identity, editions, and category memberships. Similar titles across websites are not automatically merged. Original titles and musician attributions remain intact; reviewed Chinese reference names assist discovery. The Chinese name is **六弦漫行**, and the original English name remains **Guitar Atlas**. The upper-left navigation displays the English name, the main heading displays the Chinese name, and the bilingual title is “六弦漫行｜Guitar Atlas”. The repository, local root directory and Python package remain `guitar-atlas`, and the Codex project remains named Guitar Atlas. The [October 3 name-change receipt](docs/research/2026-10-03-chinese-name.md) records the name change and the final display conventions.
+
+## 2026-10-04 update
+
+This version includes the completed 16-source catalog, Chinese title review, relevance and repertoire ranking, compact search data, bilingual naming and generated illustrations. A fresh production export preserves the decoded data; 1,256 Python and 66 Node tests plus public-boundary, translation and text audits passed. Source notices cover all 16 registered sources. Pages publishes only the score-file-free `public_site/`; repository and live deployment are verified separately in the [publication receipt](docs/research/2026-10-04-publication.md).
+
+## Generated category illustrations: 2026-10-04
+
+Twelve instrument and score-page vignettes were created with the built-in image model and encoded into one 58KB transparent WebP atlas shared by all 17 topics. It replaces the CSS-drawn strings and sound holes; both README covers now reuse the existing generated hero. No JavaScript, DOM elements or dependencies were added, and catalog data and 18-record pagination are unchanged. Referenced static assets total 283,302 bytes; 46 focused Python tests, 66 Node tests and public validation passed. The offline entry was refreshed. See the [artwork, prompt and validation receipt](docs/research/2026-10-04-generated-category-art.md). This is a local update; the following layout receipt retains its earlier resource budget.
+
+## Rounded collection layout: 2026-10-04
+
+Following the latest feedback, the page restores the guitar-and-score artwork, reduces the oversized heading and whitespace, and uses forest green/ivory, a curved image frame, rounded topic and record cards, soft shadows and clearer controls. Mobile keeps image and text side by side; secondary and placeholder text contrast is corrected.
+
+No frameworks, fonts or animation libraries are added. The active hero is about 64KB; referenced static assets total 224,765 bytes, about 4KB below the preceding design, with unchanged catalog transport. All 46 focused Python and 66 Node tests pass, followed by 31 targeted regressions. Public/offline data, titles, ranking and score links agree. The [refinement receipt](docs/research/2026-10-04-visual-refinement.md) records the current presentation and verification; the next same-day section describes the preceding design. This local update is not deployed.
+
+## Visual redesign: 2026-10-04
+
+The public and offline entry pages now use a score-publication and collection-index layout: an original classical-guitar illustration, a six-string rosette mark, system Chinese serif and self-hosted Latin display fonts, numbered topics, a desktop browse sidebar and single-column mobile records. Search, filters, edition details, focus, restrained corners and micro-transitions share one design; reduced-motion preferences are respected, without new frameworks or remote font dependencies.
+
+Referenced static assets fall from 358,126 to 228,773 bytes (−36.12%, excluding catalog JSON). Compact data, translations, ranking, source identities and offline score relationships are unchanged. All 1,256 Python and 66 Node tests pass, followed by focused regressions. Browser checks cover desktop, 390/320px mobile, long titles, empty results, source/history navigation and offline part expansion. The [design receipt](docs/research/2026-10-04-visual-redesign.md) records ten official reference sites, design details, image prompt, font license, asset accounting and verification limits. This is a local update, not a deployment.
+
+## Complete title review: 2026-10-03 to 10-04
+
+All **48,449 frozen source records** have new title decisions, including drafts, previous reference translations and retained originals. **47,347 use complete Chinese reference translations or supported conventional names; 1,102 intentionally retain their original names. No machine title drafts or missing title decisions remain.** Unresolved proper names, brands, wordplay and damaged transcriptions stay in the source language rather than receiving awkward phonetic substitutes.
+
+Every decision guards the source ID, exact title and full attribution. Primary-title changes also guard the English display boundary and preceding Chinese text. Responsibility statements and review notes stay in edition details; musical numbers, keys, collection extents and parts remain intact. Research supports conventional names, opera references and historical vocabulary; complete semantic readings supply the other reference translations. Reference translations are not claims of unique authoritative Chinese names.
+
+The [complete-title review receipt](docs/research/2026-10-03-complete-title-review.md) records methods, source counts, retained originals, evidence and verification. Review ledgers live under `metadata/translations/review_2026-10-03/`; four persistent title assets supply production display. The full review ledger is excluded from browser transport. Later sections retain their historical acceptance counts.
+
+Public/offline fields, lossless compact decoding and all previous score links match. Refreshing 352 legacy category directories changed 1,247 unique view files across two backed-up rounds; the final dry run reports no changes. All 1,256 Python and 66 Node tests pass, translation decisions have no pending fields, and 299,758 text fields have no detected rule defects. Compact transport is 5.63MB, down 0.19%; the offline entry is 7.43MB, up 0.13%. This local title/display refresh retains preceding PDF checks and has not been pushed or deployed.
+
+## Chinese text and bibliographic fields: 2026-10-02
+
+This review scans all 48,449 records and 2,228 categories across 16 sources. It corrects dictionary mistranslations of opus, numbering, keys, musical forms and names, reconciles Chinese forms for identical original attributions, and repairs Chinese title punctuation. The reported Asturias example now preserves Suite No.1, Op.47 and movement No.5. Exact-original guards, changes, counts and validation appear in the [text-quality receipt](docs/research/2026-10-02-chinese-text-quality.md).
+
+The run updates 11,509 title asset rows, 591 attribution rows and 154 category rows, and separates headline fields for 8,518 records. Rule checks cover 306,714 text values with no detected errors; 1,206 Python and 66 Node tests pass. Shared public/offline data and every retained local edition match. Offline HTML is 7.42 MB and normal compact catalog transfer 5.64 MB; canonical audit JSON remains separate. Asset updates include evidence, state and intentional retention, rather than an equal count of authoritative Chinese names.
+
+Original titles and attributions remain intact. Separate display fields move explicit arrangement/editor credits, manuscript/holding annotations, publication transcriptions and life dates into edition details. Editorially supplied titles and musical content in brackets are preserved. Performers, editors and unspecified source roles have distinct labels; existing language, key, institution, shelfmark and catalogue-number fields are visible. Display cleanup does not merge records or change source identity.
+
+**The 19,723 machine title drafts recorded at that snapshot have been resolved by the October 3–4 complete title review above.** Originals and complete edition text remain searchable. Checked reference translations and evidenced conventional names can supply Chinese headlines. Partial terminology fixes alone do not establish review. The publication translation gate remains strict. Public and offline editions share these rules and compact transport. This metadata refresh checks fingerprints, memberships, retained links and sizes while preserving previous PDF verification; it does not repeat PDF hashing or parsing.
+
+## Source expansion: 2026-10-01
+
+Fourteen additional catalogs are integrated, bringing the registry to 16 sources: Mutopia, The Guitar School, CGLIB, Delcamp, Boije, RISM, Digital Guitar Archive, Werner, GuitarDownunder, Andrew York, ClassicalGuitar.org, FreeGuitarMusic, Cantorion, and the Library of Congress. The shared directory browses instrumentation and purpose across sources; search includes Chinese reference names, native titles, musicians, edition roles, opus, formats and collection contents. Original source categories remain reachable.
+
+The frozen catalog contains **48,449 source records (48,364 scores and 85 references), 2,228 native categories, 57,062 category memberships, 17 shared topics and 700 evidenced relationships**. Records include editions, collections and holdings; they are not a count of unique compositions across websites.
+
+This run added **3,964 valid PDF manifest/member relationships**. Full offline hashing and parsing checked **35,385 valid relationships and 33,820 distinct PDF contents**, retaining 1,890 unavailable or excluded manifest entries. All 35,083 distinct local PDF paths and 350 legacy category-page links resolve; shared public/offline fields and search aliases agree. The 1,010 Python tests, 50 Node search tests and public validation pass. Chrome checks cover Chinese search, membership filters, all eight score/part links of a sample, and actual local PDF rendering.
+
+The [integration receipt](docs/research/2026-10-01-integration-log.md) records frozen scopes, accepted/excluded records, metadata gaps, typed relationships, file manifests, content hashes, physical objects, translation states and validation. The [34-source policy ledger](config/source_acquisition_policies.json) distinguishes access restrictions, permission requirements and unresolved acquisition scopes. Historical September statistics below describe the preceding two-source snapshot.
+
+Source IDs and editions remain independent. Explicit upstream file references, verified PDF content, institution/shelfmark mappings and collection structure establish different relationship types. Titles and fuzzy musician names do not establish work identity. Delcamp uses a deterministic upstream-locator digest because it has no standalone record ID; the exact PDF locator stays private.
+
+Reviewed terminology/reference correspondences and machine translation drafts carry separate field evidence. At this integration snapshot drafts required semantic review and failed the unchanged publication audit; the October 3–4 title review resolves them. This local integration has not been pushed or deployed to Pages. Personal-use PDFs are acquired only where explicitly permitted. Metadata rights do not establish score-file reuse rights.
+
+At the integration snapshot, Chinese coverage and evidence were counted by source and field: **24,994 machine translation fields awaited semantic review, while 10,345 fields intentionally retained original text**. The October 2 receipt records revised states. Missing attributions, unknown instrumentation and differences between directory and printed score credits remain explicit. File integrity or non-empty Chinese text does not establish instrumentation or authoritative naming.
+
+Discovery entry points are `scripts/discover_open_sources.py`, `discover_archive_sources.py`, and `discover_additional_sources.py`. Run `python scripts/acquire_source_assets.py --source mutopia --source guitarschool --source delcamp --retry-failed` to resume eligible files, then regenerate translations, public and offline catalogs and the receipt. Each source keeps private snapshots, logs, exclusions and resumable states under `sources/<source>/`; the new immutable shared PDF pool is `sources/objects/sha256/`. Translation assets, shared search and public projection use `metadata/translations/` and `public_site/`. Private run checks remain in `work/source-expansion/2026-10-01/`.
+
+## Search ranking and compact loading: 2026-10-01
+
+Queries rank full names, checked aliases and name-boundary matches ahead of embedded substrings or incidental title mentions. Searching 索尔 therefore prioritizes Fernando Sor over names containing 埃索尔. Every term and same-membership filter remains required; familiarity weights only break equal relevance. Queryless category views use descending familiarity, then stable original composer/title/ID ordering.
+
+The guarded source asset [`recognition.json`](metadata/ranking/recognition.json) covers 47 musicians through 151 exact source full-name keys and 40 specific score/collection records, backed by ten official syllabus, performance or label references. Composer weights are 8–20, record weights 40–70, and uncurated entries 0. These are maintained repertoire familiarity judgments, not measured traffic, and never work identity evidence. The [reference notes](docs/research/2026-10-01-ranking-evidence.md) document sources and limits.
+
+Browsers load an approximately 5 MB lossless transport instead of the approximately 58 MB canonical JSON, which remains available for audit and compatibility fallback. Offline pages embed the same dictionary/gzip transport together with aliases, weights and every local part. Native browser decompression needs no framework, CDN or search service. Full-text fields and fuzzy vocabulary are built on demand; initial category browsing avoids processing every document. The first whole-catalog text query still pays its indexing cost.
+
+Final offline HTML shrank **68.3→6.83 MB**, and normal public catalog transfer **57.9→5.05 MB**. Local Node index construction measured approximately **5.07→0.097 seconds**. Single local Chrome default-category startup observations were 0.53 seconds public and 0.80 seconds offline; first whole-catalog text indexing was around 1.1 seconds in Node, while the browser ISBN query startup was around 2.9 seconds. Cache, device load and network conditions affect timings; these are not deployment performance promises.
+
+This display refresh preserves earlier PDF integrity results and checks current fingerprints, memberships, availability, paths and sizes. Measurements and validation are recorded in the [ranking and performance log](docs/research/2026-10-01-search-ranking-speed.md).
 
 ## Two editions
 
@@ -29,7 +99,7 @@ Records retain their source identity, editions, and category memberships. Simila
 
 Both editions share the HTML template, styles, and search logic. The public site contains no PDF, MIDI, GPX, download URLs, local paths, file hashes, or private runtime metadata. Git tracks code, configuration, review assets, and the public catalog without score files.
 
-## Current sources and scope
+## Original sources and historical scope
 
 | Source | Organization | Verification boundary |
 | --- | --- | --- |
@@ -138,7 +208,7 @@ cd guitar-atlas
 python -m http.server 8000 --directory public_site
 ```
 
-Open <http://127.0.0.1:8000>. An existing local directory named `imslp` can continue to be used in place; its name does not define source identity.
+Open <http://127.0.0.1:8000>. The local project directory is `/Volumes/PHILIPS/programs/muse-cache/guitar-atlas`; its offline entry point is `index.html`.
 
 ### Install and validate
 
@@ -208,6 +278,8 @@ The offline home reuses the public HTML template, styles, and search engine, inc
 **GitHub stores the code, not the offline collection instance.** Public pages, shared assets, and offline rendering/adapter code are versioned. The generated root `index.html`, category directories, local-path data, backups, and PDFs are Git-ignored. GitHub Pages deploys only `public_site/`. Copied offline URLs point to the current computer; use the public website to share links with others.
 
 ## Adding a source
+
+The [2026-10-01 source expansion study](docs/research/2026-10-01-source-expansion.md) (Chinese) evaluates 34 candidates. It prioritizes explicitly licensed subsets from Mutopia, Boije, and The Guitar School, with DGA/RISM for archive discovery and authority relationships. Commercial, community, and Chinese fingerstyle sources require separate scope and acquisition reviews. These are research candidates; IMSLP and ClassClef remain the registered sources.
 
 The registry is [`config/sources.json`](config/sources.json); the shared contract and public-field projection are in [`scripts/catalog_sources.py`](scripts/catalog_sources.py). Source adapters handle discovery, parsing, downloading, and verification; normalized catalogs join through the `normalized_catalog` adapter type. A new source must define stable source and record IDs, approved scope, original attribution fields, source page URLs, and resumable snapshots with failure states. Map source-specific categories, editions, and original/arrangement information explicitly, keeping missing information unknown. Do not inherit IMSLP-specific rules, translation review status, or identity assumptions for a different website.
 

@@ -1,0 +1,607 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "id": "92881",
+      "source_id": "imslp",
+      "original": "Nachtviolen, Op.2",
+      "original_composer": "Mertz, Johann Kaspar",
+      "display_original": "Nachtviolen, Op.2",
+      "zh": "《夜紫罗兰，作品2》",
+      "display_zh": "《夜紫罗兰，作品2》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "106423",
+      "source_id": "imslp",
+      "original": "Cyanen, Op.5",
+      "original_composer": "Mertz, Johann Kaspar",
+      "display_original": "Cyanen, Op.5",
+      "zh": "《矢车菊，作品5》",
+      "display_zh": "《矢车菊，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus"
+      ]
+    },
+    {
+      "id": "dga:4226",
+      "source_id": "dga",
+      "original": "Marcia. Op. 5 No. 2 [af] Cyanen [als Folge der Nachtviolen] ",
+      "original_composer": "Mertz, Johann Kaspar ",
+      "display_original": "Marcia. Op. 5 No. 2 [af] Cyanen [als Folge der Nachtviolen]",
+      "zh": "《进行曲，作品5第2号：〈矢车菊〉（〈夜紫罗兰〉续篇）》",
+      "display_zh": "《进行曲，作品5第2号：〈矢车菊〉（〈夜紫罗兰〉续篇）》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus",
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "dga:23230",
+      "source_id": "dga",
+      "original": "Cyanen / als / Fogle der Nachtviolen. / Eine Reihe origineller melodischer Sätze / für die / Guitare / von / J. K. Mertz",
+      "original_composer": "Mertz, J. K.",
+      "display_original": "Cyanen als Fogle der Nachtviolen. Eine Reihe origineller melodischer Sätze für die Guitare",
+      "zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集》",
+      "display_zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus",
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "dga:23240",
+      "source_id": "dga",
+      "original": "Nachtviolen / Eine Riehe Origineller melodiseher Sätze / für die / Guitare. /Ccomponirt, und / dem wohlgebornen Fräulein / Marie Dunst v. Adelshelm / achtungsvoll gewidmet / von / J. K. Mertz",
+      "original_composer": "Mertz, J. K.",
+      "display_original": "Nachtviolen Eine Riehe Origineller melodiseher Sätze für die Guitare. Ccomponirt, und dem wohlgebornen Fräulein Marie Dunst v. Adelshelm achtungsvoll gewidmet",
+      "zh": "《夜紫罗兰：吉他原创旋律乐曲集》",
+      "display_zh": "《夜紫罗兰：吉他原创旋律乐曲集》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "dga:2942",
+      "source_id": "dga",
+      "original": "CYANEN/als/Folge der Nachtviolen./Eine Reihe origineller melodischer Sätze/für die/GUITARE/von/J.K. MERTZ./5tes Werk",
+      "original_composer": "Mertz, Johann Kaspar",
+      "display_original": "CYANEN/als/Folge der Nachtviolen./Eine Reihe origineller melodischer Sätze/für die/GUITARE/von/J.K. MERTZ./5tes Werk",
+      "zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "display_zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus",
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "dga:4173",
+      "source_id": "dga",
+      "original": "Cyanen als Folge der Nachtviolen: eine Reihe origineller melodischer Sätze für die Guitare / von J. K. Mertz: 5tes Werk",
+      "original_composer": "Mertz, Johann Kaspar",
+      "display_original": "Cyanen als Folge der Nachtviolen: eine Reihe origineller melodischer Sätze für die Guitare",
+      "zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "display_zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus",
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "dga:4188",
+      "source_id": "dga",
+      "original": "Nachtviolen: eine Reihe origineller melodischer Sätze für die Guitare...2tes Werk / componirt von J.K. Martz",
+      "original_composer": "Mertz, Johann Kaspar",
+      "display_original": "Nachtviolen: eine Reihe origineller melodischer Sätze für die Guitare...2tes Werk / componirt von J.K. Martz",
+      "zh": "《夜紫罗兰：吉他原创旋律乐曲集，作品2》",
+      "display_zh": "《夜紫罗兰：吉他原创旋律乐曲集，作品2》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "dga:4208",
+      "source_id": "dga",
+      "original": "Cyanen als Folge der Nachtviolen, eine Reihe origineller melodischer Sätze für die Guitare / von J. K. Mertz: 5tes Werk",
+      "original_composer": "Mertz, Johann Kaspar",
+      "display_original": "Cyanen als Folge der Nachtviolen, eine Reihe origineller melodischer Sätze für die Guitare",
+      "zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "display_zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus",
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "dga:4210",
+      "source_id": "dga",
+      "original": "Nachtviolen: eine Reihe origineller melodischer Sätze für die Guitare / componirt...von J. K. Mertz: 2tes Werk",
+      "original_composer": "Mertz, Johann Kaspar",
+      "display_original": "Nachtviolen: eine Reihe origineller melodischer Sätze für die Guitare / componirt...von J. K. Mertz: 2tes Werk",
+      "zh": "《夜紫罗兰：吉他原创旋律乐曲集，作品2》",
+      "display_zh": "《夜紫罗兰：吉他原创旋律乐曲集，作品2》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "dga:4211",
+      "source_id": "dga",
+      "original": "Nachtviolen: eine Reihe origineller melodischer Sätze für die Guitare / componirt...von J. K. Mertz: 2tes Werk",
+      "original_composer": "Mertz, Johann Kaspar",
+      "display_original": "Nachtviolen: eine Reihe origineller melodischer Sätze für die Guitare / componirt...von J. K. Mertz: 2tes Werk",
+      "zh": "《夜紫罗兰：吉他原创旋律乐曲集，作品2》",
+      "display_zh": "《夜紫罗兰：吉他原创旋律乐曲集，作品2》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "dga:4214",
+      "source_id": "dga",
+      "original": "Cyanen als Folge der Nachtviolen: eine Reihe origineller melodischer Sätze für die Guitare / componirt von J. K. Mertz: 5tes Werk",
+      "original_composer": "Mertz, Johann Kaspar",
+      "display_original": "Cyanen als Folge der Nachtviolen: eine Reihe origineller melodischer Sätze für die Guitare / componirt von J. K. Mertz: 5tes Werk",
+      "zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "display_zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus",
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "dga:7866",
+      "source_id": "dga",
+      "original": "Cyanen : als Folge der Nachtviolen ; eine Reihe origineller melodischer Sätze für die Guitare ; 5tes Werk / von J. K. Mertz",
+      "original_composer": "Mertz, Johann Kaspar <1806-1856>",
+      "display_original": "Cyanen : als Folge der Nachtviolen ; eine Reihe origineller melodischer Sätze für die Guitare ; 5tes Werk",
+      "zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "display_zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus",
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "dga:7870",
+      "source_id": "dga",
+      "original": "Nachtviolen : eine Reihe origineller melodischer Sätze für die Guitare ; 2tes Werk / componirt ... von J. K. Mertz",
+      "original_composer": "Mertz, Johann Kaspar <1806-1856>",
+      "display_original": "Nachtviolen : eine Reihe origineller melodischer Sätze für die Guitare ; 2tes Werk / componirt ... von J. K. Mertz",
+      "zh": "《夜紫罗兰：吉他原创旋律乐曲集，作品2》",
+      "display_zh": "《夜紫罗兰：吉他原创旋律乐曲集，作品2》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "dga:14136",
+      "source_id": "dga",
+      "original": "Cyanen als Folge der Nachtviolen: eine Reihe origineller melodischer Satze fur die Guitare, 5tes Werk / von J.K. Mertz.",
+      "original_composer": "Mertz, Johann Kaspar, 1806-1856",
+      "display_original": "Cyanen als Folge der Nachtviolen: eine Reihe origineller melodischer Satze fur die Guitare, 5tes Werk",
+      "zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "display_zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus",
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "dga:14131",
+      "source_id": "dga",
+      "original": "Cyanen: als Folge der Nachtviolen: Eine Reihe origineller melodischer Sätze für die Guitare, op. 5 / von J. K. Mertz.",
+      "original_composer": "Mertz, Johann Kaspar, 1806-1856",
+      "display_original": "Cyanen: als Folge der Nachtviolen: Eine Reihe origineller melodischer Sätze für die Guitare, op. 5",
+      "zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "display_zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus",
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "dga:19391",
+      "source_id": "dga",
+      "original": "Cyanen als Folge der Nachtviolen ; eine Reihe origineller melodischer Sätze ; für die Guitare ; 5tes Werk",
+      "original_composer": "Mertz, Johann Kaspar",
+      "display_original": "Cyanen als Folge der Nachtviolen ; eine Reihe origineller melodischer Sätze ; für die Guitare ; 5tes Werk",
+      "zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "display_zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus",
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "boije:353",
+      "source_id": "boije",
+      "original": "Op. 2. Nachtviolen ...",
+      "original_composer": "Mertz, J. K.",
+      "display_original": "Op. 2. Nachtviolen ...",
+      "zh": "《夜紫罗兰，作品2…》",
+      "display_zh": "《夜紫罗兰，作品2…》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "boije:356",
+      "source_id": "boije",
+      "original": "Op. 5. Cyanen als Folge ...",
+      "original_composer": "Mertz, J. K.",
+      "display_original": "Op. 5. Cyanen als Folge ...",
+      "zh": "《矢车菊：续篇，作品5…》",
+      "display_zh": "《矢车菊：续篇，作品5…》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus"
+      ]
+    },
+    {
+      "id": "cglib:21486",
+      "source_id": "cglib",
+      "original": "Cyanen als Folge der Nachtviolen  Eine Reihe origineller melodischer Sätze  5tes Werk.  für die guitare",
+      "original_composer": "Mertz. Johann Kaspar",
+      "display_original": "Cyanen als Folge der Nachtviolen Eine Reihe origineller melodischer Sätze 5tes Werk. für die guitare",
+      "zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "display_zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus",
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "cglib:21569",
+      "source_id": "cglib",
+      "original": "Nachtviolen melodische Satze, op. 2",
+      "original_composer": "Mertz. Johann Kaspar",
+      "display_original": "Nachtviolen melodische Satze, op. 2",
+      "zh": "《夜紫罗兰：旋律乐曲集，作品2》",
+      "display_zh": "《夜紫罗兰：旋律乐曲集，作品2》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "cglib:21570",
+      "source_id": "cglib",
+      "original": "Nachtviolen. Melodische Sätze  Op. 2",
+      "original_composer": "Mertz. Johann Kaspar",
+      "display_original": "Nachtviolen. Melodische Sätze Op. 2",
+      "zh": "《夜紫罗兰：旋律乐曲集，作品2》",
+      "display_zh": "《夜紫罗兰：旋律乐曲集，作品2》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "cglib:21623",
+      "source_id": "cglib",
+      "original": "op.5 Cyanen als Folge der Nachtviolen Eine Reihe origineller melodischer Satze fur die Guitare",
+      "original_composer": "Mertz. Johann Kaspar",
+      "display_original": "op.5 Cyanen als Folge der Nachtviolen Eine Reihe origineller melodischer Satze fur die Guitare",
+      "zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "display_zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus",
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "cglib:21624",
+      "source_id": "cglib",
+      "original": "op.5 Cyanen als Folge der Nachtviolen eine Reihe origineller melodischer Satze fur die Guitare, 5tes Werk",
+      "original_composer": "Mertz. Johann Kaspar",
+      "display_original": "op.5 Cyanen als Folge der Nachtviolen eine Reihe origineller melodischer Satze fur die Guitare, 5tes Werk",
+      "zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "display_zh": "《矢车菊——〈夜紫罗兰〉续篇：吉他原创旋律乐曲集，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus",
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "cglib:3222",
+      "source_id": "cglib",
+      "original": "Op. 2 Nachtviolen",
+      "original_composer": "Mertz. Johann Kaspar",
+      "display_original": "Op. 2 Nachtviolen",
+      "zh": "《夜紫罗兰，作品2》",
+      "display_zh": "《夜紫罗兰，作品2》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "cglib:3244",
+      "source_id": "cglib",
+      "original": "Op. 5 Cyanen als Folge",
+      "original_composer": "Mertz. Johann Kaspar",
+      "display_original": "Op. 5 Cyanen als Folge",
+      "zh": "《矢车菊：续篇，作品5》",
+      "display_zh": "《矢车菊：续篇，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus"
+      ]
+    },
+    {
+      "id": "cglib:55633",
+      "source_id": "cglib",
+      "original": "Cyanen Op.5",
+      "original_composer": "Mertz. Johann Kaspar",
+      "display_original": "Cyanen Op.5",
+      "zh": "《矢车菊，作品5》",
+      "display_zh": "《矢车菊，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus"
+      ]
+    },
+    {
+      "id": "cglib:55634",
+      "source_id": "cglib",
+      "original": "Cyanen, Op.5",
+      "original_composer": "Mertz. Johann Kaspar",
+      "display_original": "Cyanen, Op.5",
+      "zh": "《矢车菊，作品5》",
+      "display_zh": "《矢车菊，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus"
+      ]
+    },
+    {
+      "id": "cglib:55686",
+      "source_id": "cglib",
+      "original": "Nachtviolen Op.2",
+      "original_composer": "Mertz. Johann Kaspar",
+      "display_original": "Nachtviolen Op.2",
+      "zh": "《夜紫罗兰，作品2》",
+      "display_zh": "《夜紫罗兰，作品2》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "cglib:55687",
+      "source_id": "cglib",
+      "original": "Nachtviolen, Op.2",
+      "original_composer": "Mertz. Johann Kaspar",
+      "display_original": "Nachtviolen, Op.2",
+      "zh": "《夜紫罗兰，作品2》",
+      "display_zh": "《夜紫罗兰，作品2》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "delcamp:pdf:b064cba5dd36f63ced9d817be7b2b24e0e68fccc0e34a5b2f7428ee65e9a12d6",
+      "source_id": "delcamp",
+      "original": "Johann Kaspar Mertz Op. 2. Nachtviolen",
+      "original_composer": "Mertz, Johann Kaspar",
+      "display_original": "Johann Kaspar Mertz Op. 2. Nachtviolen",
+      "zh": "《夜紫罗兰，作品2》",
+      "display_zh": "《夜紫罗兰，作品2》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://www.halleonard.com/product/8551177/nachtviolen",
+        "https://media.nativedsd.com/storage/nativedsd.com/wp-content/uploads/2020/07/02183610/MYR018.pdf"
+      ]
+    },
+    {
+      "id": "delcamp:pdf:ed725d5829a3369d62a867ac718beb99cd67b56146f51e638ca11a88c61211ea",
+      "source_id": "delcamp",
+      "original": "Johann Kaspar Mertz Op. 5. Cyanen als Folge",
+      "original_composer": "Mertz, Johann Kaspar",
+      "display_original": "Johann Kaspar Mertz Op. 5. Cyanen als Folge",
+      "zh": "《矢车菊：续篇，作品5》",
+      "display_zh": "《矢车菊：续篇，作品5》",
+      "status": "reference",
+      "basis": "exact_researched_botanical_title_reference",
+      "reason": "核对历史德语植物词义、植物志中文名及出版资料；这是参考意译，不声称已有通行的中文乐曲名。完整原题与独立来源身份保留。",
+      "review_method": "cross_source_exact_semantic_consistency_2026_10_04",
+      "reviewer": "Codex 2026-10-04",
+      "source_refs": [
+        "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/30472/1/bognersaar.pdf",
+        "https://www.iplant.cn/fsz/info/Centaurea%20cyanus"
+      ]
+    }
+  ]
+}

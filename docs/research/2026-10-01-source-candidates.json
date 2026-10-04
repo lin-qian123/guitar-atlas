@@ -1,0 +1,564 @@
+{
+  "schema_version": 1,
+  "document_type": "research_candidate_inventory",
+  "checked_on": "2026-10-01",
+  "timezone": "Asia/Shanghai",
+  "not_a_production_source_registry": true,
+  "report": "2026-10-01-source-expansion.md",
+  "baseline": {
+    "registered_sources": [
+      "imslp",
+      "classclef"
+    ],
+    "source_record_count": 18133,
+    "score_record_count": 18132,
+    "reference_record_count": 1,
+    "category_count": 429,
+    "category_membership_count": 19573,
+    "evidence": "Local existing public catalog read; no upstream refresh or PDF revalidation"
+  },
+  "candidate_count": 34,
+  "candidates": [
+    {
+      "candidate_id": "mutopia",
+      "name": "Mutopia",
+      "integration_status": "research_only",
+      "suggested_route": "open_subset",
+      "directory_url": "https://www.mutopiaproject.org/cgibin/make-table.cgi?Instrument=Guitar",
+      "sample_or_evidence_url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2041",
+      "identity_observation": "source_id:2041; fixed repository revision",
+      "rights_observation": "Per-record license; sample CC BY-SA 4.0",
+      "automated_acquisition_evidence": "official_repository",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": {
+        "value": 395,
+        "unit": "guitar_category_entries",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "boije",
+      "name": "Boije Collection",
+      "integration_status": "research_only",
+      "suggested_route": "open_subset",
+      "directory_url": "https://old.capricemusic.se/musikochteaterbiblioteket/ladda-ner-noter/boijes-samling/boijes-samling-a/",
+      "sample_or_evidence_url": "https://urn.kb.se/resolve?urn=urn%3Anbn%3Ase%3Astatensmusikverk-4047",
+      "identity_observation": "Boije number plus institutional URN",
+      "rights_observation": "Institutional attribution and publication conditions; instrumentation selection required",
+      "automated_acquisition_evidence": "batch_permission_not_explicitly_verified",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "guitarschool",
+      "name": "The Guitar School - Iceland",
+      "integration_status": "research_only",
+      "suggested_route": "open_subset",
+      "directory_url": "https://classicalguitarschool.azurewebsites.net/en/All",
+      "sample_or_evidence_url": "https://classicalguitarschool.azurewebsites.net/en/Download/4007",
+      "identity_observation": "native item 4007; ISBN separate",
+      "rights_observation": "Free and paid mixed; sample CC BY-NC 4.0 only",
+      "automated_acquisition_evidence": "batch_permission_not_explicitly_verified",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": {
+        "value": 3726,
+        "unit": "site_stated_pages",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "dga",
+      "name": "Digital Guitar Archive",
+      "integration_status": "research_only",
+      "suggested_route": "archive_discovery",
+      "directory_url": "https://digitalguitararchive.com/archive/",
+      "sample_or_evidence_url": "https://digitalguitararchive.com/archive/api/record/1260",
+      "identity_observation": "legacy record 1260; new Omeka IDs not established",
+      "rights_observation": "API documented; database republication basis unverified; files held by institutions",
+      "automated_acquisition_evidence": "official_api_probed",
+      "evidence_level": "api_probe",
+      "stated_or_observed_count": {
+        "value": 31599,
+        "unit": "legacy_page_stated_records",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "rism",
+      "name": "RISM Online",
+      "integration_status": "research_only",
+      "suggested_route": "authority_metadata",
+      "directory_url": "https://rism.online/",
+      "sample_or_evidence_url": "https://rism.online/sources/452020028",
+      "identity_observation": "record type plus number: sources/452020028",
+      "rights_observation": "RISM metadata CC BY 3.0; external scans separate",
+      "automated_acquisition_evidence": "official_api_probed",
+      "evidence_level": "api_probe",
+      "stated_or_observed_count": {
+        "value": 1189,
+        "unit": "keyword_results_q_guitar_not_scope_count",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "delcamp",
+      "name": "Delcamp / Classical-guitar-sheet-music.com",
+      "integration_status": "research_only",
+      "suggested_route": "navigation_first",
+      "directory_url": "https://www.classical-guitar-sheet-music.com/",
+      "sample_or_evidence_url": "https://www.classical-guitar-sheet-music.com/francisco-tarrega/",
+      "identity_observation": "composer collection page; internal works require hierarchical mapping",
+      "rights_observation": "Opened 2026 Tarrega editing PDF limits personal use and redistribution",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": {
+        "value": 18000,
+        "unit": "site_stated_pieces_not_deduplicated",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "cglib",
+      "name": "Classical Guitar Library",
+      "integration_status": "research_only",
+      "suggested_route": "navigation_first",
+      "directory_url": "https://www.cglib.org/composers/",
+      "sample_or_evidence_url": "https://www.cglib.org/walzer-guirlande-in-e-major-op-47/",
+      "identity_observation": "canonical page; native CMS ID not yet established",
+      "rights_observation": "Footer CC BY-SA 4.0; score-specific rights disclaimer retained",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "classicalguitarshed",
+      "name": "Classical Guitar Shed",
+      "integration_status": "research_only",
+      "suggested_route": "teaching_catalogue",
+      "directory_url": "https://classicalguitarshed.com/sm-guitar-arrangements/",
+      "sample_or_evidence_url": "https://classicalguitarshed.com/sm-bach-bourree-duo/",
+      "identity_observation": "canonical item page; PDF edition separate",
+      "rights_observation": "Usage paragraph only official search extract; preserve copyright and attribution; full policy pending",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read_policy_index_only",
+      "stated_or_observed_count": {
+        "value": 1300,
+        "unit": "site_stated_lower_bound_pieces",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "werner",
+      "name": "This is Classical Guitar / Werner Guitar Editions",
+      "integration_status": "research_only",
+      "suggested_route": "teaching_catalogue",
+      "directory_url": "https://www.thisisclassicalguitar.com/sheet-music-for-classical-guitar/",
+      "sample_or_evidence_url": "https://www.thisisclassicalguitar.com/late-beginner-collection-free-pdf/",
+      "identity_observation": "editor and distribution channels; edition separately identified",
+      "rights_observation": "Opened free collection PDF All Rights Reserved; no blanket reuse basis",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "tecla",
+      "name": "Tecla Editions",
+      "integration_status": "research_only",
+      "suggested_route": "edition_navigation",
+      "directory_url": "https://tecla.com/tecla-digital-downloads-complete-list/",
+      "sample_or_evidence_url": "https://tecla.com/shop/digital-downloads-pdfs/carcassi-matteo-pdfs/carcassi-etude-op-60-no-2-pdf-free/",
+      "identity_observation": "product and edition identifiers; excerpts separately labelled",
+      "rights_observation": "Modern engraving rights; zero-price checkout not executed",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": {
+        "value": 27,
+        "unit": "sor_free_items_including_excerpts",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "bergmann",
+      "name": "Bergmann Edition",
+      "integration_status": "research_only",
+      "suggested_route": "edition_navigation",
+      "directory_url": "https://bergmann-edition.com/collections/contemporary-1",
+      "sample_or_evidence_url": "https://bergmann-edition.com/collections/contemporary-1/products/boyko-suite-no-3",
+      "identity_observation": "order BE-250632; ISMN; product URL",
+      "rights_observation": "Paid editions; service reuse restriction; metadata cooperation unverified",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "andrewyork",
+      "name": "Andrew York",
+      "integration_status": "research_only",
+      "suggested_route": "composer_authority",
+      "directory_url": "https://andrewyork.net/sheetmusicdownloads.html",
+      "sample_or_evidence_url": "https://andrewyork.net/scores/BluesforJD.html",
+      "identity_observation": "author catalogue and product page; native stable ID pending",
+      "rights_observation": "Three zero-price titles; no checkout or open license confirmed",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "catalogue_read_detail_navigation_only",
+      "stated_or_observed_count": {
+        "value": 3,
+        "unit": "zero_price_catalogue_titles",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "guitardownunder",
+      "name": "Guitar Downunder",
+      "integration_status": "research_only",
+      "suggested_route": "supplementary",
+      "directory_url": "https://www.guitardownunder.com/classical.php",
+      "sample_or_evidence_url": "https://www.guitardownunder.com/_scores/lagrima.php",
+      "identity_observation": "canonical item path; arranger preserved",
+      "rights_observation": "Homepage All Rights Reserved; bulk and reuse unverified",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "freeguitarmusic",
+      "name": "FreeGuitarMusic.Net",
+      "integration_status": "research_only",
+      "suggested_route": "access_pending",
+      "directory_url": "https://www.freeguitarmusic.net/fingerstyle/modern-and-classical-solos",
+      "sample_or_evidence_url": "https://drive.google.com/file/d/1bXYGDsaUHAFQg1nVKRHokkXAI4ARxWve/view?usp=sharing",
+      "identity_observation": "directory attribution plus Drive file ID; edition identity pending",
+      "rights_observation": "PDF access not established; permissions unspecified",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "directory_read_file_loading",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "classicalguitarorg",
+      "name": "ClassicalGuitar.org",
+      "integration_status": "research_only",
+      "suggested_route": "supplementary",
+      "directory_url": "https://www.classicalguitar.org/free/",
+      "sample_or_evidence_url": "https://www.classicalguitar.org/about/site-policies/",
+      "identity_observation": "canonical catalogue and linked editions",
+      "rights_observation": "Separate article, original composition, free public-domain and purchased-product rules",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "gallica",
+      "name": "BnF Gallica",
+      "integration_status": "research_only",
+      "suggested_route": "historical_metadata",
+      "directory_url": "https://gallica.bnf.fr/",
+      "sample_or_evidence_url": "https://catalogue.bnf.fr/ark:/12148/cb428940797",
+      "identity_observation": "bibliographic ARK cb428940797; scan ARK btv1b100704044",
+      "rights_observation": "BnF metadata open license; scanned-content current policy and availability pending",
+      "automated_acquisition_evidence": "official_api_documented_not_probed",
+      "evidence_level": "bibliographic_page_read_viewer_403",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "loc",
+      "name": "Library of Congress",
+      "integration_status": "research_only",
+      "suggested_route": "historical_metadata",
+      "directory_url": "https://www.loc.gov/notated-music/collections/",
+      "sample_or_evidence_url": "https://www.loc.gov/item/2023813885/",
+      "identity_observation": "item/LCCN 2023813885; digital resources separate",
+      "rights_observation": "Sample collection rights indexed as freely reusable; not all LoC; file unverified",
+      "automated_acquisition_evidence": "official_api_documented_not_probed",
+      "evidence_level": "official_index_read_item_403",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "rischel",
+      "name": "Royal Danish Library / Rischel & Birket-Smith",
+      "integration_status": "research_only",
+      "suggested_route": "entrypoint_pending",
+      "directory_url": "https://www.kb.dk/en/find-materials/collections/sheet-music-collection",
+      "sample_or_evidence_url": null,
+      "identity_observation": "current item IDs not established",
+      "rights_observation": "Collection exists; current dedicated entry and content permissions not established",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "collection_page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "riam_hudleston",
+      "name": "RIAM Hudleston Collection",
+      "integration_status": "research_only",
+      "suggested_route": "cooperation_or_navigation",
+      "directory_url": "https://www.riam.ie/digital-media/",
+      "sample_or_evidence_url": "https://www.riam.ie/student-life/library/special-collections",
+      "identity_observation": "institutional call numbers; current catalogue IDs pending",
+      "rights_observation": "Personal non-commercial; substantial archive/whole volume downloading requires prior permission",
+      "automated_acquisition_evidence": "substantial_download_restricted",
+      "evidence_level": "collection_page_read",
+      "stated_or_observed_count": {
+        "value": 1100,
+        "unit": "institution_stated_lower_bound_works",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "internetarchive",
+      "name": "Internet Archive",
+      "integration_status": "research_only",
+      "suggested_route": "institution_whitelist",
+      "directory_url": "https://archive.org/advancedsearch.php",
+      "sample_or_evidence_url": "https://archive.org/details/imslp-complte-pour-la-guitare-sor-fernando",
+      "identity_observation": "identifier; uploader and upstream attribution separate",
+      "rights_observation": "Uploader rights not guaranteed; sample is IMSLP mirror",
+      "automated_acquisition_evidence": "official_api_documented_not_probed",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "cantorion",
+      "name": "Cantorion",
+      "integration_status": "research_only",
+      "suggested_route": "supplementary",
+      "directory_url": "https://es.cantorion.org/musicsearch/instruments/Guitar",
+      "sample_or_evidence_url": "https://cantorion.org/music/957/Incursions",
+      "identity_observation": "music record 957; external asset relationship preserved",
+      "rights_observation": "Per-record license; sample All rights reserved; some Mutopia mirrors",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read_and_http_probe",
+      "stated_or_observed_count": {
+        "value": 574,
+        "unit": "guitar_search_results_not_net_works",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "freescores",
+      "name": "Free-scores.com",
+      "integration_status": "research_only",
+      "suggested_route": "cooperation_required",
+      "directory_url": "https://www.free-scores.com/free-sheet-music.php?CATEGORIE=999",
+      "sample_or_evidence_url": "https://www.free-scores.com/download-sheet-music.php?pdf=34385",
+      "identity_observation": "native pdf record 34385; editor and version separate",
+      "rights_observation": "Terms 10.3 requires prior written permission for substantial/repeated automated database use",
+      "automated_acquisition_evidence": "automated_database_use_requires_permission",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "eightnotes",
+      "name": "8notes",
+      "integration_status": "research_only",
+      "suggested_route": "teaching_navigation",
+      "directory_url": "https://www.8notes.com/guitar/",
+      "sample_or_evidence_url": "https://www.8notes.com/scores/578.asp",
+      "identity_observation": "score 578; instrumentation-specific versions distinct",
+      "rights_observation": "PDF Premium; digital copying/sharing modern editions restricted",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "musopen",
+      "name": "Musopen",
+      "integration_status": "research_only",
+      "suggested_route": "cooperation_required",
+      "directory_url": "https://musopen.org/music/instrument/guitar/",
+      "sample_or_evidence_url": "https://musopen.org/music/13022-julia-florida-barcarolle/",
+      "identity_observation": "music record 13022; actual score editions separate",
+      "rights_observation": "Personal temporary single-copy license; mirrors and transfer restricted; key field conflict",
+      "automated_acquisition_evidence": "batch_permission_unknown_reuse_restricted",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "sheetmusicplus",
+      "name": "Sheet Music Plus",
+      "integration_status": "research_only",
+      "suggested_route": "edition_cooperation",
+      "directory_url": "https://www.sheetmusicplus.com/en/category/instruments/guitar/guitar-solo/",
+      "sample_or_evidence_url": "https://www.sheetmusicplus.com/en/product/hoy-y-siempre-20741254.html",
+      "identity_observation": "product 20741254 and SKU A0.868385",
+      "rights_observation": "Paid score; watermark and copy limits; metadata API/automation unverified",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "guitarworld_cn",
+      "name": "吉他世界",
+      "integration_status": "research_only",
+      "suggested_route": "chinese_scope_and_cooperation",
+      "directory_url": "https://www.guitarworld.com.cn/pu/top/cat/1",
+      "sample_or_evidence_url": "https://www.guitarworld.com.cn/pu/q84335",
+      "identity_observation": "score q84335; creator and arrangement fields separate",
+      "rights_observation": "Login/purchase sample; actual exported format and external acquisition permission pending",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "jitashe",
+      "name": "吉他社",
+      "integration_status": "research_only",
+      "suggested_route": "chinese_scope_and_cooperation",
+      "directory_url": "https://www.jitashe.org/artist/9684/",
+      "sample_or_evidence_url": "https://www.jitashe.org/tab/1333502/",
+      "identity_observation": "tab 1333502; thread aliases not separate identities",
+      "rights_observation": "Uploader rights and on-site publication permission do not establish third-party reuse",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "musescore",
+      "name": "MuseScore.com",
+      "integration_status": "research_only",
+      "suggested_route": "cooperation_required",
+      "directory_url": "https://musescore.com/sheetmusic/guitar",
+      "sample_or_evidence_url": "https://musescore.com/user/51380273/scores/11278984",
+      "identity_observation": "score 11278984; user 51380273 separate",
+      "rights_observation": "Personal rights; terms restrict platform-external automated systems",
+      "automated_acquisition_evidence": "automated_access_restricted",
+      "evidence_level": "page_read_terms_official_index",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "musicnotes",
+      "name": "Musicnotes",
+      "integration_status": "research_only",
+      "suggested_route": "cooperation_required",
+      "directory_url": "https://www.musicnotes.com/instruments/guitar",
+      "sample_or_evidence_url": "https://www.musicnotes.com/sheetmusic/back-to-the-future/back-to-the-future/MN0101823",
+      "identity_observation": "product SKU MN0101823",
+      "rights_observation": "Personal product licenses; terms prohibit scripts/codes for automated access",
+      "automated_acquisition_evidence": "automated_access_restricted",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "nkoda",
+      "name": "nkoda",
+      "integration_status": "research_only",
+      "suggested_route": "edition_navigation",
+      "directory_url": "https://www.nkoda.com/",
+      "sample_or_evidence_url": "https://www.nkoda.com/work/Preludio",
+      "identity_observation": "native stable work/edition ID not established; slug insufficient",
+      "rights_observation": "Library scores not downloadable or printable; app cache distinct",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "mysongbook",
+      "name": "mySongBook",
+      "integration_status": "research_only",
+      "suggested_route": "format_navigation",
+      "directory_url": "https://www.guitar-pro.com/tabs",
+      "sample_or_evidence_url": "https://www.guitar-pro.com/tabs/t/7510-preludio-n20",
+      "identity_observation": "native tab 7510; edition separate",
+      "rights_observation": "Official library cannot be saved as score files; player access only",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "songsterr",
+      "name": "Songsterr",
+      "integration_status": "research_only",
+      "suggested_route": "scope_and_policy_pending",
+      "directory_url": "https://www.songsterr.com/?inst=guitar",
+      "sample_or_evidence_url": "https://www.songsterr.com/a/wsa/francisco-tarrega-gran-vals-classical-guitar-tab-s3888279",
+      "identity_observation": "song s3888279; track and revision distinct",
+      "rights_observation": "Plus personal downloads; automation policy and ai.txt not fully verified",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "page_read_ai_policy_pending",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "ultimateguitar",
+      "name": "Ultimate Guitar",
+      "integration_status": "research_only",
+      "suggested_route": "access_scope_and_policy_pending",
+      "directory_url": "https://www.ultimate-guitar.com/explore",
+      "sample_or_evidence_url": null,
+      "identity_observation": "sample native ID not verified",
+      "rights_observation": "Official tabs cannot download; user GP/PTB individual downloads; personal file transfer restriction",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "official_help_read_sample_unavailable",
+      "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "ccguitar",
+      "name": "虫虫吉他",
+      "integration_status": "research_only",
+      "suggested_route": "access_pending",
+      "directory_url": "https://www.ccguitar.cn/album/1541217.htm",
+      "sample_or_evidence_url": "https://www.ccguitar.cn/cchtml/941357789.htm",
+      "identity_observation": "score 941357789; collection separately identified",
+      "rights_observation": "Official index only for some pages; current file, account, pricing and reuse policies incomplete",
+      "automated_acquisition_evidence": "batch_permission_unknown",
+      "evidence_level": "official_index_only_partial_timeout",
+      "stated_or_observed_count": null
+    }
+  ],
+  "unresolved_names": [
+    {
+      "name": "吉他中国",
+      "url": "https://www.guitarschina.com/",
+      "reason": "Different from guitarworld.com.cn; portal verified, structured dedicated score library not established"
+    },
+    {
+      "name": "吉他达人",
+      "url": "https://www.jitadaren.com/",
+      "reason": "Current official catalogue, sample and policies not readable in this run"
+    }
+  ],
+  "api_observations": [
+    {
+      "source": "dga",
+      "url": "https://digitalguitararchive.com/archive/api/openapi.json",
+      "http_status": 200,
+      "content_type": "application/json",
+      "api_version": "2.0.0",
+      "paths": [
+        "/sources",
+        "/search",
+        "/record/{id}"
+      ]
+    },
+    {
+      "source": "dga",
+      "url": "https://digitalguitararchive.com/archive/api/sources",
+      "http_status": 200,
+      "group_count": 15,
+      "sum_group_record_count": 20526,
+      "caveat": "Different scope/count from legacy page 31599; no coverage equivalence established"
+    },
+    {
+      "source": "dga",
+      "url": "https://digitalguitararchive.com/archive/api/search?author=Sor&limit=1&offset=0",
+      "http_status": 200,
+      "sample_id": 1260,
+      "sample_source_siglum": "S:Skma",
+      "sample_call_number": "Boije 465",
+      "caveat": "total=1 in limited sample is not complete Sor count; file not acquired"
+    },
+    {
+      "source": "rism",
+      "url": "https://rism.online/search?q=guitar",
+      "accept": "application/ld+json",
+      "http_status": 200,
+      "totalItems": 1189,
+      "sample_record": "sources/452020028",
+      "sample_parent_record": "sources/452020027",
+      "caveat": "Keyword count not approved instrumentation coverage; external files not acquired"
+    }
+  ],
+  "limitations": [
+    "No whole-site source snapshots or net musical-work counts established",
+    "No acquisition, integration, PDF integrity audit or publication performed",
+    "Some page evidence came only from official search index; retained explicitly",
+    "Candidate IDs are proposed source identifiers, not existing adapter configuration"
+  ]
+}

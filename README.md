@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public_site/assets/readme-hero.svg" alt="Guitar Atlas — 吉他乐谱图谱" width="100%">
+  <img src="public_site/assets/archive-cover.webp" alt="六弦漫行｜Guitar Atlas — 吉他乐谱与作品目录" width="100%">
 </p>
 
 <p align="center">
@@ -11,14 +11,105 @@
 
 <p align="center">
   <img alt="Python 3.12+" src="https://img.shields.io/badge/Python-3.12%2B-17283b?style=flat-square">
-  <img alt="Sources IMSLP and ClassClef" src="https://img.shields.io/badge/sources-IMSLP_%2B_ClassClef-bd452f?style=flat-square">
+  <img alt="16 catalog sources" src="https://img.shields.io/badge/sources-16-bd452f?style=flat-square">
   <img alt="Public site excludes score files" src="https://img.shields.io/badge/public_site-score_files_excluded-a67542?style=flat-square">
   <img alt="License MIT and CC BY-SA 4.0" src="https://img.shields.io/badge/license-MIT_%2B_CC_BY--SA_4.0-17283b?style=flat-square">
 </p>
 
-**Guitar Atlas（吉他乐谱图谱）**是面向多个来源的吉他乐谱目录与本地离线库。目前整理 [IMSLP](https://imslp.org/) 与 [ClassClef](https://www.classclef.com/) 的数据，提供来源、曲名、音乐家和分类检索，并为后续增加其他网站保留独立的来源适配层。
+**六弦漫行｜Guitar Atlas** 是面向多个来源的吉他乐谱目录与本地离线库。当前注册16个网站与馆藏来源，使用共同编制与用途目录，统一检索原题、中文参考名、音乐家、来源、格式与版本资料。各来源保留适配层与可续传快照。
 
-项目分别保留来源中的作品身份、版本与分类信息；同名曲目在不同网站上的记录不会自动合并。原始曲名与音乐家署名始终保留，已审校的中文参考名用于辅助检索。旧项目名 `imslp-guitar` 已更名为 `guitar-atlas`，既有磁盘目录无需随仓库更名迁移。
+项目分别保留来源中的作品身份、版本与分类信息；同名曲目在不同网站上的记录不会自动合并。原始曲名与音乐家署名始终保留，已审校的中文参考名用于辅助检索。中文名称为 **六弦漫行**，英文原名仍为 **Guitar Atlas**；页面左上角导航显示英文名，中文主标题显示六弦漫行，双语标题为“六弦漫行｜Guitar Atlas”。仓库、本地根目录和 Python 包名继续使用 `guitar-atlas`，Codex 项目名仍为 Guitar Atlas。2026-10-03 的名称变更及最终显示约定见[名称变更记录](docs/research/2026-10-03-chinese-name.md)。
+
+## 2026-10-04 更新版本
+
+本次同步此前已完成的16来源目录、全库中文题名审读、匹配度／知名度排序、轻量压缩检索、六弦漫行命名及模型插图界面。正式目录重新导出后语义保持一致，1,256项Python与66项Node通过，公开边界及译名／文本审计通过。归属说明覆盖16个来源，Pages只发布不含乐谱文件的 `public_site/`。提交与线上运行须分别验证，记录见[发布回执](docs/research/2026-10-04-publication.md)。
+
+## 模型分类插图：2026-10-04
+
+采用内置画图模型生成12组乐器／谱页插图，共用一张58KB透明WebP覆盖17个共同分类，替换代码绘制的琴弦与音孔。中英文README也改用既有模型主视觉。没有新增JavaScript、DOM或依赖，目录与18条分页保持原样；实际引用静态资产283,302B。46项相关Python、66项Node与公开验证通过，离线入口同步；原图、提示词与验收见[模型插图记录](docs/research/2026-10-04-generated-category-art.md)。本轮仅本地更新。以下同日版式记录保留此前资源口径。
+
+## 页面层次与圆角修订：2026-10-04
+
+根据最新反馈，恢复“吉他与旧谱”的收藏氛围，缩小首屏标题与空白，采用深绿／米白、曲线图版、圆角分类与作品卡、柔和阴影及更明确的按钮。手机首屏图文并列，次级文字与占位文字的对比度同步修正。
+
+没有新增框架、字体或动效库；主图约64KB，实际引用静态资源224,765 bytes，比上一版少约4KB，目录载荷不变。46项相关Python、66项Node及31项最终聚焦回归通过；公开与离线的数据、译名、排序和谱链接一致。当前版式、资源口径与验证见[本轮视觉修订日志](docs/research/2026-10-04-visual-refinement.md)，以下同日重做一节为上一版历史记录。本轮为本地更新，未部署。
+
+## 网页视觉重做：2026-10-04
+
+公开与离线总入口改为琴谱出版物与馆藏索引风格：原创古典吉他图版、六弦音孔标识、宋体与自托管拉丁衬线、编号分类目录、桌面侧栏与手机单栏资料页。搜索、筛选、详情、焦点、按钮圆角和微动效统一整理；尊重减少动效设置，不新增框架或远程字体依赖。
+
+实际引用静态资源由358,126降至228,773 bytes（−36.12%，不含目录JSON）；压缩目录与全部来源、译名、排序、离线乐谱关系保持一致。1,256项Python、66项Node及最终相关回归通过；桌面、390px/320px手机、长题名、空结果、来源返回及离线分谱展开已检查。[设计与验收日志](docs/research/2026-10-04-visual-redesign.md)记录10家官网参考、设计细节、图像提示词、字体许可、体积口径和验证边界。本轮仅在本地更新，未部署。
+
+## 全库题名重新审读：2026-10-03至10-04
+
+重新处理全部 **48,449条来源记录**，包括机器草稿、旧参考译文与原文保留项。最终 **47,347条采用完整中文参考译法或有据惯用名，1,102条明确保留原名，0条机器题名草稿或漏译**。未取得合适意译的专名、品牌、双关构词或残缺题名保留原文，不用生硬音译凑覆盖率，也无需使用者逐条审核。
+
+逐条决定绑定来源ID、精确原题与完整署名；主标题另有显示边界及修订前中文守卫。责任句、来源标记与审读说明留在版本信息中，实际作品号、序号、调性、合集数量及声部完整保留。对可核实的惯用曲名、歌剧引用、历史词义和跨源译法进行了资料查询，其余采用对照完整原题的参考意译；这不代表所有参考译名都有唯一权威中文定名。
+
+审读方法、逐源统计、原名保留原因、来源资料和最终验证见[全库题名审读日志](docs/research/2026-10-03-complete-title-review.md)。决定台账在 `metadata/translations/review_2026-10-03/`，生产显示使用四份持久译名资产，完整审读台账不进入浏览器载荷。以下各节保留此前验收时的历史统计。
+
+公开与离线共享字段、压缩解码及全部既有乐谱链接核对一致；352个旧分类目录同步修订，两轮共1,247份视图改变，备份与最终重跑检查完成。1,256项Python、66项Node测试通过，译名审计无待核字段，299,758个文本字段无明确规则错误。压缩目录5.63MB，较本轮前减少0.19%；离线入口7.43MB，增加0.13%。本轮仅更新本地题名与显示，沿用此前PDF核验结果，未推送或部署。
+
+## 中文、题名与字段整理：2026-10-02
+
+本次全量扫描16来源、48,449条记录及2,228个分类，修正作品号、序号、调性、体裁和人名的词典式误译，统一同原文署名的中文对应，修复中文书名号。截图中的 `Op. 47 Suite Espanola No. 1 5. Asturias (Leyenda)` 现在显示为“西班牙组曲第1号，作品47：第5曲‘阿斯图里亚斯（传奇）’”。逐条原文守卫、修订差异与范围见[本轮文本整理日志](docs/research/2026-10-02-chinese-text-quality.md)。
+
+本轮修订11,509条题名资产、591条署名、154条栏目；8,518条记录整理了主标题字段。最终306,714个文本字段的规则检查无明确错误，1,206项Python与66项Node测试通过，公开/离线共享字段及全部本地版本一致。离线入口7.42MB、公共压缩目录5.64MB；完整审计JSON另行保留。数字包括状态、依据和原文保留修订，不代表同数量的权威中文定名。
+
+原始题名与署名保持完整。主标题独立显示，明确的编曲/编辑责任、手稿与馆藏标记、出版转录、生卒年移入“乐谱与版本信息”；中括号中的实际补拟题名及音乐内容保留。编辑、演奏者和来源未说明角色的署名各自标注，语言、调性、馆藏号、目录编号等现有字段完整可查。显示字段不用于改写作品身份或合并网站记录。
+
+当时有 **19,723条机器标题草稿**待语义复核；已在2026-10-03至10-04的全库题名审读中处理完毕，当前状态见上节。原题与完整版本信息继续可检索。已对照完整原题检查的参考译文与有证据的惯用名可作为中文主标题；局部术语修正不自动升级为参考译文。译名发布审计继续保留待核门槛。公开与离线共用整理规则、搜索和压缩载荷；本轮刷新保留此前PDF核验结果，核对来源指纹、分类、文件链接与大小，不等同于重新解析或计算PDF哈希。
+
+```bash
+python scripts/export_public_site.py
+python scripts/validate_public_site.py
+python scripts/audit_catalog_text.py --help
+python scripts/audit_translations.py
+python scripts/render_master_index.py . --metadata-only
+```
+
+## 多来源扩展：2026-10-01
+
+本轮新增14个来源：Mutopia、The Guitar School、CGLIB、Delcamp、Boije、RISM、Digital Guitar Archive、Werner、GuitarDownunder、Andrew York、ClassicalGuitar.org、FreeGuitarMusic、Cantorion与Library of Congress。来源记录进入共同分类与同一搜索；原站分类保留，默认入口不按网站拆成不同库。
+
+当前冻结目录为 **16来源、48,449条来源记录（48,364条乐谱、85条参考资料）、2,228个原分类、57,062条分类成员关系、17个共同分类、700条有证据的记录关联**。这些记录包含不同版本、合集和馆藏条目，不能按跨站唯一乐曲数理解。
+
+本轮新增 **3,964条有效PDF清单/分谱关系**；全量离线重建共核验 **35,385条有效PDF清单关系、33,820种不同PDF内容**，另保留1,890条未就绪或明确排除的清单。35,083条不同本地PDF路径及350条旧分类页入口均有效，公开/离线共享字段与搜索别名一致。1,010项Python测试、50项Node搜索测试及公开目录验证通过；Chrome抽查统一中文搜索、成员筛选、八份总谱/分谱和实际本地PDF渲染。
+
+来源原生身份、合集/版本、编曲与编辑、ISBN、年代、许可、人物及馆藏关系分别保留。明确的同文件引用、PDF内容、机构馆藏号及合集结构可形成关联；相同曲名不触发作品合并。无原生条目编号的Delcamp采用稳定的上游路径摘要编号，原定位符仅保存在私有快照。
+
+完整的纳入范围、逐源统计、文件验证、中文状态与未接入原因见[本轮接入日志](docs/research/2026-10-01-integration-log.md)；34候选的当前政策见[来源政策台账](config/source_acquisition_policies.json)。下方2026-09记录是此前两来源的历史验收快照。
+
+接入时中文参考对应与自动草稿分开标记；当时待复核的题名已在2026-10-03至10-04完成全库审读，`audit_translations.py` 的发布审校门槛保持严格。接入与本轮审读均为本地更新，未推送或部署线上Pages。个人非商业使用的来源文件只进入离线库，元数据许可与谱文件许可分别保留。
+
+接入时的中文覆盖及证据按来源、曲名、署名和分类分别统计：**24,994个机器译名字段待语义复核、10,345个字段有理由保留原文**；2026-10-02修订后的状态见上节日志。原署名缺失、编制未知及文件级署名差异继续明确记录，不能把完整性或中文非空视为编制与定名审校完成。
+
+```bash
+python scripts/discover_open_sources.py --help
+python scripts/discover_archive_sources.py --help
+python scripts/discover_additional_sources.py --help
+python scripts/acquire_source_assets.py --source mutopia --source guitarschool --source delcamp --retry-failed
+python scripts/review_source_translations.py --machine-drafts --workers 2
+python scripts/export_public_site.py
+python scripts/validate_public_site.py
+python scripts/audit_translations.py
+python scripts/render_master_index.py .
+python scripts/report_source_expansion.py
+```
+
+各站原始页、排除、续传状态和日志在 `sources/<source>/`；新谱不可变对象在 `sources/objects/sha256/`，来源路径硬链接共享对象。持久中文对应在 `metadata/translations/`，共同投影与搜索在 `public_site/`，机器验收在 `work/source-expansion/2026-10-01/`。文件、私有快照和日志保持Git忽略。
+
+## 检索排序与轻量加载：2026-10-01
+
+有搜索词时，作曲家完整姓名、明确别名和姓名边界匹配优先于其他姓名中的包含匹配或标题提及；例如“索尔”先列费尔南多·索尔，再列“埃索尔”等弱匹配。全部关键词及同一分类成员筛选继续生效，知名度仅打破相同匹配度的并列。无搜索词时，分类中的记录按参考知名度降序，同权重再按原文作曲家、曲名、ID排列。
+
+权重依据与原文守卫保存在 [`metadata/ranking/recognition.json`](metadata/ranking/recognition.json)：47位人物的151个准确来源全名键、40条具体曲目/合集记录，参考10项官方考级、演出或唱片目录。人物权重8–20、具体记录40–70，未整理为0；这是可维护的曲目熟悉度参考，未使用虚构浏览量，也不据此合并作品。方法、来源和局限见[排序依据](docs/research/2026-10-01-ranking-evidence.md)。
+
+浏览器优先载入约5 MB的 `data/catalog.compact.json`，取代约58 MB的完整目录下载；完整JSON继续用于审计和兼容回退。离线入口采用同样的无损字典及标准gzip打包，自带目录、别名与权重，保留直接文件打开和全部本地分谱。解码使用现代浏览器内置接口，不加载框架、CDN或外部搜索服务。全文索引和模糊词汇按需建立，分类浏览无需预先处理全库正文；首次全库文字检索仍有建立索引的成本。
+
+最终离线入口 **68.3 MB→6.83 MB**，公共浏览器实际目录载荷 **57.9 MB→5.05 MB**；索引初始化本地Node基准约 **5.07秒→0.097秒**。Chrome本机单次默认目录启动：公开约0.53秒、离线约0.80秒；首次全库查询本地Node约1.1秒，浏览器ISBN查询启动约2.9秒。浏览器缓存、机器负载与网络会影响实际速度，不能把单次本地观测当作线上承诺。
+
+本轮仅刷新展示与加载方式，沿用此前PDF完整性结果；源清单、分类归属、文件可用状态和本地链接映射仍按指纹及文件大小检查。性能数字与具体验收见[排序与性能日志](docs/research/2026-10-01-search-ranking-speed.md)。
 
 ## 两种版本
 
@@ -29,7 +120,7 @@
 
 两种版本共用页面模板、样式和搜索逻辑。公开网站不托管乐谱，也不包含 PDF、MIDI、GPX、下载地址、本地路径、文件哈希或私有运行元数据。Git 仅跟踪程序、配置、审校资产和不含乐谱文件的公共目录。
 
-## 当前来源与范围
+## 原有来源与历史范围
 
 | 来源 | 组织方式 | 核验边界 |
 | --- | --- | --- |
@@ -140,7 +231,7 @@ cd guitar-atlas
 python -m http.server 8000 --directory public_site
 ```
 
-打开 <http://127.0.0.1:8000>。已有 `imslp` 本地目录可继续原地使用，目录名称不影响来源身份。
+打开 <http://127.0.0.1:8000>。本机项目目录为 `/Volumes/PHILIPS/programs/muse-cache/guitar-atlas`，离线入口为该目录下的 `index.html`。
 
 ### 安装与检查
 
@@ -211,6 +302,8 @@ python scripts/render_master_index.py .
 
 ## 增加来源
 
+2026-10-01 已完成[34 个候选来源的调研与扩展路线](docs/research/2026-10-01-source-expansion.md)：近期优先评估 Mutopia、Boije 与 The Guitar School 的明确许可子集，并以 DGA/RISM 补充馆藏和权威关系。商业、社区及中文指弹来源按采集权限和范围另行评估；该段描述接入前的研究基线；目前注册16来源，实际接入范围及仍未纳入的候选见上方接入日志。
+
 来源注册表为 [`config/sources.json`](config/sources.json)，共同数据契约及公开字段投影位于 [`scripts/catalog_sources.py`](scripts/catalog_sources.py)。来源适配器负责发现、解析、下载和验证，规范化目录由 `normalized_catalog` 适配类型接入。新增网站时需定义稳定的来源 ID 和来源内记录 ID、批准的范围、原始署名字段及页面 URL，并记录可恢复的快照与失败状态。来源特有的分类、版本及原作/改编信息应明确映射；缺失信息保留未知。不可把 IMSLP 的规则、中文名审校状态或跨分类身份假设直接套用到其他网站。
 
 新来源必须接入同一公开字段白名单、来源 URL 校验、本地文件验证和搜索测试。相同内容的 PDF 可按 SHA-256 复用物理对象，但每个来源记录及署名保持独立。新增网站不需要重命名项目；现有 `scripts/imslp_library/` 保留为 IMSLP 适配器的模块名称。
@@ -247,7 +340,7 @@ guitar-atlas/
 
 ## 数据与版权边界
 
-Guitar Atlas 是独立目录项目，不隶属于 IMSLP 或 ClassClef，也不代表这些网站。公开网站只链接来源页面。第三方谱面、录音、页面内容及元数据可能有各自的授权条件；本站收录、提供免费下载或保存本地副本，都不表示相关内容已进入公有领域或允许再分发。各文件保留其来源及自身的版权、许可说明。
+六弦漫行（Guitar Atlas）是独立目录项目，不隶属于 IMSLP 或 ClassClef，也不代表这些网站。公开网站只链接来源页面。第三方谱面、录音、页面内容及元数据可能有各自的授权条件；本站收录、提供免费下载或保存本地副本，都不表示相关内容已进入公有领域或允许再分发。各文件保留其来源及自身的版权、许可说明。
 
 - 程序代码：[MIT](LICENSE)
 - 项目原创目录结构、参考译名、文档和视觉资产：[CC BY-SA 4.0](DATA_LICENSE.md)

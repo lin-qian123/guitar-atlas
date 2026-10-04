@@ -12,6 +12,7 @@ const elements = {
   family: document.querySelector("#family-filter"),
   kind: document.querySelector("#kind-filter"),
   category: document.querySelector("#category-filter"),
+  topic: document.querySelector("#topic-filter"),
   clear: document.querySelector("#clear"),
   share: document.querySelector("#share"),
   status: document.querySelector("#status"),
@@ -31,6 +32,9 @@ const state = {
   data: null,
   categoryById: new Map(),
   sourceById: new Map(),
+  topicById: new Map(),
+  workById: new Map(),
+  relatedById: new Map(),
   engine: null,
   matches: [],
   visible: PAGE_SIZE,
@@ -63,6 +67,7 @@ function addFamilyShortcut(value, label) {
   button.setAttribute("aria-pressed", "false");
   button.addEventListener("click", () => {
     elements.family.value = value;
+    elements.topic.value = "all";
     elements.category.value = "all";
     state.visible = PAGE_SIZE;
     update();
@@ -75,18 +80,58 @@ function compactNumber(value) {
 }
 
 function populateFilters() {
+  for (const work of state.data.works) state.workById.set(work.id, work);
+  for (const edge of state.data.relationships || []) {
+    for (const [identity, target] of [[edge.from_id, edge.to_id], [edge.to_id, edge.from_id]]) {
+      if (!state.relatedById.has(identity)) state.relatedById.set(identity, []);
+      state.relatedById.get(identity).push({target, type:edge.type});
+    }
+  }
+  for (const topic of state.data.topics || []) {
+    state.topicById.set(topic.id, topic);
+    addOption(elements.topic, topic.id, topic.name_zh);
+  }
   for (const source of Array.isArray(state.data.sources) ? state.data.sources : [{id:"imslp", name:"IMSLP"}]) {
     state.sourceById.set(source.id, source);
     addOption(elements.source, source.id, source.name);
+    const sourceIndex = document.querySelector("#source-index");
+    if (sourceIndex) {
+      const entry = makeElement("button", "", source.name);
+      entry.type = "button";
+      entry.setAttribute("aria-label", `浏览 ${source.name} 来源目录`);
+      entry.addEventListener("click", () => {
+        elements.source.value = source.id;
+        elements.family.value = elements.kind.value = elements.category.value = elements.topic.value = "all";
+        document.querySelector("#filter-drawer").open = true;
+        state.visible = PAGE_SIZE;
+        update({push:true});
+        elements.title.scrollIntoView({behavior:scrollBehavior(), block:"start"});
+      });
+      sourceIndex.append(entry);
+    }
   }
   addFamilyShortcut("all", "全部分类");
   for (const family of state.data.families) {
     addOption(elements.family, family.id, `${family.name_zh} / ${family.name_en}`);
-    addFamilyShortcut(family.id, FAMILY_LABELS[family.id] || family.name_zh);
+    if (!state.data.topics?.length) addFamilyShortcut(family.id, FAMILY_LABELS[family.id] || family.name_zh);
   }
   for (const category of state.data.categories) {
     state.categoryById.set(String(category.id), category);
     addOption(elements.category, category.id, `${sourceName(category)} · ${category.name_zh || category.name}`);
+  }
+  for (const topic of state.data.topics || []) {
+    if (!topic.work_count) continue;
+    const button = makeElement("button", "family-shortcut", topic.name_zh);
+    button.type = "button";
+    button.dataset.topic = topic.id;
+    button.setAttribute("aria-label", topic.name_zh);
+    button.addEventListener("click", () => {
+      elements.topic.value = topic.id;
+      elements.category.value = elements.family.value = "all";
+      state.visible = PAGE_SIZE;
+      update({push:true});
+    });
+    elements.familyShortcuts.append(button);
   }
 }
 
@@ -97,7 +142,11 @@ function updateFamilyShortcuts() {
   }
   const available = new Set(state.engine.browse({source:elements.source.value}).categories.map(category => category.family));
   for (const button of elements.familyShortcuts.querySelectorAll("button")) {
-    button.setAttribute("aria-pressed", String(button.dataset.family === selected));
+    if (button.dataset.topic) {
+      button.setAttribute("aria-pressed", String(button.dataset.topic === elements.topic.value));
+      continue;
+    }
+    button.setAttribute("aria-pressed", String(button.dataset.family === selected && elements.topic.value === "all"));
     button.hidden = button.dataset.family !== "all" && !available.has(button.dataset.family);
   }
 }
@@ -127,6 +176,7 @@ function readUrlState() {
   const family = params.get("family") || "all";
   const kind = params.get("kind") || "all";
   const category = params.get("category") || "all";
+  elements.topic.value = state.topicById.has(params.get("topic")) ? params.get("topic") : "all";
   for (const [select, value] of [[elements.source, source], [elements.family, family], [elements.kind, kind], [elements.category, category]]) {
     select.value = [...select.options].some((option) => option.value === value) ? value : "all";
   }
@@ -141,6 +191,7 @@ function writeUrlState(push = false) {
   if (elements.family.value !== "all") params.set("family", elements.family.value);
   if (elements.kind.value !== "all") params.set("kind", elements.kind.value);
   if (elements.category.value !== "all") params.set("category", elements.category.value);
+  if (elements.topic.value !== "all") params.set("topic", elements.topic.value);
   const suffix = params.toString();
   if (window.GuitarCatalogAdapter?.writeQuery) {
     window.GuitarCatalogAdapter.writeQuery(suffix, push);
@@ -152,7 +203,7 @@ function writeUrlState(push = false) {
 }
 
 function currentFilters() {
-  return {source: elements.source.value, family: elements.family.value, kind: elements.kind.value, category: elements.category.value};
+  return {source: elements.source.value, family: elements.family.value, kind: elements.kind.value, category: elements.category.value, topic:elements.topic.value};
 }
 
 function closeSuggestions() {
@@ -202,16 +253,17 @@ function openCategory(category, clearQuery = false) {
   elements.family.value = "all";
   elements.kind.value = "all";
   elements.category.value = String(category.id);
+  elements.topic.value = "all";
   document.querySelector("#filter-drawer").open = true;
   state.visible = PAGE_SIZE;
   update({push: true});
   elements.title.scrollIntoView({behavior: scrollBehavior()});
 }
 
-function renderDirectory() {
+function renderSourceDirectory(target = elements.directory, updateStatus = true) {
   const directory = state.engine.browse(currentFilters());
-  elements.directory.replaceChildren();
-  elements.status.textContent = `${compactNumber(directory.categories.length)} 个分类 · ${compactNumber(directory.workCount)} 条作品记录`;
+  target.replaceChildren();
+  if (updateStatus) elements.status.textContent = `${compactNumber(directory.categories.length)} 个分类 · ${compactNumber(directory.workCount)} 条作品记录`;
   for (const family of state.data.families) {
     const categories = directory.categories.filter(category => category.family === family.id);
     if (!categories.length) continue;
@@ -248,9 +300,54 @@ function renderDirectory() {
       grid.append(card);
     }
     group.append(grid);
-    elements.directory.append(group);
+    target.append(group);
   }
-  if (!directory.categories.length) elements.directory.append(makeElement("p", "empty", "当前筛选条件下没有分类。请调整筛选条件。"));
+  if (!directory.categories.length) target.append(makeElement("p", "empty", "当前筛选条件下没有分类。请调整筛选条件。"));
+}
+
+function renderDirectory() {
+  if (!state.data.topics?.length || elements.family.value !== "all" || elements.kind.value !== "all") {
+    renderSourceDirectory();
+    return;
+  }
+  elements.directory.replaceChildren();
+  const topics = state.engine.browseTopics(currentFilters());
+  const grid = makeElement("div", "category-grid topic-grid");
+  for (const [index, topic] of topics.entries()) {
+    const card = makeElement("a", "category-card topic-card");
+    card.dataset.topic = topic.id;
+    const topicParams = new URLSearchParams({topic:topic.id});
+    if (elements.source.value !== "all") topicParams.set("source", elements.source.value);
+    card.href = `?${topicParams}#catalog`;
+    const number = makeElement("span", "topic-index", String(index + 1).padStart(2, "0"));
+    number.setAttribute("aria-hidden", "true");
+    const enter = makeElement("span", "category-enter");
+    const arrow = makeElement("span", "card-arrow", "↗");
+    arrow.setAttribute("aria-hidden", "true");
+    enter.append(makeElement("span", "", `${compactNumber(topic.work_count)} 条记录 · ${topic.source_count} 个来源`), arrow);
+    card.append(number, makeElement("h3", "", topic.name_zh), makeElement("p", "category-source-name", topic.name_en), enter);
+    card.addEventListener("click", event => {
+      if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      elements.topic.value = topic.id;
+      state.visible = PAGE_SIZE;
+      update({push:true});
+      elements.title.scrollIntoView({behavior:scrollBehavior(), block:"start"});
+    });
+    grid.append(card);
+  }
+  elements.directory.append(grid);
+  const originals = makeElement("details", "category-group");
+  originals.append(makeElement("summary", "", "来源原分类与目录"));
+  const container = makeElement("div", "");
+  originals.append(container);
+  originals.addEventListener("toggle", () => {
+    if (originals.open && !container.childElementCount) renderSourceDirectory(container, false);
+  });
+  elements.directory.append(originals);
+  const directoryWorks = state.engine.search("", currentFilters()).matches;
+  const sourceCount = new Set(directoryWorks.map(match => GuitarSearch.sourceId(match.item))).size;
+  elements.status.textContent = `${compactNumber(directoryWorks.length)} 条记录 · ${topics.length} 个共同分类 · ${sourceCount} 个来源`;
 }
 
 function categoryChip(category) {
@@ -270,22 +367,59 @@ function resultCard(match, index) {
   const header = makeElement("div", "result-header");
   header.append(makeElement("span", "result-number", String(index + 1).padStart(2, "0")));
   header.append(makeElement("span", "source-badge", sourceName(item)));
-  const kinds = [...new Set(match.categories.map((category) => GuitarSearch.kindLabel(category.kind)))];
+  const kinds = [...new Set(match.categories.map((category) => GuitarSearch.kindLabel(category.kind === "unspecified" && item.declared_kind !== "unspecified" ? item.declared_kind : category.kind)))];
   header.append(makeElement("span", "result-kind", GuitarSearch.resourceLabel(item) || kinds.join(" / ")));
   article.append(header);
 
   const title = makeElement("div", "result-title");
   title.append(makeElement("h3", "", GuitarSearch.titleLabel(item)));
-  if (item.title_zh && GuitarSearch.titleLabel(item) !== item.title_en) title.append(makeElement("p", "result-title-en", item.title_en));
+  const englishTitle = item.display_title_en || item.title_en;
+  if (item.translation?.title?.status === "machine" && item.title_zh) {
+    const draft = makeElement("details", "category-extra");
+    draft.append(makeElement("summary", "", "中文参考草稿（待复核）"));
+    draft.append(makeElement("p", "result-title-en", (item.display_title_zh || item.title_zh).replace(/^《|》$/g, "")));
+    title.append(draft);
+  } else if (item.title_zh && GuitarSearch.titleLabel(item) !== englishTitle) {
+    title.append(makeElement("p", "result-title-en", englishTitle));
+  }
   appendTranslationNote(title, item.translation?.title, "title");
   article.append(title);
 
   const meta = makeElement("div", "result-meta");
-  const composer = makeElement("p", "result-composer", GuitarSearch.composerLabel(item));
-  if (item.composer_zh && item.composer_zh !== item.composer_en) composer.append(makeElement("span", "", item.composer_en));
+  const attributionRole = {source_unspecified:"来源署名", author:"作者", performer:"演奏者", editor:"编辑", arranger:"编曲者", transcriber:"转写者", compiler:"编纂者", composer:"作曲者", unverified_name:"署名字段待核"}[item.details?.attribution_role];
+  const composer = makeElement("p", "result-composer", (attributionRole ? attributionRole + "：" : "") + GuitarSearch.composerLabel(item));
+  const englishComposer = item.display_composer_en || item.composer_en;
+  if (item.composer_zh && GuitarSearch.composerLabel(item) !== englishComposer) composer.append(makeElement("span", "", englishComposer));
   appendTranslationNote(composer, item.translation?.composer, "composer");
   meta.append(composer);
   if (item.formats?.length) meta.append(makeElement("p", "result-formats", `来源格式：${item.formats.join(" · ")}`));
+  const labels = {instrumentation:"编制", arranger:"编曲", editor:"编辑", transcriber:"转写／移谱", opus:"作品号", source_edition:"版本", difficulty:"来源难度标记", publisher:"出版", publication_date:"年代", pages:"页数／原始页册描述", license:"使用条件", source_call:"馆藏编号", record_level:"条目层级", component_count:"来源所列组件数", contributors:"来源其他署名", isbn:"ISBN", description:"版本说明", original_arrangement_status:"原作／改编声明", institution:"馆藏机构", language:"语言", key:"调性", period:"时期", catalogue_number:"目录编号", collection:"来源曲目集", license_note:"使用条件说明", availability:"来源可用性说明", source_type:"来源载体标注", material_type:"资料载体", title_annotations:"来源题名注记", responsibility_statement:"来源责任说明", source_title_transcription:"来源完整题名转录", translated_title_transcription:"完整中文参考转录", source_attribution_note:"来源完整署名", dimensions:"尺寸", physical_description:"来源册页／载体描述", text_quality_note:"来源文字质量说明", attribution_role:"来源署名角色"};
+  const sourceTypes = {Handskrift:"手稿", "music transcription":"音乐转录", "sound recording":"录音", "Manuscript copy":"手稿抄本", "Autograph manuscript":"亲笔手稿", "Printed music":"印刷乐谱"};
+  const languageNames = {deutsch:"德语", Deutsch:"德语", ger:"德语", englisch:"英语", Englisch:"英语", eng:"英语", spanisch:"西班牙语", Spanisch:"西班牙语", spa:"西班牙语", italienisch:"意大利语", Italienisch:"意大利语", ita:"意大利语", "französisch":"法语", fre:"法语", lat:"拉丁语", pol:"波兰语", Russisch:"俄语", schwedisch:"瑞典语", sonstiges:"其他语种", zxx:"非语言内容", "In Italian.":"意大利语", "In French.":"法语", "Words in German.":"德语歌词"};
+  const information = Object.entries(item.details || {}).filter(([key]) => labels[key]);
+  if (information.length) {
+    const details = makeElement("details", "category-extra");
+    details.append(makeElement("summary", "", "乐谱与版本信息"));
+    for (const [key, value] of information) {
+      const text = key === "record_level" ? ({collection:"合集", Collection:"合集", score:"乐谱版本", edition:"乐谱版本", work:"作品", item:"条目", Item:"条目", "Single item":"单个条目", Composite:"复合条目", reference:"参考资料", bibliographic_reference:"书目参考", "native shelfmark with preserved indexed components":"按来源馆藏号整理，保留所列组件"}[value] || value)
+        : key === "original_arrangement_status" ? GuitarSearch.kindLabel(value)
+        : key === "material_type" ? ({recording:"录音", journal:"期刊", reference_text:"文字参考资料"}[value] || value)
+        : key === "attribution_role" ? ({source_unspecified:"来源未明确角色", author:"作者", performer:"演奏者", editor:"编辑", arranger:"编曲者", transcriber:"转写者", compiler:"编纂者", composer:"作曲者", unverified_name:"署名字段不是可靠人名"}[value] || value)
+        : key === "source_type" ? (sourceTypes[value] ? sourceTypes[value] + "（" + value + "）" : value)
+        : key === "language" && value.split(/[,;]\s*|\s+/).every(part => languageNames[part]) ? value.split(/[,;]\s*|\s+/).map(part => languageNames[part]).join("、") + "（" + value + "）"
+        : key === "language" && languageNames[value] ? languageNames[value] + "（" + value + "）"
+        : key === "key" && value.split(";").every(part => /^[A-G](?:♭|♯|b|#)?\s+(?:major|minor)$/.test(part.trim())) ? value.split(";").map(part => part.trim().replace(/\s+major$/, "大调").replace(/\s+minor$/, "小调")).join("、") + "（" + value + "）"
+        : value;
+      details.append(makeElement("p", "result-formats", `${labels[key]}：${text}`));
+    }
+    meta.append(details);
+  }
+  if (item.contents?.length) {
+    const contents = makeElement("details", "category-extra");
+    contents.append(makeElement("summary", "", `来源所列曲集内容（${item.contents.length}）`));
+    for (const entry of item.contents) contents.append(makeElement("p", "result-formats", entry));
+    meta.append(contents);
+  }
   const categories = makeElement("div", "category-list");
   match.categories.slice(0, 4).forEach((category) => categories.append(categoryChip(category)));
   meta.append(categories);
@@ -305,6 +439,22 @@ function resultCard(match, index) {
   link.target = "_blank";
   link.rel = "noopener noreferrer";
   article.append(link);
+  const related = state.relatedById.get(item.id) || [];
+  if (related.length) {
+    const group = makeElement("details", "category-extra");
+    group.append(makeElement("summary", "", `有证据的跨来源关联（${related.length}）`));
+    for (const edge of related) {
+      const other = state.workById.get(edge.target);
+      if (!other) continue;
+      const relationLabel = {identical_pdf:"已验证同一 PDF", shared_source_file:"来源引用同一文件", holding_record:"机构与馆藏号对应", collection_membership:"来源合集与子条目"};
+      const relatedLink = makeElement("a", "source-link", `${sourceName(other)} · ${GuitarSearch.titleLabel(other)} · ${relationLabel[edge.type]}`);
+      relatedLink.href = other.source_url || other.imslp_url;
+      relatedLink.target = "_blank";
+      relatedLink.rel = "noopener noreferrer";
+      group.append(relatedLink);
+    }
+    article.append(group);
+  }
   window.GuitarCatalogAdapter?.decorateCard?.(article, match);
   return article;
 }
@@ -319,7 +469,7 @@ function renderResults() {
       const relax = makeElement("button", "relax-filters", "保留关键词，清除筛选");
       relax.type = "button";
       relax.addEventListener("click", () => {
-        elements.source.value = elements.family.value = elements.kind.value = elements.category.value = "all";
+        elements.source.value = elements.family.value = elements.kind.value = elements.category.value = elements.topic.value = "all";
         state.visible = PAGE_SIZE;
         update();
       });
@@ -341,13 +491,15 @@ function update({push = false} = {}) {
   writeUrlState(push);
   updateFamilyShortcuts();
   const browsing = GuitarSearch.catalogView(elements.search.value, currentFilters()) === "categories";
+  document.querySelector("#catalog").dataset.view = browsing ? "categories" : "works";
   elements.directory.hidden = !browsing;
   elements.results.hidden = browsing;
   elements.back.hidden = browsing;
   const category = state.categoryById.get(elements.category.value);
-  elements.title.textContent = browsing ? "乐谱分类库" : category ? category.name_zh || category.name : "作品检索";
-  elements.description.textContent = browsing ? "保留来源分类；IMSLP 按编制，ClassClef 按站内目录。"
-    : category ? `${sourceName(category)} · ${category.name}` : "按相关性排列，保留各来源的独立记录。";
+  const topic = state.topicById.get(elements.topic.value);
+  elements.title.textContent = browsing ? "乐谱分类库" : category ? category.name_zh || category.name : topic ? topic.name_zh : "作品检索";
+  elements.description.textContent = browsing ? "按共同编制与用途浏览，保留每个来源的原分类。"
+    : category ? `${sourceName(category)} · ${category.name}` : topic ? `${topic.name_en} · 全部匹配来源` : "统一搜索曲名、音乐家、编制与版本资料。";
   if (browsing) {
     state.matches = [];
     elements.results.replaceChildren();
@@ -376,6 +528,7 @@ function clearSearch() {
   elements.family.value = "all";
   elements.kind.value = "all";
   elements.category.value = "all";
+  elements.topic.value = "all";
   document.querySelector("#filter-drawer").open = false;
   state.visible = PAGE_SIZE;
   update();
@@ -410,6 +563,7 @@ function bindEvents() {
   elements.back.addEventListener("click", () => {
     elements.search.value = "";
     elements.category.value = "all";
+    elements.topic.value = "all";
     document.querySelector("#filter-drawer").open = false;
     state.visible = PAGE_SIZE;
     update({push:true});
@@ -456,11 +610,11 @@ function bindEvents() {
       closeSuggestions();
     }
   });
-  [elements.family, elements.kind, elements.category].forEach((select) => {
+  [elements.family, elements.kind, elements.category, elements.topic].forEach((select) => {
     select.addEventListener("change", () => { state.visible = PAGE_SIZE; update(); });
   });
   elements.source.addEventListener("change", () => {
-    elements.family.value = elements.kind.value = elements.category.value = "all";
+    elements.family.value = elements.kind.value = elements.category.value = elements.topic.value = "all";
     state.visible = PAGE_SIZE;
     update();
   });
@@ -490,32 +644,55 @@ function bindEvents() {
 }
 
 async function loadCatalog() {
-  const [response, aliases] = await Promise.all([
-    fetch("data/catalog.json", { cache: "no-cache" }),
+  const plainCatalog = async () => {
+    const response = await fetch("data/catalog.json", { cache: "no-cache" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.json();
+  };
+  const compactCatalog = async () => {
+    if (!window.GuitarCatalogCodec || typeof DecompressionStream === "undefined") return plainCatalog();
+    try {
+      const response = await fetch("data/catalog.compact.json", { cache: "no-cache" });
+      if (!response.ok) return plainCatalog();
+      return await window.GuitarCatalogCodec.decode(await response.json());
+    } catch {
+      return plainCatalog();
+    }
+  };
+  const [data, aliases, ranking] = await Promise.all([
+    compactCatalog(),
     fetch("data/search-aliases.json", { cache: "no-cache", signal: AbortSignal.timeout(5000) })
       .then(result => result.ok ? result.json() : null).catch(() => null),
+    fetch("data/ranking.json", { cache: "no-cache", signal: AbortSignal.timeout(5000) })
+      .then(result => result.ok ? result.json() : null).catch(() => null),
   ]);
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  return {data: await response.json(), aliases};
+  return {data, aliases, ranking: ranking || {}};
 }
 
 async function start() {
+  performance.mark("guitar-catalog-load-start");
   try {
-    const {data, aliases} = await (window.GuitarCatalogAdapter?.load() ?? loadCatalog());
+    const {data, aliases, ranking} = await (window.GuitarCatalogAdapter?.load() ?? loadCatalog());
+    performance.mark("guitar-catalog-data-ready");
     state.data = data;
     if (![1, 2].includes(state.data.schema_version)) throw new Error("unsupported catalog schema");
     populateFilters();
     state.aliasesAvailable = aliases !== null;
-    state.engine = GuitarSearch.createIndex(state.data, aliases || {});
+    state.engine = GuitarSearch.createIndex(state.data, aliases || {}, ranking || {});
     document.querySelector("#stat-works").textContent = compactNumber(state.data.summary.unique_work_count);
     document.querySelector("#stat-categories").textContent = compactNumber(state.data.summary.category_count);
+    const sourceCount = document.querySelector("#stat-sources");
+    if (sourceCount) sourceCount.textContent = compactNumber(state.sourceById.size);
     readUrlState();
     bindEvents();
     update();
+    performance.mark("guitar-catalog-interactive");
+    performance.measure("guitar-catalog-startup", "guitar-catalog-load-start", "guitar-catalog-interactive");
   } catch (error) {
     elements.status.textContent = "目录载入失败";
     elements.error.hidden = false;
-    elements.error.textContent = "无法载入目录数据，请稍后刷新页面。";
+    elements.error.textContent = /^当前浏览器不支持压缩目录|^压缩目录解码器未载入/.test(error.message || "")
+      ? error.message : "无法载入目录数据，请稍后刷新页面。";
     elements.directory.setAttribute("aria-busy", "false");
     elements.results.setAttribute("aria-busy", "false");
     console.error("Catalogue loading failed", error);

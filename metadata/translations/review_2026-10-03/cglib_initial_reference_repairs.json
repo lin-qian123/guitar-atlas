@@ -1,0 +1,437 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "id": "cglib:26773",
+      "original": "Annes Song by William Ackerman",
+      "original_composer": "Ackerman. William",
+      "display_original": "Annes Song",
+      "display_zh": "《Anne 的歌》",
+      "zh": "《Anne 的歌》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/annes-song-by-william-ackerman/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:27402",
+      "original": "Opus 13 Rondo Theme by Ludwig van Beethoven",
+      "original_composer": "Beethoven. Ludwig van",
+      "display_original": "Opus 13 Rondo Theme",
+      "display_zh": "《回旋曲主题，作品13（原题署名 Ludwig van Beethoven）》",
+      "zh": "《回旋曲主题，作品13（原题署名 Ludwig van Beethoven）》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/opus-13-rondo-theme-by-ludwig-van-beethoven/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:27488",
+      "original": "Childrens Song by Ulli Boegershausen",
+      "original_composer": "Boegershausen. Ulli",
+      "display_original": "Childrens Song",
+      "display_zh": "《儿童之歌》",
+      "zh": "《儿童之歌》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/childrens-song-by-ulli-boegershausen/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:27545",
+      "original": "Like A Melody by Johannes Brahms",
+      "original_composer": "Brahms. Johannes",
+      "display_original": "Like A Melody",
+      "display_zh": "《如同一支旋律》",
+      "zh": "《如同一支旋律》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/like-a-melody-by-johannes-brahms/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:29641",
+      "original": "Annies Song by John Denver",
+      "original_composer": "Denver. John",
+      "display_original": "Annies Song",
+      "display_zh": "《Annie 的歌》",
+      "zh": "《Annie 的歌》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/annies-song-by-john-denver/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:29714",
+      "original": "Folk Song by John W Duarte",
+      "original_composer": "Duarte. John W",
+      "display_original": "Folk Song",
+      "display_zh": "《民歌》",
+      "zh": "《民歌》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/folk-song-by-john-w-duarte/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:29721",
+      "original": "Opus 119 ii autumn song by John W Duarte",
+      "original_composer": "Duarte. John W",
+      "display_original": "Opus 119 ii autumn song",
+      "display_zh": "《秋之歌，作品119第ii曲》",
+      "zh": "《秋之歌，作品119第ii曲》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/opus-119-ii-autumn-song-by-john-w-duarte/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:31146",
+      "original": "Finnish Song by Mikhail Glinka",
+      "original_composer": "Glinka. Mikhail",
+      "display_original": "Finnish Song",
+      "display_zh": "《芬兰之歌》",
+      "zh": "《芬兰之歌》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/finnish-song-by-mikhail-glinka/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:31605",
+      "original": "Chavas Song by Michael Hedges",
+      "original_composer": "Hedges. Michael",
+      "display_original": "Chavas Song",
+      "display_zh": "《Chava 的歌》",
+      "zh": "《Chava 的歌》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/chavas-song-by-michael-hedges/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:31662",
+      "original": "Bird Song by Bert Jansch",
+      "original_composer": "Jansch. Bert",
+      "display_original": "Bird Song",
+      "display_zh": "《鸟之歌》",
+      "zh": "《鸟之歌》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/bird-song-by-bert-jansch/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:31711",
+      "original": "Tree Song by Bert Jansch",
+      "original_composer": "Jansch. Bert",
+      "display_original": "Tree Song",
+      "display_zh": "《树之歌》",
+      "zh": "《树之歌》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/tree-song-by-bert-jansch/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:36539",
+      "original": "Ukrainian Folk Song by Nikita Koshkin",
+      "original_composer": "Koshkin. Nikita",
+      "display_original": "Ukrainian Folk Song",
+      "display_zh": "《乌克兰民歌》",
+      "zh": "《乌克兰民歌》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/ukrainian-folk-song-by-nikita-koshkin/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:39804",
+      "original": "Plain Song by John Renbourn",
+      "original_composer": "Renbourn. John",
+      "display_original": "Plain Song",
+      "display_zh": "《朴素的歌》",
+      "zh": "《朴素的歌》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/plain-song-by-john-renbourn/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:40103",
+      "original": "Dance Song by Johann Sigismund Scholze",
+      "original_composer": "Scholze. Johann Sigismund",
+      "display_original": "Dance Song",
+      "display_zh": "《舞蹈之歌》",
+      "zh": "《舞蹈之歌》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/dance-song-by-johann-sigismund-scholze/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:40195",
+      "original": "Bobs Song by Martin Simpson",
+      "original_composer": "Simpson. Martin",
+      "display_original": "Bobs Song",
+      "display_zh": "《Bob 的歌》",
+      "zh": "《Bob 的歌》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/bobs-song-by-martin-simpson/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:55958",
+      "original": "4 Themes by Beethoven, Onslow and Haydn",
+      "original_composer": "Morkov. Vladimir",
+      "display_original": "4 Themes by Beethoven, Onslow and Haydn",
+      "display_zh": "《Beethoven、Onslow 与 Haydn 的四个主题》",
+      "zh": "《Beethoven、Onslow 与 Haydn 的四个主题》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/4-themes-by-beethoven-onslow-and-haydn/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:56826",
+      "original": "6 Waltzes on Themes by Rossini, Book 3",
+      "original_composer": "Picchianti. Luigi",
+      "display_original": "6 Waltzes on Themes by Rossini, Book 3",
+      "display_zh": "《Rossini 主题的六首圆舞曲，第3册》",
+      "zh": "《Rossini 主题的六首圆舞曲，第3册》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/6-waltzes-on-themes-by-rossini-book-3/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:56827",
+      "original": "6 Waltzes on Themes by Rossini",
+      "original_composer": "Picchianti. Luigi",
+      "display_original": "6 Waltzes on Themes by Rossini",
+      "display_zh": "《Rossini 主题的六首圆舞曲》",
+      "zh": "《Rossini 主题的六首圆舞曲》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/6-waltzes-on-themes-by-rossini/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:57381",
+      "original": "By the River, By the Bridge",
+      "original_composer": "Rusanov. Valerian",
+      "display_original": "By the River, By the Bridge",
+      "display_zh": "《在河畔，在桥边》",
+      "zh": "《在河畔，在桥边》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/by-the-river-by-the-bridge/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:57382",
+      "original": "By the River",
+      "original_composer": "Rusanov. Valerian",
+      "display_original": "By the River",
+      "display_zh": "《在河畔》",
+      "zh": "《在河畔》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/by-the-river/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:57423",
+      "original": "Variation on a Theme by Beethoven (Vetrov, Aleksandr)",
+      "original_composer": "Rusanov. Valerian",
+      "display_original": "Variation on a Theme by Beethoven (Vetrov, Aleksandr)",
+      "display_zh": "《Beethoven 主题变奏曲（原题括注 Vetrov, Aleksandr）》",
+      "zh": "《Beethoven 主题变奏曲（原题括注 Vetrov, Aleksandr）》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/variation-on-a-theme-by-beethoven-vetrov-aleksandr/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:26876",
+      "original": "A Jig by Asuke",
+      "original_composer": "Asuke. R",
+      "display_original": "A Jig by Asuke",
+      "display_zh": "《一首吉格舞曲》",
+      "zh": "《一首吉格舞曲》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/a-jig-by-asuke/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:29017",
+      "original": "Fantasie Impromptu by Frederic Chopin",
+      "original_composer": "Chopin. Frédéric François",
+      "display_original": "Fantasie Impromptu by Frederic Chopin",
+      "display_zh": "《幻想即兴曲》",
+      "zh": "《幻想即兴曲》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/fantasie-impromptu-by-frederic-chopin/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:27299",
+      "original": "Contemplacion (Vals et Tremelo) by Agustin Barrios Mangore",
+      "original_composer": "Barrios. Agustín",
+      "display_original": "Contemplacion (Vals et Tremelo) by Agustin Barrios Mangore",
+      "display_zh": "《沉思——圆舞曲与轮指》",
+      "zh": "《沉思——圆舞曲与轮指》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/contemplacion-vals-et-tremelo-by-agustin-barrios-mangore/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:27318",
+      "original": "La Catedral (preludio saudade) by Augustin Barrios Mangore",
+      "original_composer": "Barrios. Agustín",
+      "display_original": "La Catedral (preludio saudade) by Augustin Barrios Mangore",
+      "display_zh": "《大教堂——前奏曲：思念》",
+      "zh": "《大教堂——前奏曲：思念》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/la-catedral-preludio-saudade-by-augustin-barrios-mangore/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:27352",
+      "original": "Tua Imagem Vals by Agustin Barrios Mangore",
+      "original_composer": "Barrios. Agustín",
+      "display_original": "Tua Imagem Vals by Agustin Barrios Mangore",
+      "display_zh": "《你的身影——圆舞曲》",
+      "zh": "《你的身影——圆舞曲》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/tua-imagem-vals-by-agustin-barrios-mangore/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    },
+    {
+      "id": "cglib:47622",
+      "original": "Daytripper Lady Madonna by Tommy Emmanuel",
+      "original_composer": "The Beatles",
+      "display_original": "Daytripper Lady Madonna by Tommy Emmanuel",
+      "display_zh": "《一日游人／Lady Madonna》",
+      "zh": "《一日游人／Lady Madonna》",
+      "status": "reference",
+      "basis": "cglib_initial_reference_semantic_defect_recheck_2026_10_04",
+      "reason": "复核完整原题，修正被误切的题意或主题关系；保持来源署名与身份不变。",
+      "source_refs": [
+        "https://www.cglib.org/daytripper-lady-madonna-by-tommy-emmanuel-2/"
+      ],
+      "reviewer": "codex_cglib_partition",
+      "review_method": "exact_full_original_semantic_repair"
+    }
+  ]
+}

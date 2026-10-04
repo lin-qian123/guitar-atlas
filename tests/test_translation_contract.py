@@ -9,10 +9,16 @@ def evidence(status="reviewed", **changes):
     return {"status": status, "basis": "review", "reason": "参考译名审校", **changes}
 
 
+@pytest.fixture(autouse=True)
+def isolated_registry(monkeypatch):
+    registry = [row for row in load_registry() if row["id"] in {"imslp", "classclef"}]
+    monkeypatch.setattr("validate_public_site.load_registry", lambda: registry)
+
+
 @pytest.fixture
 def catalog():
     sources = [{key: source[key] for key in ("id", "name", "homepage")}
-               for source in load_registry()]
+               for source in load_registry() if source["id"] in {"imslp", "classclef"}]
     for source in sources:
         source.update(record_count=1, category_count=1)
     imslp_url = "https://imslp.org/wiki/Study_(A,_Person)"

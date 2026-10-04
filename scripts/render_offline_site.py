@@ -19,6 +19,7 @@ from pathlib import Path, PurePosixPath
 from export_public_site import PROJECT_ROOT, build_public_catalog, configured_categories, read_json
 from imslp_library.storage import _validate_pdf
 from catalog_sources import load_registry, source_catalog
+from catalog_payload import pack_payload, unpack_payload
 
 
 def validate_readable_pdf(path: Path) -> None:
@@ -164,6 +165,7 @@ def offline_input_fingerprint(root: Path) -> dict:
     """Hash small source/configuration inputs, never score-file contents."""
     paths = {Path("config") / name for name in
              ("categories.json", "mixed_categories.json", "sources.json", "score_exclusions.json")}
+    paths.add(Path("sources/objects/deduplication_report.json"))
     paths.update(Path(row["name"]) / "metadata/score_manifest.json" for row in configured_categories(root))
     if (root / "config/sources.json").is_file():
         paths.update(Path(row["catalog"]) for row in load_registry(root) if row["adapter"] == "normalized_catalog")
@@ -305,18 +307,22 @@ def write_offline_page(root: Path, data: dict, report: dict) -> dict:
     """Render an already checked snapshot without reopening every score."""
     root = root.resolve()
     payload = {"data": data, "aliases": read_json(PROJECT_ROOT / "public_site/data/search-aliases.json")}
-    embedded = json.dumps(payload, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
+    ranking_path = PROJECT_ROOT / "public_site/data/ranking.json"
+    payload["ranking"] = read_json(ranking_path) if ranking_path.is_file() else {}
+    embedded = json.dumps(pack_payload(payload), ensure_ascii=False, separators=(",", ":"))
     page = (PROJECT_ROOT / "public_site/index.html").read_text(encoding="utf-8")
     page = page.replace('href="assets/', 'href="public_site/assets/').replace('src="assets/', 'src="public_site/assets/')
     page = page.replace('href="./"', 'href="index.html"')
-    page = page.replace("<title>Guitar Atlas｜", "<title>Guitar Atlas 离线版｜")
-    page = page.replace("<title>IMSLP Guitar｜", "<title>Guitar Atlas 离线版｜")
-    page = page.replace('lang="en">IMSLP GUITAR CATALOG', 'lang="en">IMSLP GUITAR · OFFLINE')
-    page = page.replace("基于 IMSLP 的吉他曲目目录。", "基于 IMSLP 的吉他曲目目录 · 离线版。")
+    page = re.sub(r"(<title>[^<]*)(</title>)", r"\1 · 离线版\2", page, count=1)
+    page = page.replace('lang="en">GUITAR ATLAS', 'lang="en">GUITAR ATLAS · OFFLINE')
     page = page.replace("乐谱下载与使用条件以各来源原页说明为准。", "本地已验证 PDF 可直接打开，未就绪文件可查看来源原页。使用条件以原页说明为准。")
     page = page.replace("乐谱与使用条件请查看各来源页面。", "已验证的本地 PDF 可直接打开；未就绪文件保留提示。使用条件请查看各来源页面。")
     page = page.replace('</head>', '<link rel="stylesheet" href="scripts/assets/offline-catalog.css">\n</head>')
-    page = page.replace('<script src="public_site/assets/app.js" defer>', '<script src="scripts/assets/offline-catalog.js" defer></script>\n  <script src="public_site/assets/app.js" defer>')
+    # A fixture/older template may not yet include the shared transport decoder.
+    app_script = r'(<script src="public_site/assets/app\.js(?:\?[^"<>]*)?" defer>)'
+    if 'src="public_site/assets/catalog-codec.js"' not in page:
+        page = re.sub(app_script, r'<script src="public_site/assets/catalog-codec.js" defer></script>\n  \1', page, count=1)
+    page = re.sub(app_script, r'<script src="scripts/assets/offline-catalog.js" defer></script>\n  \1', page, count=1)
     page = page.replace('</body>', f'<script type="application/json" id="offline-data">{embedded}</script>\n</body>')
     destination = root / "index.html"
     if destination.exists() and destination.read_text(encoding="utf-8") != page:
@@ -354,13 +360,13 @@ def refresh_display_metadata(root: Path) -> dict:
     matches = re.findall(r'<script type="application/json" id="offline-data">(.*?)</script>', page, re.S)
     if len(matches) != 1:
         raise ValueError("metadata refresh requires one previously verified offline snapshot")
-    previous = json.loads(matches[0])["data"]
+    previous = unpack_payload(json.loads(matches[0]))["data"]
     inputs = offline_input_fingerprint(root)
     if "offline_inputs" in previous and previous["offline_inputs"] != inputs:
         raise ValueError("offline manifest/configuration inputs changed; run a full offline render")
     current = build_public_catalog(root)
     from validate_public_site import validate_payload
-    validate_payload(current)
+    validate_payload(current, registry=load_registry(root) if (root / "config/sources.json").exists() else None)
     for collection, fields in (("works", ("id", "source_id", "source_record_id", "title_en", "composer_en", "category_ids", "formats", "resource_type", "source_url")),
                                ("categories", ("id", "source_id", "source_category_id", "name", "kind", "family", "source_url"))):
         old = {row["id"]: row for row in previous[collection]}

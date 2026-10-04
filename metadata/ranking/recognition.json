@@ -1,0 +1,1708 @@
+{
+  "schema_version": 1,
+  "description": "人工整理的吉他曲目参考熟悉度：依据官方教学选曲和已记录的演奏资料，供无搜索时的目录浏览排序。权重为可审计的产品编辑决定，不是实际浏览量、下载量、全球流行度或艺术质量评价；搜索匹配等级优先。未知人物与未整理作品为0。来源人物/作品保持各自身份。",
+  "updated": "2026-10-01",
+  "scope": {
+    "curated_people": 47,
+    "exact_composer_names": 151,
+    "curated_source_records": 40,
+    "composer_weight_range": [
+      8,
+      20
+    ],
+    "work_weight_range": [
+      40,
+      70
+    ],
+    "unlisted_weight": 0
+  },
+  "evidence": [
+    {
+      "id": "trinity_diploma_2026",
+      "title": "Trinity College London Guitar Diploma Repertoire List, April 2026 update",
+      "url": "https://trinitycollege.com/resource/?id=8539",
+      "accessed": "2026-10-01",
+      "note": "官方考试选曲目录，证明教学与演奏选曲使用；不是热度或流量统计。"
+    },
+    {
+      "id": "trinity_grades",
+      "title": "Trinity College London Classical Guitar grades repertoire",
+      "url": "https://www.trinitycollege.com/qualifications/music/grade-exams/classical-guitar/classical-guitar-repertoire",
+      "accessed": "2026-10-01",
+      "note": "官方分级曲目目录；只用于人工参考熟悉度，不复制完整曲目表。"
+    },
+    {
+      "id": "abrsm_2019",
+      "title": "ABRSM Guitar Practical syllabus from 2019",
+      "url": "https://www.abrsm.org/sites/default/files/2023-10/Guitar%20Practical%20Grade%20Syllabus_0.pdf",
+      "accessed": "2026-10-01",
+      "note": "官网现行Guitar页面确认该版仍有效；本文仅引用零散作品事实，不复制考纲目录。"
+    },
+    {
+      "id": "rcm_2018",
+      "title": "The Royal Conservatory Classical Guitar Syllabus, 2018 Edition",
+      "url": "https://rcmusic-production-strapi-media.s3.ca-central-1.amazonaws.com/s47_guitarsyllabus_online_2018_f_45cefee42b.pdf",
+      "accessed": "2026-10-01",
+      "note": "由RCM现行Syllabi and Syllabi Errata官方索引链接；不是2026新版或曲目播放量。"
+    },
+    {
+      "id": "uw_sor_duo",
+      "title": "University of Washington School of Music Guitar Studio Recital, 9 February 2018",
+      "url": "https://music.washington.edu/events/2018-02-10/guitar-studio-recital",
+      "accessed": "2026-10-01",
+      "note": "官方节目明确列出Sor L’Encouragement Op.34，两位学生合奏。"
+    },
+    {
+      "id": "naxos_sor_duo_1",
+      "title": "Naxos SOR: Guitar Duets, Vol.1, 8.553302",
+      "url": "https://www.naxos.com/CatalogueDetail/?id=8.553302",
+      "accessed": "2026-10-01",
+      "note": "官方录音目录列出Sor Op.34及Op.41；此处不将一张录音等同于量化普及率。"
+    },
+    {
+      "id": "naxos_sor_duo_2",
+      "title": "Naxos SOR: Guitar Duets, Vol.2, 8.553418",
+      "url": "https://www.naxos.com/CatalogueDetail/?id=8.553418",
+      "accessed": "2026-10-01",
+      "note": "官方搜索索引列出Sor Op.63 Souvenir de Russie；详情页在核查时返回Internal Error，未把失败页面描述为成功全文读取。"
+    },
+    {
+      "id": "naxos_giuliani_duo",
+      "title": "Naxos GIULIANI: Music for 2 Guitars, Vol.1, 8.572445",
+      "url": "https://www.naxos.com/CatalogueDetail/?id=8.572445",
+      "accessed": "2026-10-01",
+      "note": "官方目录明确列出Variazioni concertanti Op.130及两位吉他演奏者。"
+    },
+    {
+      "id": "tamu_bream_rca",
+      "title": "Texas A&M University Libraries: Julian Bream, the complete RCA album collection",
+      "url": "https://catalog.library.tamu.edu/Record/in00004152153/Details",
+      "accessed": "2026-10-01",
+      "note": "官方馆藏MARC505记录曲目：Julian & John及Together again等双吉他录音。证明已收录的演奏事实，不推断下载量。"
+    },
+    {
+      "id": "naxos_sor_official_catalogue",
+      "title": "Naxos Mozart, Haydn and their Contemporaries catalogue, page 78",
+      "url": "https://cdn.naxos.com/sharedfiles/PDF/SegmentCatalogue_Mozart_Haydn_Contemporaries.pdf",
+      "accessed": "2026-10-01",
+      "note": "出版社官方目录明确列出8.553302的L’encouragement/Les deux amis及8.553418的Souvenir de Russie；详情页读取失败时保留这一独立可核查依据。"
+    }
+  ],
+  "composers": {
+    "Fernando Sor": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "abrsm_2019",
+        "uw_sor_duo",
+        "naxos_sor_official_catalogue"
+      ],
+      "reason": "Fernando Sor：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Sor, Fernando": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "abrsm_2019",
+        "uw_sor_duo",
+        "naxos_sor_official_catalogue"
+      ],
+      "reason": "Fernando Sor：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Sor. Fernando": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "abrsm_2019",
+        "uw_sor_duo",
+        "naxos_sor_official_catalogue"
+      ],
+      "reason": "Fernando Sor：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Mauro Giuliani": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "naxos_giuliani_duo"
+      ],
+      "reason": "Mauro Giuliani：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Giuliani, Mauro": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "naxos_giuliani_duo"
+      ],
+      "reason": "Mauro Giuliani：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Giuliani. Mauro": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "naxos_giuliani_duo"
+      ],
+      "reason": "Mauro Giuliani：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Ferdinando Carulli": {
+      "weight": 16,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018",
+        "tamu_bream_rca"
+      ],
+      "reason": "Ferdinando Carulli：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Carulli, Ferdinando": {
+      "weight": 16,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018",
+        "tamu_bream_rca"
+      ],
+      "reason": "Ferdinando Carulli：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Carulli. Ferdinando": {
+      "weight": 16,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018",
+        "tamu_bream_rca"
+      ],
+      "reason": "Ferdinando Carulli：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Matteo Carcassi": {
+      "weight": 16,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Matteo Carcassi：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Carcassi, Matteo": {
+      "weight": 16,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Matteo Carcassi：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Carcassi. Matteo": {
+      "weight": 16,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Matteo Carcassi：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Francisco Tárrega": {
+      "weight": 20,
+      "evidence": [
+        "trinity_diploma_2026",
+        "abrsm_2019",
+        "rcm_2018"
+      ],
+      "reason": "Francisco Tárrega：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Tárrega, Francisco": {
+      "weight": 20,
+      "evidence": [
+        "trinity_diploma_2026",
+        "abrsm_2019",
+        "rcm_2018"
+      ],
+      "reason": "Francisco Tárrega：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Francisco Tarrega": {
+      "weight": 20,
+      "evidence": [
+        "trinity_diploma_2026",
+        "abrsm_2019",
+        "rcm_2018"
+      ],
+      "reason": "Francisco Tárrega：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Tarrega, Francisco": {
+      "weight": 20,
+      "evidence": [
+        "trinity_diploma_2026",
+        "abrsm_2019",
+        "rcm_2018"
+      ],
+      "reason": "Francisco Tárrega：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Tarrega. Francisco": {
+      "weight": 20,
+      "evidence": [
+        "trinity_diploma_2026",
+        "abrsm_2019",
+        "rcm_2018"
+      ],
+      "reason": "Francisco Tárrega：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Johann Sebastian Bach": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Johann Sebastian Bach：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Bach, Johann Sebastian": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Johann Sebastian Bach：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Bach. Johann Sebastian": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Johann Sebastian Bach：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Isaac Albéniz": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Isaac Albéniz：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Albéniz, Isaac": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Isaac Albéniz：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Isaac Albeniz": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Isaac Albéniz：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Albeniz, Isaac": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Isaac Albéniz：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Albeniz. Isaac": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Isaac Albéniz：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Enrique Granados": {
+      "weight": 16,
+      "evidence": [
+        "rcm_2018",
+        "tamu_bream_rca"
+      ],
+      "reason": "Enrique Granados：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Granados, Enrique": {
+      "weight": 16,
+      "evidence": [
+        "rcm_2018",
+        "tamu_bream_rca"
+      ],
+      "reason": "Enrique Granados：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Granados. Enrique": {
+      "weight": 16,
+      "evidence": [
+        "rcm_2018",
+        "tamu_bream_rca"
+      ],
+      "reason": "Enrique Granados：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Agustín Barrios Mangoré": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Agustín Barrios Mangoré：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Barrios Mangoré, Agustín": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Agustín Barrios Mangoré：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Agustin Barrios Mangore": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Agustín Barrios Mangoré：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Agustín Barrios": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Agustín Barrios Mangoré：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Agustin Barrios": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Agustín Barrios Mangoré：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Barrios. Agustín": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Agustín Barrios Mangoré：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Manuel María Ponce": {
+      "weight": 16,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Manuel María Ponce：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Manuel Maria Ponce": {
+      "weight": 16,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Manuel María Ponce：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Manuel Ponce": {
+      "weight": 16,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Manuel María Ponce：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Ponce, Manuel": {
+      "weight": 16,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Manuel María Ponce：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Ponce. Manuel Maria": {
+      "weight": 16,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Manuel María Ponce：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Ponce. Manuel": {
+      "weight": 16,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Manuel María Ponce：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Leo Brouwer": {
+      "weight": 16,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Leo Brouwer：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Brouwer, Leo": {
+      "weight": 16,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Leo Brouwer：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Heitor Villa-Lobos": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Heitor Villa-Lobos：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Villa-Lobos, Heitor": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Heitor Villa-Lobos：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Villa-Lobos. Heitor": {
+      "weight": 18,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Heitor Villa-Lobos：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Napoléon Coste": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Napoléon Coste：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Napoleon Coste": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Napoléon Coste：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Coste, Napoléon": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Napoléon Coste：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Coste. Napoleon": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Napoléon Coste：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Dionisio Aguado": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Dionisio Aguado：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Aguado, Dionisio": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Dionisio Aguado：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Aguado. Dionisio": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Dionisio Aguado：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Aguado y García, Dionisio": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Dionisio Aguado：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "John Dowland": {
+      "weight": 12,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "John Dowland：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Dowland, John": {
+      "weight": 12,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "John Dowland：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Dowland. John": {
+      "weight": 12,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "John Dowland：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Silvius Leopold Weiss": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Silvius Leopold Weiss：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Sylvius Leopold Weiss": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Silvius Leopold Weiss：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Weiss, Silvius Leopold": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Silvius Leopold Weiss：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Weiss, Sylvius Leopold": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Silvius Leopold Weiss：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Weiss. Silvius Leopold": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Silvius Leopold Weiss：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Weiss. Sylvius Leopold": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Silvius Leopold Weiss：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Gaspar Sanz": {
+      "weight": 12,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Gaspar Sanz：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Sanz, Gaspar": {
+      "weight": 12,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Gaspar Sanz：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Sanz. Gaspar": {
+      "weight": 12,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Gaspar Sanz：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Emilio Pujol": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Emilio Pujol：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Pujol, Emilio": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Emilio Pujol：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Pujol. Emilio": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Emilio Pujol：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Astor Piazzolla": {
+      "weight": 14,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Astor Piazzolla：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Piazzolla, Astor": {
+      "weight": 14,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Astor Piazzolla：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Piazzolla. Astor": {
+      "weight": 14,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Astor Piazzolla：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Roland Dyens": {
+      "weight": 14,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Roland Dyens：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Dyens. Roland": {
+      "weight": 14,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Roland Dyens：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Andrew York": {
+      "weight": 14,
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Andrew York：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Johann Kaspar Mertz": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "abrsm_2019",
+        "rcm_2018"
+      ],
+      "reason": "Johann Kaspar Mertz：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Mertz, Johann Kaspar": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "abrsm_2019",
+        "rcm_2018"
+      ],
+      "reason": "Johann Kaspar Mertz：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Mertz. Johann Kaspar": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "abrsm_2019",
+        "rcm_2018"
+      ],
+      "reason": "Johann Kaspar Mertz：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Rodrigo, Joaquín": {
+      "weight": 14,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Joaquín Rodrigo：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Rodrigo, Joaquin": {
+      "weight": 14,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Joaquín Rodrigo：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Domenico Scarlatti": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Domenico Scarlatti：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Scarlatti, Domenico": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Domenico Scarlatti：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Scarlatti. Domenico": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Domenico Scarlatti：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "José Ferrer y Esteve": {
+      "weight": 8,
+      "evidence": [
+        "trinity_grades",
+        "abrsm_2019",
+        "rcm_2018"
+      ],
+      "reason": "José Ferrer：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Jose Ferrer": {
+      "weight": 8,
+      "evidence": [
+        "trinity_grades",
+        "abrsm_2019",
+        "rcm_2018"
+      ],
+      "reason": "José Ferrer：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Ferrer, José": {
+      "weight": 8,
+      "evidence": [
+        "trinity_grades",
+        "abrsm_2019",
+        "rcm_2018"
+      ],
+      "reason": "José Ferrer：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Ferrer. Jose Esteve": {
+      "weight": 8,
+      "evidence": [
+        "trinity_grades",
+        "abrsm_2019",
+        "rcm_2018"
+      ],
+      "reason": "José Ferrer：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Giulio Regondi": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Giulio Regondi：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Regondi, Giulio": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Giulio Regondi：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Regondi. Giulio": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Giulio Regondi：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Julio Salvador Sagreras": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Julio Salvador Sagreras：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Julio Sagreras": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Julio Salvador Sagreras：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Sagreras, Julio Salvador": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Julio Salvador Sagreras：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Sagreras. Julio Salvador": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Julio Salvador Sagreras：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Antonio Lauro": {
+      "weight": 12,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Antonio Lauro：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Lauro, Antonio": {
+      "weight": 12,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Antonio Lauro：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Lauro. Antonio": {
+      "weight": 12,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Antonio Lauro：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Miguel Llobet": {
+      "weight": 12,
+      "evidence": [
+        "rcm_2018",
+        "tamu_bream_rca"
+      ],
+      "reason": "Miguel Llobet：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Llobet, Miguel": {
+      "weight": 12,
+      "evidence": [
+        "rcm_2018",
+        "tamu_bream_rca"
+      ],
+      "reason": "Miguel Llobet：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Llobet, Miguel Solés": {
+      "weight": 12,
+      "evidence": [
+        "rcm_2018",
+        "tamu_bream_rca"
+      ],
+      "reason": "Miguel Llobet：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Llobet. Miguel Soles": {
+      "weight": 12,
+      "evidence": [
+        "rcm_2018",
+        "tamu_bream_rca"
+      ],
+      "reason": "Miguel Llobet：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Nikita Koshkin": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Nikita Koshkin：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Koshkin, Nikita": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Nikita Koshkin：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Koshkin. Nikita": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Nikita Koshkin：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Luys de Narváez": {
+      "weight": 10,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Luys de Narváez：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Narváez, Luys de": {
+      "weight": 10,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Luys de Narváez：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Alonso Mudarra": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Alonso Mudarra：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Mudarra, Alonso": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Alonso Mudarra：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Mudarra. Alonso": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Alonso Mudarra：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Anton Diabelli": {
+      "weight": 8,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Anton Diabelli：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Diabelli, Anton": {
+      "weight": 8,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Anton Diabelli：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Diabelli. Anton": {
+      "weight": 8,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "Anton Diabelli：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Manuel de Falla": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018",
+        "uw_sor_duo"
+      ],
+      "reason": "Manuel de Falla：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Manuel De Falla": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018",
+        "uw_sor_duo"
+      ],
+      "reason": "Manuel de Falla：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "David Kellner": {
+      "weight": 8,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "David Kellner：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Kellner, David": {
+      "weight": 8,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "David Kellner：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Kellner. David": {
+      "weight": 8,
+      "evidence": [
+        "trinity_grades",
+        "rcm_2018"
+      ],
+      "reason": "David Kellner：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Carlo Domeniconi": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Carlo Domeniconi：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Domeniconi, Carlo": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Carlo Domeniconi：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Maximo Diego Pujol": {
+      "weight": 8,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Máximo Diego Pujol：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Pujol, Maximo Diego": {
+      "weight": 8,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Máximo Diego Pujol：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Pujol. Maximo Diego": {
+      "weight": 8,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Máximo Diego Pujol：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Robert de Visée": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Robert de Visée：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Visée, Robert de": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Robert de Visée：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Francesco Canova da Milano": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018",
+        "tamu_bream_rca"
+      ],
+      "reason": "Francesco Canova da Milano：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Francesco da Milano": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018",
+        "tamu_bream_rca"
+      ],
+      "reason": "Francesco Canova da Milano：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Milano, Francesco da": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018",
+        "tamu_bream_rca"
+      ],
+      "reason": "Francesco Canova da Milano：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Milano. Francesco Da": {
+      "weight": 10,
+      "evidence": [
+        "rcm_2018",
+        "tamu_bream_rca"
+      ],
+      "reason": "Francesco Canova da Milano：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Mario Castelnuovo Tedesco": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Mario Castelnuovo-Tedesco：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Castelnuovo-Tedesco, Mario": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Mario Castelnuovo-Tedesco：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Tedesco. Mario Castelnuovo": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Mario Castelnuovo-Tedesco：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Federico Moreno Torroba": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Federico Moreno Torroba：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Moreno Torroba, Federico": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Federico Moreno Torroba：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Torroba. Federico Moreno": {
+      "weight": 12,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Federico Moreno Torroba：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Aleksander Tansman": {
+      "weight": 10,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Alexandre Tansman：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Tansman, Aleksander": {
+      "weight": 10,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Alexandre Tansman：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Tansman. Aleksander": {
+      "weight": 10,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Alexandre Tansman：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Tansman, Alexandre": {
+      "weight": 10,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Alexandre Tansman：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Tansman. Alexandre": {
+      "weight": 10,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "Alexandre Tansman：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Joaquín Turina": {
+      "weight": 10,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018",
+        "uw_sor_duo"
+      ],
+      "reason": "Joaquín Turina：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Joaquin Turina": {
+      "weight": 10,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018",
+        "uw_sor_duo"
+      ],
+      "reason": "Joaquín Turina：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Turina, Joaquín": {
+      "weight": 10,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018",
+        "uw_sor_duo"
+      ],
+      "reason": "Joaquín Turina：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Turina, Joaquin": {
+      "weight": 10,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018",
+        "uw_sor_duo"
+      ],
+      "reason": "Joaquín Turina：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Turina. Joaquín": {
+      "weight": 10,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018",
+        "uw_sor_duo"
+      ],
+      "reason": "Joaquín Turina：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Takemitsu, Toru": {
+      "weight": 10,
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Toru Takemitsu：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Francis Kleynjans": {
+      "weight": 8,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Francis Kleynjans：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Kleynjans. Francis": {
+      "weight": 8,
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Francis Kleynjans：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Sergio Assad": {
+      "weight": 10,
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Sérgio Assad：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Assad, Sergio": {
+      "weight": 10,
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Sérgio Assad：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Duarte, John W.": {
+      "weight": 8,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "John W. Duarte：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Duarte, John W": {
+      "weight": 8,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "John W. Duarte：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    },
+    "Duarte. John W": {
+      "weight": 8,
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "John W. Duarte：官方吉他教学或演奏资料出现的人工参考人物基线；不表示其所有作品同等知名。"
+    }
+  },
+  "works": {
+    "340750": {
+      "weight": 70,
+      "original_title": "Lágrima",
+      "original_composer": "Tárrega, Francisco",
+      "evidence": [
+        "abrsm_2019",
+        "rcm_2018"
+      ],
+      "reason": "ABRSM Grade 5及RCM曲目涉及Lágrima；此记录包含独奏与双重奏分类，奖励作品熟悉度，不判断各版编配相同。"
+    },
+    "33377": {
+      "weight": 70,
+      "original_title": "Recuerdos de la Alhambra",
+      "original_composer": "Tárrega, Francisco",
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Trinity LTCL明确列出Recuerdos de la Alhambra。"
+    },
+    "54762": {
+      "weight": 70,
+      "original_title": "Capricho árabe",
+      "original_composer": "Tárrega, Francisco",
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Trinity ATCL明确列出Capricho Árabe。"
+    },
+    "97602": {
+      "weight": 65,
+      "original_title": "Introduction and Variations on a Theme by Mozart, Op.9",
+      "original_composer": "Sor, Fernando",
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Trinity LTCL明确列出Sor Mozart主题变奏；当前记录标题与作曲者精确检查。"
+    },
+    "97609": {
+      "weight": 50,
+      "original_title": "Grand solo, Op.14",
+      "original_composer": "Sor, Fernando",
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Trinity LTCL明确列出Sor Grand Solo Op.14。"
+    },
+    "378911": {
+      "weight": 45,
+      "original_title": "Fantaisie et variations sur un air écossais, Op.40",
+      "original_composer": "Sor, Fernando",
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Trinity ATCL列出Sor Fantasia and Variations Op.40；奖励这一明确作品编号。"
+    },
+    "47421": {
+      "weight": 55,
+      "original_title": "Rossiniana No.1, Op.119",
+      "original_composer": "Giuliani, Mauro",
+      "evidence": [
+        "trinity_diploma_2026",
+        "tamu_bream_rca"
+      ],
+      "reason": "Trinity FTCL及Bream官方馆藏录音曲目涉及Giuliani Rossiniana No.1 Op.119。"
+    },
+    "749133": {
+      "weight": 55,
+      "original_title": "Grande ouverture, Op.61",
+      "original_composer": "Giuliani, Mauro",
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Trinity LTCL明确列出Giuliani Grande Overture Op.61。"
+    },
+    "130014": {
+      "weight": 50,
+      "original_title": "Variations on a Theme by Handel, Op.107",
+      "original_composer": "Giuliani, Mauro",
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "官方选曲涉及Giuliani Handel主题变奏Op.107。"
+    },
+    "475296": {
+      "weight": 45,
+      "original_title": "Guitar Sonata, Op.15",
+      "original_composer": "Giuliani, Mauro",
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Trinity ATCL列出Giuliani Sonata in C Op.15。"
+    },
+    "450061": {
+      "weight": 65,
+      "original_title": "La catedral",
+      "original_composer": "Barrios Mangoré, Agustín",
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "官方选曲明确涉及Barrios La Catedral。"
+    },
+    "181060": {
+      "weight": 55,
+      "original_title": "Suite in E minor, BWV 996",
+      "original_composer": "Bach, Johann Sebastian",
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "官方选曲使用BWV996多个乐章；合集给予低于单曲最高档的熟悉度，不声称整个合集每段同等知名。"
+    },
+    "181063": {
+      "weight": 50,
+      "original_title": "Suite in C minor, BWV 997",
+      "original_composer": "Bach, Johann Sebastian",
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "官方选曲使用BWV997的指定乐章；合集奖励不推断与指定考试出版版相同。"
+    },
+    "181067": {
+      "weight": 50,
+      "original_title": "Prelude, Fugue and Allegro in E-flat major, BWV 998",
+      "original_composer": "Bach, Johann Sebastian",
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "官方选曲使用BWV998指定乐章；当前组合曲目录保持不拆分。"
+    },
+    "181073": {
+      "weight": 50,
+      "original_title": "Suite in E major, BWV 1006a",
+      "original_composer": "Bach, Johann Sebastian",
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "官方选曲使用BWV1006a指定乐章；合集奖励不判断任一改编版本身份。"
+    },
+    "984916": {
+      "weight": 50,
+      "original_title": "Sonatina meridional",
+      "original_composer": "Ponce, Manuel",
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "官方选曲涉及Ponce Sonatina Meridional。"
+    },
+    "1485621": {
+      "weight": 45,
+      "original_title": "Sonata romantica",
+      "original_composer": "Ponce, Manuel",
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "官方选曲使用Ponce Sonata Romantica指定乐章；不把考试级别当作名气分数。"
+    },
+    "19962": {
+      "weight": 45,
+      "original_title": "Reverie - Nocturne, Op.19",
+      "original_composer": "Regondi, Giulio",
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Trinity LTCL列出Regondi Reverie Op.19。"
+    },
+    "527260": {
+      "weight": 45,
+      "original_title": "Suite populaire brésilienne, W020",
+      "original_composer": "Villa-Lobos, Heitor",
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "官方选曲涉及Suite populaire brésilienne指定乐章；合集较小奖励。"
+    },
+    "444038": {
+      "weight": 55,
+      "original_title": "Preludes, W419",
+      "original_composer": "Villa-Lobos, Heitor",
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "官方选曲涉及Villa-Lobos的若干前奏曲；本记录为合集，保持合集边界。"
+    },
+    "776908": {
+      "weight": 50,
+      "original_title": "Canarios",
+      "original_composer": "Sanz, Gaspar",
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "RCM Level7选曲明确使用Sanz Canarios。"
+    },
+    "83156": {
+      "weight": 65,
+      "original_title": "L'Encouragement, Op.34",
+      "original_composer": "Sor, Fernando",
+      "evidence": [
+        "uw_sor_duo",
+        "naxos_sor_duo_1",
+        "tamu_bream_rca",
+        "naxos_sor_official_catalogue"
+      ],
+      "reason": "Sor L’Encouragement Op.34有大学合奏节目与双吉他录音资料；双重奏参考曲目。"
+    },
+    "763503": {
+      "weight": 55,
+      "original_title": "Souvenir de Russie, Op.63",
+      "original_composer": "Sor, Fernando",
+      "evidence": [
+        "naxos_sor_duo_2",
+        "naxos_sor_official_catalogue"
+      ],
+      "reason": "Naxos官方索引列出Sor Souvenir de Russie Op.63；不将索引证据升级为详情页成功读取。"
+    },
+    "763474": {
+      "weight": 55,
+      "original_title": "Les deux amis, Op.41",
+      "original_composer": "Sor, Fernando",
+      "evidence": [
+        "naxos_sor_duo_1",
+        "naxos_sor_official_catalogue"
+      ],
+      "reason": "Naxos Sor双吉他录音曲目涉及Les deux amis Op.41。"
+    },
+    "332332": {
+      "weight": 60,
+      "original_title": "Variazioni concertanti for 2 Guitars, Op.130",
+      "original_composer": "Giuliani, Mauro",
+      "evidence": [
+        "naxos_giuliani_duo",
+        "tamu_bream_rca"
+      ],
+      "reason": "Giuliani Variazioni concertanti Op.130有明确双吉他录音资料。"
+    },
+    "83685": {
+      "weight": 40,
+      "original_title": "6 Petits Duos, Op.34",
+      "original_composer": "Carulli, Ferdinando",
+      "evidence": [
+        "tamu_bream_rca"
+      ],
+      "reason": "馆藏录音资料涉及本合集中的Petit duo No.2 Op.34；仅给予合集较小奖励，不声称6首全部同等知名。"
+    },
+    "303128": {
+      "weight": 40,
+      "original_title": "3 Sérénades, Op.96",
+      "original_composer": "Carulli, Ferdinando",
+      "evidence": [
+        "tamu_bream_rca"
+      ],
+      "reason": "馆藏双吉他录音资料涉及Op.96 Serenade；该来源记录是3首合集，给予合集较小奖励。"
+    },
+    "andrewyork:Sunburst.html": {
+      "weight": 60,
+      "original_title": "Sunburst",
+      "original_composer": "Andrew York",
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Trinity ATCL列出York Sunburst；来源记录仍保持Andrew York自有目录身份。"
+    },
+    "mutopia:2103": {
+      "weight": 65,
+      "original_title": "Lágrima",
+      "original_composer": "F. Tarrega",
+      "evidence": [
+        "abrsm_2019",
+        "rcm_2018"
+      ],
+      "reason": "Lágrima的独立Mutopia双吉他记录；参考作品熟悉度，不将独奏考纲证明当作此改编版本验证。"
+    },
+    "mutopia:2102": {
+      "weight": 50,
+      "original_title": "Adelita",
+      "original_composer": "F. Tarrega",
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "Adelita的独立Mutopia双吉他记录；RCM确认作品选曲使用，不证明编配版本相同。"
+    },
+    "guitarschool:1027": {
+      "weight": 70,
+      "original_title": "Recuerdos de la Alhambra",
+      "original_composer": "Francisco Tarrega",
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Recuerdos de la Alhambra独立来源记录；原文曲名和署名精确守卫。"
+    },
+    "guitarschool:1122": {
+      "weight": 65,
+      "original_title": "La Catedral",
+      "original_composer": "Agustín Barrios",
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "La Catedral独立来源记录；保留来源原署名Agustín Barrios。"
+    },
+    "guitarschool:1101": {
+      "weight": 65,
+      "original_title": "Variations - Over a theme from the Magic Flute by Mozart Op . 9",
+      "original_composer": "Fernando Sor",
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Sor Op.9独立来源记录；来源原始title_en保留完整，不合并作品身份。"
+    },
+    "classclef:5dbf9b23f699c3da85fc2f13": {
+      "weight": 45,
+      "original_title": "Canticum",
+      "original_composer": "Leo Brouwer",
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Trinity ATCL列出Brouwer Canticum。"
+    },
+    "classclef:03c1b5de7823bb57f9e08c0e": {
+      "weight": 45,
+      "original_title": "Koyunbaba I moderato",
+      "original_composer": "Carlo Domeniconi",
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Trinity LTCL列出Domeniconi Koyunbaba；此记录仅第I乐章，不声称已包含全曲。"
+    },
+    "classclef:e502db8ab792431aa94b21fb": {
+      "weight": 45,
+      "original_title": "Campanas Del Alba",
+      "original_composer": "Eduardo Sainz De La Maza",
+      "evidence": [
+        "trinity_diploma_2026"
+      ],
+      "reason": "Trinity ATCL列出Eduardo Sáinz de la Maza的Campanas del Alba。"
+    },
+    "classclef:6779d9fad98025a6efe7ba32": {
+      "weight": 50,
+      "original_title": "Sevilla",
+      "original_composer": "Isaac Albeniz",
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "RCM ARCT曲目使用Albéniz Sevilla；不借考试等级比较名气。"
+    },
+    "cglib:1088": {
+      "weight": 70,
+      "original_title": "Op. 47 Suite Espanola No. 1 5. Asturias (Leyenda)",
+      "original_composer": "Albeniz. Isaac",
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "官方目录明确涉及Albéniz Asturias/Leyenda；源title和composer双guard防止同名错误归属。"
+    },
+    "1333398": {
+      "weight": 40,
+      "original_title": "Scherzo Vals",
+      "original_composer": "Llobet, Miguel",
+      "evidence": [
+        "rcm_2018"
+      ],
+      "reason": "RCM Level10列出Llobet Scherzo Waltz；当前source title Scherzo Vals。"
+    },
+    "cglib:49250": {
+      "weight": 45,
+      "original_title": "Sonata III",
+      "original_composer": "Ponce. Manuel Maria",
+      "evidence": [
+        "trinity_diploma_2026",
+        "rcm_2018"
+      ],
+      "reason": "官方选曲涉及Ponce Sonata III的指定乐章；此原记录不拆分、不判断版次相同。"
+    }
+  },
+  "version": "2026-10-01.1"
+}

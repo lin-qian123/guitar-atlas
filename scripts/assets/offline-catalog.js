@@ -3,7 +3,13 @@
 // Offline-only adapter: the public deployment does not contain this file.
 window.GuitarCatalogAdapter = {
   async load() {
-    return JSON.parse(document.querySelector("#offline-data").textContent);
+    const node = document.querySelector("#offline-data");
+    const parsed = JSON.parse(node.textContent);
+    if (parsed.codec && !window.GuitarCatalogCodec) throw new Error("压缩目录解码器未载入，请刷新页面。");
+    const payload = window.GuitarCatalogCodec ? await window.GuitarCatalogCodec.decode(parsed) : parsed;
+    // Release the encoded text after loading; search uses the decoded snapshot.
+    node.textContent = "";
+    return payload;
   },
   readQuery() {
     const hash = window.location.hash;

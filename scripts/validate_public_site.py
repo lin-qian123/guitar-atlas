@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Mapping
 
 from export_public_site import validate_imslp_url
-from catalog_sources import load_registry, validate_source_url
+from catalog_sources import PUBLIC_FORMATS, PUBLIC_METADATA, load_registry, validate_source_url
 
 
 FORBIDDEN_KEYS = {
@@ -59,6 +59,10 @@ def check_forbidden(value: object, context: str = "catalog") -> None:
             check_forbidden(child, f"{context}[{index}]")
     elif isinstance(value, str):
         for pattern in FORBIDDEN_TEXT:
+            # Approved human source pages can use a /scores/ URL directory.
+            # The corresponding source URL still passes registry validation.
+            if pattern.pattern == r"(?:^|[/\\])scores[/\\]" and re.fullmatch(r"https://[^\s<>]+", value):
+                continue
             if pattern.search(value):
                 fail(f"{context}: forbidden public value {value!r}")
 
@@ -103,7 +107,7 @@ def aggregate_translation_status(statuses: list[str]) -> str:
     return "retained"
 
 
-def validate_payload(payload: object) -> dict[str, int]:
+def validate_payload(payload: object, *, registry: list[dict] | None = None) -> dict[str, int]:
     if not isinstance(payload, dict) or payload.get("schema_version") not in {1, 2}:
         fail("catalog must use schema_version 1 or 2")
     multisource = payload["schema_version"] == 2
@@ -114,7 +118,7 @@ def validate_payload(payload: object) -> dict[str, int]:
     check_forbidden(payload)
     source_ids = set()
     if multisource:
-        registry = load_registry()
+        registry = load_registry() if registry is None else registry
         configured = {row["id"]: row for row in registry}
         for source in require_list(payload, "sources"):
             if not isinstance(source, dict) or source.get("id") not in configured or source["id"] in source_ids:
@@ -131,7 +135,7 @@ def validate_payload(payload: object) -> dict[str, int]:
             source = row.get("source_id")
             if source not in source_ids:
                 fail(f"{context}: unknown source")
-            validate_source_url(row.get("source_url"), source)
+            validate_source_url(row.get("source_url"), source, registry)
             if row.get("source_name") != configured[source]["name"]:
                 fail(f"{context}: invalid source name")
             if source == "imslp" and row.get("imslp_url") != row["source_url"]:
@@ -206,6 +210,11 @@ def validate_payload(payload: object) -> dict[str, int]:
         for field in ("title_en", "title_zh", "composer_en", "composer_zh"):
             if not isinstance(raw.get(field), str):
                 fail(f"work {work_id} has a non-string {field}")
+            display = "display_" + field
+            if display in raw and (not isinstance(raw[display], str) or (field.endswith("_en") and not raw[display].strip())):
+                fail(f"work {work_id} has an invalid {display}")
+        if "display_title_zh" in raw and raw["display_title_zh"] and not (raw["display_title_zh"].startswith("《") and raw["display_title_zh"].endswith("》")):
+            fail(f"work {work_id} has an invalid projected Chinese title")
         if raw.get("title_zh") and (not str(raw["title_zh"]).startswith("《") or not str(raw["title_zh"]).endswith("》")
                                     or not raw["title_zh"][1:-1].strip()):
             fail(f"work {work_id} has an invalid Chinese display title")
@@ -215,6 +224,9 @@ def validate_payload(payload: object) -> dict[str, int]:
                 fail(f"work {work_id}: title and composer translation evidence is required")
             statuses = [validate_translation(evidence[field], raw[f"{field}_en"], raw[f"{field}_zh"],
                                              f"work {work_id} {field}") for field in ("title", "composer")]
+            primary_zh = raw.get("display_title_zh", raw["title_zh"])
+            if statuses[0] in {"reference", "reviewed"} and not HAN.search(primary_zh):
+                fail(f"work {work_id}: translated title requires Chinese in the primary title, not only metadata")
             if raw.get("translation_status") != aggregate_translation_status(statuses):
                 fail(f"work {work_id}: aggregate translation_status disagrees with field evidence")
         try:
@@ -241,8 +253,8 @@ def validate_payload(payload: object) -> dict[str, int]:
             if not isinstance(native_id, str) or not native_id or native_id != expected_id:
                 fail(f"work {work_id} has inconsistent source identity")
             formats = raw.get("formats")
-            if (not isinstance(formats, list) or not formats
-                    or any(not isinstance(value, str) or value not in {"PDF", "MIDI", "GPX", "GP3", "GP4", "GP5"} for value in formats)
+            if (not isinstance(formats, list)
+                    or any(not isinstance(value, str) or value not in PUBLIC_FORMATS for value in formats)
                     or len(formats) != len(set(formats))):
                 fail(f"work {work_id} has invalid format labels")
             aliases = raw.get("title_aliases", [])
@@ -252,6 +264,18 @@ def validate_payload(payload: object) -> dict[str, int]:
                 fail(f"work {work_id} crosses source category identities")
             if raw["source_id"] != "imslp" and not work_id.startswith(raw["source_id"] + ":"):
                 fail(f"work {work_id} must use a source namespace")
+            details = raw.get("details", {})
+            if not isinstance(details, dict) or any(key not in PUBLIC_METADATA or not isinstance(value, str) for key, value in details.items()):
+                fail(f"work {work_id}: invalid public descriptive metadata")
+            if "attribution_role" in details and details["attribution_role"] not in {"source_unspecified", "author", "performer", "editor", "arranger", "transcriber", "compiler", "composer", "unverified_name"}:
+                fail(f"work {work_id}: invalid attribution role")
+            if "material_type" in details and details["material_type"] not in {"recording", "journal", "reference_text"}:
+                fail(f"work {work_id}: invalid material type")
+            if not isinstance(raw.get("declared_kind", "unspecified"), str) or raw.get("declared_kind", "unspecified") not in {"original", "arrangement", "unspecified"}:
+                fail(f"work {work_id}: invalid source declared kind")
+            contents = raw.get("contents", [])
+            if not isinstance(contents, list) or any(not isinstance(value, str) or not value.strip() for value in contents):
+                fail(f"work {work_id}: invalid collection contents")
         sort_key = (
             str(raw["composer_en"]).casefold(),
             str(raw["title_en"]).casefold(),
@@ -270,6 +294,44 @@ def validate_payload(payload: object) -> dict[str, int]:
                 fail("source record count does not match catalog")
             if source.get("category_count") != sum(row["source_id"] == source["id"] for row in categories):
                 fail("source category count does not match catalog")
+    if "unification_schema_version" in payload:
+        if payload["unification_schema_version"] != 1:
+            fail("unsupported unification schema")
+        topics = require_list(payload, "topics")
+        topic_ids = {row.get("id") for row in topics if isinstance(row, dict)}
+        if len(topic_ids) != len(topics) or any(not isinstance(value, str) or not value for value in topic_ids):
+            fail("invalid shared topic identities")
+        observed_topics = Counter()
+        topic_sources = {key: set() for key in topic_ids}
+        for work in works:
+            ids = work.get("topic_ids")
+            proof = work.get("topic_evidence")
+            mapping = work.get("topic_category_ids")
+            if not isinstance(ids, list) or not ids or len(set(ids)) != len(ids) or set(ids) - topic_ids:
+                fail("invalid work shared topics")
+            if not isinstance(proof, dict) or set(proof) != set(ids) or any(value not in {"approved_source_category", "explicit_source_instrumentation", "no_exact_instrumentation_evidence", "source_resource_type", "title_keyword", "archival_source"} for value in proof.values()):
+                fail("invalid shared topic evidence")
+            if not isinstance(mapping, dict) or set(mapping) != set(ids) or any(not isinstance(values, list) or not values or set(values) - set(work["category_ids"]) for values in mapping.values()):
+                fail("shared topics cross category memberships")
+            observed_topics.update(ids)
+            for key in ids:
+                topic_sources[key].add(work["source_id"])
+        for topic in topics:
+            if topic.get("work_count") != observed_topics[topic["id"]] or topic.get("source_count") != len(topic_sources[topic["id"]]):
+                fail("shared topic counts disagree with records")
+        seen_edges = set()
+        for edge in require_list(payload, "relationships"):
+            if not isinstance(edge, dict) or set(edge) != {"from_id", "to_id", "type", "basis"}:
+                fail("invalid evidence relationship")
+            if edge["from_id"] not in seen_work_ids or edge["to_id"] not in seen_work_ids or edge["from_id"] >= edge["to_id"]:
+                fail("relationship has missing, unordered or identical endpoints")
+            expected = {"identical_pdf":"verified_file_content", "shared_source_file":"explicit_upstream_file_reference", "holding_record":"explicit_institution_and_call_number", "collection_membership":"explicit_source_collection_structure"}
+            if edge["type"] not in expected or edge["basis"] != expected[edge["type"]]:
+                fail("relationship lacks approved evidence")
+            identity = (edge["from_id"], edge["to_id"], edge["type"])
+            if identity in seen_edges:
+                fail("duplicate relationship")
+            seen_edges.add(identity)
     summary = payload.get("summary")
     if not isinstance(summary, dict):
         fail("summary must be an object")
@@ -345,6 +407,24 @@ def validate_public_site(root: Path) -> dict[str, int]:
             extra = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, UnicodeError, json.JSONDecodeError) as exc:
             raise PublicSiteValidationError(f"cannot read public JSON: {path}") from exc
+        if path == root / "data/catalog.compact.json":
+            from catalog_payload import CODEC, unpack_payload
+            if not isinstance(extra, dict) or extra.get("codec") != CODEC:
+                fail("compact catalog has no supported transport envelope")
+            try:
+                decoded = unpack_payload(extra)
+            except ValueError as exc:
+                raise PublicSiteValidationError(f"invalid compact catalog: {exc}") from exc
+            if decoded != payload:
+                fail("compact catalog differs from the canonical public catalog")
+            check_forbidden(decoded, "compact catalog")
+            continue
+        if path == root / "data/ranking.json":
+            from catalog_ranking import validate_ranking
+            try:
+                validate_ranking(extra, payload)
+            except ValueError as exc:
+                raise PublicSiteValidationError(f"invalid public ranking: {exc}") from exc
         check_forbidden(extra, path.relative_to(root).as_posix())
     for required in ("index.html", "assets/app.js", "assets/search.js", "assets/site.css"):
         if not (root / required).is_file():

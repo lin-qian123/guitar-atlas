@@ -1,0 +1,19 @@
+Use case: illustration-story.
+Asset type: ONE transparent raster illustration atlas for a finely crafted classical-guitar score catalog website, titled 六弦漫行 / Guitar Atlas in the surrounding HTML only.
+Primary request: Draw a single cohesive sheet of TWELVE charming, carefully observed instrument-and-music vignettes, arranged in an EXACT 4-column by 3-row grid of equal SQUARE cells. Overall canvas aspect ratio 4:3, ideally 1536 x 1152. This is an image atlas, NOT a webpage, no UI.
+Style/medium: sensitive hand-drawn graphite and sepia ink with delicate warm watercolor washes; European music-book marginal illustrations with natural pencil edges, subtle wood grain, gentle forest-green accents and warm terracotta, creamy paper highlights. Refined small editorial drawings, visible human line variation and material texture. Neither flat geometric icons nor glossy 3D nor a stock clip-art pack. Every object has a complete, elegant silhouette legible at small sizes.
+Composition: all twelve cells are genuinely transparent around each isolated vignette. No colored panel backgrounds, no checkerboard, no labels, no decorative frames, no dividing lines. EACH vignette centered inside its own cell, occupies only the central 70 percent with at least 15 percent empty transparent padding on every side. Never cross cell boundaries. Consistent scale, palette, painterly detail and soft shadow treatment across all twelve.
+Exact cell subjects in reading order, left to right, top to bottom:
+Row 1 col 1: ONE beautiful six-string nylon classical acoustic guitar, short music book at its foot, leaning gently.
+Row 1 col 2: exactly TWO classical guitars leaning together, one slightly behind the other.
+Row 1 col 3: exactly THREE small classical guitars gathered around a modest open music stand; all three silhouettes distinguishable.
+Row 1 col 4: exactly FOUR classical guitars in a graceful fan formation, four distinguishable complete necks and bodies.
+Row 2 col 1: a classical guitar alongside a violin and its bow.
+Row 2 col 2: a classical guitar alongside an elegant silver transverse flute.
+Row 2 col 3: a classical guitar alongside a small golden brass trumpet, instrument identity clearly visible.
+Row 2 col 4: a classical guitar alongside a compact upright piano with a small readable keyboard.
+Row 3 col 1: a classical guitar beside a rounded lute and small mandolin.
+Row 3 col 2: a classical guitar with a small hand drum and tambourine.
+Row 3 col 3: a carefully drawn antique bound music folio, two stacked worn cloth-covered books, one softly opened page, beautiful archival object textures.
+Row 3 col 4: an open study score notebook, graphite pencil and a little bookmark ribbon. Music on the page only suggestive fine staff marks, never a claimed real composition.
+Constraints: NO text anywhere, NO numerals, NO letters, NO watermark, NO logos, NO extra human figures. Authentic classical guitars with normal sound holes, plausible six strings and six tuning pegs, no electric guitars. Exact grid and specified counts are essential. TRANSPARENT background and ample cell padding are essential. A single finished cohesive atlas image.
