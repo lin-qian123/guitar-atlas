@@ -299,3 +299,30 @@ def test_compact_public_projection_and_ranking_must_match_canonical_ids(tmp_path
     write_json(site / "data/ranking.json", ranking)
     with pytest.raises(validator["PublicSiteValidationError"], match="unknown identity"):
         validator["validate_public_site"](site)
+
+
+@pytest.mark.parametrize("asset,label", [
+    ("archive-cover.webp", "hero artwork"),
+    ("rosette-touch.png", "favicon"),
+])
+@pytest.mark.parametrize("defect", ["missing", "invalid"])
+def test_public_validator_checks_active_artwork(
+    tmp_path: Path, asset: str, label: str, defect: str,
+) -> None:
+    make_library(tmp_path)
+    site = tmp_path / "public_site"
+    shutil.copytree(ROOT / "public_site/assets", site / "assets")
+    shutil.copy2(ROOT / "public_site/index.html", site / "index.html")
+    write_json(site / "data/catalog.json", public_exporter()["build_public_catalog"](tmp_path))
+    write_json(site / "data/search-aliases.json", {
+        "schema_version": 1, "composers": {}, "works": {},
+    })
+    validator = public_validator()
+    validator["validate_public_site"](site)
+    path = site / "assets" / asset
+    if defect == "missing":
+        path.unlink()
+    else:
+        path.write_bytes(b"not an image")
+    with pytest.raises(validator["PublicSiteValidationError"], match=label):
+        validator["validate_public_site"](site)

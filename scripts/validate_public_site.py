@@ -445,14 +445,14 @@ def validate_public_site(root: Path) -> dict[str, int]:
         fail("public script must not inject catalog data with innerHTML")
     if 'fetch("data/catalog.json"' not in script:
         fail("public script does not load the versioned catalog")
-    hero_path = root / "assets/archive-hero.webp"
+    hero_path = root / "assets/archive-cover.webp"
     try:
         hero_header = hero_path.read_bytes()[:12]
     except OSError as exc:
         raise PublicSiteValidationError("public hero artwork is missing") from exc
     if not (hero_header.startswith(b"RIFF") and hero_header[8:12] == b"WEBP"):
         fail("public hero artwork is not a valid WebP asset")
-    favicon_path = root / "assets/favicon.png"
+    favicon_path = root / "assets/rosette-touch.png"
     try:
         favicon_header = favicon_path.read_bytes()[:8]
     except OSError as exc:

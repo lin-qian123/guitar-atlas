@@ -1,5 +1,22 @@
 # 六弦漫行 / Guitar Atlas project instructions
 
+## Directory maintenance
+
+- Update the existing canonical documentation and final receipts when work
+  continues; do not accumulate dated replacements, repeated README histories,
+  temporary screenshots, trial checkouts or duplicate export/HTML backups.
+- Keep source research and frozen integration evidence, exact translation
+  decisions and compiler inputs, publication receipts, artwork provenance,
+  current score manifests and native category directories. Preserve one recent
+  offline-entry rollback copy. Do not rewrite Git history to remove old versions.
+- `metadata/.cache/pages/` contains guarded source revisions.
+  `work/title-review/2026-10-03/before/metadata/translations/` and review corpora
+  are required application/compilation inputs. Deduplication journals and final
+  source reports are evidence, not disposable caches.
+- Remove only audited, unreferenced artifacts. Check source/score metadata,
+  reviewed translation bytes, active web assets and offline links before/after;
+  run complete tests and publication audits before synchronizing the remote.
+
 Guitar Atlas, named **六弦漫行** in Chinese, is a reproducible,
 source-attributed guitar score catalog and local offline library. Use
 `六弦漫行` for the Chinese name and `Guitar Atlas` for the unchanged English
@@ -195,7 +212,7 @@ source or adapter.
   when their bytes change; offline script injection must support those query
   strings. Measure actually referenced assets separately from historical files
   and catalog data. Design evidence is in
-  `docs/research/2026-10-04-generated-category-art.md` and the preceding rounded
+  `docs/research/presentation.md` and the preceding rounded
   layout receipt. Prefer model-generated artwork for meaningful illustrations;
   keep prompts/provenance and use a compressed shared atlas for category art.
   Decoration does not establish instrumentation or player-count evidence. Prefer

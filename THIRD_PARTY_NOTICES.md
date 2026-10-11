@@ -171,7 +171,7 @@ The decorative category atlas `public_site/assets/illustrations/category-atlas-v
 was generated for this project with the built-in OpenAI image tool on 2026-10-04.
 It is artwork, not a reproduction of a source score or instrumentation evidence.
 Its prompt, optimization and provenance are documented in
-[`docs/research/2026-10-04-generated-category-art.md`](docs/research/2026-10-04-generated-category-art.md).
+[`docs/research/presentation.md`](docs/research/presentation.md).
 
 - Self-hosted Instrument Serif regular/italic display fonts: SIL Open Font
   License 1.1, copyright 2022 The Instrument Serif Project Authors; original

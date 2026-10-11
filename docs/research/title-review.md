@@ -1,4 +1,6 @@
-# 2026-10-03至10-04 全库中文题名重新审读
+# 名称、题名与中文字段审读记录
+
+本页合并2026-10-02中文文本整理、既有译名复核、2026-10-03名称调整及10-03至10-04全库题名审读的有效记录。下文最终处置统计属于10-04冻结目录；10-02的机器草稿数量、旧字段扫描和品牌阶段验证仅为历史，不代表当前待办。来源接入范围与文件实核另见[多来源接入记录](2026-10-01-integration-log.md)，线上发布另见[发布记录](publication.md)。
 
 全量 **48,449条来源记录、16来源**已完成题名处置：**47,340条参考译文、7条有据惯用名、1,102条明确保留原名；机器题名与未处置题名均为0**。相比本轮开始时的冻结资产，共32,167条记录的译文、状态或主标题发生改变；数字不是权威中文定名数量。
 
@@ -13,6 +15,75 @@
 先保存全量原题、原署名、来源ID、旧译文、状态、显示题名及资产位置，分区审读开放语义题名与仅含受限音乐句法的题名。对惯用名称、含双关的当代曲名、教材品牌、历史术语及歌剧引用，查询作曲家、出版社、演奏机构、图书馆和原作文本；其余按完整原文作参考意译。并非48,449条都逐一上网，亦不宣称所有参考译名是权威中文定名。
 
 每条最终决定同时守卫稳定ID、精确原题与完整来源署名。主标题边界另守卫 `display_original`，避免已有中文被斜线、引号、书目责任句或污染的来源署名截掉。公开数据不包含完整审读台账、查询资料或私有路径；审校资产与私有检查报告分别保留。
+
+## 项目名称与显示约定
+
+中文名为 **六弦漫行**，英文原名为 **Guitar Atlas**。左上角导航显示英文名，中文主标题显示六弦漫行，双语页面标题为“六弦漫行｜Guitar Atlas”，离线版本保留“· 离线版”。GitHub仓库、Pages地址、本地根目录和Python包名继续使用 `guitar-atlas`，Codex项目名保持Guitar Atlas。源网站名称、原题、原署名、来源ID、译名及证据均不属于项目更名范围。
+
+2026-10-03曾把用户关于导航显示语言的反馈误解为英文更名，临时使用 `Six-String Wanderings`；用户澄清后已撤回。本页只保留最终名称约定和误改已撤回这一事实，避免将中间名称作为另一个版本继续维护。
+
+名称调整覆盖中英文README、AGENTS、TODO、许可说明中的项目称谓、公开/离线模板、生成器、包描述及旧分类标题；许可条款不变。历史验收中372个 `For *` 目录和 `for3guitars/` 共373目录的1,119份 `index.html`、`README.md`、`乐谱库目录.md` 只改品牌标题，其余字节逐文件保持一致。目录数不是来源数，也不是新入口可链接旧分类数。
+
+最终名称阶段的页面/离线保护/公开目录/无损载荷测试85项通过；公开验证通过且 `score_file_links=0`。完整离线载荷、公共目录/压缩目录/别名/排序摘要及来源指纹未变，包括48,449来源记录、35,083不同PDF路径及350个当时可链接旧分类入口。HTTP预览显示最终导航、标题和页脚，控制台无错误或警告；离线HTML另外静态核对。这个名称阶段只改展示，未重新计算PDF哈希或解析乐谱，亦未单独推送或部署。
+
+## 2026-10-02中文字段修订：历史基础
+
+首轮覆盖冻结16来源、48,449来源记录和2,228原分类，最终扫描306,714个已投影题名、署名、版本和曲集文本字段。不同条目修改数如下；同一条目的多批修订只计一次，不能视为权威中文定名、乐曲实体或PDF数量。
+
+| 资产 | 扫描条目 | 修改条目 |
+| --- | ---: | ---: |
+| 新增14来源曲名 | 30,316 | 11,205 |
+| IMSLP work-ID曲名 | 11,393 | 247 |
+| ClassClef full-ID曲名 | 6,740 | 57 |
+| source-scoped音乐家署名 | 7,957 | 591 |
+| source-scoped栏目 | 2,228 | 154 |
+
+合计11,509题名、591署名、154栏目资产修订，内容包含译文、标点、依据、状态和保留原文决定。既有IMSLP/ClassClef/署名/栏目四资产合计扫描28,318字段、修改1,049条；其中独立末轮追加31条精确语义修订（IMSLP30、ClassClef1）。扩展题名的353条定点复核绑定完整来源ID、原题和署名，其余只有完整音乐语法或已有精确对应才能给参考状态；局部修复的机器草稿当时仍保持待核。
+
+### 词义与数字
+
+| 原题或术语 | 明确修订 |
+| --- | --- |
+| `Op. 47 Suite Espanola No. 1 5. Asturias (Leyenda)` | 从“操作。47”改为西班牙组曲第1号，作品47：第5曲“阿斯图里亚斯（传奇）”，保留真实编号 |
+| `Fitzwilliam Virginal Book`、`Werken voor Orgel` | 菲茨威廉维吉纳琴曲集、管风琴作品集；键盘乐器不译作“处女”或“器官” |
+| `Consort VIII/VI`、`Intabolatura de Lauto` | 合奏曲VIII/VI、鲁特琴指法谱；不作王妃或制表 |
+| `Tento do Segundo Tom`、`Pequeña Copla Sefardí`、`Clarines y Trompetas` | 第二调式蒂恩托曲、塞法迪小歌谣、号角与小号 |
+| `Choro Teimoso, Op.12`、`Pass'e mezzo a la villana`、`Aloha Oe` | 倔强的肖罗作品12、乡村风格帕萨梅佐舞曲、与你告别（Aloha Oe） |
+| `Cantio Lodomerica LXXIII`、`Opus 211 No 10 Poco Allegretto` | 洛多梅里亚歌曲LXXIII，不编造773；作品211第10首：小快板（Poco Allegretto），保留程度限定 |
+| `Cutting's Comfort`、`Prelúdio Microtonal No.1` | 卡廷的慰藉、微分音前奏曲第1号；不把姓氏译作切割 |
+| `Viola da Gamba Sonata in G major, WK 157`、`Gavota infantil`、`Chorea rustica, f.169r` | G大调维奥尔琴奏鸣曲WK157、儿童加沃特舞曲、乡村舞曲f.169r |
+| `Grande Sérénade, Op.17`、`Flaxy Cunninghams Cake Walk` | 大型小夜曲作品17、Flaxy Cunninghams凯克沃克舞曲；Grand等仅在具体体裁语境译为大/大型 |
+
+书名号采用外层 `《》`、内层 `〈〉`，只移除真正完整的外层包围，不误删嵌套闭合符号。`Cello Suite No.5` 为第5号大提琴组曲，避免读成5把大提琴；明确复数乐曲数量用“首”。首轮115条“中文有阿拉伯数字而原题没有”线索多为合法罗马数字、外语序数或日期转换，没有为消除告警删有效信息。其他题名数字、目录号、真实括号和编辑补拟标题同样保留。
+
+参考资料：[菲茨威廉博物馆键盘曲集说明](https://www.fitzmuseum.cam.ac.uk/explore-our-collection/highlights/Music-MS-168)、[美国国会图书馆Aloha oe及另题Farewell to thee](https://www.loc.gov/item/jukebox-21810/)。`La Noce di Benevento` 参考译为“贝内文托的胡桃树”，[Treccani的noce²词条](https://www.treccani.it/vocabolario/noce2/)说明传奇中的胡桃树；Noce不能与Nozze（婚礼）混同。资料支持原词语义，不认证项目中文名称，也不建立跨站版本身份。
+
+`Bribes No.1` 保留Bribes并只译序号。[CNRTL词条](https://www.cnrtl.fr/definition/bribes)有法语零片/片段语义并区分英语词义，[原作品页](https://imslp.org/wiki/Bribes_No.1_(Cooper,_Valiha_Nic%C3%A9phore))未明确命名语言或含义，不能按作者国籍猜“片段”或“贿赂”。`retention_reason` 优先于题名包含“第1号”，不能因此升级成参考状态；`L'or est une chimère` 也不套生物学嵌合体。首轮将 `Solid Air` 从音乐术语规则中排除，最终完整语义审读的意译见后文。
+
+### 姓名、角色与字段投影
+
+姓名按完整原署名、明确姓氏和已有首字母核对；不展开仅有首字母的名字，不按近似名字合并人物。30组跨来源相同完整署名的参考显示差异已统一，但显示一致不证明人物同一。6条默茨署名及 `Ernest Shand, Study` 只把明确人名用于显示，混入作品号和题名的原字段继续保留。`Folger's Dowland Lute Book` 是书名，没有明确作曲者人名，不从书名推定道兰德的角色。
+
+DGA的5条含U+001A损坏字符署名中，3条有完整姓名、年份及机构/出版社拼写支持参考音译；2条 `Hole…ek, Josef, 1939-` 保留原文，以省略号标损坏位置，明确尚未确认完整拼写。证据：[德沃夏克学会](https://www.dvorakantonin.com/about-us-in-english/)、[Naxos出版物后封](https://cdn.naxos.com/sharedfiles/pdf/rear/UP0118-2r.pdf)、[Schott出版条目](https://schottmusiclondon.com/the-russian-collection-vol-1-no441058.html)。原始受损值不改，机构拼写证据不等于中文惯用名审定。`Mall Simmes`、`Curro cuchares`、`Wascha mesa`、`Americano` 等无依据专名字典译法撤回为有原因的原文保留。
+
+首轮8,518记录使用独立 `display_title_en/zh`、`display_composer_en/zh` 分离标题显示与完整转录：明确手稿标记、馆藏号、曲集来源、编曲/转写/编辑、出版责任段、页数/尺寸、生卒年移入对应字段。来源的真实补拟标题、音乐编号、别称和未知括号保留。全部来源明确 `[Arr: …]`、`(Arranged by …)`、`(arr. …)` 标签及ClassClef7条省略标点标签采用受守卫拆分；德语 `bearb.` 保留责任说明，不擅定编辑或改编角色。DGA缩写作者须与该条完整署名一致且后续明确标转写/编辑才拆分；HWV432、第7组曲等真实信息保留。来源编辑、编纂者、演奏者或角色不明姓名不能自动成为作曲者。
+
+版本字段统一显示语言、调性、馆藏机构/号、目录编号、曲集、ISBN、出版、年代、许可、载体、尺寸和可用情况。明确语言代码与调性给中文对应并保留原文；录音、期刊按明确载体区分，不改变冻结来源范围或原生记录类型。未知资料继续未知。损坏下载标记或文件后缀仅从显示投影中移开，原文、ID和完整搜索信息继续保留。
+
+### 旧资产的独立精确守卫与历史验收
+
+`metadata/translations/review_2026-10-02/legacy_exact_corrections.json` 仍是可执行审读资产，包含资产路径、精确原文、完整修改前后行和原因。`scripts/apply_legacy_translation_review.py` 默认只检查；只有所有受影响资产的原文、ID、完整行和结构校验通过才允许 `--apply`。接受前批旧行也必须事先冻结，不覆盖不同或并发修改的行。这套守卫不能以10-03全库最终资产替代或因文档合并而删除。
+
+```sh
+python scripts/apply_legacy_translation_review.py --root .
+python -m pytest -q tests/test_legacy_translation_review.py tests/test_catalog_translations.py
+```
+
+当日旧资产复查1,049修改全为已应用，28,318字段指定结构/音乐语境检查0问题；相关测试42项通过，其中新增审查文件18项。整体文本整理测试1,206项Python、66项Node通过，公开谱文件链接0，压缩目录与规范JSON一致。另对28,656非机器题名疑词、236条非机器数字提示、1,618明确调性逐候选核对；最后74条旧规则提示有6条误报，68条不可靠机器草稿撤回。语义候选和合法书目注记继续单列，全量扫描不等于权威名称考证。
+
+10-02末仍有19,723机器标题和11,910有具体保留原因的字段，译名审计 `ready=false`、退出1，没有降低发布门槛。10-03至10-04已重新审读全部题名，当前冻结结果见本页开头和最终来源表，不能将旧待核数字继续列为当前状态。
+
+当日公开/离线共享字段、350旧分类入口、35,083不同PDF路径映射与大小均保留，沿用35,385有效PDF清单关系、33,820内容种类及1,890未就绪记录。此轮为metadata-only刷新，未获取、移动或删除乐谱，未重算PDF哈希或解析。公开HTTP浏览器验证包括阿斯图里亚斯、跨源微分音和编曲/语言/原题字段；file协议被工具拒绝，离线依据静态嵌入数据、来源指纹、链接及大小检查，没有宣称实际file浏览器渲染。10-02末离线入口7,422,443字节、常用压缩目录5,639,648字节、完整审计JSON66,000,710字节；未重测浏览器启动耗时。各阶段均为本地整理，后续远端结果由发布记录单列。
 
 ## 修正示例与依据
 
@@ -58,7 +129,9 @@
 - 全量最终审校池：`metadata/translations/review_2026-10-03/{legacy,cglib,archive,root}_decisions.json`；逐条完整原文与署名守卫。
 - 最终主标题补充：`root_final_credit_display_supplement.json`；同时绑定前一轮完整中文及主标题旧值，只作用于已逐条审读的精确ID，完整参考转录保留于版本信息。清理后中文仅来自元数据标签的专名转为明确原文保留，不能靠加“歌剧题名”等说明凑翻译覆盖率。
 - 实际投影补审：`final_projection_decisions.json`、`final_projection_expanded_decisions.json`、`final_latin_semantic_review.json`、`final_context_root_decisions.json`；在第四阶段之后按前值严格叠加，不能覆盖不同的已审译文。
+- 实际页面读回补审：`final_actual_headline_decisions.json`、`final_actual_toponym_decisions.json`；位于投影补审之后，213条完整决定绑定前一阶段的 `before_zh` 和 `before_display_zh`，并继续校验原题、署名与 `display_original`。主标题边界漂移须另行精确审读，不能模糊接受或用通用回退。
 - 生产中文资产：IMSLP work-ID审校、ClassClef全ID审校、新来源全ID审校与精确质量覆盖表；`scripts/apply_title_review.py`默认仅检查，`--apply`要求已存在本轮备份。
+- 复现所需私有输入：默认Corpus为 `work/title-review/2026-10-03/corpus.json`；`--apply`还要求该目录 `before/metadata/translations/` 内四份原资产备份。长期整理不得按“历史备份”直接删除这些仍被入口使用的守卫；若迁移，须连同命令默认路径和验证一并更新。其它临时分片、重复输出和查看截图不属于审读决定资产。
 - 主标题投影与守卫：`catalog_display.py`、`catalog_translations.py`、`title_translation_quality.py`。Delcamp中混入题名的来源署名仅按冻结的精确对应修显示，不改变原署名。
 - 私有前后差异、Corpus、应用/译名/文本/压缩及离线对比：`work/title-review/2026-10-03/`；旧入口由离线生成器额外自动备份。
 
