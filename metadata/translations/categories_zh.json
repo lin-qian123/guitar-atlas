@@ -15634,6 +15634,15 @@
         "basis": "checked_source_category_label",
         "reason": ""
       }
+    },
+    "musescore": {
+      "guitar": {
+        "original": "Guitar",
+        "zh": "吉他",
+        "status": "reference",
+        "basis": "checked_source_category_terms",
+        "reason": "仅翻译已接受目录的明确栏目文字，不由栏目名推断单条编制、许可或原作属性。"
+      }
     }
   }
 }

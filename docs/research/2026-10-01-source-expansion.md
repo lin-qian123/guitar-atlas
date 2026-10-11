@@ -107,6 +107,20 @@ API 可作为继续调查的线索，涉及瑞典、丹麦、爱尔兰、德国�
 | **Ultimate Guitar** | [官网目录](https://www.ultimate-guitar.com/explore)；代表谱页本次读取失败 | [官方帮助](https://help.ultimate-guitar.com/en/articles/6749046-website-how-to-download-guitar-pro-and-power-tabs)确认用户GP/GPX/GP3–5/PTB可按页下载，[Official](https://help.ultimate-guitar.com/en/articles/6749040-website-can-i-download-the-official-tab)不可下载。[条款](https://www.ultimate-guitar.com/about/tos.htm)限制个人用途和文件转交；**当前访问/范围/授权待核**。不能因提到API就称有开放接口。 |
 | **虫虫吉他** | [指弹合集](https://www.ccguitar.cn/album/1541217.htm)、[十七岁 / 941357789](https://www.ccguitar.cn/cchtml/941357789.htm) | 官网索引显示六线图片谱/GTP/和弦文本/教学，歌手、制谱者、调性/Capo/难度等。**当前访问待核的中文候选**；部分open超时，登录/付费/文件格式/授权/自动政策未核全，不作为已批准生产源。 |
 
+### LibreScore 与 MuseScore 数据入口补核（2026-10-11）
+
+用户指定的软件内吉他检索对应 **MuseScore.com**。[LibreScore 应用仓库](https://github.com/LibreScore/app-librescore/blob/066ae9784f43401d5d24d2bc0fb091f7365950df/README.md)在核验提交 `066ae9784f43401d5d24d2bc0fb091f7365950df` 下有46个文件、0个乐谱文件；最新发布为[v6.0.23](https://github.com/LibreScore/app-librescore/releases/tag/v6.0.23)。[界面原文](https://github.com/LibreScore/app-librescore/blob/066ae9784f43401d5d24d2bc0fb091f7365950df/l10n/app_en.arb)明确为“Search MuseScore”。软件MIT许可不构成第三方谱文件的许可，LibreScore不能另算一套曲库。
+
+[MSCZ API](https://github.com/LibreScore/mscz-api)需要提交已有文件才能提取元数据或转换；[Webmscore PWA](https://webmscore-pwa.librescore.org/)也是已有文件的整理工具。旧LibreScore/IPFS代码未提供可用的默认吉他目录索引。现行[MuseScore API文档](https://musescore.github.io/)介绍Studio应用扩展，并非在线曲库检索。未找到目前可用且允许批量复用的官方吉他元数据导出。
+
+本机LibreScore首页可以显示MuseScore条目；本次原生界面输入未能确立成功的搜索结果，不能以首页样本宣称完成检索。单次普通请求 `https://musescore.com/robots.txt` 返回403，此后未继续请求该来源的目录、谱页或内部API。旧台账的“robots明示禁止吉他目录”无法由保存的历史规则直接证明，已修正为自动访问条款及元数据/API路径待落实；历史探测数据保留，本次403不等于已解析出当前目录规则。
+
+另找到作者公开发布的[PDMX v9 / Zenodo 15571083](https://zenodo.org/records/15571083)与[官方代码](https://github.com/pnlong/PDMX)。它是来自MuseScore的历史公开数据集，数据集标注CC BY 4.0，逐谱许可和内部冲突另有字段；不是LibreScore的全部实时搜索结果。研究者建议使用无许可冲突子集。全量CSV经大小及上游MD5核验后读得254,077行；其中含原声吉他播放音色程序的候选3,146行，无许可冲突的候选2,300行。**音色、轨道数和关键词尚不证明乐谱编制或演奏人数**，须以随附原始元数据再筛选；候选数不作已接入曲目数。记录原生MuseScore ID，PDMX作为出版与冻结渠道，不以同名作品跨站合并。
+
+上述2,300个候选的原始元数据全部找到，并按原生ID、原页、两处题名、逐谱许可和明确器乐字段核定后纳入**924条**：682条纯吉他声明保留人数未明，242条小编制器乐组合进入共同分类。排除的1,376条及其原因保留私有台账；缺作曲署名393条。122条题名采用参考译法，802条保留原文，0条机器草稿或漏决策；28条题名和8条署名的显示编码可严格还原，原始转录未改。此轮只取得两份元数据文件，未取得乐谱文件。详见[冻结接入补记](2026-10-01-integration-log.md#musescore--pdmx-补记2026-10-11)。
+
+按发布者要求保留数据与论文归属：Long、Novack、Berg-Kirkpatrick、McAuley，[PDMX / ICASSP 2025](https://arxiv.org/abs/2409.10831)；Xu、McAuley、Berg-Kirkpatrick、Dubnov、Dong，[MetaScore / ISMIR 2025](https://arxiv.org/abs/2410.02084)。MetaScore另有[公开发布](https://zenodo.org/records/17290490)，元数据发布许可为CC BY 4.0；本次注释档案预览超时，原生ID、原页、原编制字段及逐记录许可未核清，未下载档案、未纳入数量。其论文总量和模型生成caption不能替代当前吉他范围或原始身份。作为同一候选的后续线索保留，不另注册空来源。
+
 ### 本轮未确立专用谱库的两个名称
 
 - [吉他中国 guitarschina.com](https://www.guitarschina.com/)是另一个资讯/论坛门户。未核实可适配的结构化专用谱库，不能混认成吉他世界。

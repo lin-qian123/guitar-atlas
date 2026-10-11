@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "2026-10-01.1",
+  "version": "2026-10-11.1",
   "sources": [
     {
       "id": "imslp",
@@ -323,6 +323,31 @@
       "family_name_zh": "This is Classical Guitar / Werner 来源目录",
       "family_name_en": "This is Classical Guitar / Werner collections",
       "page_url_rules": []
+    },
+    {
+      "id": "musescore",
+      "name": "MuseScore · PDMX",
+      "homepage": "https://musescore.com/",
+      "allowed_hosts": [
+        "musescore.com"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/musescore/catalog.json",
+      "family": "musescore",
+      "family_name_zh": "MuseScore · PDMX 历史目录",
+      "family_name_en": "MuseScore · PDMX historical catalog",
+      "page_url_rules": [
+        {
+          "path": "/(?:user/[1-9][0-9]*|(?!(?i:api|download|static|score|scores|sheetmusic|groups|user|users|s|editor)/)[A-Za-z0-9][A-Za-z0-9_.-]*)/scores/[1-9][0-9]*",
+          "query": {},
+          "human_page": true
+        },
+        {
+          "path": "/sheetmusic/guitar",
+          "query": {},
+          "human_page": true
+        }
+      ]
     }
   ]
 }

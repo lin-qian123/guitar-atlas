@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-01T05:55:25.248093+00:00",
+  "updated_at": "2026-10-11T03:47:37.078937+00:00",
   "candidate_count": 34,
   "purpose": "Per-source metadata/discovery/file-acquisition policy ledger; not a production source registry",
   "public_export": "Source pages and factual metadata only; never score files, assets, checkout links, local paths or hashes",
   "states": {
     "implemented": 3,
-    "metadata_only": 11,
-    "blocked": 4,
+    "metadata_only": 12,
+    "blocked": 3,
     "requires_permission": 15,
     "unavailable": 1
   },
@@ -1061,30 +1061,94 @@
     {
       "source_id": "musescore",
       "name": "MuseScore.com",
-      "checked_at": "2026-10-01T05:55:25.029743+00:00",
-      "status": "blocked",
-      "registered": false,
-      "scope": "candidate only; no site-wide coverage claimed",
+      "checked_at": "2026-10-11T04:03:57.315480+00:00",
+      "status": "metadata_only",
+      "registered": true,
+      "scope": "Frozen PDMX v9 records with explicit approved instrumental guitar metadata, no declared license conflict, and guarded MuseScore native identities; not the live MuseScore or LibreScore corpus",
       "directory_url": "https://musescore.com/sheetmusic/guitar",
-      "metadata_policy": "unverified",
-      "file_policy": "no acquisition without explicit record/edition evidence",
+      "metadata_policy": "PDMX v9 author-published dataset under CC BY 4.0; live MuseScore automated access remains unresolved",
+      "file_policy": "metadata-only integration; no score acquisition or download endpoints",
       "research_rights_observation": "Personal rights; terms restrict platform-external automated systems",
       "evidence_urls": [
         "https://musescore.com/sheetmusic/guitar",
         "https://musescore.com/user/51380273/scores/11278984"
       ],
-      "reason": "Terms restrict external automated systems; current robots also denies guitar directory",
+      "reason": "924 guarded historical MuseScore records from the licensed PDMX v9 publication; no live LibreScore/MuseScore corpus coverage claimed",
       "robots": {
-        "robots_status": 200,
+        "robots_status": 403,
         "robots_url": "https://musescore.com/robots.txt",
-        "robots_allowed": false
+        "robots_allowed": null,
+        "checked_on": "2026-10-11",
+        "note": "Direct access check; current rules unavailable. PDMX publication is a separate metadata reuse route."
       },
       "entry_probe": {
-        "checked_at": "2026-10-01T04:36:33.343797+00:00",
         "directory_status": null,
         "final_url": null,
-        "error": null
-      }
+        "error": null,
+        "directory_requested": false,
+        "checked_on": "2026-10-11"
+      },
+      "direct_access_history": {
+        "checked_at": "2026-10-01T05:55:25.029743+00:00",
+        "status": "blocked",
+        "reason": "Terms restrict external automated systems; approved metadata/API route remains unresolved",
+        "robots": {
+          "robots_status": 200,
+          "robots_url": "https://musescore.com/robots.txt",
+          "robots_allowed": false
+        },
+        "entry_probe": {
+          "checked_at": "2026-10-01T04:36:33.343797+00:00",
+          "directory_status": null,
+          "final_url": null,
+          "error": null
+        }
+      },
+      "catalog": "sources/musescore/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-11T04:03:34.215293+00:00",
+        "discovery_complete": true,
+        "scope": "Frozen PDMX v9 records with explicit approved instrumental guitar metadata, no declared license conflict, and guarded MuseScore native identities; not the live MuseScore or LibreScore corpus",
+        "scope_version": "2026-10-11.1",
+        "directory_url": "https://musescore.com/sheetmusic/guitar",
+        "snapshot_basis": "PDMX v9 author-published metadata; live MuseScore availability unverified",
+        "publication": {
+          "name": "PDMX",
+          "version": "v9",
+          "record_id": "15571083",
+          "page": "https://zenodo.org/records/15571083",
+          "doi": "10.5281/zenodo.15571083",
+          "dataset_license": "CC-BY-4.0"
+        },
+        "configuration_sha256": "48716ce90c2022e0b7baa3ca057ce28f868e6b27e6a4fdf361cd3f9096f56eba",
+        "metadata_license": "CC BY 4.0; PDMX v9, Long, Novack, McAuley and Berg-Kirkpatrick; DOI 10.5281/zenodo.15571083",
+        "metadata_checksums": {
+          "PDMX.csv": "fc2187e7e09185f4b28be57b6478a96a1243a037f8fd13624f17de2d8bfd44bd",
+          "metadata.tar.gz": "325b57ad69c34d45b05b8f307d88ebd10ff67554a7a9b4c183676e7586deffa3"
+        },
+        "frozen_dataset_row_count": 254077,
+        "candidate_count": 2300,
+        "accepted_record_count": 924,
+        "excluded_candidate_count": 1376,
+        "live_source_coverage_complete": false
+      },
+      "source_record_count": 924,
+      "category_count": 1,
+      "category_membership_count": 924,
+      "discovery_complete": true,
+      "verified_pdf_manifest_count": 0,
+      "pending_or_restricted_assets": 0,
+      "discovery_command": "python scripts/build_musescore_library.py --root . --acquire-metadata",
+      "direct_access_check_2026_10_11": {
+        "robots_url": "https://musescore.com/robots.txt",
+        "robots_status": 403,
+        "robots_rules_verified": false,
+        "directory_requested": false
+      },
+      "asset_status_counts": {
+        "metadata_only": 2772
+      },
+      "metadata_only_format_descriptors": 2772
     },
     {
       "source_id": "musicnotes",

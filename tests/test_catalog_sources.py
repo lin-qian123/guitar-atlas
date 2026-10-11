@@ -7,12 +7,12 @@ from pathlib import Path
 
 import pytest
 
-from catalog_sources import load_registry, validate_source_url
+from catalog_sources import load_registry, validate_source_url, validate_record_source_url, MUSESCORE_RESERVED_OWNERS
 from export_public_site import build_public_catalog, PublicExportError
 from render_offline_site import build_offline_catalog, checked_source_asset
 from validate_public_site import validate_payload, check_forbidden, PublicSiteValidationError
 from tests.basic_helpers import ROOT, write_minimal_pdf
-from tests.test_public_site import make_library, write_json
+from tests.test_public_site import make_library, make_musescore_library, write_json
 from tests.test_master_index import offline_library
 
 
@@ -22,6 +22,71 @@ def test_human_scores_url_is_distinct_from_a_local_score_path() -> None:
     for value in ["For guitar/scores/work.pdf", "scores/private", "https://andrewyork.net/scores/work.pdf"]:
         with pytest.raises(PublicSiteValidationError):
             check_forbidden(value)
+
+
+@pytest.mark.parametrize("owner", ["api", "download", "static", "score", "scores", "sheetmusic", "groups", "user", "users", "s", "editor", "API", "Download"])
+def test_musescore_reserved_routes_are_not_human_source_pages(owner: str) -> None:
+    with pytest.raises(ValueError, match="MuseScore|musescore"):
+        validate_source_url(f"https://musescore.com/{owner}/scores/100", "musescore")
+
+
+def test_musescore_reserved_routes_fail_even_with_a_permissive_registry() -> None:
+    registry = load_registry()
+    source = next(row for row in registry if row["id"] == "musescore")
+    pattern = source["page_url_rules"][0]["path"]
+    import re
+    for owner in MUSESCORE_RESERVED_OWNERS:
+        assert re.fullmatch(pattern, f"/{owner}/scores/100") is None
+        assert re.fullmatch(pattern, f"/{owner.upper()}/scores/100") is None
+    source["page_url_rules"] = []
+    for owner in MUSESCORE_RESERVED_OWNERS:
+        with pytest.raises(ValueError, match="MuseScore|musescore"):
+            validate_record_source_url(f"https://musescore.com/{owner}/scores/100", "musescore", "100", registry)
+
+
+@pytest.mark.parametrize("owner", ["api-archive", "downloads", "named-user", "s-the-author"])
+def test_musescore_owner_keywords_do_not_reject_real_name_boundaries(owner: str) -> None:
+    url = f"https://musescore.com/{owner}/scores/100"
+    assert validate_record_source_url(url, "musescore", "100") == url
+
+
+def test_musescore_record_guard_does_not_change_other_source_identity_rules() -> None:
+    url = "https://www.classclef.com/api/scores/100"
+    assert validate_record_source_url(url, "classclef", "nonnumeric-native-id") == url
+
+
+@pytest.mark.parametrize("source_url", [
+    "https://musescore.com/user/321/scores/101", "https://musescore.com/named-owner/scores/101",
+    "https://musescore.com/api/scores/100", "https://musescore.com/Download/scores/100",
+    "https://musescore.com/sheetmusic/guitar", "https://musescore.com/",
+])
+def test_normalized_musescore_projection_rejects_wrong_or_nonrecord_pages(tmp_path: Path, source_url: str) -> None:
+    catalog = make_musescore_library(tmp_path)
+    catalog["works"][0]["source_url"] = source_url
+    write_json(tmp_path / "sources/musescore/catalog.json", catalog)
+    with pytest.raises(PublicExportError, match="MuseScore|musescore"):
+        build_public_catalog(tmp_path)
+
+
+@pytest.mark.parametrize("native_id", ["0", "01", "100:extra", "native-text"])
+def test_normalized_musescore_projection_requires_numeric_native_identity(tmp_path: Path, native_id: str) -> None:
+    catalog = make_musescore_library(tmp_path)
+    catalog["works"][0]["id"] = "musescore:" + native_id
+    write_json(tmp_path / "sources/musescore/catalog.json", catalog)
+    with pytest.raises(PublicExportError, match="MuseScore|musescore"):
+        build_public_catalog(tmp_path)
+
+
+@pytest.mark.parametrize("source_url", ["https://musescore.com/user/321/scores/100", "https://musescore.com/named-owner/scores/100"])
+def test_musescore_numeric_and_named_record_pages_preserve_identity(tmp_path: Path, source_url: str) -> None:
+    catalog = make_musescore_library(tmp_path)
+    catalog["works"][0]["source_url"] = source_url
+    write_json(tmp_path / "sources/musescore/catalog.json", catalog)
+    payload = build_public_catalog(tmp_path)
+    row = next(work for work in payload["works"] if work["source_id"] == "musescore")
+    assert row["id"] == "musescore:100" and row["source_record_id"] == "100"
+    assert row["source_url"] == source_url
+    validate_payload(payload, registry=load_registry(tmp_path))
 
 
 @pytest.mark.parametrize("source_id", ["werner", "delcamp"])

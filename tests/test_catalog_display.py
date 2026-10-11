@@ -4,6 +4,7 @@ import copy
 import json
 
 import pytest
+import catalog_display as display
 
 from catalog_display import apply_display_projection, project_title
 from catalog_translations import wrap_display_title
@@ -18,6 +19,158 @@ def item(title, source="dga", zh="", composer=""):
     return {"id": source + ":7", "source_id": source, "title_en": title,
             "title_zh": zh, "composer_en": composer, "composer_zh": composer,
             "resource_type": "score", "details": {}}
+
+
+def test_musescore_full_attribution_prefix_preserves_the_complete_source_title():
+    title = "Francisco Tárrega - Preludio No. 14"
+    work = item(title, "musescore", composer="Francisco Tárrega (1852 - 1909)")
+    apply_display_projection(work)
+    assert work["title_en"] == title
+    assert work["display_title_en"] == "Preludio No. 14"
+    assert work["details"]["responsibility_statement"] == "Francisco Tárrega"
+    assert work["details"]["source_title_transcription"] == title
+
+
+def test_musescore_surname_prefix_cannot_establish_a_full_attribution():
+    title = "Sor - Study No. 1"
+    assert project_title(title, "musescore", "Fernando Sor").title == title
+
+
+@pytest.mark.parametrize("source_name,suffix", [
+    ("Joseph Küffner (1776 - 1856)", "Joseph Küffner (1776 - 1856)"),
+    ("Joseph Kuffner", "Joseph Küffner (1776 - 1856)"),
+    ("Joseph Küffner (1776-1856)", "Joseph Küffner"),
+])
+def test_musescore_full_spaced_hyphen_author_suffix_preserves_musical_numbers(source_name, suffix):
+    primary = "60 Lessons for 2 Guitars, Op.168/56"
+    title = primary + " - " + suffix
+    work = item(title, "musescore", zh="《" + title + "》", composer=source_name)
+    apply_display_projection(work)
+    assert work["display_title_en"] == primary
+    assert work["display_title_zh"] == "《" + primary + "》"
+    assert work["title_en"] == title and work["composer_en"] == source_name
+    assert work["details"]["responsibility_statement"] == suffix
+    assert work["details"]["source_title_transcription"] == title
+
+
+def test_musescore_author_suffix_keeps_actual_spaced_hyphen_musical_subtitles():
+    title = "Study No. 3 - Andantino - Joseph Küffner (1776 - 1856)"
+    assert project_title(title, "musescore", "Joseph Küffner").title == "Study No. 3 - Andantino"
+
+
+@pytest.mark.parametrize("suffix", ["Küffner", "Joseph Küffner No. 2", "Joseph Küffner - 2",
+    "Portrait of Joseph Küffner", "Joseph Küffner (Op.3)"])
+def test_musescore_author_suffix_rejects_surnames_and_extra_musical_title_words_or_numbers(suffix):
+    title = "Study - " + suffix
+    assert project_title(title, "musescore", "Joseph Küffner").title == title
+
+
+@pytest.mark.parametrize("source", ["imslp", "classclef", "cglib", "delcamp", "dga", "boije"])
+def test_musescore_spaced_hyphen_suffix_cannot_change_other_sources(source):
+    title = "60 Lessons for 2 Guitars, Op.168/56 - Joseph Küffner (1776 - 1856)"
+    assert project_title(title, source, "Joseph Küffner").title == title
+
+
+@pytest.mark.parametrize("native,repaired", [
+    ("Ð\x92ÐµÑ\x81Ñ\x91Ð»Ñ\x8bÐ¹ ÐºÑ\x80ÐµÑ\x81Ñ\x82Ñ\x8cÑ\x8fÐ½Ð¸Ð½", "Весёлый крестьянин"),
+    ("å±±æ¥\x82æ¨¹-uralskaya ryabinushka", "山楂樹-uralskaya ryabinushka"),
+    ("Sea ë°\x94ë\x8b¤ - BTS ë°©í\x83\x84ì\x86\x8cë\x85\x84ë\x8b¨ | Extended Version", "Sea 바다 - BTS 방탄소년단 | Extended Version"),
+    ("Un sueño en la Floresta AgustiÌ\x81n Barrios", "Un sueño en la Floresta Agusti\u0301n Barrios"),
+    ("Humoresque no. 7 - DvoÅ\x99ák", "Humoresque no. 7 - Dvořák"),
+    ("PRS 025  005 Pyramide pour FluÌ\x82te, guitare, percussions", "PRS 025  005 Pyramide pour Flu\u0302te, guitare, percussions"),
+    ("Em Æ\xa0i Hà Ná»\x99i Phá»\x91", "Em Ơi Hà Nội Phố"),
+])
+def test_musescore_lossless_encoding_display_repairs_complete_utf8_sequences(native, repaired):
+    assert display.musescore_display_text(native) == repaired
+    assert display.musescore_display_text(repaired) == repaired
+    projection = project_title(native, "musescore")
+    assert projection.title == " ".join(repaired.split())
+    assert "lossless_latin1_utf8_display" in projection.rules
+    work = item(native, "musescore", zh="《" + native + "》")
+    apply_display_projection(work)
+    assert work["title_en"] == native
+    assert work["title_zh"] == "《" + native + "》"
+    assert work["display_title_en"] == projection.title
+    assert work["display_title_zh"] == "《" + projection.title + "》"
+    assert work["details"]["source_title_transcription"] == native
+    assert "可逆" in work["details"]["text_quality_note"]
+    once = copy.deepcopy(work)
+    assert apply_display_projection(work) == once
+
+
+@pytest.mark.parametrize("native", ["Málaga François Agustín Dvořák", "FranÃ§ois", "山楂樹", "Barrios — Preludio"])
+def test_musescore_encoding_display_does_not_reinterpret_text_without_c1_evidence(native):
+    assert display.musescore_display_text(native) == native
+
+
+def test_musescore_complete_four_byte_utf8_recovery_is_reversible():
+    native = "Guitar " + "🎸".encode("utf-8").decode("latin-1")
+    repaired = display.musescore_display_text(native)
+    assert repaired == "Guitar 🎸"
+    assert repaired.encode("utf-8").decode("latin-1") == native
+
+
+@pytest.mark.parametrize("native", ["À\x81", "í\xa0\x80", "ô\x90\x80\x80", "ð\x9f\x98"])
+def test_musescore_encoding_recovery_never_guesses_overlong_surrogate_or_incomplete_utf8(native):
+    assert display.musescore_display_text(native) == native
+
+
+@pytest.mark.parametrize("native", ["Study \x81", "Málaga\x85Refrain", "Ð\x92 and unpaired \x81"])
+def test_musescore_unpaired_c1_preserves_the_whole_native_string_and_explains_pending(native):
+    assert display.musescore_display_text(native) == native
+    projection = project_title(native, "musescore")
+    assert projection.title == native
+    assert "lossless_latin1_utf8_display" not in projection.rules
+    assert "未" in projection.details["text_quality_note"]
+    assert "U+0081" in projection.details["text_quality_note"] or "U+0085" in projection.details["text_quality_note"]
+
+
+def test_musescore_mixed_accents_restore_only_reversible_byte_fragments():
+    native = "Un sueño en la Floresta AgustiÌ\x81n Barrios MangoreÌ\x81"
+    repaired = display.musescore_display_text(native)
+    assert repaired.startswith("Un sueño en la Floresta ")
+    assert "Agusti\u0301n" in repaired and "Mangore\u0301" in repaired
+    assert "Agusti\u0301n".encode("utf-8").decode("latin-1") == "AgustiÌ\x81n"
+    assert "Mangore\u0301".encode("utf-8").decode("latin-1") == "MangoreÌ\x81"
+
+
+def test_musescore_corrected_caption_attribution_and_composer_are_display_fields_only():
+    composer = "AgustiÌ\x81n Barrios MangoreÌ\x81"
+    title = composer + " - Un sueño en la Floresta"
+    work = item(title, "musescore", zh="《" + title + "》", composer=composer)
+    work["translation"] = {"title": {"status": "retained"}, "composer": {"status": "retained"}}
+    before = copy.deepcopy(work)
+    apply_display_projection(work)
+    assert work["title_en"] == title and work["composer_en"] == composer
+    assert work["title_zh"] == before["title_zh"] and work["composer_zh"] == composer
+    assert work["translation"] == before["translation"]
+    assert work["display_title_en"] == "Un sueño en la Floresta"
+    assert work["display_title_zh"] == "《Un sueño en la Floresta》"
+    assert work["display_composer_en"] == "Agusti\u0301n Barrios Mangore\u0301"
+    assert work["display_composer_zh"] == work["display_composer_en"]
+    assert work["details"]["responsibility_statement"] == work["display_composer_en"]
+    assert composer in work["details"]["source_attribution_note"]
+    assert work["details"]["source_title_transcription"] == title
+
+
+def test_musescore_encoding_repair_preserves_existing_chinese_reference_names():
+    work = item("AgustiÌ\x81n Barrios - Un sueño", "musescore", zh="《梦境》", composer="AgustiÌ\x81n Barrios")
+    work["composer_zh"] = "阿古斯丁·巴里奥斯"
+    apply_display_projection(work)
+    assert work["composer_zh"] == "阿古斯丁·巴里奥斯"
+    assert "display_composer_zh" not in work
+    assert work["display_composer_en"] == "Agusti\u0301n Barrios"
+
+
+@pytest.mark.parametrize("source", ["imslp", "classclef", "dga", "delcamp", "mutopia"])
+def test_encoding_display_fix_does_not_rebase_other_source_originals_or_guards(source):
+    title, composer = "Ð\x92ÐµÑ\x81Ñ\x91Ð»Ñ\x8bÐ¹", "AgustiÌ\x81n Barrios"
+    work = item(title, source, zh="《" + title + "》", composer=composer)
+    apply_display_projection(work)
+    assert work["title_en"] == title and work["composer_en"] == composer
+    assert "lossless_latin1_utf8_display" not in project_title(title, source, composer).rules
+    assert work.get("display_title_en", work["title_en"]) == title
+    assert work.get("display_composer_en", work["composer_en"]) == composer
 
 
 @pytest.mark.parametrize("title", [

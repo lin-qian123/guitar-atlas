@@ -76,6 +76,52 @@ def make_library(root: Path) -> None:
     )
 
 
+def make_musescore_library(root: Path) -> dict:
+    """A real normalized metadata-only catalog, without acquisition or files."""
+    make_library(root)
+    registry = json.loads((ROOT / "config/sources.json").read_text())
+    registry["sources"] = [row for row in registry["sources"] if row["id"] in {"imslp", "musescore"}]
+    write_json(root / "config/sources.json", registry)
+    catalog = {"schema_version": 1, "source_id": "musescore", "snapshot": {"scope": "Frozen historical metadata"},
+        "categories": [{"id": "guitar", "name": "Guitar", "kind": "unspecified",
+                        "source_url": "https://musescore.com/sheetmusic/guitar"}],
+        "works": [{"id": "musescore:100", "title_en": "Guitar Study", "composer_en": "Fernando Sor",
+                   "source_url": "https://musescore.com/user/321/scores/100", "category_ids": ["guitar"],
+                   "formats": [], "assets": [], "metadata": {"instrumentation": "Guitar"}}]}
+    write_json(root / "sources/musescore/catalog.json", catalog)
+    return catalog
+
+
+@pytest.mark.parametrize("source_url", [
+    "https://musescore.com/user/321/scores/101", "https://musescore.com/named-owner/scores/101",
+    "https://musescore.com/api/scores/100", "https://musescore.com/Download/scores/100",
+    "https://musescore.com/sheetmusic/guitar", "https://musescore.com/",
+])
+def test_public_validator_guards_musescore_native_record_pages(tmp_path: Path, source_url: str) -> None:
+    from catalog_sources import load_registry
+
+    make_musescore_library(tmp_path)
+    payload = public_exporter()["build_public_catalog"](tmp_path)
+    work = next(row for row in payload["works"] if row["source_id"] == "musescore")
+    work["source_url"] = source_url
+    validator = public_validator()
+    with pytest.raises(validator["PublicSiteValidationError"], match="MuseScore|musescore"):
+        validator["validate_payload"](payload, registry=load_registry(tmp_path))
+
+
+@pytest.mark.parametrize("native_id", ["0", "01", "100:extra", "native-text"])
+def test_public_validator_requires_numeric_musescore_native_identity(tmp_path: Path, native_id: str) -> None:
+    from catalog_sources import load_registry
+
+    make_musescore_library(tmp_path)
+    payload = public_exporter()["build_public_catalog"](tmp_path)
+    work = next(row for row in payload["works"] if row["source_id"] == "musescore")
+    work.update(id="musescore:" + native_id, source_record_id=native_id)
+    validator = public_validator()
+    with pytest.raises(validator["PublicSiteValidationError"], match="MuseScore|musescore"):
+        validator["validate_payload"](payload, registry=load_registry(tmp_path))
+
+
 def test_public_catalog_deduplicates_works_and_excludes_local_paths(
     tmp_path: Path,
 ) -> None:

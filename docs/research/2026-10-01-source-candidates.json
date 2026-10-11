@@ -421,7 +421,60 @@
       "rights_observation": "Personal rights; terms restrict platform-external automated systems",
       "automated_acquisition_evidence": "automated_access_restricted",
       "evidence_level": "page_read_terms_official_index",
-      "stated_or_observed_count": null
+      "stated_or_observed_count": null,
+      "librescore_followup": {
+        "checked_at": "2026-10-11T03:19:34.213734+00:00",
+        "repository": "https://github.com/LibreScore/app-librescore",
+        "commit": "066ae9784f43401d5d24d2bc0fb091f7365950df",
+        "latest_release": {
+          "tag": "v6.0.23",
+          "published_at": "2026-04-12T02:36:04Z",
+          "url": "https://github.com/LibreScore/app-librescore/releases/tag/v6.0.23"
+        },
+        "repository_file_count": 46,
+        "score_file_count": 0,
+        "search_source": {
+          "name": "MuseScore.com",
+          "evidence_url": "https://github.com/LibreScore/app-librescore/blob/066ae9784f43401d5d24d2bc0fb091f7365950df/l10n/app_en.arb",
+          "evidence_key": "searchHint",
+          "evidence_value": "Search MuseScore"
+        },
+        "repository_scope": "Application releases, localization and build configuration; no score collection in the checked tree",
+        "metadata_export_status": "No usable bulk guitar catalog export or approved official search API established in this review",
+        "imported_record_count": 924,
+        "acquired_file_count": 0,
+        "access_check": {
+          "url": "https://musescore.com/robots.txt",
+          "http_status": 403,
+          "rules_verified": false,
+          "note": "One request; current rules could not be read. The old robots snapshot is historical and does not establish a literal ban on /sheetmusic/guitar."
+        },
+        "dataset_candidate": {
+          "name": "PDMX",
+          "version": "v9",
+          "record_url": "https://zenodo.org/records/15571083",
+          "dataset_license": "CC-BY-4.0",
+          "stage": "frozen_metadata_subset_integrated",
+          "total_dataset_rows": 254077,
+          "acoustic_guitar_program_candidates": 3146,
+          "no_license_conflict_guitar_program_candidates": 2300,
+          "instrumentation_review_required": true,
+          "live_librescore_coverage_established": false,
+          "accepted_record_count": 924,
+          "excluded_candidates": 1376,
+          "dataset_publication_covers_live_app": false,
+          "instrumentation_review_basis": "Accepted subset checked against original instrument declarations and part exclusions; player counts and file-level instrumentation remain unverified",
+          "imported_at": "2026-10-11T04:03:57.315480+00:00"
+        },
+        "additional_dataset_candidate": {
+          "name": "MetaScore",
+          "record_url": "https://zenodo.org/records/17290490",
+          "dataset_license": "CC-BY-4.0",
+          "public_asset_exists": true,
+          "stage": "native_id_url_instrument_schema_and_record_license_unverified",
+          "note": "Annotated archive preview timed out; paper corpus size is not an imported guitar count. No archives or score files acquired."
+        }
+      }
     },
     {
       "candidate_id": "musicnotes",

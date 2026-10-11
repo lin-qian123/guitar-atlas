@@ -5,7 +5,7 @@ It is not affiliated with, sponsored by, or endorsed by the websites below.
 Source records retain their own identity and attribution, even when titles
 look alike or local files contain identical bytes.
 
-The following 16 sources match `config/sources.json`. Original source titles,
+The following 17 sources match `config/sources.json`. Original source titles,
 attributions and identifiers remain available alongside project-authored
 display translations and normalized catalog fields. The source observations
 below follow the frozen acquisition ledger and research receipts; they are not
@@ -146,6 +146,32 @@ supplies repertoire and collection-page records with available original credits.
 The recorded free-collection sample states All Rights Reserved; free availability
 does not establish a blanket reuse license. Source-page and editor-shop references
 grant no score-copying or redistribution rights.
+
+## MuseScore through PDMX v9
+
+[MuseScore](https://musescore.com/) is the native source of 924 historical guitar
+records imported through the author-published [PDMX v9 dataset](https://zenodo.org/records/15571083),
+DOI 10.5281/zenodo.15571083, under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+PDMX is by Phillip Long, Zachary Novack, Julian McAuley, and Taylor Berg-Kirkpatrick;
+see [PDMX: A Large-Scale Public Domain MusicXML Dataset for Symbolic Music Processing](https://arxiv.org/abs/2409.10831).
+PDMX requests credit to its underlying metadata study,
+[Generating Symbolic Music from Natural Language Prompts using an LLM-Enhanced Dataset](https://arxiv.org/abs/2410.02084),
+by Weihan Xu, Julian McAuley, Taylor Berg-Kirkpatrick, Shlomo Dubnov, and Hao-Wen Dong.
+
+Guitar Atlas selects records without a reported license conflict, checks native
+identity, titles, source-page URLs and explicitly declared acoustic guitar scope,
+separates responsibility labels, and adds guarded display translations and
+reversible encoding repairs. Original source credits and transcriptions remain
+available. The CSV and original-metadata archive stay in the private source cache;
+no score files or download endpoints are republished. Historical CC0 or Public
+Domain Mark labels remain record-specific observations, separate from the dataset
+license and from unverified current source availability. This is a frozen subset,
+not a live or complete MuseScore catalog.
+
+[LibreScore](https://github.com/LibreScore/app-librescore) is the search application
+that led to this source. Its MIT software license is independent of the dataset
+and third-party score rights; it does not supply a bundled score database.
 
 ## Publication boundary
 

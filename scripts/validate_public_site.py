@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Mapping
 
 from export_public_site import validate_imslp_url
-from catalog_sources import PUBLIC_FORMATS, PUBLIC_METADATA, load_registry, validate_source_url
+from catalog_sources import PUBLIC_FORMATS, PUBLIC_METADATA, load_registry, validate_source_url, validate_record_source_url
 
 
 FORBIDDEN_KEYS = {
@@ -130,12 +130,15 @@ def validate_payload(payload: object, *, registry: list[dict] | None = None) -> 
         if source_ids != set(configured):
             fail("public catalog is missing a configured source")
 
-    def validate_row_url(row: dict, context: str) -> None:
+    def validate_row_url(row: dict, context: str, *, record: bool = False) -> None:
         if multisource:
             source = row.get("source_id")
             if source not in source_ids:
                 fail(f"{context}: unknown source")
-            validate_source_url(row.get("source_url"), source, registry)
+            if record:
+                validate_record_source_url(row.get("source_url"), source, row.get("source_record_id"), registry)
+            else:
+                validate_source_url(row.get("source_url"), source, registry)
             if row.get("source_name") != configured[source]["name"]:
                 fail(f"{context}: invalid source name")
             if source == "imslp" and row.get("imslp_url") != row["source_url"]:
@@ -230,7 +233,7 @@ def validate_payload(payload: object, *, registry: list[dict] | None = None) -> 
             if raw.get("translation_status") != aggregate_translation_status(statuses):
                 fail(f"work {work_id}: aggregate translation_status disagrees with field evidence")
         try:
-            validate_row_url(raw, f"work {work_id}")
+            validate_row_url(raw, f"work {work_id}", record=True)
         except ValueError as exc:
             raise PublicSiteValidationError(str(exc)) from exc
         memberships = raw.get("category_ids")

@@ -203,6 +203,30 @@ source or adapter.
 - Free download availability does not imply public-domain status or permission
   to republish source files. The public export contains source-page links only.
 
+## MuseScore through the PDMX publication
+
+- LibreScore is a search/download application, not an independent score source.
+  `scripts/build_musescore_library.py` imports only the frozen PDMX v9 metadata
+  publication configured in `config/musescore_pdmx.json`. Use MuseScore native
+  record IDs and retain PDMX/Zenodo publication and per-record licensing evidence.
+- This route acquires two metadata files from approved Zenodo file endpoints.
+  It never requests MuseScore, invokes a downloader, or acquires score files.
+  Dataset licensing and live source access remain separate policy entries.
+- GM programs establish candidates only. Source instrument names, exact native
+  IDs/URLs, title/composer transcriptions and conflict flags establish the accepted
+  subset. Track/staff counts and generic auto `Solo`/`Mixed Duet` labels do not
+  establish guitar player counts. Preserve excluded/pending rows and reasons.
+- Append translations with `scripts/review_musescore_translations.py`; retain all
+  other source decisions byte-for-byte at the entry level. Keep unsupported names
+  in their original language. Do not replay the global historical title review.
+- MuseScore-only encoding recovery requires complete, reversible UTF-8 byte
+  fragments and explicit C1 evidence. Keep native text and exact review guards;
+  incomplete fragments retain the original. Exact full-name title credits may
+  move to details, but a surname or title keyword cannot establish that boundary.
+- Public/offline projections share search and topics. Expose only historical
+  metadata and human source pages; file access restrictions never become local
+  score availability. Metadata-only assets do not create PDF links.
+
 ## Public and offline editions
 
 - Maintain the shared score-publication/collection-index presentation: system

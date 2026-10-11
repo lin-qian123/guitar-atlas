@@ -11,7 +11,7 @@
 
 <p align="center">
   <img alt="Python 3.12+" src="https://img.shields.io/badge/Python-3.12%2B-17283b?style=flat-square">
-  <img alt="16 catalog sources" src="https://img.shields.io/badge/sources-16-bd452f?style=flat-square">
+  <img alt="17 catalog sources" src="https://img.shields.io/badge/sources-17-bd452f?style=flat-square">
   <img alt="Public site excludes score files" src="https://img.shields.io/badge/public_site-score_files_excluded-a67542?style=flat-square">
   <img alt="License MIT and CC BY-SA 4.0" src="https://img.shields.io/badge/license-MIT_%2B_CC_BY--SA_4.0-17283b?style=flat-square">
 </p>
@@ -21,13 +21,15 @@
 
 ## Current scope
 
-The frozen catalog contains **16 sources and 48,449 source records** (48,364 scores and 85 references), 2,228 native categories, 57,062 memberships, 17 shared topics and 700 evidenced relationships. Records include works, editions, collections and holdings; they are not unique compositions across websites. Discovery gaps such as Cantorion pagination remain explicit.
+The frozen catalog contains **17 sources and 49,373 source records** (49,288 scores and 85 references), 2,229 native categories, 57,986 memberships, 17 shared topics and 700 evidenced relationships. Records include works, editions, collections and holdings; they are not unique compositions across websites. Discovery gaps such as Cantorion pagination remain explicit.
 
-Exact title decisions cover every record: 47,347 reference or evidenced conventional Chinese titles, 1,102 intentional original-title retentions, and no machine title drafts or missing title decisions. Native titles and attributions remain intact. Reference translations are not claims of unique authoritative Chinese names.
+Exact title decisions cover every record: 47,469 reference or evidenced conventional Chinese titles, 1,904 intentional original-title retentions, and no machine title drafts or missing title decisions. Native titles and attributions remain intact. Reference translations are not claims of unique authoritative Chinese names.
 
-The current rounded collection interface uses self-hosted Latin display fonts, system Chinese fonts and model-generated illustrations. Lists start with 18 records and build full-text/fuzzy indexes on demand. Referenced static assets total 283,302B; compact transport is 5,629,656B, with canonical JSON retained for audit and compatibility fallback.
+The current rounded collection interface uses self-hosted Latin display fonts, system Chinese fonts and model-generated illustrations. Lists start with 18 records and build full-text/fuzzy indexes on demand. Referenced static assets total 283,302B; compact transport is 5,763,444B, with canonical JSON retained for audit and compatibility fallback.
 
-The October 4 version was pushed and deployed. The October 11 maintenance consolidates documentation and removes unneeded copies and process artifacts while checking retained data and active website assets. See the [publication and maintenance record](docs/research/publication.md) for verification and deployment status, and [TODO](TODO.md) for open work.
+The October 4 version was pushed and deployed. The October 11 update consolidates documentation, removes unneeded copies and imports the PDMX historical subset while preserving existing source records and translation decisions. See the [publication and maintenance record](docs/research/publication.md) for verification and deployment status, and [TODO](TODO.md) for open work.
+
+The October 11 expansion adds 924 historical MuseScore records from the author-published PDMX v9 subset to shared search and topics. LibreScore is a retrieval tool; this is a frozen metadata import with no new local score files or live-site coverage. See the [source supplement](docs/research/2026-10-01-integration-log.md#musescore--pdmx-补记2026-10-11) for scope, exclusions and translation decisions.
 
 ## Two editions
 
@@ -89,6 +91,16 @@ python scripts/discover_additional_sources.py --help
 python scripts/build_classclef_library.py --root . discover
 python scripts/build_classclef_library.py --root . download
 python scripts/build_classclef_library.py --root . verify
+```
+
+MuseScore uses licensed PDMX v9 metadata rather than live-site scraping. Acquire
+the two metadata files once, then rebuild from verified local inputs. The guarded
+review adds only this source's decisions and preserves existing sources:
+
+```bash
+python scripts/build_musescore_library.py --root . --acquire-metadata
+python scripts/build_musescore_library.py --root .
+python scripts/review_musescore_translations.py --root . --apply
 ```
 
 After downloads stop, run each applicable deduplicator as a dry run. Only freshly verified candidates permit `--apply`, followed by verification; original bytes, paths and source manifests remain intact.

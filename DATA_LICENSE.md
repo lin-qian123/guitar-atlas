@@ -7,7 +7,7 @@ unless an individual asset states otherwise. This license applies only to
 material the project is entitled to license.
 
 Source titles, musician attributions, category names, identifiers, and page
-URLs identify and attribute records from the 16 registered sources below.
+URLs identify and attribute records from the 17 registered sources below.
 Source content remains subject to its own applicable terms; including it in
 this catalog does not place it under the project's license. Facts and
 public-domain material may not be copyrightable in every jurisdiction.
@@ -28,6 +28,7 @@ public-domain material may not be copyrightable in every jurisdiction.
 - [Digital Guitar Archive](https://digitalguitararchive.com/archive/)
 - [RISM](https://rism.online/)
 - [This is Classical Guitar / Werner](https://www.thisisclassicalguitar.com/)
+- [MuseScore through PDMX v9](https://zenodo.org/records/15571083)
 
 The recorded RISM metadata license is
 [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/), and Classical Guitar
@@ -35,6 +36,12 @@ Library states [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 for its site metadata. Original credits, identifiers and source links are
 retained; project translations and normalized display fields are additions.
 Those metadata licenses do not apply to every linked score edition or scan.
+The imported MuseScore historical subset comes from the author-published PDMX v9
+dataset under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), with PDMX
+and its underlying MetaScore study credited in the third-party notices. Project
+selection, responsibility separation, display repairs and translations are
+documented additions; the dataset license does not establish current rights to
+every score file or authorize live-source acquisition.
 Other sources' record-specific notices and conditions remain separate; source
 directory or API availability alone establishes no new copying rights.
 

@@ -9,6 +9,8 @@ import pytest
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 from apply_legacy_translation_review import ASSETS, DEFAULT_REVIEW, audit_assets, prepare_review
+from catalog_display import musescore_display_text
+from review_musescore_translations import ATTRIBUTION_LABELS, full_name_key
 
 
 def review():
@@ -66,9 +68,22 @@ def test_review_preserves_every_original_and_identity():
 
 def test_current_assets_pass_full_structural_and_music_context_sweep():
     docs=current_assets()
+    # Keep the complete preceding 16-source audit as a separately closed scope;
+    # every added MuseScore row is also included in the final full sweep.
+    preceding=copy.deepcopy(docs)
+    for name in ['musicians_zh.json','categories_zh.json']:
+        del preceding[name]['entries']['musescore']
+    baseline=audit_assets(ROOT,preceding)
+    assert baseline['issue_count']==0
+    assert sum(baseline['scope'].values())==28318
+    added={'musicians_zh.json':341,'categories_zh.json':1}
+    for name,count in added.items():
+        assert len(docs[name]['entries']['musescore'])==count
     result=audit_assets(ROOT,docs)
     assert result['issue_count']==0
-    assert sum(result['scope'].values())==28318
+    assert result['scope']=={name:count+added.get(name,0)
+                             for name,count in baseline['scope'].items()}
+    assert sum(result['scope'].values())==28318+341+1
     assert set(result['scope'])==ASSETS
 
 
@@ -157,14 +172,60 @@ def test_control_characters_do_not_survive_display_and_damage_remains_explicit()
 def test_same_exact_original_has_consistent_spelling_without_expanding_initials():
     docs=current_assets()
     musicians=docs['musicians_zh.json']['entries']
-    spellings=defaultdict(set)
-    for rows in musicians.values():
+    preceding_spellings=defaultdict(set)
+    supported_spellings=defaultdict(set)
+    for source,rows in musicians.items():
         for original,row in rows.items():
-            spellings[original].add(row['zh'])
-    assert all(len(values)==1 for values in spellings.values())
+            if source!='musescore':
+                # Preserve the original exact-spelling assertion for every old
+                # reference and retained row, without changing its evidence.
+                preceding_spellings[original].add(row['zh'])
+            if row['status'] in {'reviewed','reference'}:
+                supported_spellings[original].add(row['zh'])
+    assert all(len(values)==1 for values in preceding_spellings.values())
+    # A retained transcription is not a proposed conventional translation.
+    # Supported correspondences, including generic source labels, remain strict.
+    assert all(len(values)==1 for values in supported_spellings.values())
     assert musicians['mutopia']['D. Aguado']['zh']=='D.·阿瓜多'
     assert musicians['guitardownunder']['D. Aguado']['zh']=='D.·阿瓜多'
     assert musicians['dga']['Giuliani, M.']['zh']=='M.·朱利亚尼'
+
+
+def test_musescore_attribution_review_contexts_cover_every_guarded_entry():
+    musicians=current_assets()['musicians_zh.json']['entries']['musescore']
+    checked=Counter()
+    for original,row in musicians.items():
+        assert row['original']==original
+        assert row['reason']
+        status=row['status']
+        if status in {'reviewed','reference'}:
+            assert original and row['zh']
+            if row['basis']=='exact_source_attribution_label':
+                assert original in ATTRIBUTION_LABELS
+                assert row['zh']==ATTRIBUTION_LABELS[original]
+                checked['supported_source_label']+=1
+            else:
+                assert row['basis']=='existing_checked_full_name_reference'
+                assert full_name_key(original,musescore=True) is not None
+                assert row['reference_entries']
+                checked['supported_full_name']+=1
+        elif status=='retained':
+            assert original
+            assert row['basis']=='exact_source_attribution_preservation'
+            assert row['zh']==musescore_display_text(original)
+            checked['retained_source_text']+=1
+        elif status=='not_applicable':
+            assert original==row['zh']==''
+            assert row['basis']=='absent_source_attribution'
+            checked['absent_source_attribution']+=1
+        else:
+            raise AssertionError(f'unresolved MuseScore attribution: {original}: {status}')
+    assert checked=={'supported_full_name':68,'supported_source_label':3,
+                     'retained_source_text':269,'absent_source_attribution':1}
+    assert sum(checked.values())==len(musicians)==341
+    for original in ['F. Sor','J.S. Bach','Bach','Beethoven','Giuliani','Pixinguinha','Yiruma']:
+        assert musicians[original]['status']=='retained'
+        assert musicians[original]['zh']==original
 
 
 def test_roman_work_number_and_book_attribution_do_not_turn_into_invented_fields():

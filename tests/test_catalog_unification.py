@@ -14,6 +14,27 @@ from tests.basic_helpers import ROOT
 from tests.test_public_site import make_library, write_json
 
 
+@pytest.mark.parametrize("instrumentation, topic", [
+    ("Guitar and saxophone", "woodwinds"),
+    ("Guitar and cornet", "brass"),
+    ("Guitar and euphonium", "brass"),
+    ("Guitar and bandoneon", "keyboard_reed"),
+    ("Guitar and harmonica", "keyboard_reed"),
+    ("Guitar and celesta", "keyboard_reed"),
+    ("Guitar and xylophone", "percussion"),
+    ("Guitar and glockenspiel", "percussion"),
+    ("Guitar and timpani", "percussion"),
+    ("Guitar and saxophone and piano", "mixed_chamber"),
+])
+def test_explicit_published_instruments_join_shared_topics(instrumentation, topic):
+    assert instrumentation_topic(instrumentation) == topic
+
+
+@pytest.mark.parametrize("instrumentation", ["Guitar and synthesizer", "Guitar and vocals", "Guitar and electric bass"])
+def test_shared_topic_expansion_does_not_accept_out_of_scope_instruments(instrumentation):
+    assert instrumentation_topic(instrumentation) is None
+
+
 def unified_fixture(root: Path, raw_works: list[dict]) -> dict:
     """Keep private acquisition evidence separate from the public projection."""
     registry, categories, public_works = [], [], []

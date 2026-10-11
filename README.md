@@ -11,7 +11,7 @@
 
 <p align="center">
   <img alt="Python 3.12+" src="https://img.shields.io/badge/Python-3.12%2B-17283b?style=flat-square">
-  <img alt="16 catalog sources" src="https://img.shields.io/badge/sources-16-bd452f?style=flat-square">
+  <img alt="17 catalog sources" src="https://img.shields.io/badge/sources-17-bd452f?style=flat-square">
   <img alt="Public site excludes score files" src="https://img.shields.io/badge/public_site-score_files_excluded-a67542?style=flat-square">
   <img alt="License MIT and CC BY-SA 4.0" src="https://img.shields.io/badge/license-MIT_%2B_CC_BY--SA_4.0-17283b?style=flat-square">
 </p>
@@ -22,13 +22,15 @@
 
 ## 当前范围与进展
 
-冻结目录包含 **16个来源、48,449条来源记录**（48,364条乐谱、85条参考资料）、2,228个原分类、57,062条分类成员关系、17个共同分类、700条有证据的关联。记录可代表作品、版本、合集或馆藏，不能当作跨站唯一乐曲数；Cantorion分页等范围缺口保留。
+冻结目录包含 **17个来源、49,373条来源记录**（49,288条乐谱、85条参考资料）、2,229个原分类、57,986条分类成员关系、17个共同分类、700条有证据的关联。记录可代表作品、版本、合集或馆藏，不能当作跨站唯一乐曲数；Cantorion分页等范围缺口保留。
 
-全库题名已有精确原文守卫的处理决定：47,347条采用参考译法或有据惯用名，1,102条有理由保留原名；0条机器题名草稿或漏译。完整原题和署名始终保留，参考译名不等于唯一权威中文定名。
+全库题名已有精确原文守卫的处理决定：47,469条采用参考译法或有据惯用名，1,904条有理由保留原名；0条机器题名草稿或漏译。完整原题和署名始终保留，参考译名不等于唯一权威中文定名。
 
-当前页面采用圆角收藏目录、自托管拉丁展示字体、系统中文字体及模型插图。结果首批18条，全文与模糊索引按需建立；实际引用静态资产283,302B，压缩目录5,629,656B，完整JSON用于审计与兼容回退。
+当前页面采用圆角收藏目录、自托管拉丁展示字体、系统中文字体及模型插图。结果首批18条，全文与模糊索引按需建立；实际引用静态资产283,302B，压缩目录5,763,444B，完整JSON用于审计与兼容回退。
 
-2026-10-04已同步远端并部署；2026-10-11在原目录内整合文档、清理无依赖的副本与中间产物。来源、译名决定、本地谱文件和网页有效资源按清理前后指纹核对。最新验收与发布状态见[发布记录](docs/research/publication.md)，未完成项只维护在[TODO](TODO.md)。
+2026-10-04版本已同步远端并部署；2026-10-11在原目录内整合文档、清理无依赖副本，并纳入PDMX历史目录。既有来源、译名决定和网页记录保持不变；最新验收与发布状态见[发布记录](docs/research/publication.md)，未完成项只维护在[TODO](TODO.md)。
+
+2026-10-11新增MuseScore的924条PDMX v9历史记录，参加同一搜索与分类。LibreScore是检索工具；这批数据来自作者许可发布的历史子集，未接入实时全库，也未新增本地谱文件。范围、译名和排除统计见[来源补记](docs/research/2026-10-01-integration-log.md#musescore--pdmx-补记2026-10-11)。
 
 ## 两种版本
 
@@ -94,6 +96,14 @@ python scripts/discover_additional_sources.py --help
 python scripts/build_classclef_library.py --root . discover
 python scripts/build_classclef_library.py --root . download
 python scripts/build_classclef_library.py --root . verify
+```
+
+MuseScore使用已许可的PDMX v9元数据入口，首次取得两份元数据后可离线重建；不抓取MuseScore页面或乐谱文件。译名工具仅增补本来源，保留其他来源的精确决定：
+
+```bash
+python scripts/build_musescore_library.py --root . --acquire-metadata
+python scripts/build_musescore_library.py --root .  # 使用已核验缓存
+python scripts/review_musescore_translations.py --root . --apply
 ```
 
 在下载停止后，先dry-run再按已核验候选执行去重，随后重新验证。ClassClef与新增来源工具各自保留独立journal：

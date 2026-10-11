@@ -42,12 +42,13 @@ def instrumentation_topic(text: str) -> str | None:
         if re.fullmatch(pattern, value):
             return topic
     parts = re.split(r"\s*(?:,| and | & )\s*", value.removeprefix("for "))
-    groups = {"strings":{"violin", "viola", "cello", "violoncello", "double bass"},
-              "woodwinds":{"flute", "recorder", "clarinet", "oboe", "bassoon"},
-              "brass":{"trumpet", "horn", "trombone", "tuba"},
-              "keyboard_reed":{"piano", "organ", "harpsichord", "accordion"},
+    groups = {"strings":{"violin", "viola", "cello", "violoncello", "double bass", "viol"},
+              "woodwinds":{"flute", "recorder", "clarinet", "oboe", "bassoon", "saxophone"},
+              "brass":{"trumpet", "horn", "trombone", "tuba", "euphonium", "cornet", "flugelhorn"},
+              "keyboard_reed":{"piano", "organ", "harpsichord", "accordion", "clavichord", "celesta",
+                               "harmonica", "harmonium", "bandoneon", "melodica", "virginal"},
               "plucked":{"harp", "mandolin", "lute", "vihuela"},
-              "percussion":{"marimba", "vibraphone", "percussion"}}
+              "percussion":{"marimba", "vibraphone", "percussion", "xylophone", "glockenspiel", "timpani"}}
     if "guitar" in parts and len(parts) > 1:
         others = [part for part in parts if part != "guitar"]
         selected = {key for key, names in groups.items() if any(part in names for part in others)}

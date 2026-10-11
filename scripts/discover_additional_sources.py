@@ -10,7 +10,7 @@ from source_adapters.additional import ADAPTERS, atomic_json, utcnow
 DELEGATED = {"mutopia", "boije", "guitarschool", "dga", "rism"}
 RESTRICTED = {
     "freescores": "Terms 10.3 require prior written permission for substantial/repeated automated database use",
-    "musescore": "Terms restrict external automated systems; current robots also denies guitar directory",
+    "musescore": "Terms restrict external automated systems; approved metadata/API route remains unresolved",
     "musicnotes": "Terms prohibit scripts/codes for automated access",
     "musopen": "Reuse is limited to personal temporary single copies; mirrors/transfer restricted; robots 403",
     "bergmann": "Commercial publisher terms restrict copying/utilization; metadata reuse partnership unresolved",
@@ -68,8 +68,14 @@ def refresh_policies(root: Path):
                 row["status"] = "implemented"
                 row["reason"] = "Catalog integration includes verified local PDF manifest entries; unique physical PDFs and category instrumentation require their separate verification reports"
             if sid == "cglib": row["metadata_policy"] = "site metadata attributed under stated CC BY-SA 4.0; PDF rights remain per edition"
+            if sid == "musescore":
+                row["metadata_policy"] = "PDMX v9 author-published dataset under CC BY 4.0; live MuseScore automated access remains unresolved"
+                row["file_policy"] = "metadata-only integration; no score acquisition or download endpoints"
+                row["pending_or_restricted_assets"] = sum(asset.get("status") in {"pending", "restricted", "failed"} for asset in assets)
+                row["metadata_only_format_descriptors"] = sum(asset.get("status") == "metadata_only" for asset in assets)
+                row["discovery_command"] = "python scripts/build_musescore_library.py --root . --acquire-metadata"
             if sid == "delcamp": row["file_policy"] = "Explicit individual non-commercial use allowed; redistribution prohibited; shared verifier must validate each PDF"
-            row["discovery_command"] = f"python scripts/discover_additional_sources.py --root . --source {sid}" if sid in ADAPTERS else "see source-owned production entrypoint"
+            row.setdefault("discovery_command", f"python scripts/discover_additional_sources.py --root . --source {sid}" if sid in ADAPTERS else "see source-owned production entrypoint")
         elif sid in DELEGATED:
             row["reason"] = "Handled by dedicated source adapter; no completed snapshot found during this ledger refresh"
         rows.append(row)

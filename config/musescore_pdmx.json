@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "source_id": "musescore",
+  "scope_version": "2026-10-11.1",
+  "publication": {
+    "name": "PDMX",
+    "version": "v9",
+    "record_id": "15571083",
+    "page": "https://zenodo.org/records/15571083",
+    "doi": "10.5281/zenodo.15571083",
+    "dataset_license": "CC-BY-4.0"
+  },
+  "files": {
+    "PDMX.csv": {
+      "size": 225399738,
+      "md5": "30392ccf38bb63ce70e7afae70f9c88c"
+    },
+    "metadata.tar.gz": {
+      "size": 159444765,
+      "md5": "5bc79445090dd2fe5e96cffa77a3461c"
+    }
+  },
+  "scope": "Frozen PDMX v9 records with explicit approved instrumental guitar metadata, no declared license conflict, and guarded MuseScore native identities; not the live MuseScore or LibreScore corpus",
+  "metadata_reuse_basis": "Author-published Zenodo dataset under CC BY 4.0; original score licenses and publication attribution retained separately",
+  "file_acquisition": "Metadata files only; no score files or requests to MuseScore"
+}

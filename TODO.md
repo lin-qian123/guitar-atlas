@@ -13,6 +13,7 @@
 - [ ] 上游恢复后重试Guitar School1039及Delcamp三条失败文件；当前记录和失败证据保留。
 - [ ] 既有IMSLP重复实体尚未全部物理去重；必须以新鲜内容核验和完整清单为依据，不按标题去重。
 - [ ] 新来源继续按[候选政策](config/source_acquisition_policies.json)处理；候选不是来源注册或文件获取许可。
+- [ ] LibreScore所检索的MuseScore实时全库入口未落实。已接入PDMX v9的924条历史元数据；MetaScore公开注释档案待核原生ID、原页、原始编制及逐记录许可。保持来源访问与文件权限分离，不用推断caption作为编制或身份。见[选源研究](docs/research/2026-10-01-source-expansion.md)。
 
 ## 维护触发条件
 

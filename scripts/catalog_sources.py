@@ -13,6 +13,8 @@ from urllib.parse import parse_qsl, unquote, urlparse
 REGISTRY_PATH = Path(__file__).resolve().parents[1] / "config/sources.json"
 PUBLIC_FORMATS = {"PDF", "GPX", "MIDI", "GP3", "GP4", "GP5", "GP6", "GP7", "GP8", "GP", "MUSICXML", "LILYPOND", "IMAGE", "ONLINE", "UNSPECIFIED"}
 PUBLIC_METADATA = {"instrumentation", "arranger", "editor", "transcriber", "opus", "license", "source_edition", "difficulty", "publisher", "publication_date", "pages", "record_level", "collection", "language", "key", "period", "catalogue_number", "source_call", "institution", "license_note", "availability", "description", "component_count", "contributors", "isbn", "original_arrangement_status", "source_type", "title_annotations", "responsibility_statement", "source_title_transcription", "translated_title_transcription", "source_attribution_note", "dimensions", "physical_description", "text_quality_note", "attribution_role", "material_type"}
+MUSESCORE_RESERVED_OWNERS = frozenset({"api", "download", "static", "score", "scores", "sheetmusic", "groups", "user", "users", "s", "editor"})
+_MUSESCORE_RECORD_PATH = re.compile(r"/(?:(?:user/[1-9][0-9]*)|(?P<owner>[A-Za-z0-9][A-Za-z0-9_.-]*))/scores/(?P<record>[1-9][0-9]*)")
 
 
 def load_registry(root: Path | None = None) -> list[dict]:
@@ -65,6 +67,22 @@ def validate_source_url(value: str, source_id: str, registry: list[dict] | None 
         raise ValueError(f"invalid {source_id} source page URL: {value!r}")
     if source_id == "imslp" and not homepage and not url.path.startswith("/wiki/"):
         raise ValueError(f"invalid IMSLP source page URL: {value!r}")
+    if source_id == "musescore":
+        record = _MUSESCORE_RECORD_PATH.fullmatch(url.path)
+        if record and (record["owner"] or "").casefold() in MUSESCORE_RESERVED_OWNERS:
+            raise ValueError(f"reserved MuseScore source page route: {value!r}")
+    return value
+
+
+def validate_record_source_url(value: str, source_id: str, native_id: str,
+                               registry: list[dict] | None = None) -> str:
+    """Validate one record page and any source-specific native-ID contract."""
+    validate_source_url(value, source_id, registry)
+    if source_id == "musescore":
+        record = _MUSESCORE_RECORD_PATH.fullmatch(urlparse(value).path)
+        if (not isinstance(native_id, str) or not re.fullmatch(r"[1-9][0-9]*", native_id)
+                or record is None or record["record"] != native_id):
+            raise ValueError(f"MuseScore native record ID and source page disagree: {native_id!r}, {value!r}")
     return value
 
 
@@ -145,7 +163,7 @@ def merge_sources(root: Path, data: dict) -> dict:
                 work = {
                     "id": identity, "source_record_id": identity.split(":", 1)[1],
                     "source_id": source["id"], "source_name": source["name"],
-                    "source_url": validate_source_url(raw["source_url"], source["id"], registry),
+                    "source_url": validate_record_source_url(raw["source_url"], source["id"], identity.split(":", 1)[1], registry),
                     "title_en": raw["title_en"], "title_zh": raw.get("title_zh", ""),
                     "composer_en": raw["composer_en"], "composer_zh": raw.get("composer_zh", ""),
                     "category_ids": category_ids, "formats": formats,

@@ -44,6 +44,7 @@ DIMENSION = re.compile(r"\d+(?:[.,]\d+)?(?:\s*[x×]\s*\d+(?:[.,]\d+)?){0,2}\s*(?
 COUNTED_PAGE = re.compile(r"(?:\d|\])\s*(?:pp?\.?|S\.?|Bl\.?|fol\.?)\b", re.I)
 ATTRIBUTION_NOTE = re.compile(r"\s*<((?:[^<>]*\d{3,4}[^<>]*)|(?:\d{1,2}\.\s*Jh\.)|(?:Lebensdaten nicht ermittelt))>\s*", re.I)
 UNPRINTABLE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f\ufffd]")
+MUSESCORE_C1 = re.compile(r"[\x80-\x9f]")
 ATTRIBUTION_ROLE = re.compile(r"(?:,?\s+)(Performer|Editor|Transcriber|Arranger|Compiler|Author|Composer)\s*$", re.I)
 AUTHORITY_DATE_UNIT = r"\d{3,4}(?:-\d{2}-\d{2})?"
 AUTHORITY_DATE = re.compile(r"[,，]\s*(?:" + AUTHORITY_DATE_UNIT + r"(?:\s*[-–—]\s*(?:" + AUTHORITY_DATE_UNIT + r"|\?)?)?|\?\s*[-–—]\s*" + AUTHORITY_DATE_UNIT + r")\.?\s*$")
@@ -130,6 +131,48 @@ def source_transcription(value: str) -> str:
     return re.sub(r"<([^<>]+)>", r"（\1）", text)
 
 
+def _musescore_encoding_projection(value: str) -> tuple[str, list[str]]:
+    """Decode complete reversible UTF-8 fragments only with explicit C1 evidence.
+
+    Existing Unicode/Latin accents are kept; whole-string encoding is unsuitable
+    for mixed native and misdecoded text. No normalization or language/name
+    inference is performed. Any remaining C1 byte rejects the entire repair.
+    """
+    if not MUSESCORE_C1.search(value):
+        return value, []
+    output, index = [], 0
+    while index < len(value):
+        code = ord(value[index])
+        width = 2 if 0xc2 <= code <= 0xdf else 3 if 0xe0 <= code <= 0xef else 4 if 0xf0 <= code <= 0xf4 else 0
+        fragment = value[index:index+width] if width else ""
+        decoded = ""
+        if width and len(fragment) == width and all(ord(char) <= 0xff for char in fragment):
+            try:
+                candidate = fragment.encode("latin-1").decode("utf-8", errors="strict")
+                if len(candidate) == 1 and candidate.encode("utf-8").decode("latin-1") == fragment:
+                    decoded = candidate
+            except UnicodeError:
+                pass
+        if decoded:
+            output.append(decoded)
+            index += width
+        else:
+            output.append(value[index])
+            index += 1
+    repaired = "".join(output)
+    pending = sorted({f"U+{ord(char):04X}" for char in MUSESCORE_C1.findall(repaired)})
+    return (value, pending) if pending else (repaired, [])
+
+
+def musescore_display_text(value: str) -> str:
+    """MuseScore display only: exact reversible encoding recovery, or original."""
+    return _musescore_encoding_projection(value)[0]
+
+
+def _musescore_pending_encoding_note(field: str, codes: list[str]) -> str:
+    return field + "含未组成完整可逆 UTF-8 序列的 C1 控制码（" + "、".join(codes) + "）；保留完整原文，未猜测恢复字符。"
+
+
 @dataclass
 class TitleProjection:
     title: str
@@ -189,9 +232,31 @@ def same_attribution(label: str, original: str) -> bool:
         or attribution_words(re.sub(r"^(?:by|par|por|von)\s+", "", label.strip(), flags=re.I)) == words)
 
 
+def _musescore_full_attribution(label: str, original: str) -> bool:
+    """Complete local attribution, with dates/accents only; retain title digits."""
+    if not same_attribution(label, original):
+        return False
+    def body(value):
+        value = strip_authority_dates(ATTRIBUTION_NOTE.sub(" ", ATTRIBUTION_ROLE.sub("", value)))
+        value = re.sub(r"\s*[(（]\s*\d{3,4}\s*(?:[-–—]\s*(?:\d{3,4}|\?))?\s*[)）]\s*$", "", value)
+        value = re.sub(r"^(?:by|par|por|von)\s+", "", value.strip(), flags=re.I)
+        value = unicodedata.normalize("NFKD", value).casefold()
+        return re.sub(r"[\W_]+", "", "".join(char for char in value if not unicodedata.combining(char)))
+    return body(label) == body(original)
+
+
 def project_title(original: str, source: str, source_attribution: str = "") -> TitleProjection:
     result = TitleProjection(original)
     text = original
+    if source == "musescore":
+        text, pending = _musescore_encoding_projection(original)
+        if pending:
+            return TitleProjection(original, details={"text_quality_note": _musescore_pending_encoding_note("来源题名", pending)},
+                                   rules=["musescore_encoding_unresolved"])
+        if text != original:
+            result.rules.append("lossless_latin1_utf8_display")
+            append_detail(result.details, "text_quality_note", "题名显示逐个按完整 UTF-8 字节序列从 Latin-1 错解可逆还原；保留原始来源转录，未推断语言、人物或曲名。")
+        source_attribution = musescore_display_text(source_attribution)
     # These exact cover transcriptions begin with a dedication, followed
     # by the actual title. Generic slash parsing must not make the dedication
     # the headline or consume the title as a publication/credit statement.
@@ -247,6 +312,14 @@ def project_title(original: str, source: str, source_attribution: str = "") -> T
             text = text[:explicit.start()].strip()
             result.rules.append("explicit_role_statement")
     if source_attribution and not (source == "delcamp" and (source_attribution in DELCAMP_ATTRIBUTION_LABELS or source_attribution in DELCAMP_TITLE_CONTAMINATED_ATTRIBUTIONS)):
+        if source == "musescore":
+            for boundary in re.finditer(r"\s+-\s+", text):
+                credit = text[boundary.end():]
+                if text[:boundary.start()].strip() and _musescore_full_attribution(credit, source_attribution):
+                    append_detail(result.details, "responsibility_statement", credit)
+                    text = text[:boundary.start()].strip()
+                    result.rules.append("exact_attribution_suffix")
+                    break
         suffix = re.search(r"\s*[\[(]([^\[\]()]+)[\])]\s*$", text)
         if suffix and same_attribution(suffix[1], source_attribution) and text[:suffix.start()].strip():
             append_detail(result.details, "responsibility_statement", suffix[1])
@@ -257,6 +330,15 @@ def project_title(original: str, source: str, source_attribution: str = "") -> T
             append_detail(result.details, "responsibility_statement", "by " + by[1])
             text = text[:by.start()].strip()
             result.rules.append("exact_by_statement")
+        if source == "musescore":
+            # MuseScore's native headings commonly use one spaced hyphen.
+            # Only a complete source attribution establishes this boundary;
+            # preserve historical projection guards for the other adapters.
+            prefix = re.match(r"^(.+?)\s+-\s+(.+)$", text)
+            if prefix and same_attribution(prefix[1], source_attribution):
+                append_detail(result.details, "responsibility_statement", prefix[1])
+                text = prefix[2]
+                result.rules.append("exact_attribution_prefix")
         prefix = re.match(r"^(.+?)\s*(?::|–|—|\s-\s)\s+(.+)$", text)
         if prefix and same_attribution(prefix[1], source_attribution):
             append_detail(result.details, "responsibility_statement", prefix[1])
@@ -410,6 +492,12 @@ def project_chinese_title(original: str, translated: str, source: str, projectio
     bare = translated.removeprefix("《").removesuffix("》")
     if bare == original:
         return "《" + projection.title + "》"
+    if source == "musescore":
+        bare = musescore_display_text(bare)
+        original_attribution = musescore_display_text(original_attribution)
+        translated_attribution = musescore_display_text(translated_attribution)
+        if bare == musescore_display_text(original):
+            return "《" + projection.title + "》"
     if projection.slash_head is not None:
         chunks = SLASH.split(bare)
         if len(chunks) == projection.slash_total:
@@ -422,7 +510,14 @@ def project_chinese_title(original: str, translated: str, source: str, projectio
     elif any(rule in projection.rules for rule in ("exact_attribution_suffix", "exact_by_statement", "exact_attribution_prefix")):
         suffix = re.search(r"\s*[\[（(]([^\[\]（）()]+)[\]）)]\s*$", bare)
         prefix = re.match(r"^(.+?)\s*[:：–—]\s*(.+)$", bare)
-        if suffix and (same_attribution(suffix[1], original_attribution) or (translated_attribution and re.sub(r"[\W_]+", "", suffix[1]) == re.sub(r"[\W_]+", "", translated_attribution))):
+        hyphen = None
+        if source == "musescore" and "exact_attribution_suffix" in projection.rules:
+            hyphen = next((boundary for boundary in re.finditer(r"\s+-\s+", bare)
+                           if _musescore_full_attribution(bare[boundary.end():], original_attribution)
+                           or (translated_attribution and _musescore_full_attribution(bare[boundary.end():], translated_attribution))), None)
+        if hyphen:
+            bare = bare[:hyphen.start()].strip()
+        elif suffix and (same_attribution(suffix[1], original_attribution) or (translated_attribution and re.sub(r"[\W_]+", "", suffix[1]) == re.sub(r"[\W_]+", "", translated_attribution))):
             bare = bare[:suffix.start()].strip()
         elif prefix and (same_attribution(prefix[1], original_attribution) or (translated_attribution and re.sub(r"[\W_]+", "", prefix[1]) == re.sub(r"[\W_]+", "", translated_attribution))):
             bare = prefix[2]
@@ -479,6 +574,18 @@ def apply_display_projection(work: dict) -> dict:
         # and use the same English boundary as the guarded semantic review.
         work["display_title_en"] = display_missing_characters(projection.title)
     composer = work.get("composer_en", "")
+    if work["source_id"] == "musescore":
+        for field_name, label in (("composer_en", "来源署名"), ("composer_zh", "参考署名")):
+            original_name = work.get(field_name, "")
+            display_name, pending = _musescore_encoding_projection(original_name)
+            if display_name != original_name:
+                work["display_" + field_name] = display_name
+                append_detail(details, "text_quality_note", label + "显示按完整 UTF-8 字节序列从 Latin-1 错解可逆还原；来源原字段和翻译复核状态保持。")
+            elif pending:
+                append_detail(details, "text_quality_note", _musescore_pending_encoding_note(label, pending))
+            if display_name != original_name or pending:
+                if safe_transcription(original_name):
+                    append_detail(details, "source_attribution_note", label + "完整转录：" + source_transcription(original_name))
     if work["source_id"] == "imslp" and composer in IMSLP_DISAMBIGUATED_LABELS:
         work["display_composer_en"] = IMSLP_DISAMBIGUATED_LABELS[composer]
         append_detail(details, "source_attribution_note", composer)
