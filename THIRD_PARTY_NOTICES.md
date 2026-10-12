@@ -169,6 +169,12 @@ Domain Mark labels remain record-specific observations, separate from the datase
 license and from unverified current source availability. This is a frozen subset,
 not a live or complete MuseScore catalog.
 
+The authorized local extension acquires the same publication's exported PDFs
+for these 924 records, validates the full archive and each selected PDF, and
+stores them only in the private offline collection. It does not acquire native
+MSCZ files or request MuseScore download services. Source-file terms remain
+separate from this repository's software and documentation licenses.
+
 [LibreScore](https://github.com/LibreScore/app-librescore) is the search application
 that led to this source. Its MIT software license is independent of the dataset
 and third-party score rights; it does not supply a bundled score database.

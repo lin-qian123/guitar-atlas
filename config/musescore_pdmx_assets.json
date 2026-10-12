@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "source_id": "musescore",
+  "scope_version": "2026-10-12.1",
+  "publication": {
+    "name": "PDMX",
+    "version": "v9",
+    "record_id": "15571083",
+    "page": "https://zenodo.org/records/15571083",
+    "doi": "10.5281/zenodo.15571083",
+    "dataset_license": "CC-BY-4.0"
+  },
+  "files": {
+    "pdf.tar.gz": {
+      "size": 9621915440,
+      "md5": "2e03ccd072755332bd63a75c57c89b3f"
+    }
+  },
+  "scope": "Only the exact PDF members declared by the existing 924 native MuseScore records in the frozen PDMX v9 guitar catalog; no live MuseScore requests or source expansion",
+  "file_acquisition_basis": "User-authorized local score acquisition from the author-published PDMX v9 PDF archive; preserve per-record CC0/Public Domain Mark and no-license-conflict evidence separately from the CC BY 4.0 dataset license",
+  "limits": {
+    "max_members": 300000,
+    "max_member_bytes": 536870912,
+    "max_total_bytes": 34359738368,
+    "max_selected_bytes": 4294967296,
+    "max_expansion_ratio": 100
+  },
+  "download_page_url": "https://zenodo.org/records/15571083/files/pdf.tar.gz"
+}

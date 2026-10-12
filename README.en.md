@@ -25,11 +25,11 @@ The frozen catalog contains **17 sources and 49,373 source records** (49,288 sco
 
 Exact title decisions cover every record: 47,469 reference or evidenced conventional Chinese titles, 1,904 intentional original-title retentions, and no machine title drafts or missing title decisions. Native titles and attributions remain intact. Reference translations are not claims of unique authoritative Chinese names.
 
-The current rounded collection interface uses self-hosted Latin display fonts, system Chinese fonts and model-generated illustrations. Lists start with 18 records and build full-text/fuzzy indexes on demand. Referenced static assets total 283,302B; compact transport is 5,763,444B, with canonical JSON retained for audit and compatibility fallback.
+The current rounded collection interface uses self-hosted Latin display fonts, system Chinese fonts and model-generated illustrations. Lists start with 18 records and build full-text/fuzzy indexes on demand. Referenced static assets total 283,302B; compact transport is 5,767,964B, with canonical JSON retained for audit and compatibility fallback.
 
 The October 11 version was pushed and deployed. This update consolidates documentation, removes unneeded copies and imports the PDMX historical subset while preserving existing source records and translation decisions. See the [publication and maintenance record](docs/research/publication.md) for verification and deployment status, and [TODO](TODO.md) for open work.
 
-The October 11 expansion adds 924 historical MuseScore records from the author-published PDMX v9 subset to shared search and topics. LibreScore is a retrieval tool; this is a frozen metadata import with no new local score files or live-site coverage. See the [source supplement](docs/research/2026-10-01-integration-log.md#musescore--pdmx-补记2026-10-11) for scope, exclusions and translation decisions.
+The 924 historical MuseScore records from the author-published PDMX v9 subset share existing search and topics. On October 12–13, all 924 publication PDFs were acquired and independently validated, with no failed or missing records. MusicXML and MIDI remain format descriptors only. LibreScore is a retrieval tool; this frozen historical subset does not cover the live site. See the [source supplement](docs/research/2026-10-01-integration-log.md#musescore--pdmx-补记2026-10-11) for scope, exclusions, translation decisions and file acquisition.
 
 ## Two editions
 
@@ -93,15 +93,41 @@ python scripts/build_classclef_library.py --root . download
 python scripts/build_classclef_library.py --root . verify
 ```
 
-MuseScore uses licensed PDMX v9 metadata rather than live-site scraping. Acquire
-the two metadata files once, then rebuild from verified local inputs. The guarded
-review adds only this source's decisions and preserves existing sources:
+MuseScore uses the licensed PDMX v9 publication rather than live-site scraping.
+The following commands perform initial metadata import and source-scoped title
+review. A file-acquisition journal or verified local PDF protects the existing
+snapshot from metadata rebuilds; resume files through the dedicated route below:
 
 ```bash
 python scripts/build_musescore_library.py --root . --acquire-metadata
 python scripts/build_musescore_library.py --root .
 python scripts/review_musescore_translations.py --root . --apply
 ```
+
+The existing 924 records have exact publication PDF locators. The dedicated
+pipeline downloads the frozen archive atomically, resumes supported byte ranges,
+checks its exact size and MD5, then safely streams only the selected members.
+Every PDF is independently parsed and stored as an immutable SHA-256 object with
+source-local hard links. It never requests a MuseScore download service.
+
+```bash
+python scripts/acquire_musescore_pdfs.py --root . --acquire-archive
+python scripts/acquire_musescore_pdfs.py --root . --parallel-archive
+python scripts/acquire_musescore_pdfs.py --root . --cached-archive
+```
+
+If the first range is complete while the following range is slow, stop every
+download writer before using `--consolidate-prefix`, then resume with
+`--parallel-archive`. This local step verifies and retains all contiguous bytes
+before replanning the remainder. It does not certify the complete archive and
+rejects gaps or source-access refusals.
+
+Per-record success, failure, missing and pending states are private in
+`sources/musescore/acquisition_report.json`; interrupted extraction resumes through
+`sources/musescore/pdmx/pdf-extraction.json`. These are PDMX exported PDFs, not
+original MSCZ files. MusicXML/MIDI metadata does not establish acquired files,
+and an archive MD5 is not a publisher-provided per-PDF checksum. Only verified
+files receive offline links; the public edition retains metadata and human pages.
 
 After downloads stop, run each applicable deduplicator as a dry run. Only freshly verified candidates permit `--apply`, followed by verification; original bytes, paths and source manifests remain intact.
 

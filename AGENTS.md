@@ -209,9 +209,30 @@ source or adapter.
   `scripts/build_musescore_library.py` imports only the frozen PDMX v9 metadata
   publication configured in `config/musescore_pdmx.json`. Use MuseScore native
   record IDs and retain PDMX/Zenodo publication and per-record licensing evidence.
-- This route acquires two metadata files from approved Zenodo file endpoints.
-  It never requests MuseScore, invokes a downloader, or acquires score files.
-  Dataset licensing and live source access remain separate policy entries.
+- The metadata route acquires two metadata files from approved Zenodo file
+  endpoints and never requests MuseScore or score files. The separately
+  authorized `scripts/acquire_musescore_pdfs.py` route uses
+  `config/musescore_pdmx_assets.json` to retrieve the frozen PDMX PDF publication;
+  dataset licensing, per-record score licensing and live source access remain
+  separate policy entries. Do not give the generic single-PDF downloader a TAR
+  endpoint or broaden MuseScore page hosts to Zenodo.
+- The fixed publication file page is a separately approved Range route. Its
+  two-stream downloader keeps existing prefix bytes, checks exact offsets and
+  all range responses, shares the robots request clock, and verifies the whole
+  archive before publication. An access refusal stops the source; never change
+  routes after a challenge or 401/403/429. Keep only the current segment plan
+  during interruption and the verified final download receipt afterward.
+- Verify the complete publication archive's exact size, upstream MD5 and internal
+  SHA-256 before streaming its TAR members. Check every member's path, type,
+  duplication and expansion bounds; retain only exact existing record locators.
+  Validate selected PDF bytes and parsing independently. An archive checksum is
+  not a publisher-supplied per-PDF checksum. Label files as PDMX exported PDFs,
+  not original MSCZ files; preserve the frozen native metadata and roles.
+- Keep interruption journals, per-record success/failure/missing decisions and
+  verified SHA-256 objects under `sources/musescore/`. Resume the dedicated
+  acquisition pipeline; the metadata builder refuses to overwrite an acquired
+  or active file snapshot. MIDI/MusicXML format metadata remains available
+  without inventing acquired local files.
 - GM programs establish candidates only. Source instrument names, exact native
   IDs/URLs, title/composer transcriptions and conflict flags establish the accepted
   subset. Track/staff counts and generic auto `Solo`/`Mixed Duet` labels do not
@@ -223,9 +244,11 @@ source or adapter.
   fragments and explicit C1 evidence. Keep native text and exact review guards;
   incomplete fragments retain the original. Exact full-name title credits may
   move to details, but a surname or title keyword cannot establish that boundary.
-- Public/offline projections share search and topics. Expose only historical
-  metadata and human source pages; file access restrictions never become local
-  score availability. Metadata-only assets do not create PDF links.
+- Public/offline projections share search and topics. The public edition exposes
+  historical metadata and human source pages. Only freshly verified publication
+  PDFs produce offline file links; source access restrictions and metadata-only
+  assets never establish local score availability. Preserve all unrelated
+  records, categories, translation bytes and old local-edition mappings.
 
 ## Public and offline editions
 

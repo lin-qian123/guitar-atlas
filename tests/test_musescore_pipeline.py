@@ -9,6 +9,7 @@ import tarfile
 
 import pytest
 import requests
+from pypdf import PdfWriter
 
 import build_musescore_library as pipeline
 from catalog_sources import load_registry
@@ -111,6 +112,56 @@ def test_real_pipeline_closes_statistics_and_preserves_historical_scope(tmp_path
     assert {row["metadata"]["instrumentation"] for row in catalog["works"]} == {"Guitar", "Guitar and flute"}
     assert all(row["metadata"]["guitar_player_count"] is None for row in catalog["works"])
     assert all(asset["status"] == "metadata_only" for row in catalog["works"] for asset in row["assets"])
+
+
+def test_metadata_rebuild_refuses_verified_pdf_before_any_write_or_network(tmp_path, no_network):
+    fixture_library(tmp_path)
+    pipeline.build(tmp_path)
+    path = tmp_path / "sources/musescore/catalog.json"
+    catalog = json.loads(path.read_text())
+    writer = PdfWriter()
+    writer.add_blank_page(width=120, height=140)
+    output = io.BytesIO()
+    writer.write(output)
+    body = output.getvalue()
+    sha = hashlib.sha256(body).hexdigest()
+    relative = f"sources/musescore/objects/{sha}.pdf"
+    pdf = tmp_path / relative
+    pdf.parent.mkdir(parents=True)
+    pdf.write_bytes(body)
+    pdf_asset = next(asset for asset in catalog["works"][0]["assets"] if asset["format"] == "PDF")
+    pdf_asset.update(status="verified", local_path=relative, sha256=sha, size=len(body))
+    catalog["works"][0]["composer_en"] = "Reviewed responsibility preserved"
+    write_json(path, catalog)
+    # The guard must run even before an acquisition request or cached receipt update.
+    (tmp_path / "sources/musescore/pdmx/PDMX.csv").unlink()
+    before = {file.relative_to(tmp_path): file.read_bytes() for file in tmp_path.rglob("*") if file.is_file()}
+    with pytest.raises(ValueError, match="acquire_musescore_pdfs\\.py"):
+        pipeline.build(tmp_path, acquire_metadata=True)
+    assert {file.relative_to(tmp_path): file.read_bytes() for file in tmp_path.rglob("*") if file.is_file()} == before
+    assert no_network == []
+
+
+@pytest.mark.parametrize("journal_state", ["running", "complete", "interrupted", "invalid_json"])
+def test_metadata_rebuild_preserves_active_or_unreadable_pdf_journal(tmp_path, no_network, journal_state):
+    fixture_library(tmp_path)
+    pipeline.build(tmp_path)
+    path = tmp_path / "sources/musescore/catalog.json"
+    catalog = json.loads(path.read_text())
+    catalog["works"][0]["composer_en"] = "Reviewed responsibility preserved"
+    write_json(path, catalog)
+    journal = tmp_path / "sources/musescore/pdmx/pdf-extraction.json"
+    if journal_state == "invalid_json":
+        journal.write_bytes(b'{"interrupted write":')
+    else:
+        write_json(journal, {"schema_version": 1, "source_id": "musescore",
+                            "status": journal_state, "records": [{"id": "musescore:100", "status": "pending"}]})
+    (tmp_path / "sources/musescore/pdmx/PDMX.csv").unlink()
+    before = {file.relative_to(tmp_path): file.read_bytes() for file in tmp_path.rglob("*") if file.is_file()}
+    with pytest.raises(ValueError, match="acquire_musescore_pdfs\\.py"):
+        pipeline.build(tmp_path, acquire_metadata=True)
+    assert {file.relative_to(tmp_path): file.read_bytes() for file in tmp_path.rglob("*") if file.is_file()} == before
+    assert no_network == []
 
 
 @pytest.mark.parametrize("name", ["PDMX.csv", "metadata.tar.gz"])

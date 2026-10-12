@@ -26,11 +26,11 @@
 
 全库题名已有精确原文守卫的处理决定：47,469条采用参考译法或有据惯用名，1,904条有理由保留原名；0条机器题名草稿或漏译。完整原题和署名始终保留，参考译名不等于唯一权威中文定名。
 
-当前页面采用圆角收藏目录、自托管拉丁展示字体、系统中文字体及模型插图。结果首批18条，全文与模糊索引按需建立；实际引用静态资产283,302B，压缩目录5,763,444B，完整JSON用于审计与兼容回退。
+当前页面采用圆角收藏目录、自托管拉丁展示字体、系统中文字体及模型插图。结果首批18条，全文与模糊索引按需建立；实际引用静态资产283,302B，压缩目录5,767,964B，完整JSON用于审计与兼容回退。
 
 2026-10-11版本已同步远端并部署，在原目录内整合文档、清理无依赖副本，并纳入PDMX历史目录。既有来源、译名决定和网页记录保持不变；最新验收与发布状态见[发布记录](docs/research/publication.md)，未完成项只维护在[TODO](TODO.md)。
 
-2026-10-11新增MuseScore的924条PDMX v9历史记录，参加同一搜索与分类。LibreScore是检索工具；这批数据来自作者许可发布的历史子集，未接入实时全库，也未新增本地谱文件。范围、译名和排除统计见[来源补记](docs/research/2026-10-01-integration-log.md#musescore--pdmx-补记2026-10-11)。
+MuseScore的924条PDMX v9历史记录参加同一搜索与分类。2026-10-12至13已取得并独立验收这924份出版PDF，0失败、0缺失；MusicXML和MIDI仍只保留格式信息。LibreScore是检索工具，这批数据来自作者许可发布的固定历史子集，未接入实时全库。范围、译名、排除与文件取得情况见[来源补记](docs/research/2026-10-01-integration-log.md#musescore--pdmx-补记2026-10-11)。
 
 ## 两种版本
 
@@ -98,13 +98,25 @@ python scripts/build_classclef_library.py --root . download
 python scripts/build_classclef_library.py --root . verify
 ```
 
-MuseScore使用已许可的PDMX v9元数据入口，首次取得两份元数据后可离线重建；不抓取MuseScore页面或乐谱文件。译名工具仅增补本来源，保留其他来源的精确决定：
+MuseScore使用已许可的PDMX v9出版入口。以下命令用于首次元数据接入和题名整理，保留其他来源的精确决定；已有PDF获取journal或已验证文件时，元数据重建会拒绝覆盖，改用下方独立获取流程：
 
 ```bash
 python scripts/build_musescore_library.py --root . --acquire-metadata
 python scripts/build_musescore_library.py --root .  # 使用已核验缓存
 python scripts/review_musescore_translations.py --root . --apply
 ```
+
+现有924条记录的PDF按原生编号和出版包内精确路径获取，不访问MuseScore下载接口。出版包支持原子下载／适用的断点续传；完整包通过大小与MD5检查后流式选取目标PDF，每份独立解析并按SHA-256存储、硬链接复用。源站的历史文件限制与独立出版档案分别保留：
+
+```bash
+python scripts/acquire_musescore_pdfs.py --root . --acquire-archive
+python scripts/acquire_musescore_pdfs.py --root . --parallel-archive  # 批准的出版文件页，最多两段续传
+python scripts/acquire_musescore_pdfs.py --root . --cached-archive  # 使用完整核验的出版包续传／重验
+```
+
+若第一段已完整而后段缓慢，可在下载进程全部退出后运行 `--consolidate-prefix`，核验并合并连续已收字节，再以 `--parallel-archive` 重分剩余两段。该步骤只操作本地字节，不代表整包校验通过；来源拒绝或存在缺口时不允许重分。
+
+成功、失败、缺失和未尝试条目记录在私有 `sources/musescore/acquisition_report.json`，恢复journal在 `sources/musescore/pdmx/pdf-extraction.json`。取得的是PDMX导出PDF，未取得的MusicXML／MIDI仅保留格式信息；归档MD5通过不等于上游提供了每份PDF的校验和。仅在目标选取和最终文件核验完成后建立离线链接，公开网页继续只发布目录和来源页。
 
 在下载停止后，先dry-run再按已核验候选执行去重，随后重新验证。ClassClef与新增来源工具各自保留独立journal：
 

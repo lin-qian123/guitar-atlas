@@ -48,6 +48,28 @@ def validate_config(value: dict) -> None:
             raise ValueError(f"invalid frozen checksum: {name}")
 
 
+def reject_acquired_catalog(root: Path) -> None:
+    """An initial metadata import must never discard acquired PDF evidence."""
+    message = ("metadata-only rebuild would discard MuseScore PDF acquisition evidence and reviewed metadata; "
+               "existing files preserved. Use scripts/acquire_musescore_pdfs.py instead")
+    journal = root / "sources/musescore/pdmx/pdf-extraction.json"
+    # A journal can protect an interrupted scan even before the catalog contains
+    # verified assets. Unreadable, partial or unsafe journals must also fail closed.
+    if journal.exists() or journal.is_symlink():
+        raise ValueError(message)
+    path = root / "sources/musescore/catalog.json"
+    if not path.is_file():
+        return
+    catalog = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(catalog, dict):
+        raise ValueError("existing MuseScore catalog must be an object; preserved without changes")
+    if any(isinstance(asset, dict) and str(asset.get("format", "")).upper() == "PDF"
+           and asset.get("status") == "verified"
+           for work in catalog.get("works", []) if isinstance(work, dict)
+           for asset in work.get("assets", [])):
+        raise ValueError(message)
+
+
 def build(root: Path, *, acquire_metadata: bool = False) -> dict:
     from source_adapters.musescore import convert_record
 
@@ -58,6 +80,7 @@ def build(root: Path, *, acquire_metadata: bool = False) -> dict:
                  root / "sources/musescore/import-report.json"):
         if not path.resolve().is_relative_to(root):
             raise ValueError("PDMX inputs and outputs must remain inside the project root")
+    reject_acquired_catalog(root)
     config_bytes = configuration.read_bytes()
     config = json.loads(config_bytes)
     validate_config(config)

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -14,7 +15,64 @@ from acquire_source_assets import atomic_json
 from catalog_sources import load_registry
 
 
-def report(root: Path):
+def _report_path(root: Path, value, label: str) -> Path:
+    path = Path(value)
+    if not path.is_absolute():
+        path = root / path
+    if not path.resolve().is_relative_to(root):
+        raise ValueError(f'{label} report must remain inside the project root')
+    return path
+
+
+def _read_report(root: Path, explicit, fallback: str, key: str, evidence: dict):
+    path = _report_path(root, explicit if explicit is not None else fallback, key)
+    if not path.is_file():
+        if explicit is None:
+            return None
+        raise ValueError(f'missing explicit {key} report: {path}')
+    try:
+        body = path.read_bytes()
+        value = json.loads(body)
+    except (OSError, ValueError) as error:
+        raise ValueError(f'invalid {key} report input: {path}') from error
+    if not isinstance(value, dict) or not value:
+        raise ValueError(f'{key} report input must be a nonempty JSON object')
+    if explicit is not None:
+        evidence[key] = {'path': path.relative_to(root).as_posix(),
+                         'sha256': hashlib.sha256(body).hexdigest(), 'bytes': len(body)}
+    return value
+
+
+def report(root: Path, *, machine_only=False, offline_report=None,
+           translation_audit=None, catalog_parity=None, output_report=None):
+    root = root.resolve()
+    arguments = {'offline_report': offline_report, 'translation_audit': translation_audit,
+                 'catalog_parity': catalog_parity, 'output_report': output_report}
+    if machine_only and any(value is None for value in arguments.values()):
+        raise ValueError('machine-only mode requires explicit --offline-report, --translation-audit, '
+                         '--catalog-parity and --output-report paths')
+    output_path = _report_path(root, output_report if output_report is not None
+                               else 'work/source-expansion/2026-10-01/integration-report.json', 'output')
+    if machine_only and (output_path.suffix.lower() != '.json' or output_path.resolve().is_relative_to(root / 'public_site')):
+        raise ValueError('machine-only output must be a private JSON report')
+    if any(value is not None and _report_path(root, value, key).resolve() == output_path.resolve()
+           for key, value in arguments.items() if key != 'output_report'):
+        raise ValueError('output report cannot overwrite an evidence input')
+    input_reports = {}
+    offline = _read_report(root, offline_report, 'work/source-expansion/2026-10-01/offline-verification.json',
+                           'offline_report', input_reports)
+    audit = _read_report(root, translation_audit, 'work/source-expansion/2026-10-01/translation-audit.json',
+                         'translation_audit', input_reports)
+    parity = _read_report(root, catalog_parity, 'work/source-expansion/2026-10-01/catalog-parity.json',
+                          'catalog_parity', input_reports)
+    if offline_report is not None and (any(type(offline.get(key)) is not int or offline[key] < 0
+            for key in ('pdf_records', 'downloaded', 'unavailable'))
+            or offline['pdf_records'] != offline['downloaded'] + offline['unavailable']):
+        raise ValueError('invalid offline report counts')
+    if translation_audit is not None and (type(audit.get('ready')) is not bool
+            or not isinstance(audit.get('pending'), list) or not isinstance(audit.get('retained'), list)
+            or not isinstance(audit.get('coverage'), dict)):
+        raise ValueError('invalid translation audit report fields')
     catalog=json.loads((root/'public_site/data/catalog.json').read_text())
     registry=load_registry(root)
     new_sources=[source for source in registry if source['id'] not in {'imslp','classclef'}]
@@ -46,12 +104,6 @@ def report(root: Path):
             'translation':catalog['translation_summary'].get(source['id'],{}),
             'chinese_title_records':sum(bool(re.search(r'[\u3400-\u9fff]',work['title_zh'])) for work in works),
             'chinese_composer_records':sum(bool(re.search(r'[\u3400-\u9fff]',work['composer_zh'])) for work in works)})
-    offline_path=root/'work/source-expansion/2026-10-01/offline-verification.json'
-    offline=json.loads(offline_path.read_text()) if offline_path.exists() else None
-    audit_path=root/'work/source-expansion/2026-10-01/translation-audit.json'
-    audit=json.loads(audit_path.read_text()) if audit_path.exists() else None
-    parity_path=root/'work/source-expansion/2026-10-01/catalog-parity.json'
-    parity=json.loads(parity_path.read_text()) if parity_path.exists() else None
     pool=root/'sources/objects/sha256';objects=list(pool.rglob('*.pdf'))
     pool_inodes={(path.stat().st_dev,path.stat().st_ino) for path in objects}
     policies=json.loads((root/'config/source_acquisition_policies.json').read_text())
@@ -64,8 +116,8 @@ def report(root: Path):
     legacy_runs=json.loads(legacy_path.read_text()).get('runs',[]) if legacy_path.exists() else []
     legacy_summary=legacy_runs[-1]['counts'] if legacy_runs else {}
     checks={}
-    for key,filename,pattern in [('python_tests','python-tests.log',r'(\d+) passed'),
-                                 ('node_tests','node-tests.log',r'# pass (\d+)')]:
+    for key,filename,pattern in ([] if machine_only else [('python_tests','python-tests.log',r'(\d+) passed'),
+                                 ('node_tests','node-tests.log',r'# pass (\d+)')]):
         logfile=root/'work/source-expansion/2026-10-01'/filename
         matches=re.findall(pattern,logfile.read_text(errors='replace')) if logfile.exists() else []
         if matches:checks[key]=int(matches[-1])
@@ -78,10 +130,19 @@ def report(root: Path):
         'sources':sources,'candidate_policies':policies,'offline_verification':offline,
         'new_to_imslp_deduplication':dedup_summary,'classclef_to_imslp_dry_check':legacy_summary,
         'validation':checks,'catalog_parity':parity,
-        'browser_evidence':'work/source-expansion/2026-10-01/ui-qa.md',
+        'browser_evidence':None if machine_only else 'work/source-expansion/2026-10-01/ui-qa.md',
         'translation_audit':({'ready':audit['ready'],'pending_fields':len(audit['pending']),'retained_fields':len(audit['retained']),'coverage':audit['coverage']} if audit else None),
         'publication':{'github_push':False,'pages_deployment':False,'reason':'Local integration; machine translation drafts remain a publication review gate.'}}
-    path=root/'work/source-expansion/2026-10-01/integration-report.json';atomic_json(path,result)
+    if input_reports:
+        result['input_reports'] = input_reports
+    if machine_only:
+        result['publication'] = {'github_push': None, 'pages_deployment': None,
+                                 'reason': 'Not checked by this machine receipt; see docs/research/publication.md.'}
+    atomic_json(output_path,result)
+    if machine_only:
+        print(json.dumps({'report':str(output_path),'sources':len(registry),
+                          'records':catalog['summary']['unique_work_count'],'new_pool_objects':len(objects)},ensure_ascii=False))
+        return result
     lines=['# 六弦漫行（Guitar Atlas）多来源接入日志：2026-10-01','',f'记录生成：{result["created_at"]}；注册范围版本：`{result["registry_version"]}`。',
         '',f'新增 **{len(new_sources)} 个来源**，合计 **{result["new_source_record_count"]:,} 条来源记录**。全库 **{len(registry)} 个来源、{catalog["summary"]["unique_work_count"]:,} 条记录、{catalog["summary"]["category_count"]:,} 个原站分类、{catalog["summary"]["category_record_count"]:,} 条分类关系**。作品身份、版本和合集保持来源证据，不把这些数字表述成跨站唯一乐曲数。',
         '', '共同入口按编制与用途组织；所有来源参加同一搜索，原分类可展开查看。搜索覆盖原题、中文参考名、音乐家、编曲/编辑、作品号、格式与版本资料；精确筛选、中文别名及拼写恢复共用规则。',
@@ -136,5 +197,17 @@ def report(root: Path):
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1])
-    report(parser.parse_args().root.resolve())
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1])
+    parser.add_argument('--machine-only',action='store_true',help='Write only the explicit private JSON receipt; preserve human logs')
+    parser.add_argument('--offline-report',type=Path)
+    parser.add_argument('--translation-audit',type=Path)
+    parser.add_argument('--catalog-parity',type=Path)
+    parser.add_argument('--output-report',type=Path)
+    args=parser.parse_args()
+    try:
+        report(args.root.resolve(), machine_only=args.machine_only, offline_report=args.offline_report,
+               translation_audit=args.translation_audit, catalog_parity=args.catalog_parity,
+               output_report=args.output_report)
+    except ValueError as error:
+        parser.error(str(error))
