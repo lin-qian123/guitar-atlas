@@ -85,4 +85,4 @@
 
 1,702项Python、66项Node测试、公开边界验证、译名状态及全字段文本审计通过。实际localhost HTTP页面以中文检索《阿尔罕布拉宫的回忆》，打开本地4页PDF并显示首张谱页；MuseScore筛选的“巴赫”返回11条、11个本地PDF链接，控制台无warn/error。没有把HTTP检查写成file协议UI验收。前端静态资源仍为283,302B，压缩目录5,767,964B（增加4,520B）；私有离线入口7,640,680B（增加57,160B），不嵌入PDF字节。仅保留最新一份有效入口回退；下载分片已在完整包验收后清理。
 
-本地验收完成；远端提交、Pages工作流及线上字节核对待完成，届时原位补充本段。
+内容提交为 [`019cc172083c00e8e585f2a0f1ce91104aedd21c`](https://github.com/lin-qian123/guitar-atlas/commit/019cc172083c00e8e585f2a0f1ce91104aedd21c)，本地HEAD、origin/main和实时远端ref一致；[Pages运行38295975812](https://github.com/lin-qian123/guitar-atlas/actions/runs/38295975812)的head SHA相同，测试、两项审计、公开验证及部署全部成功。线上18个HTTP内容文件均返回200，与本地冻结清单的大小／SHA-256相等，包括压缩及完整目录；`.nojekyll`单列为控制文件。随后仅同步本段与README／TODO，公开网站树保持相同；最终ref、工作流与线上证据在私有 `sources/musescore/verification/verification.json` 原位接续。

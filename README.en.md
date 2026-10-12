@@ -27,7 +27,7 @@ Exact title decisions cover every record: 47,469 reference or evidenced conventi
 
 The current rounded collection interface uses self-hosted Latin display fonts, system Chinese fonts and model-generated illustrations. Lists start with 18 records and build full-text/fuzzy indexes on demand. Referenced static assets total 283,302B; compact transport is 5,767,964B, with canonical JSON retained for audit and compatibility fallback.
 
-The October 11 version was pushed and deployed. This update consolidates documentation, removes unneeded copies and imports the PDMX historical subset while preserving existing source records and translation decisions. See the [publication and maintenance record](docs/research/publication.md) for verification and deployment status, and [TODO](TODO.md) for open work.
+The October 13 version was pushed and deployed, adding 924 PDMX exported PDFs to the existing offline entry. Existing source records and all translation decisions are preserved; full offline verification, link preservation and live byte checks passed. See the [publication and maintenance record](docs/research/publication.md) for evidence and deployment status, and [TODO](TODO.md) for open work.
 
 The 924 historical MuseScore records from the author-published PDMX v9 subset share existing search and topics. On October 12–13, all 924 publication PDFs were acquired and independently validated, with no failed or missing records. MusicXML and MIDI remain format descriptors only. LibreScore is a retrieval tool; this frozen historical subset does not cover the live site. See the [source supplement](docs/research/2026-10-01-integration-log.md#musescore--pdmx-补记2026-10-11) for scope, exclusions, translation decisions and file acquisition.
 
