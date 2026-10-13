@@ -160,7 +160,7 @@ def test_metadata_refresh_preserves_all_verified_parts_and_backup(tmp_path):
         rows=json.loads(path.read_text()); rows[0]['title_zh']='《新参考译名》';write_json(path,rows)
     report=refresh_display_metadata(tmp_path)
     assert report['checked_local_paths']==4
-    assert 'PDF integrity' in report['refresh_method']
+    assert 'score integrity' in report['refresh_method']
     from tests.test_offline_metadata_guard import payload
     fresh = payload(tmp_path)['data']
     assert {work['title_zh'] for work in fresh['works']} == {'《新参考译名》'}

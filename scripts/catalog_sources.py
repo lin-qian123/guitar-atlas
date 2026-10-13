@@ -61,7 +61,7 @@ def validate_source_url(value: str, source_id: str, registry: list[dict] | None 
     if (url.scheme != "https" or url.hostname not in source["allowed_hosts"]
             or url.username or url.password or url.port not in (None, 443)
             or not query_ok or url.fragment or "\\" in value
-            or re.search(r"\.(?:pdf|mid|midi|gpx|gp[3-8]|zip|mxl|musicxml|ly)(?:$|/)", decoded)
+            or re.search(r"\.(?:pdf|mid|midi|gpx|gp[3-8]|zip|mxl|musicxml|mscz|mscx|xml|ly)(?:$|/)", decoded)
             or any(segment in decoded for segment in ("/wp-content/", "/special:", "/wiki/file:"))
             or ("/download/" in decoded and not dedicated_page)):
         raise ValueError(f"invalid {source_id} source page URL: {value!r}")

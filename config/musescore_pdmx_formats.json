@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "source_id": "musescore",
+  "scope_version": "2026-10-13.1",
+  "publication": {
+    "name": "PDMX",
+    "version": "v9",
+    "record_id": "15571083",
+    "page": "https://zenodo.org/records/15571083",
+    "doi": "10.5281/zenodo.15571083",
+    "dataset_license": "CC-BY-4.0"
+  },
+  "files": {
+    "mxl.tar.gz": {
+      "size": 1894335797,
+      "md5": "49ffd75ecf5489c0be6d41182eb11ff7"
+    },
+    "mid.tar.gz": {
+      "size": 214395208,
+      "md5": "d920a21b2fcd99a56d9c381b39debbb2"
+    }
+  },
+  "scope": "Only exact MXL and MIDI members declared by the same existing 924 native MuseScore records in the frozen PDMX v9 guitar catalog; preserve all PDF associations; no live MuseScore requests or source expansion",
+  "file_acquisition_basis": "Explicit user authorization to acquire MXL and MIDI for this frozen 924-record subset from the author-published PDMX v9 archives, retain per-record licensing and associate with existing PDFs by native identity",
+  "limits": {
+    "max_members": 300000,
+    "max_member_bytes": 536870912,
+    "max_total_bytes": 34359738368,
+    "max_selected_bytes": 4294967296,
+    "max_expansion_ratio": 100
+  },
+  "expected_records": 924,
+  "download_page_urls": {
+    "mxl.tar.gz": "https://zenodo.org/records/15571083/files/mxl.tar.gz",
+    "mid.tar.gz": "https://zenodo.org/records/15571083/files/mid.tar.gz"
+  }
+}

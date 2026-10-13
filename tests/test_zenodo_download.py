@@ -17,7 +17,7 @@ ROBOTS = "https://zenodo.org/robots.txt"
 
 
 @contextmanager
-def range_server(body, *, mode="good", stop_after=None):
+def range_server(body, *, mode="good", stop_after=None, filename="pdf.tar.gz"):
     state = {"calls": [], "active": 0, "max_active": 0, "lock": threading.Lock(), "interrupted": False,
              "concurrent": threading.Event()}
     class Handler(BaseHTTPRequestHandler):
@@ -27,7 +27,7 @@ def range_server(body, *, mode="good", stop_after=None):
             with state["lock"]:
                 state["calls"].append((self.path, self.headers.get("Range")))
             if self.path == "/robots.txt":
-                text = b"User-agent: *\nAllow: /records/15571083/files/pdf.tar.gz\nCrawl-delay: 10\n"
+                text = f"User-agent: *\nAllow: /records/15571083/files/{filename}\nCrawl-delay: 10\n".encode()
                 self.send_response(200); self.send_header("Content-Length", str(len(text))); self.end_headers(); self.wfile.write(text)
                 return
             if mode.startswith("stop"):
@@ -545,3 +545,351 @@ def test_replaced_prefix_and_self_reported_hash_must_still_match_every_original_
     with pytest.raises(ValueError, match="slice|original.*identity"):
         consolidate(tmp_path, body)
     assert all((tmp_path / row["filename"]).exists() for row in original_plan["segments"])
+
+@pytest.mark.parametrize('filename', ['mxl.tar.gz', 'mid.tar.gz'])
+def test_reviewed_other_publication_formats_use_exact_route_and_own_receipts(tmp_path, filename):
+    url = 'https://zenodo.org/records/15571083/files/' + filename
+    body = b'\x1f\x8b' + bytes(range(256))*40
+    class FormatTransport(LocalTransport):
+        def get(self, requested, **kwargs):
+            assert requested in {url, ROBOTS}
+            path = '/robots.txt' if requested == ROBOTS else '/records/15571083/files/' + filename
+            response = self.session.get(self.base + path, **kwargs)
+            response.url = requested
+            return response
+    with range_server(body, filename=filename) as (base, state):
+        clock = [100.0]
+        connection = zenodo_download.RangeClient(page_url=url, session=FormatTransport(base),
+            clock=lambda: clock[0], sleep=lambda seconds: clock.__setitem__(0, clock[0] + seconds))
+        receipt = zenodo_download.download_file(url, tmp_path / filename, expected_size=len(body),
+            expected_md5=hashlib.md5(body).hexdigest(), client=connection, chunk_bytes=1024)
+    assert (tmp_path / filename).read_bytes() == body
+    assert receipt['url'] == url and receipt['upstream_checksum_verified'] is True
+    stem = filename.split('.')[0]
+    assert (tmp_path / (stem + '-range-plan.json')).is_file()
+    assert (tmp_path / (stem + '-receipt.json')).is_file()
+    assert not (tmp_path / 'pdf-receipt.json').exists()
+    assert state['max_active'] <= 2
+
+@pytest.mark.parametrize('url', [
+    'https://zenodo.org/records/15571083/files/data.tar.gz',
+    'https://zenodo.org/records/15571084/files/mxl.tar.gz',
+    'https://zenodo.org/records/15571083/files/mxl.tar.gz?download=1',
+])
+def test_publication_client_rejects_unreviewed_routes_before_network(url):
+    with pytest.raises(ValueError, match='unapproved'):
+        zenodo_download.RangeClient(page_url=url)
+
+
+def test_format_client_cannot_be_reused_for_another_endpoint(tmp_path):
+    client = zenodo_download.RangeClient(page_url='https://zenodo.org/records/15571083/files/mxl.tar.gz')
+    with pytest.raises(ValueError, match='endpoint'):
+        zenodo_download.download_file(URL, tmp_path / 'pdf.tar.gz', expected_size=20,
+            expected_md5='0'*32, client=client)
+
+
+def test_access_refusal_journal_cannot_silently_restart_with_a_fresh_client(tmp_path):
+    body = b'\x1f\x8b' + b'correct archive'*500
+    with range_server(body, mode='stop403') as (base, _):
+        with pytest.raises(zenodo_download.AccessStopped):
+            download(tmp_path, body, client(base))
+    with range_server(body) as (base, state):
+        with pytest.raises(zenodo_download.AccessStopped):
+            download(tmp_path, body, client(base))
+    assert state['calls'] == []
+    assert not (tmp_path / 'pdf.tar.gz').exists()
+
+
+def local_tail_plan(tmp_path, body, *, first_bytes=123, prefix_size=100):
+    plan = local_partial_plan(tmp_path,body,prefix_size=prefix_size,first_complete=False,second_bytes=first_bytes)
+    tail = plan["segments"][1]
+    (tmp_path / tail["filename"]).write_bytes(body[tail["start"]:])
+    # Persisted counters may lag durable file bytes after an interrupted stream.
+    plan["segments"][0]["received"] = 0
+    tail.update(received=tail["length"],status="complete")
+    (tmp_path / "pdf-range-plan.json").write_text(json.dumps(plan))
+    return plan
+
+
+def rebalance(tmp_path,body):
+    return zenodo_download.rebalance_received_ranges(tmp_path / "pdf.tar.gz",page_url=URL,
+        expected_size=len(body),expected_md5=hashlib.md5(body).hexdigest(),source_lock_path=tmp_path / ".pdf-acquisition.lock")
+
+
+def test_tail_rebalance_preserves_partial_first_and_complete_last_then_fetches_only_gap(tmp_path,monkeypatch):
+    monkeypatch.setattr(zenodo_download,"GAP_CHUNK_BYTES",16384)
+    body = b"\x1f\x8b"+bytes(range(256))*300
+    before = local_tail_plan(tmp_path,body)
+    result = rebalance(tmp_path,body)
+    assert result["status"] == "rebalanced" and result["archive_verified"] is False
+    plan = json.loads((tmp_path / "pdf-range-plan.json").read_text())
+    assert (tmp_path / "pdf.tar.gz.part").read_bytes() == body[:223]
+    tail = plan["retained_tail"]
+    assert tail["start"] == before["segments"][1]["start"] and tail["end"] == len(body)-1
+    assert (tmp_path / tail["filename"]).read_bytes() == body[tail["start"]:]
+    assert tail["sha256"] == hashlib.sha256(body[tail["start"]:]).hexdigest()
+    assert plan["segments"][0]["start"] == 223 and plan["segments"][-1]["end"] == tail["start"]-1
+    assert tail["filename"] not in {row["filename"] for row in plan["segments"]}
+    assert not (tmp_path / "pdf.tar.gz").exists()
+    with range_server(body,mode="concurrent") as (base,state):
+        receipt = download(tmp_path,body,client(base))
+    assert sorted(value for _,value in state["calls"] if value) == sorted(f"bytes={row['start']}-{row['end']}" for row in plan["segments"])
+    assert (tmp_path / "pdf.tar.gz").read_bytes() == body and receipt["upstream_checksum_verified"] is True
+    assert receipt["retained_tail_bytes"] == tail["length"]
+    assert state["max_active"] == 2 and not list(tmp_path.glob("*.part"))
+
+
+def test_tail_rebalance_declines_partial_upper_and_old_pdf_consolidator_rejects_tail(tmp_path):
+    body = b"\x1f\x8b"+bytes(range(256))*300
+    local_partial_plan(tmp_path,body,first_complete=False)
+    before = {path.name:path.read_bytes() for path in tmp_path.iterdir() if not path.name.startswith(".")}
+    assert rebalance(tmp_path,body)["status"] == "unchanged"
+    assert {path.name:path.read_bytes() for path in tmp_path.iterdir() if not path.name.startswith(".")} == before
+    local_tail_plan(tmp_path,body)
+    rebalance(tmp_path,body)
+    with pytest.raises(ValueError,match="tail"):
+        consolidate(tmp_path,body)
+
+
+def test_tail_mutation_is_detected_before_any_new_http_request(tmp_path):
+    body = b"\x1f\x8b"+bytes(range(256))*300
+    local_tail_plan(tmp_path,body)
+    rebalance(tmp_path,body)
+    plan = json.loads((tmp_path / "pdf-range-plan.json").read_text())
+    tail = tmp_path / plan["retained_tail"]["filename"]
+    tail.chmod(0o644)
+    tail.write_bytes(b"X"+tail.read_bytes()[1:])
+    with range_server(body) as (base,state):
+        with pytest.raises(ValueError,match="tail|checksum|identity"):
+            download(tmp_path,body,client(base))
+    assert state["calls"] == [] and tail.exists() and not (tmp_path / "pdf.tar.gz").exists()
+
+
+@pytest.mark.parametrize("point",["before_replace","after_replace"])
+def test_tail_rebalance_prepared_crash_recovers_without_losing_any_received_bytes(tmp_path,monkeypatch,point):
+    body = b"\x1f\x8b"+bytes(range(256))*300
+    old = local_tail_plan(tmp_path,body)
+    original_finish = zenodo_download._finish_rebalance
+    original_write = zenodo_download._atomic_json
+    if point == "before_replace":
+        def stop(*args):
+            raise KeyboardInterrupt("prepared before replacement")
+        monkeypatch.setattr(zenodo_download,"_finish_rebalance",stop)
+    else:
+        def stop_final(path,payload):
+            if payload.get("rebalance",{}).get("status") == "complete":
+                raise OSError("prepared after replacement")
+            return original_write(path,payload)
+        monkeypatch.setattr(zenodo_download,"_atomic_json",stop_final)
+    with pytest.raises((KeyboardInterrupt,OSError)):
+        rebalance(tmp_path,body)
+    assert json.loads((tmp_path / "pdf-range-plan.json").read_text())["rebalance"]["status"] == "prepared"
+    assert all((tmp_path / row["filename"]).exists() for row in old["segments"])
+    with range_server(body) as (base,state):
+        with pytest.raises(ValueError,match="pending local rebalance"):
+            download(tmp_path,body,client(base))
+    assert state["calls"] == []
+    monkeypatch.setattr(zenodo_download,"_finish_rebalance",original_finish)
+    monkeypatch.setattr(zenodo_download,"_atomic_json",original_write)
+    assert rebalance(tmp_path,body)["status"] == "rebalanced"
+    with range_server(body) as (base,state):
+        download(tmp_path,body,client(base))
+    assert (tmp_path / "pdf.tar.gz").read_bytes() == body
+
+
+@pytest.mark.parametrize("alter",["offset","filename","refusal"])
+def test_tail_rebalance_refuses_stale_boundaries_paths_and_source_stop(tmp_path,alter):
+    body = b"\x1f\x8b"+bytes(range(256))*300
+    plan = local_tail_plan(tmp_path,body)
+    if alter == "offset":
+        plan["segments"][1]["start"] += 1
+    elif alter == "filename":
+        plan["segments"][1]["filename"] = "unrelated.txt"
+        (tmp_path / "unrelated.txt").write_bytes(b"keep")
+    else:
+        plan.update(status="stopped_access",error="HTTP 403")
+    (tmp_path / "pdf-range-plan.json").write_text(json.dumps(plan))
+    before = {path.name:path.read_bytes() for path in tmp_path.iterdir() if not path.name.startswith(".")}
+    with pytest.raises((ValueError,zenodo_download.AccessStopped)):
+        rebalance(tmp_path,body)
+    assert {path.name:path.read_bytes() for path in tmp_path.iterdir() if not path.name.startswith(".")} == before
+
+
+def test_tail_rebalance_source_and_stream_locks_prevent_changes(tmp_path):
+    body = b"\x1f\x8b"+bytes(range(256))*300
+    local_tail_plan(tmp_path,body)
+    prefix = (tmp_path / "pdf.tar.gz.part").read_bytes()
+    for name in (".pdf-acquisition.lock",".publication-range.lock",".pdf-range.lock"):
+        with zenodo_download.source_lock(tmp_path / name):
+            with pytest.raises(RuntimeError,match="lock"):
+                rebalance(tmp_path,body)
+    assert (tmp_path / "pdf.tar.gz.part").read_bytes() == prefix
+
+
+def test_tail_gap_interruption_resumes_at_exact_partial_offsets(tmp_path):
+    body = b"\x1f\x8b"+bytes(range(256))*300
+    local_tail_plan(tmp_path,body)
+    rebalance(tmp_path,body)
+    with range_server(body,stop_after=5000) as (base,state):
+        with pytest.raises(RuntimeError,match="interrupted"):
+            download(tmp_path,body,client(base))
+    plan = json.loads((tmp_path / "pdf-range-plan.json").read_text())
+    tail = tmp_path / plan["retained_tail"]["filename"]
+    saved = tail.read_bytes()
+    expected = [f"bytes={row['start']+(tmp_path / row['filename']).stat().st_size}-{row['end']}" for row in plan["segments"]
+                if (tmp_path / row["filename"]).stat().st_size < row["length"]]
+    with range_server(body) as (base,state):
+        download(tmp_path,body,client(base))
+    assert [value for _,value in state["calls"] if value] == expected
+    assert (tmp_path / "pdf.tar.gz").read_bytes() == body and saved == body[plan["retained_tail"]["start"]:]
+
+
+def test_tail_rebalance_too_many_gap_jobs_refuses_before_copy_or_plan_mutation(tmp_path,monkeypatch):
+    body = b"\x1f\x8b"+bytes(range(256))*300
+    local_tail_plan(tmp_path,body)
+    monkeypatch.setattr(zenodo_download,"GAP_CHUNK_BYTES",100)
+    before = {path.name:path.read_bytes() for path in tmp_path.iterdir() if not path.name.startswith(".")}
+    with pytest.raises(ValueError,match="job limit"):
+        rebalance(tmp_path,body)
+    assert {path.name:path.read_bytes() for path in tmp_path.iterdir() if not path.name.startswith(".")} == before
+    assert not (tmp_path / "pdf.tar.gz.prefix-rebalance.part").exists()
+
+
+@pytest.mark.parametrize("alter",["chunk_bytes","extent","segment_path","tail_extent"])
+def test_tail_chunk_table_or_extent_tampering_is_rejected_before_http(tmp_path,alter):
+    body = b"\x1f\x8b"+bytes(range(256))*300
+    local_tail_plan(tmp_path,body)
+    rebalance(tmp_path,body)
+    path = tmp_path / "pdf-range-plan.json"
+    plan = json.loads(path.read_text())
+    if alter == "chunk_bytes":
+        plan["gap_chunk_bytes"] //= 2
+    elif alter == "extent":
+        plan["segments"][0]["end"] += 1
+    elif alter == "segment_path":
+        plan["segments"][0]["filename"] = "unrelated.txt"
+    else:
+        plan["retained_tail"]["start"] -= 1
+    path.write_text(json.dumps(plan))
+    with range_server(body) as (base,state):
+        with pytest.raises(ValueError):
+            download(tmp_path,body,client(base))
+    assert state["calls"] == [] and not (tmp_path / "pdf.tar.gz").exists()
+
+
+def test_prepared_tail_staging_forgery_cannot_replace_original_received_slices(tmp_path,monkeypatch):
+    body = b"\x1f\x8b"+bytes(range(256))*300
+    local_tail_plan(tmp_path,body)
+    prefix = tmp_path / "pdf.tar.gz.part"
+    saved = prefix.read_bytes()
+    original = zenodo_download._finish_rebalance
+    def stop(*args):
+        raise KeyboardInterrupt("before replacement")
+    monkeypatch.setattr(zenodo_download,"_finish_rebalance",stop)
+    with pytest.raises(KeyboardInterrupt):
+        rebalance(tmp_path,body)
+    monkeypatch.setattr(zenodo_download,"_finish_rebalance",original)
+    staging = tmp_path / "pdf.tar.gz.prefix-rebalance.part"
+    staging.write_bytes(b"X"+staging.read_bytes()[1:])
+    path = tmp_path / "pdf-range-plan.json"
+    plan = json.loads(path.read_text())
+    plan["rebalance"]["new_prefix"]["sha256"] = hashlib.sha256(staging.read_bytes()).hexdigest()
+    path.write_text(json.dumps(plan))
+    with pytest.raises(ValueError,match="original concatenation"):
+        rebalance(tmp_path,body)
+    assert prefix.read_bytes() == saved and all((tmp_path / row["filename"]).exists() for row in plan["segments"])
+
+
+def test_prepared_original_upper_corruption_blocks_recovery(tmp_path,monkeypatch):
+    body = b"\x1f\x8b"+bytes(range(256))*300
+    old = local_tail_plan(tmp_path,body)
+    original = zenodo_download._finish_rebalance
+    def stop(*args):
+        raise KeyboardInterrupt("before replacement")
+    monkeypatch.setattr(zenodo_download,"_finish_rebalance",stop)
+    with pytest.raises(KeyboardInterrupt):
+        rebalance(tmp_path,body)
+    monkeypatch.setattr(zenodo_download,"_finish_rebalance",original)
+    upper = tmp_path / old["segments"][1]["filename"]
+    upper.write_bytes(b"X"+upper.read_bytes()[1:])
+    with pytest.raises(ValueError,match="upper fragment.*identity"):
+        rebalance(tmp_path,body)
+    assert not (tmp_path / "pdf.tar.gz").exists()
+
+
+def test_rebalance_crash_after_plan_publication_cleans_retired_inputs_on_replay(tmp_path,monkeypatch):
+    body = b"\x1f\x8b"+bytes(range(256))*300
+    old = local_tail_plan(tmp_path,body)
+    original = zenodo_download._clean_rebalance_inputs
+    def stop(*args):
+        raise OSError("after plan publication")
+    monkeypatch.setattr(zenodo_download,"_clean_rebalance_inputs",stop)
+    with pytest.raises(OSError):
+        rebalance(tmp_path,body)
+    assert json.loads((tmp_path / "pdf-range-plan.json").read_text())["rebalance"]["status"] == "complete"
+    assert all((tmp_path / row["filename"]).exists() for row in old["segments"])
+    monkeypatch.setattr(zenodo_download,"_clean_rebalance_inputs",original)
+    assert rebalance(tmp_path,body)["reason"] == "retained_tail_plan_already_committed"
+    assert all(not (tmp_path / row["filename"]).exists() for row in old["segments"])
+    assert rebalance(tmp_path,body)["status"] == "unchanged"
+
+
+def test_rebalance_cleanup_cannot_unlink_forged_unrelated_file(tmp_path):
+    body = b"\x1f\x8b"+bytes(range(256))*300
+    local_tail_plan(tmp_path,body)
+    rebalance(tmp_path,body)
+    unrelated = tmp_path / "unrelated.txt"
+    unrelated.write_bytes(b"preserve me")
+    path = tmp_path / "pdf-range-plan.json"
+    plan = json.loads(path.read_text())
+    plan["rebalance"]["input_guards"][1] = {"filename":unrelated.name,"bytes":unrelated.stat().st_size,
+                                           "sha256":hashlib.sha256(unrelated.read_bytes()).hexdigest()}
+    path.write_text(json.dumps(plan))
+    with pytest.raises(ValueError,match="exact old plan"):
+        rebalance(tmp_path,body)
+    assert unrelated.read_bytes() == b"preserve me"
+
+
+def test_rebalance_and_http_never_switch_after_another_format_access_refusal(tmp_path):
+    body = b"\x1f\x8b"+bytes(range(256))*300
+    local_tail_plan(tmp_path,body)
+    (tmp_path / "mxl-extraction.json").write_text(json.dumps({"status":"stopped_access","error":"HTTP 429"}))
+    before = (tmp_path / "pdf-range-plan.json").read_bytes()
+    with pytest.raises(zenodo_download.AccessStopped):
+        rebalance(tmp_path,body)
+    assert (tmp_path / "pdf-range-plan.json").read_bytes() == before
+    with range_server(body) as (base,state):
+        with pytest.raises(zenodo_download.AccessStopped):
+            download(tmp_path,body,client(base))
+    assert state["calls"] == []
+
+
+def test_mxl_tail_recovery_keeps_same_exact_reviewed_route_and_original_checksum(tmp_path):
+    body = b"\x1f\x8b"+bytes(range(256))*300
+    plan = local_tail_plan(tmp_path,body)
+    url = "https://zenodo.org/records/15571083/files/mxl.tar.gz"
+    for path in list(tmp_path.glob("pdf.tar.gz*")):
+        path.rename(path.with_name(path.name.replace("pdf","mxl",1)))
+    for row in plan["segments"]:
+        row["filename"] = row["filename"].replace("pdf","mxl",1)
+    plan["url"] = url
+    (tmp_path / "pdf-range-plan.json").unlink()
+    (tmp_path / "mxl-range-plan.json").write_text(json.dumps(plan))
+    result = zenodo_download.rebalance_received_ranges(tmp_path / "mxl.tar.gz",page_url=url,
+        expected_size=len(body),expected_md5=hashlib.md5(body).hexdigest(),source_lock_path=tmp_path / ".pdf-acquisition.lock")
+    assert result["status"] == "rebalanced"
+    class MxlTransport(LocalTransport):
+        def get(self,requested,**kwargs):
+            assert requested in {url,ROBOTS}
+            target = "/robots.txt" if requested == ROBOTS else "/records/15571083/files/mxl.tar.gz"
+            response = self.session.get(self.base+target,**kwargs)
+            response.url = requested
+            return response
+    with range_server(body,filename="mxl.tar.gz") as (base,state):
+        clock = [100.0]
+        connection = zenodo_download.RangeClient(page_url=url,session=MxlTransport(base),
+            clock=lambda:clock[0],sleep=lambda seconds:clock.__setitem__(0,clock[0]+seconds))
+        receipt = zenodo_download.download_file(url,tmp_path / "mxl.tar.gz",expected_size=len(body),
+            expected_md5=hashlib.md5(body).hexdigest(),client=connection,chunk_bytes=1024)
+    assert receipt["url"] == url and receipt["upstream_checksum"] == "md5:"+hashlib.md5(body).hexdigest()
+    assert (tmp_path / "mxl.tar.gz").read_bytes() == body and all(path == "/robots.txt" or path.endswith("mxl.tar.gz") for path,_ in state["calls"])

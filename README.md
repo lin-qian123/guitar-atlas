@@ -28,18 +28,26 @@
 
 当前页面采用圆角收藏目录、自托管拉丁展示字体、系统中文字体及模型插图。结果首批18条，全文与模糊索引按需建立；实际引用静态资产283,302B，压缩目录5,767,964B，完整JSON用于审计与兼容回退。
 
-2026-10-13版本已同步远端并部署，924份PDMX导出PDF加入原有离线入口。旧来源记录及全部译名决定保留；完整离线核验、链接保全和线上字节核对通过。最新验收与发布状态见[发布记录](docs/research/publication.md)，未完成项只维护在[TODO](TODO.md)。
+已发布的2026-10-13 PDF版本已同步远端并部署，924份PDMX导出PDF加入原有离线入口。本轮MXL／MIDI扩展已完成文件入库、完整离线重建和最终映射核验；38,202条本地链接有效，旧来源记录、PDF映射及全部译名决定保留，远端同步与部署核对正在进行。最新验收与发布状态见[发布记录](docs/research/publication.md)，未完成项只维护在[TODO](TODO.md)。
 
-MuseScore的924条PDMX v9历史记录参加同一搜索与分类。2026-10-12至13已取得并独立验收这924份出版PDF，0失败、0缺失；MusicXML和MIDI仍只保留格式信息。LibreScore是检索工具，这批数据来自作者许可发布的固定历史子集，未接入实时全库。范围、译名、排除与文件取得情况见[来源补记](docs/research/2026-10-01-integration-log.md#musescore--pdmx-补记2026-10-11)。
+MuseScore的924条PDMX v9历史记录参加同一搜索与分类。现已取得对应PDF、MXL（压缩MusicXML）和MIDI；以下为本地文件验收统计，公开目录仅保留格式信息和来源导航：
+
+| 格式 | 成功关联 | 失败／缺失／待处理 | 独立内容对象 | 独立内容字节 |
+| --- | ---: | --- | ---: | ---: |
+| PDF | 924 | 0／0／0 | 924 | 63,081,172B |
+| MXL | 924 | 0／0／0 | 924 | 10,772,167B |
+| MIDI | 924 | 0／0／0 | 921 | 7,072,991B |
+
+本轮新增1,848条格式文件关系、1,845个独立内容对象，共17,845,158B；三个重复MIDI内容按SHA-256复用对象，曲目关联完整保留。既有PDF、来源信息及译名决定不变。LibreScore是检索工具，这批数据来自作者许可发布的固定历史子集，未接入实时全库，也没有原生MSCZ。范围、译名、排除与文件取得情况见[来源补记](docs/research/2026-10-01-integration-log.md#musescore--pdmx-补记2026-10-11)。
 
 ## 两种版本
 
 | 版本 | 用途 | 乐谱入口 |
 | --- | --- | --- |
 | `public_site/` | 在线检索与来源导航，GitHub Pages仅部署此目录 | 各来源作品页或确认的目录页 |
-| 根 `index.html` | 私有离线库，嵌入目录、别名和排名 | 当前分类中已验证的本地总谱、分谱及来源页 |
+| 根 `index.html` | 私有离线库，嵌入目录、别名和排名 | 当前分类中已验证的本地总谱、分谱、MXL／MIDI及来源页 |
 
-公开版不包含PDF、MIDI、GPX、下载端点、本地路径、哈希或私有库存。克隆仓库可直接使用公开目录；不会取得离线乐谱库。离线使用需保留现有相对目录结构。
+公开版不包含PDF、MXL／MusicXML、MIDI、MSCZ、GPX等乐谱文件，也不包含下载端点、本地路径、哈希或私有库存。格式元数据与来源页可供检索。克隆仓库可直接使用公开目录；不会取得离线乐谱库。离线使用需保留现有相对目录结构。
 
 ## 整理与检索方法
 
@@ -47,7 +55,7 @@ MuseScore的924条PDMX v9历史记录参加同一搜索与分类。2026-10-12至
 - 跨来源关联仅来自明确文件引用、实核PDF内容、机构馆藏号或有类型的合集关系；内容相同也保留各来源归属。
 - 搜索先按匹配度，完整姓名／明确别名及姓名边界优先于包含匹配。例如“索尔”先列费尔南多·索尔。无查询时按维护的曲目熟悉度参考排序；权重不是流量统计。
 - 题名、署名和分类分别记录审读状态。合适意译缺乏依据时保留原文；编辑责任、档案位置和审读说明放入版本信息，原题全文仍可检索。
-- PDF清单关系、不同路径、SHA-256内容与inode分别统计。元数据刷新不会重新证明PDF可解析性或编制纯度。
+- 文件清单关系、不同路径、各格式SHA-256内容与inode分别统计。MIDI／MXL的内容复用不建立PDF同版关联；元数据刷新不会重新证明文件完整性或编制纯度。
 
 方法与证据集中在以下固定入口，不再在README逐次追加实施日志：
 
@@ -98,7 +106,7 @@ python scripts/build_classclef_library.py --root . download
 python scripts/build_classclef_library.py --root . verify
 ```
 
-MuseScore使用已许可的PDMX v9出版入口。以下命令用于首次元数据接入和题名整理，保留其他来源的精确决定；已有PDF获取journal或已验证文件时，元数据重建会拒绝覆盖，改用下方独立获取流程：
+MuseScore使用已许可的PDMX v9出版入口。以下命令用于首次元数据接入和题名整理，保留其他来源的精确决定；已有PDF、MXL或MIDI获取journal或已验证文件时，元数据重建会拒绝覆盖，改用下方独立获取流程：
 
 ```bash
 python scripts/build_musescore_library.py --root . --acquire-metadata
@@ -116,7 +124,20 @@ python scripts/acquire_musescore_pdfs.py --root . --cached-archive  # 使用完�
 
 若第一段已完整而后段缓慢，可在下载进程全部退出后运行 `--consolidate-prefix`，核验并合并连续已收字节，再以 `--parallel-archive` 重分剩余两段。该步骤只操作本地字节，不代表整包校验通过；来源拒绝或存在缺口时不允许重分。
 
-成功、失败、缺失和未尝试条目记录在私有 `sources/musescore/acquisition_report.json`，恢复journal在 `sources/musescore/pdmx/pdf-extraction.json`。取得的是PDMX导出PDF，未取得的MusicXML／MIDI仅保留格式信息；归档MD5通过不等于上游提供了每份PDF的校验和。仅在目标选取和最终文件核验完成后建立离线链接，公开网页继续只发布目录和来源页。
+PDF的成功、失败、缺失和未尝试条目记录在私有 `sources/musescore/acquisition_report.json`，恢复journal在 `sources/musescore/pdmx/pdf-extraction.json`。取得的是PDMX导出PDF；归档MD5通过不等于上游提供了每份文件的校验和。
+
+同一924条原生记录的MXL和MIDI使用独立配置与获取流程，绑定权威CSV中的精确成员路径，与已有PDF关联。以下两种格式依次执行；来源拒绝时停止，不切换入口：
+
+```bash
+python scripts/acquire_musescore_formats.py --root . --format MIDI --parallel-archive
+python scripts/acquire_musescore_formats.py --root . --format MUSICXML --parallel-archive
+python scripts/acquire_musescore_formats.py --root . --format MIDI --cached-archive
+python scripts/acquire_musescore_formats.py --root . --format MUSICXML --cached-archive
+```
+
+若低位分段中断而高位分段已完整，先退出所有下载进程，再对该格式运行 `--rebalance-ranges`。此步骤只在本地核验并保留连续前缀与完整尾段，把缺口分为64 MiB小段；随后用 `--parallel-archive` 从同一入口续传，始终最多两路。已拒绝的来源不能重排或重试，重排本身不代表整包验收通过。
+
+结果集中在 `sources/musescore/formats-acquisition-report.json`，逐曲目恢复与验证证据在 `pdmx/mid-extraction.json` 和 `pdmx/mxl-extraction.json`。完整出版包经大小、MD5与内部SHA-256验证后，检查所有TAR成员，再独立检查MXL的ZIP／CRC／MusicXML和MIDI的轨道、事件及结束标记，按格式存入不可变内容对象池。只有验收通过的文件生成离线入口；完整性检查不代表逐音一致、导入保真或声学播放验收，也不产生原生MSCZ。公开网页继续只发布目录和来源页。
 
 在下载停止后，先dry-run再按已核验候选执行去重，随后重新验证。ClassClef与新增来源工具各自保留独立journal：
 
@@ -136,7 +157,7 @@ python scripts/export_public_site.py --root . --output public_site/data/catalog.
 python scripts/render_master_index.py .
 ```
 
-完整离线重建核验PDF内容与清单关系。仅当文件／来源快照未变、只是显示修订时，可运行 `python scripts/render_master_index.py . --metadata-only`；它核对指纹、分类、全部现有链接及大小，保留先前PDF验收结果，不重新散列或解析PDF。
+完整离线重建核验文件内容与清单关系：PDF重新散列并解析，MXL重新散列并检查ZIP、CRC、容器与MusicXML结构，MIDI重新散列并检查轨道、事件及结束标记。仅当文件／来源快照未变、只是显示修订时，可运行 `python scripts/render_master_index.py . --metadata-only`；它核对指纹、分类、全部现有链接及大小，保留先前文件验收结果，不重新散列或执行格式解析／结构验证。
 
 ## 项目结构与保留规则
 

@@ -9,6 +9,7 @@ import re
 from collections import Counter
 from pathlib import Path
 from typing import Mapping
+from urllib.parse import unquote
 
 from export_public_site import validate_imslp_url
 from catalog_sources import PUBLIC_FORMATS, PUBLIC_METADATA, load_registry, validate_source_url, validate_record_source_url
@@ -28,7 +29,7 @@ FORBIDDEN_KEYS = {
     "object_path",
 }
 FORBIDDEN_TEXT = (
-    re.compile(r'''https?://[^\s<>"'“”]*\.(?:pdf|mid|midi|gpx|gp[3-8]|zip)(?=[\s<>"'“”?#/]|$)''', re.IGNORECASE),
+    re.compile(r'''https?://[^\s<>"'“”]*\.(?:pdf|mid|midi|gpx|gp[3-8]|zip|mxl|musicxml|mscz|mscx|xml)(?=[\s<>"'“”?#/]|$)''', re.IGNORECASE),
     re.compile(r"file://", re.IGNORECASE),
     re.compile(r"/Volumes/", re.IGNORECASE),
     re.compile(r"(?:^|[/\\])scores[/\\]", re.IGNORECASE),
@@ -36,6 +37,8 @@ FORBIDDEN_TEXT = (
     re.compile(r"\.(?:mid|midi|gpx|gp[3-8]|zip)(?:$|[?#])", re.IGNORECASE),
     re.compile(r"/Users/", re.IGNORECASE),
 )
+SCORE_FILE_SUFFIXES = {".pdf", ".mid", ".midi", ".gpx", ".gp3", ".gp4", ".gp5", ".gp6", ".gp7", ".gp8",
+                       ".zip", ".mxl", ".musicxml", ".mscz", ".mscx", ".xml"}
 TRANSLATION_STATUSES = {"reviewed", "reference", "retained", "machine", "untranslated", "not_applicable"}
 HAN = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\U00020000-\U0002ffff]")
 
@@ -63,7 +66,10 @@ def check_forbidden(value: object, context: str = "catalog") -> None:
             # The corresponding source URL still passes registry validation.
             if pattern.pattern == r"(?:^|[/\\])scores[/\\]" and re.fullmatch(r"https://[^\s<>]+", value):
                 continue
-            if pattern.search(value):
+            # Decode URL escapes for file-link checks without treating native
+            # title suffixes such as '.mscz' as private filesystem evidence.
+            candidate = unquote(value) if pattern is FORBIDDEN_TEXT[0] else value
+            if pattern.search(candidate):
                 fail(f"{context}: forbidden public value {value!r}")
 
 
@@ -389,7 +395,7 @@ def validate_public_site(root: Path) -> dict[str, int]:
     if any(path.is_symlink() for path in entries):
         fail("public site must not contain symbolic links")
     files = [path for path in entries if path.is_file()]
-    score_files = [path for path in files if path.suffix.casefold() in {".pdf", ".mid", ".midi", ".gpx", ".gp3", ".gp4", ".gp5", ".gp6", ".gp7", ".gp8", ".zip"}]
+    score_files = [path for path in files if path.suffix.casefold() in SCORE_FILE_SUFFIXES]
     if score_files:
         fail(f"public site contains score files: {score_files[0]}")
     catalog_path = root / "data/catalog.json"
@@ -439,7 +445,8 @@ def validate_public_site(root: Path) -> dict[str, int]:
         except OSError as exc:
             raise PublicSiteValidationError(f"cannot read public asset: {path}") from exc
         for pattern in FORBIDDEN_TEXT:
-            if pattern.search(text):
+            candidate = unquote(text) if pattern is FORBIDDEN_TEXT[0] else text
+            if pattern.search(candidate):
                 fail(f"public asset contains a forbidden value: {path}")
         if path.suffix == ".js" and "innerHTML" in text:
             fail(f"public script must not inject catalog data with innerHTML: {path}")

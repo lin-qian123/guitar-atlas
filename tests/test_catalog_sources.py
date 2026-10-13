@@ -154,6 +154,14 @@ def test_public_source_urls_exclude_downloads_and_unregistered_hosts(url: str) -
         validate_source_url(url, "classclef")
 
 
+@pytest.mark.parametrize("extension", ["mxl", "musicxml", "mscz", "mscx", "xml"])
+@pytest.mark.parametrize("dot", [".", "%2e"])
+@pytest.mark.parametrize("suffix", ["", "/content"])
+def test_public_source_pages_reject_editable_score_paths(extension: str, dot: str, suffix: str) -> None:
+    with pytest.raises(ValueError, match="source page URL"):
+        validate_source_url(f"https://www.classclef.com/files/score{dot}{extension}{suffix}", "classclef")
+
+
 def test_configured_source_cannot_silently_disappear(tmp_path: Path) -> None:
     make_library(tmp_path)
     add_source(tmp_path)

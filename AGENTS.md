@@ -79,7 +79,7 @@ source or adapter.
   destructive changes genuinely require them.
 - Use `python`, not the system `python3`, for project commands.
 - Keep `README.md`, `README.en.md`, `TODO.md`, and this file current.
-- Do not commit PDFs, MIDI, GPX, caches, partial downloads, logs, private source
+- Do not commit PDFs, MXL/MusicXML, MIDI, GPX, caches, partial downloads, logs, private source
   snapshots, or generated category/offline catalogs. Reviewed translation
   source files and the compiled work-ID catalog under `metadata/translations/`
   remain versioned review assets, not generated category catalogs.
@@ -101,6 +101,9 @@ source or adapter.
   PDF content, exact DGA institution/native shelfmark evidence, or explicitly
   typed source collection membership. Empty URLs, generic site pages, names,
   titles, and untyped parent IDs are never holding/file identity evidence.
+- Only PDF asset/member hashes enter `identical_pdf` relationships. Shared
+  MXL/MIDI content is format-specific physical reuse and never a PDF identity
+  or a reason to merge works; preserve its typed private evidence separately.
 - Where a directory has no native record ID, use a documented deterministic
   locator digest (Delcamp and four GuitarDownunder file locators use
   `pdf:<SHA-256 of the exact original locator>`). Keep the
@@ -222,6 +225,12 @@ source or adapter.
   archive before publication. An access refusal stops the source; never change
   routes after a challenge or 401/403/429. Keep only the current segment plan
   during interruption and the verified final download receipt afterward.
+- For the MXL/MIDI route, `--rebalance-ranges` is a local-only recovery after
+  every HTTP writer exits: validate the original two-half plan, actual prefix
+  and partial lower bytes, and a complete upper tail with independent SHA
+  guards. Preserve them through a resumable prepared transaction, split only
+  the gap into fixed 64 MiB jobs (at most 32), and retain the two-stream limit.
+  Never replan after source refusal; whole-archive size/MD5 remain mandatory.
 - Verify the complete publication archive's exact size, upstream MD5 and internal
   SHA-256 before streaming its TAR members. Check every member's path, type,
   duplication and expansion bounds; retain only exact existing record locators.
@@ -231,8 +240,21 @@ source or adapter.
 - Keep interruption journals, per-record success/failure/missing decisions and
   verified SHA-256 objects under `sources/musescore/`. Resume the dedicated
   acquisition pipeline; the metadata builder refuses to overwrite an acquired
-  or active file snapshot. MIDI/MusicXML format metadata remains available
-  without inventing acquired local files.
+  or active file snapshot for every acquired format.
+- `scripts/acquire_musescore_formats.py` extends only the same frozen 924
+  native identities with MXL and MIDI, using `config/musescore_pdmx_formats.json`.
+  Bind both format locators to the checksum-pinned authoritative CSV. Keep the
+  existing PDF assets and all non-target fields unchanged. The separately
+  verified MXL/MIDI archives, extraction journals and receipts are private;
+  preserve the original PDF journal and acquisition report.
+- Validate MXL ZIP paths/types, CRC and expansion limits, container root and
+  complete MusicXML notation; never fetch external DTDs or resolve entities.
+  Validate MIDI header/chunk bounds, tracks, event lengths, VLQs and end markers.
+  These checks establish structural integrity, not note-by-note correspondence,
+  faithful import into MuseScore or acoustic playback. Do not convert or claim
+  native MSCZ files. Deduplicate immutable content within each format, retain
+  every native-record relationship, and report PDF/MXL/MIDI counts separately.
+  Metadata-only, failed or missing assets produce no local file link.
 - GM programs establish candidates only. Source instrument names, exact native
   IDs/URLs, title/composer transcriptions and conflict flags establish the accepted
   subset. Track/staff counts and generic auto `Solo`/`Mixed Duet` labels do not
@@ -364,7 +386,7 @@ source or adapter.
 
 - Keep the offline library and public web export as separate products. The
   offline root may link to verified local PDFs. `public_site/` must contain no
-  PDFs, MIDI, GPX, file/download URLs, local paths, hashes, or private filesystem
+  PDFs, MXL/MusicXML, MSCZ/MSCX, MIDI, GPX, file/download URLs, local paths, hashes, or private filesystem
   metadata.
 - Keep their presentation and search behavior synchronized: render the offline
   root from the public template and shared assets using the offline-only adapter
@@ -373,6 +395,10 @@ source or adapter.
   the active category memberships. Preserve all parts and label unavailable
   records without generating broken score links. Back up the old root entry
   before replacing it; keep generated offline pages Git-ignored.
+- Offline MuseScore entries expose verified PDF, MXL and MIDI files together
+  under the existing work and category membership. Keep prior PDF file fields
+  and counts stable; new format counts and unavailable states are separate.
+  Hash-version the offline adapter assets and keep file bytes outside the HTML.
 - Build the public catalog only from approved source configuration and validated
   catalogs. Deduplicate results by `source_id` plus `source_record_id`, preserve every
   category membership, and link records directly to validated HTTPS pages on

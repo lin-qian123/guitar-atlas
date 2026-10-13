@@ -49,13 +49,15 @@ def validate_config(value: dict) -> None:
 
 
 def reject_acquired_catalog(root: Path) -> None:
-    """An initial metadata import must never discard acquired PDF evidence."""
-    message = ("metadata-only rebuild would discard MuseScore PDF acquisition evidence and reviewed metadata; "
-               "existing files preserved. Use scripts/acquire_musescore_pdfs.py instead")
-    journal = root / "sources/musescore/pdmx/pdf-extraction.json"
+    """An initial metadata import must never discard acquired format evidence."""
+    message = ("metadata-only rebuild would discard MuseScore file acquisition evidence and reviewed metadata; "
+               "existing files preserved. Use scripts/acquire_musescore_pdfs.py or "
+               "scripts/acquire_musescore_formats.py instead")
     # A journal can protect an interrupted scan even before the catalog contains
     # verified assets. Unreadable, partial or unsafe journals must also fail closed.
-    if journal.exists() or journal.is_symlink():
+    journals = [root / "sources/musescore/pdmx" / name for name in
+                ("pdf-extraction.json", "mxl-extraction.json", "mid-extraction.json")]
+    if any(journal.exists() or journal.is_symlink() for journal in journals):
         raise ValueError(message)
     path = root / "sources/musescore/catalog.json"
     if not path.is_file():
@@ -63,7 +65,7 @@ def reject_acquired_catalog(root: Path) -> None:
     catalog = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(catalog, dict):
         raise ValueError("existing MuseScore catalog must be an object; preserved without changes")
-    if any(isinstance(asset, dict) and str(asset.get("format", "")).upper() == "PDF"
+    if any(isinstance(asset, dict) and str(asset.get("format", "")).upper() in {"PDF", "MUSICXML", "MIDI"}
            and asset.get("status") == "verified"
            for work in catalog.get("works", []) if isinstance(work, dict)
            for asset in work.get("assets", [])):

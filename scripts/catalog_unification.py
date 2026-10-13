@@ -126,12 +126,16 @@ def unify_catalog(root: Path, data: dict, registry: list[dict]) -> None:
         for asset in raw.get("assets", []):
             if asset.get("source_url") and (key := file_key(asset["source_url"])):
                 files[key].add(work["id"])
-            if asset.get("status") == "verified" and asset.get("sha256"):
-                hashes[asset["sha256"]].add(work["id"])
-            if asset.get("status") == "verified":
-                for member in asset.get("members", []):
-                    if member.get("status") == "verified" and member.get("sha256"):
-                        hashes[member["sha256"]].add(work["id"])
+            # Content edges describe verified PDFs. Shared MIDI/MXL bytes only
+            # establish physical reuse within their own private format stores.
+            if asset.get("format") == "PDF" and asset.get("status") == "verified":
+                if asset.get("container") == "ZIP":
+                    for member in asset.get("members", []):
+                        if (member.get("format") == "PDF" and member.get("status") == "verified"
+                                and member.get("sha256")):
+                            hashes[member["sha256"]].add(work["id"])
+                elif asset.get("sha256"):
+                    hashes[asset["sha256"]].add(work["id"])
         # Upstream explicit cross-references, never a guessed title match.
         for url in raw.get("file_references", []):
             if isinstance(url, str) and (key := file_key(url)):

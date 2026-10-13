@@ -27,18 +27,26 @@ Exact title decisions cover every record: 47,469 reference or evidenced conventi
 
 The current rounded collection interface uses self-hosted Latin display fonts, system Chinese fonts and model-generated illustrations. Lists start with 18 records and build full-text/fuzzy indexes on demand. Referenced static assets total 283,302B; compact transport is 5,767,964B, with canonical JSON retained for audit and compatibility fallback.
 
-The October 13 version was pushed and deployed, adding 924 PDMX exported PDFs to the existing offline entry. Existing source records and all translation decisions are preserved; full offline verification, link preservation and live byte checks passed. See the [publication and maintenance record](docs/research/publication.md) for evidence and deployment status, and [TODO](TODO.md) for open work.
+The published October 13 PDF version was pushed and deployed, adding 924 PDMX exported PDFs to the existing offline entry. The current MXL/MIDI extension has completed file acquisition, full offline rebuilding and independent mapping verification: all 38,202 local links are valid, with existing source records, PDF mappings and translation decisions preserved. Remote synchronization and deployment checks are in progress. See the [publication and maintenance record](docs/research/publication.md) for evidence and deployment status, and [TODO](TODO.md) for open work.
 
-The 924 historical MuseScore records from the author-published PDMX v9 subset share existing search and topics. On October 12–13, all 924 publication PDFs were acquired and independently validated, with no failed or missing records. MusicXML and MIDI remain format descriptors only. LibreScore is a retrieval tool; this frozen historical subset does not cover the live site. See the [source supplement](docs/research/2026-10-01-integration-log.md#musescore--pdmx-补记2026-10-11) for scope, exclusions, translation decisions and file acquisition.
+The 924 historical MuseScore records from the author-published PDMX v9 subset share existing search and topics. Corresponding PDF, MXL (compressed MusicXML) and MIDI files are now acquired. The following counts describe verified local files; the public catalog retains format metadata and source navigation only:
+
+| Format | Verified record associations | Failed / missing / pending | Unique content objects | Unique content bytes |
+| --- | ---: | --- | ---: | ---: |
+| PDF | 924 | 0 / 0 / 0 | 924 | 63,081,172B |
+| MXL | 924 | 0 / 0 / 0 | 924 | 10,772,167B |
+| MIDI | 924 | 0 / 0 / 0 | 921 | 7,072,991B |
+
+This extension adds 1,848 format-file associations and 1,845 unique content objects totaling 17,845,158B. Three duplicate MIDI contents reuse SHA-256 objects while preserving every record association. Existing PDFs, native metadata and translation decisions are unchanged. LibreScore is a retrieval tool; this frozen historical subset does not cover the live site and provides no native MSCZ. See the [source supplement](docs/research/2026-10-01-integration-log.md#musescore--pdmx-补记2026-10-11) for scope, exclusions, translation decisions and file acquisition.
 
 ## Two editions
 
 | Edition | Purpose | Score links |
 | --- | --- | --- |
 | `public_site/` | Online search and source navigation; the only Pages deployment input | Validated source pages |
-| Root `index.html` | Private offline library with embedded catalog, aliases and ranking | Verified local scores/parts for active category memberships, plus source pages |
+| Root `index.html` | Private offline library with embedded catalog, aliases and ranking | Verified local scores/parts, MXL and MIDI for active category memberships, plus source pages |
 
-The public export contains no scores, download endpoints, local paths, hashes or private inventory. Cloning this repository provides the public catalog, not the private library. Preserve relative paths when using the offline edition.
+The public export contains no score files such as PDF, MXL/MusicXML, MIDI, MSCZ or GPX, and no download endpoints, local paths, hashes or private inventory. Format metadata and human source pages remain searchable. Cloning this repository provides the public catalog, not the private library. Preserve relative paths when using the offline edition.
 
 ## Cataloging and search
 
@@ -46,7 +54,7 @@ The public export contains no scores, download endpoints, local paths, hashes or
 - Relationships require explicit file references, verified PDF content, institution/shelfmark evidence or typed collection membership. Every source attribution is retained.
 - Search relevance precedes curated familiarity weights. Full names, explicit aliases and name boundaries outrank substring mentions; no-query browsing uses familiarity with stable ties. Weights are not measured traffic.
 - Title, attribution and category evidence have independent review states. Keep originals when an unsupported phonetic translation would be misleading. Responsibility statements, archival locations and review notes belong in edition details.
-- Manifest relationships, file paths, content hashes and inodes are separate counts. Metadata-only refreshes do not establish fresh PDF integrity or instrumentation review.
+- Manifest relationships, file paths, content hashes within each format and inodes are separate counts. Shared MIDI/MXL bytes do not establish an identical-PDF relationship. Metadata-only refreshes do not establish fresh file integrity or instrumentation review.
 
 ## Evidence and documentation
 
@@ -95,7 +103,7 @@ python scripts/build_classclef_library.py --root . verify
 
 MuseScore uses the licensed PDMX v9 publication rather than live-site scraping.
 The following commands perform initial metadata import and source-scoped title
-review. A file-acquisition journal or verified local PDF protects the existing
+review. A PDF, MXL or MIDI acquisition journal or verified file protects the existing
 snapshot from metadata rebuilds; resume files through the dedicated route below:
 
 ```bash
@@ -125,9 +133,35 @@ rejects gaps or source-access refusals.
 Per-record success, failure, missing and pending states are private in
 `sources/musescore/acquisition_report.json`; interrupted extraction resumes through
 `sources/musescore/pdmx/pdf-extraction.json`. These are PDMX exported PDFs, not
-original MSCZ files. MusicXML/MIDI metadata does not establish acquired files,
-and an archive MD5 is not a publisher-provided per-PDF checksum. Only verified
-files receive offline links; the public edition retains metadata and human pages.
+original MSCZ files. An archive MD5 is not a publisher-provided per-file checksum.
+
+The same 924 native records have a separate MXL/MIDI pipeline. Its exact archive
+members are bound to the authoritative CSV and associated with existing PDFs.
+Run formats sequentially; a source refusal stops acquisition without changing routes:
+
+```bash
+python scripts/acquire_musescore_formats.py --root . --format MIDI --parallel-archive
+python scripts/acquire_musescore_formats.py --root . --format MUSICXML --parallel-archive
+python scripts/acquire_musescore_formats.py --root . --format MIDI --cached-archive
+python scripts/acquire_musescore_formats.py --root . --format MUSICXML --cached-archive
+```
+
+If a lower range is interrupted while the upper range is complete, stop every
+download writer before using `--rebalance-ranges` for that format. This purely
+local transaction verifies and retains the contiguous prefix and complete tail,
+divides only the gap into 64 MiB jobs, then resumes through `--parallel-archive`
+on the same endpoint with at most two streams. Source refusals cannot be
+replanned or retried; replanning does not establish complete-archive integrity.
+
+Format outcomes are in `sources/musescore/formats-acquisition-report.json`, with
+per-record journals in `pdmx/mid-extraction.json` and `pdmx/mxl-extraction.json`.
+Whole archives require exact size, upstream MD5 and internal SHA-256 checks plus
+a safe complete TAR scan. Each selected MXL requires ZIP/CRC/container/MusicXML
+checks; MIDI requires valid tracks, events and end markers. Immutable SHA-256
+objects deduplicate content within each format. These checks do not establish
+note-level equivalence, faithful MuseScore import or acoustic playback, and no
+native MSCZ is produced. Only verified files receive offline links; the public
+edition retains metadata and human source pages.
 
 After downloads stop, run each applicable deduplicator as a dry run. Only freshly verified candidates permit `--apply`, followed by verification; original bytes, paths and source manifests remain intact.
 
@@ -143,7 +177,7 @@ python scripts/export_public_site.py --root . --output public_site/data/catalog.
 python scripts/render_master_index.py .
 ```
 
-Full offline rendering checks PDF content and manifest relationships. For display changes to an unchanged source/file snapshot, `python scripts/render_master_index.py . --metadata-only` checks fingerprints, memberships, links and sizes, while retaining prior PDF results. It does not repeat hashing or parsing.
+Full offline rendering checks file content and manifest relationships: PDFs are hashed and parsed again, MXL files are hashed and checked for ZIP/CRC/container/MusicXML structure, and MIDI files are hashed and checked for tracks, events and end markers. For display changes to an unchanged source/file snapshot, `python scripts/render_master_index.py . --metadata-only` checks fingerprints, memberships, links and sizes while retaining prior file-validation results. It does not repeat hashing, parsing or format-structure validation.
 
 ## Repository and retention
 

@@ -127,28 +127,39 @@ def checked_reused_imslp_asset(root: Path, asset: dict, *, metadata_only: bool =
 
 def checked_source_asset(root: Path, source_id: str, asset: dict, *, metadata_only: bool = False) -> dict | None:
     """Validate a new adapter's immutable object before exposing a local link."""
-    if asset.get("status") != "verified" or asset.get("format") != "PDF":
+    asset_format = asset.get("format")
+    if asset.get("status") != "verified" or asset_format not in {"PDF", "MUSICXML", "MIDI"}:
         return None
     if asset.get("storage_source") == "imslp":
-        return checked_reused_imslp_asset(root, asset, metadata_only=metadata_only)
+        return checked_reused_imslp_asset(root, asset, metadata_only=metadata_only) if asset_format == "PDF" else None
     relative = asset.get("local_path", "")
+    if not isinstance(relative, str):
+        return None
     parts = PurePosixPath(relative)
-    if (asset.get("status") != "verified" or asset.get("format") != "PDF"
-            or not relative or parts.is_absolute() or ".." in parts.parts or "\\" in relative
+    if (not relative or parts.is_absolute() or ".." in parts.parts or "\\" in relative
             or parts.parts[:2] != ("sources", source_id)):
         return None
+    if ((asset_format == "MUSICXML" and parts.suffix.lower() != ".mxl")
+            or (asset_format == "MIDI" and parts.suffix.lower() not in {".mid", ".midi"})):
+        return None
     expected = asset.get("sha256", "")
-    if not re.fullmatch(r"[0-9a-f]{64}", expected):
+    if not isinstance(expected, str) or not re.fullmatch(r"[0-9a-f]{64}", expected):
         return None
     path = root / relative
     try:
-        if not path.resolve().is_relative_to((root / "sources" / source_id).resolve()) or not path.is_file():
+        source_root = (root / "sources" / source_id).resolve()
+        if (not source_root.is_relative_to(root.resolve()) or not path.resolve().is_relative_to(source_root)
+                or not path.is_file()):
             return None
         before = path.stat()
         if not before.st_size or before.st_size != asset.get("size"):
             return None
         if not metadata_only:
-            validate_readable_pdf(path)
+            if asset_format == "PDF":
+                validate_readable_pdf(path)
+            else:
+                from source_adapters.pdmx_formats import validate_source_format
+                validate_source_format(path, asset_format)
             with path.open("rb") as handle:
                 if hashlib.file_digest(handle, "sha256").hexdigest() != expected:
                     return None
@@ -157,8 +168,13 @@ def checked_source_asset(root: Path, source_id: str, asset: dict, *, metadata_on
             return None
     except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired):
         return None
-    return {"label": asset.get("label") or "PDF", "href": urllib.parse.quote(relative, safe="/._-~()"),
-            "_sha256": "" if metadata_only else expected}
+    score = {"label": asset.get("label") or ("MXL" if asset_format == "MUSICXML" else asset_format),
+             "href": urllib.parse.quote(relative, safe="/._-~()"), "_sha256": "" if metadata_only else expected}
+    # Existing PDF editions keep their exact schema; only newly supported files
+    # need a format marker to distinguish editable notation from playback.
+    if asset_format != "PDF":
+        score["format"] = asset_format
+    return score
 
 
 def offline_input_fingerprint(root: Path) -> dict:
@@ -166,6 +182,9 @@ def offline_input_fingerprint(root: Path) -> dict:
     paths = {Path("config") / name for name in
              ("categories.json", "mixed_categories.json", "sources.json", "score_exclusions.json")}
     paths.add(Path("sources/objects/deduplication_report.json"))
+    format_config = Path("config/musescore_pdmx_formats.json")
+    if (root / format_config).is_file():
+        paths.add(format_config)
     paths.update(Path(row["name"]) / "metadata/score_manifest.json" for row in configured_categories(root))
     if (root / "config/sources.json").is_file():
         paths.update(Path(row["catalog"]) for row in load_registry(root) if row["adapter"] == "normalized_catalog")
@@ -240,6 +259,8 @@ def build_offline_catalog(root: Path, *, _metadata_only: bool = False, _data: di
             if len(jobs) > 1000 and index % 2000 == 0:
                 print(f"Checked {index}/{len(jobs)} score records", file=sys.stderr, flush=True)
     total_records = len(jobs)
+    extra_format_records = {}
+    extra_format_hashes = {}
     if (root / "config/sources.json").is_file():
         for source in load_registry(root):
             if source["adapter"] != "normalized_catalog":
@@ -248,16 +269,22 @@ def build_offline_catalog(root: Path, *, _metadata_only: bool = False, _data: di
             asset_jobs = []
             for row in raw["works"]:
                 for asset in row.get("assets", []):
-                    if asset.get("format") != "PDF":
+                    asset_format = asset.get("format")
+                    # This acquisition extends the frozen MuseScore subset.
+                    # Unrelated metadata-only formats retain their old mapping.
+                    if asset_format != "PDF" and not (source["id"] == "musescore" and asset_format in {"MUSICXML", "MIDI"}):
                         continue
                     members = asset.get("members", [])
                     if asset.get("container") == "ZIP" and members:
                         asset_jobs.extend((row["id"], {**asset, **member, "label": member.get("name") or asset.get("label") or "PDF"}) for member in members)
                     else:
                         asset_jobs.append((row["id"], asset))
-            source_records[source["id"]] = {"pdf_records": len(asset_jobs), "verified_records": 0}
+            pdf_jobs = sum(asset.get("format") == "PDF" for _, asset in asset_jobs)
+            source_records[source["id"]] = {"pdf_records": pdf_jobs, "verified_records": 0}
             source_hashes[source["id"]] = set()
-            total_records += len(asset_jobs)
+            total_records += pdf_jobs
+            format_records = {}
+            format_hashes = {}
             for row in raw["works"]:
                 for category_id in works[row["id"]]["category_ids"]:
                     edition = {"category_id": category_id, "files": [], "unavailable_count": 0}
@@ -266,19 +293,47 @@ def build_offline_catalog(root: Path, *, _metadata_only: bool = False, _data: di
             with ThreadPoolExecutor(max_workers=8) as pool:
                 scores = pool.map(lambda job: checked_source_asset(root, source["id"], job[1], metadata_only=_metadata_only), asset_jobs)
                 for (work_id, asset), score in zip(asset_jobs, scores, strict=True):
+                    asset_format = asset["format"]
+                    if asset_format != "PDF":
+                        counts = format_records.setdefault(asset_format, {"records": 0, "verified_records": 0, "unavailable": 0})
+                        counts["records"] += 1
+                        counts["verified_records" if score else "unavailable"] += 1
+                        format_hashes.setdefault(asset_format, set())
                     if score:
                         content_hash = score.pop("_sha256")
-                        if content_hash:
-                            unique_hashes.add(content_hash)
-                            source_hashes[source["id"]].add(content_hash)
-                        downloaded += 1
-                        source_records[source["id"]]["verified_records"] += 1
+                        if asset_format == "PDF":
+                            if content_hash:
+                                unique_hashes.add(content_hash)
+                                source_hashes[source["id"]].add(content_hash)
+                            downloaded += 1
+                            source_records[source["id"]]["verified_records"] += 1
+                        elif content_hash:
+                            format_hashes[asset_format].add(content_hash)
                     for category_id in works[work_id]["category_ids"]:
                         edition = editions[(category_id, work_id)]
                         if score:
                             edition["files"].append(score)
-                        else:
+                        elif asset_format == "PDF":
                             edition["unavailable_count"] += 1
+                        else:
+                            unavailable = edition.setdefault("format_unavailable", {})
+                            unavailable[asset_format] = unavailable.get(asset_format, 0) + 1
+            if format_records:
+                pdf_counts = source_records[source["id"]]
+                format_records["PDF"] = {"records": pdf_counts["pdf_records"],
+                    "verified_records": pdf_counts["verified_records"],
+                    "unavailable": pdf_counts["pdf_records"] - pdf_counts["verified_records"]}
+                if not _metadata_only:
+                    for asset_format, counts in format_records.items():
+                        counts["unique_contents"] = len(source_hashes[source["id"]] if asset_format == "PDF" else format_hashes[asset_format])
+                source_records[source["id"]]["by_format"] = format_records
+                for asset_format, counts in format_records.items():
+                    if asset_format == "PDF":
+                        continue
+                    combined = extra_format_records.setdefault(asset_format, {"records": 0, "verified_records": 0, "unavailable": 0})
+                    for key in combined:
+                        combined[key] += counts[key]
+                    extra_format_hashes.setdefault(asset_format, set()).update(format_hashes[asset_format])
     # This payload is never written into public_site/.
     data.pop("integrity", None)
     if not _metadata_only:
@@ -296,6 +351,13 @@ def build_offline_catalog(root: Path, *, _metadata_only: bool = False, _data: di
     }
     if not _metadata_only:
         report["unique_pdf_contents"] = len(unique_hashes)
+    if extra_format_records:
+        extra_format_records["PDF"] = {"records": total_records, "verified_records": downloaded,
+                                        "unavailable": total_records - downloaded}
+        if not _metadata_only:
+            for asset_format, counts in extra_format_records.items():
+                counts["unique_contents"] = len(unique_hashes if asset_format == "PDF" else extra_format_hashes[asset_format])
+        report["by_format"] = extra_format_records
     if offline_input_fingerprint(root) != fingerprint:
         raise ValueError("offline source/configuration inputs changed during validation; retry the render")
     data["offline_inputs"] = fingerprint
@@ -315,14 +377,17 @@ def write_offline_page(root: Path, data: dict, report: dict) -> dict:
     page = page.replace('href="./"', 'href="index.html"')
     page = re.sub(r"(<title>[^<]*)(</title>)", r"\1 · 离线版\2", page, count=1)
     page = page.replace('lang="en">GUITAR ATLAS', 'lang="en">GUITAR ATLAS · OFFLINE')
-    page = page.replace("乐谱下载与使用条件以各来源原页说明为准。", "本地已验证 PDF 可直接打开，未就绪文件可查看来源原页。使用条件以原页说明为准。")
-    page = page.replace("乐谱与使用条件请查看各来源页面。", "已验证的本地 PDF 可直接打开；未就绪文件保留提示。使用条件请查看各来源页面。")
-    page = page.replace('</head>', '<link rel="stylesheet" href="scripts/assets/offline-catalog.css">\n</head>')
+    local_copy = "本地 PDF 可打开，MXL 与 MIDI 可下载；未就绪文件保留提示。使用条件以来源原页说明为准。"
+    page = page.replace("乐谱下载与使用条件以各来源原页说明为准。", local_copy)
+    page = page.replace("乐谱与使用条件请查看各来源页面。", local_copy)
+    css_version = hashlib.sha256((PROJECT_ROOT / "scripts/assets/offline-catalog.css").read_bytes()).hexdigest()[:10]
+    js_version = hashlib.sha256((PROJECT_ROOT / "scripts/assets/offline-catalog.js").read_bytes()).hexdigest()[:10]
+    page = page.replace('</head>', f'<link rel="stylesheet" href="scripts/assets/offline-catalog.css?v={css_version}">\n</head>')
     # A fixture/older template may not yet include the shared transport decoder.
     app_script = r'(<script src="public_site/assets/app\.js(?:\?[^"<>]*)?" defer>)'
     if 'src="public_site/assets/catalog-codec.js"' not in page:
         page = re.sub(app_script, r'<script src="public_site/assets/catalog-codec.js" defer></script>\n  \1', page, count=1)
-    page = re.sub(app_script, r'<script src="scripts/assets/offline-catalog.js" defer></script>\n  \1', page, count=1)
+    page = re.sub(app_script, f'<script src="scripts/assets/offline-catalog.js?v={js_version}" defer></script>\n  \\1', page, count=1)
     page = page.replace('</body>', f'<script type="application/json" id="offline-data">{embedded}</script>\n</body>')
     destination = root / "index.html"
     if destination.exists() and destination.read_text(encoding="utf-8") != page:
@@ -391,13 +456,17 @@ def refresh_display_metadata(root: Path) -> dict:
             if row.get(key) != old[row["id"]].get(key):
                 raise ValueError(f"offline links/availability or exclusions changed: {row['id']}; run a full offline render")
     old_report = previous["offline_summary"]
+    def retained_counts_agree(before, after):
+        if isinstance(after, dict):
+            return isinstance(before, dict) and all(key in before and retained_counts_agree(before[key], value) for key, value in after.items())
+        return before == after
     for key, value in mapping_report.items():
         if key == "by_source":
             prior = old_report.get(key, {})
-            if set(prior) != set(value) or any(prior[source].get(field) != count
+            if set(prior) != set(value) or any(not retained_counts_agree(prior[source].get(field), count)
                     for source, counts in value.items() for field, count in counts.items()):
                 raise ValueError("offline source availability counts changed; run a full offline render")
-        elif old_report.get(key) != value:
+        elif not retained_counts_agree(old_report.get(key), value):
             raise ValueError("offline availability counts changed; run a full offline render")
     # Check every retained link stays within the library and still exists.
     hrefs = {file["href"] for work in current["works"] for edition in work["local_editions"] for file in edition["files"]}
@@ -417,7 +486,7 @@ def refresh_display_metadata(root: Path) -> dict:
     if offline_input_fingerprint(root) != inputs:
         raise ValueError("offline inputs changed during metadata refresh; retry the render")
     result = write_offline_page(root, current, report)
-    result["refresh_method"] = "display metadata, manifest/exclusion mapping and file existence/size only; preceding PDF integrity checks retained"
+    result["refresh_method"] = "display metadata, manifest/exclusion mapping and file existence/size only; preceding score integrity checks retained"
     result["input_guard"] = "checked existing fingerprint" if "offline_inputs" in previous else "bootstrapped from matching legacy link/availability mapping"
     result["checked_local_paths"] = len(hrefs)
     return result

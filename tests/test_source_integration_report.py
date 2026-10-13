@@ -3,6 +3,7 @@ import hashlib
 import json
 import subprocess
 import sys
+import os
 
 import pytest
 
@@ -128,3 +129,129 @@ def test_malformed_report_fields_are_rejected_before_output(tmp_path, key, field
         reporting.report(tmp_path, machine_only=True, output_report=output, **inputs)
     assert not output.exists()
     assert human.read_bytes() == before
+
+
+def source_asset(root, format, relative, body=b"receipt inventory bytes"):
+    path = root / relative
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(body)
+    return {"format": format, "status": "verified", "local_path": relative,
+            "sha256": hashlib.sha256(body).hexdigest(), "size": len(body)}
+
+
+def test_format_inventory_counts_receipts_paths_and_inodes_separately_preserving_pdf_statistics(tmp_path):
+    _, inputs, output = fixture(tmp_path)
+    path = tmp_path / "sources/musescore/catalog.json"
+    raw = json.loads(path.read_text())
+    pdf = source_asset(tmp_path, "PDF", "sources/musescore/objects/score.pdf")
+    raw["works"][0]["assets"] = [pdf]
+    write_json(path, raw)
+    before = reporting.report(tmp_path, machine_only=True, output_report=output, **inputs)
+    mxl = source_asset(tmp_path, "MUSICXML", "sources/musescore/objects/score.mxl")
+    mid = source_asset(tmp_path, "MIDI", "sources/musescore/objects/score.mid")
+    alias = {**mid, "local_path": "sources/musescore/objects/alias.mid"}
+    os.link(tmp_path / mid["local_path"], tmp_path / alias["local_path"])
+    missing = {**mid, "local_path": "sources/musescore/objects/missing.mid", "sha256": "0" * 64}
+    raw["works"][0]["assets"] += [mxl, {"format": "MIDI", "container": "ZIP", "status": "verified",
+                                        "members": [mid, alias, missing]}, {"format": "MUSICXML", "status": "metadata_only"}]
+    write_json(path, raw)
+    after = reporting.report(tmp_path, machine_only=True, output_report=output, **inputs)
+    old, current = before["sources"][0], after["sources"][0]
+    for field in ("pdf_asset_statuses", "verified_pdf_member_records", "distinct_verified_pdf_sha256",
+                  "source_object_paths", "source_object_inodes", "physical_bytes_for_source"):
+        assert current[field] == old[field]
+    assert after["new_object_pool"] == before["new_object_pool"]
+    mxl_stats, mid_stats = current["by_format"]["MUSICXML"], current["by_format"]["MIDI"]
+    assert mxl_stats["asset_statuses"] == {"verified": 1, "metadata_only": 1}
+    assert mid_stats["asset_statuses"] == {"verified": 1}
+    assert mid_stats["verified_member_records"] == 3
+    assert mid_stats["distinct_receipt_sha256"] == 2
+    assert mid_stats["source_object_paths"] == 3 and mid_stats["existing_source_object_paths"] == 2
+    assert mid_stats["missing_source_object_paths"] == 1 and mid_stats["source_object_inodes"] == 1
+    assert mid_stats["physical_bytes_for_source"] == mid["size"]
+    assert mid_stats["content_integrity_rechecked"] is False
+    assert "current filesystem stat" in mid_stats["method"]
+
+
+@pytest.mark.parametrize("relative", ["../outside.mid", "/tmp/outside.mid", "sources/other/objects/score.mid", "sources/musescore/objects/../score.mid", "sources/musescore/objects\\score.mid"])
+def test_format_receipts_do_not_count_unsafe_or_cross_source_paths_as_files(tmp_path, relative):
+    _, inputs, output = fixture(tmp_path)
+    path = tmp_path / "sources/musescore/catalog.json"
+    raw = json.loads(path.read_text())
+    raw["works"][0]["assets"] = [{"format": "MIDI", "status": "verified", "local_path": relative,
+                                    "sha256": "0" * 64, "size": 99}]
+    write_json(path, raw)
+    current = reporting.report(tmp_path, machine_only=True, output_report=output, **inputs)["sources"][0]["by_format"]["MIDI"]
+    assert current["verified_member_records"] == 1
+    assert current["invalid_receipt_path_records"] == 1
+    assert current["source_object_paths"] == current["source_object_inodes"] == current["physical_bytes_for_source"] == 0
+
+
+def test_format_inventory_reports_size_drift_without_claiming_integrity_or_creating_links(tmp_path):
+    _, inputs, output = fixture(tmp_path)
+    path = tmp_path / "sources/musescore/catalog.json"
+    raw = json.loads(path.read_text())
+    row = source_asset(tmp_path, "MUSICXML", "sources/musescore/objects/score.mxl")
+    row["size"] += 3
+    row["sha256"] = "not a SHA"
+    raw["works"][0]["assets"] = [row]
+    write_json(path, raw)
+    current = reporting.report(tmp_path, machine_only=True, output_report=output, **inputs)["sources"][0]["by_format"]["MUSICXML"]
+    assert current["receipt_size_mismatch_records"] == 1
+    assert current["invalid_receipt_sha256_records"] == 1 and current["distinct_receipt_sha256"] == 0
+    assert current["content_integrity_rechecked"] is False
+    assert "href" not in json.dumps(current)
+
+
+def test_format_metadata_only_inventory_never_counts_existing_file_as_acquired(tmp_path):
+    _, inputs, output = fixture(tmp_path)
+    path = tmp_path / "sources/musescore/catalog.json"
+    raw = json.loads(path.read_text())
+    row = source_asset(tmp_path, "MIDI", "sources/musescore/objects/score.mid")
+    row["status"] = "metadata_only"
+    raw["works"][0]["assets"] = [row]
+    write_json(path, raw)
+    current = reporting.report(tmp_path, machine_only=True, output_report=output, **inputs)["sources"][0]["by_format"]["MIDI"]
+    assert current["asset_statuses"] == current["member_statuses"] == {"metadata_only": 1}
+    assert current["verified_member_records"] == current["existing_source_object_paths"] == current["physical_bytes_for_source"] == 0
+
+
+def test_acquisition_journal_reference_is_separate_from_current_stat_inventory(tmp_path):
+    _, inputs, output = fixture(tmp_path)
+    path = tmp_path / "sources/musescore/catalog.json"
+    raw = json.loads(path.read_text())
+    raw["works"][0]["assets"] = [{"format": "MIDI", "status": "metadata_only"}]
+    write_json(path, raw)
+    journal = tmp_path / "sources/musescore/pdmx/mid-extraction.json"
+    write_json(journal, {"status": "active", "counts": {"verified_records": 924}})
+    current = reporting.report(tmp_path, machine_only=True, output_report=output, **inputs)["sources"][0]
+    reference = current["format_acquisition_journal_references"]["MIDI"]
+    assert reference["sha256"] == hashlib.sha256(journal.read_bytes()).hexdigest()
+    assert "reference only" in reference["method"]
+    assert current["by_format"]["MIDI"]["verified_member_records"] == 0
+
+
+@pytest.mark.parametrize("defect", ["source_escape", "file_escape", "loop"])
+def test_format_inventory_does_not_follow_external_or_looping_symlinks(tmp_path, defect):
+    _, inputs, output = fixture(tmp_path)
+    catalog = tmp_path / "sources/musescore/catalog.json"
+    raw = json.loads(catalog.read_text())
+    row = source_asset(tmp_path, "MIDI", "sources/musescore/objects/score.mid")
+    raw["works"][0]["assets"] = [row]
+    write_json(catalog, raw)
+    path = tmp_path / row["local_path"]
+    if defect == "source_escape":
+        # The real catalog remains readable through a source directory symlink;
+        # such bytes must not become in-root object-stat evidence.
+        outside = tmp_path.parent / (tmp_path.name + "-source")
+        catalog.parent.rename(outside)
+        catalog.parent.symlink_to(outside, target_is_directory=True)
+    else:
+        body = path.read_bytes()
+        path.unlink()
+        outside = tmp_path.parent / (tmp_path.name + ".mid")
+        outside.write_bytes(body)
+        path.symlink_to(outside if defect == "file_escape" else path)
+    current = reporting._format_inventory(tmp_path.resolve(), "musescore", [row])
+    assert current["invalid_receipt_path_records"] == 1
+    assert current["source_object_inodes"] == current["physical_bytes_for_source"] == 0

@@ -9,7 +9,7 @@ import os
 import re
 from collections import Counter
 from datetime import datetime, timezone
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 from acquire_source_assets import atomic_json
 from catalog_sources import load_registry
@@ -41,6 +41,86 @@ def _read_report(root: Path, explicit, fallback: str, key: str, evidence: dict):
         evidence[key] = {'path': path.relative_to(root).as_posix(),
                          'sha256': hashlib.sha256(body).hexdigest(), 'bytes': len(body)}
     return value
+
+
+def _format_inventory(root: Path, source_id: str, assets: list[dict]) -> dict:
+    """Count receipt states and current objects without certifying their content."""
+    members = [
+        {**asset, **member}
+        for asset in assets
+        for member in (asset.get('members', []) if asset.get('container') == 'ZIP' else [asset])
+    ]
+    verified = [member for member in members if member.get('status') == 'verified']
+    digests = {member['sha256'] for member in verified
+               if isinstance(member.get('sha256'), str) and re.fullmatch(r'[0-9a-f]{64}', member['sha256'])}
+    paths, existing, missing, inodes = set(), set(), set(), set()
+    invalid_paths = size_mismatches = invalid_sizes = size = 0
+    try:
+        source_root = (root / 'sources' / source_id).resolve()
+    except (OSError, RuntimeError):
+        source_root = None
+    for member in verified:
+        relative = member.get('local_path')
+        if not isinstance(relative, str) or not relative or '\\' in relative or '\x00' in relative:
+            invalid_paths += 1
+            continue
+        parts = PurePosixPath(relative)
+        path = root / relative
+        try:
+            safe_scope = source_root is not None and source_root.is_relative_to(root) and path.resolve().is_relative_to(source_root)
+        except (OSError, RuntimeError):
+            safe_scope = False
+        if (parts.is_absolute() or '..' in parts.parts or parts.parts[:2] != ('sources', source_id) or not safe_scope):
+            invalid_paths += 1
+            continue
+        paths.add(relative)
+        try:
+            if not path.is_file():
+                missing.add(relative)
+                continue
+            current = path.stat()
+        except OSError:
+            missing.add(relative)
+            continue
+        existing.add(relative)
+        inode = (current.st_dev, current.st_ino)
+        if inode not in inodes:
+            size += current.st_size
+            inodes.add(inode)
+        expected = member.get('size')
+        if type(expected) is not int or expected <= 0:
+            invalid_sizes += 1
+        elif current.st_size != expected:
+            size_mismatches += 1
+    return {
+        'asset_statuses': dict(Counter(asset.get('status', 'unspecified') for asset in assets)),
+        'member_statuses': dict(Counter(member.get('status', 'unspecified') for member in members)),
+        'member_records': len(members), 'verified_member_records': len(verified),
+        'distinct_receipt_sha256': len(digests),
+        'invalid_receipt_sha256_records': sum(not isinstance(member.get('sha256'), str)
+            or not re.fullmatch(r'[0-9a-f]{64}', member['sha256']) for member in verified),
+        'source_object_paths': len(paths), 'existing_source_object_paths': len(existing),
+        'missing_source_object_paths': len(missing), 'invalid_receipt_path_records': invalid_paths,
+        'source_object_inodes': len(inodes), 'physical_bytes_for_source': size,
+        'receipt_size_mismatch_records': size_mismatches, 'invalid_receipt_size_records': invalid_sizes,
+        'method': 'Manifest statuses and SHA-256 receipts plus current filesystem stat; '
+                  'content hashes, format parsing and acquisition journals are not revalidated by this inventory.',
+        'content_integrity_rechecked': False,
+    }
+
+
+def _format_journal_reference(root: Path, source_id: str, asset_format: str) -> dict | None:
+    """Reference acquisition evidence separately from the stat-only inventory."""
+    if source_id != 'musescore':
+        return None
+    code = {'MUSICXML': 'mxl', 'MIDI': 'mid'}[asset_format]
+    relative = Path(f'sources/musescore/pdmx/{code}-extraction.json')
+    path = root / relative
+    if not path.resolve().is_relative_to(root) or not path.is_file():
+        return None
+    body = path.read_bytes()
+    return {'path': relative.as_posix(), 'sha256': hashlib.sha256(body).hexdigest(), 'bytes': len(body),
+            'method': 'Acquisition journal reference only; this report does not validate journal completeness or input guards.'}
 
 
 def report(root: Path, *, machine_only=False, offline_report=None,
@@ -91,7 +171,7 @@ def report(root: Path, *, machine_only=False, offline_report=None,
                 stat=path.stat();key=(stat.st_dev,stat.st_ino)
                 if key not in inodes:size+=stat.st_size
                 inodes.add(key)
-        sources.append({'source_id':source['id'],'name':source['name'],'homepage':source['homepage'],
+        source_result = {'source_id':source['id'],'name':source['name'],'homepage':source['homepage'],
             'source_record_count':len(works),'score_records':sum(work.get('resource_type')=='score' for work in works),
             'reference_records':sum(work.get('resource_type')=='reference' for work in works),
             'category_count':len(raw['categories']),'membership_count':sum(len(work['category_ids']) for work in raw['works']),
@@ -103,7 +183,22 @@ def report(root: Path, *, machine_only=False, offline_report=None,
             'instrumentation_status':dict(Counter(work.get('instrumentation_status','unspecified') for work in works)),
             'translation':catalog['translation_summary'].get(source['id'],{}),
             'chinese_title_records':sum(bool(re.search(r'[\u3400-\u9fff]',work['title_zh'])) for work in works),
-            'chinese_composer_records':sum(bool(re.search(r'[\u3400-\u9fff]',work['composer_zh'])) for work in works)})
+            'chinese_composer_records':sum(bool(re.search(r'[\u3400-\u9fff]',work['composer_zh'])) for work in works)}
+        other_formats = {}
+        journals = {}
+        for asset_format in ('MUSICXML', 'MIDI'):
+            format_assets = [asset for work in raw['works'] for asset in work.get('assets', [])
+                             if asset.get('format') == asset_format]
+            if format_assets:
+                other_formats[asset_format] = _format_inventory(root, source['id'], format_assets)
+                reference = _format_journal_reference(root, source['id'], asset_format)
+                if reference:
+                    journals[asset_format] = reference
+        if other_formats:
+            source_result['by_format'] = other_formats
+        if journals:
+            source_result['format_acquisition_journal_references'] = journals
+        sources.append(source_result)
     pool=root/'sources/objects/sha256';objects=list(pool.rglob('*.pdf'))
     pool_inodes={(path.stat().st_dev,path.stat().st_ino) for path in objects}
     policies=json.loads((root/'config/source_acquisition_policies.json').read_text())

@@ -347,6 +347,54 @@ def test_compact_public_projection_and_ranking_must_match_canonical_ids(tmp_path
         validator["validate_public_site"](site)
 
 
+@pytest.mark.parametrize("extension", ["mxl", "musicxml", "mscz", "mscx", "xml"])
+@pytest.mark.parametrize("suffix", ["", "?download=1", "/content"])
+def test_public_boundary_rejects_editable_score_urls(extension: str, suffix: str) -> None:
+    validator = public_validator()
+    for dot in (".", "%2E"):
+        url = f"https://example.test/files/score{dot}{extension}{suffix}"
+        with pytest.raises(validator["PublicSiteValidationError"], match="forbidden"):
+            validator["check_forbidden"]({"description": url})
+
+
+@pytest.mark.parametrize("title", ["Guitar Study.mscz", "04 Medley.mscz final", "MusicXML edition.xml"])
+def test_native_title_format_words_remain_public_text(title: str) -> None:
+    public_validator()["check_forbidden"]({"title_en": title})
+
+
+@pytest.mark.parametrize("extension", ["mxl", "musicxml", "mscz", "mscx", "xml"])
+def test_public_site_rejects_hosted_editable_score_files(tmp_path: Path, extension: str) -> None:
+    site = tmp_path / "public_site"
+    site.mkdir()
+    (site / ("score." + extension.upper())).write_bytes(b"private score bytes")
+    validator = public_validator()
+    with pytest.raises(validator["PublicSiteValidationError"], match="score files"):
+        validator["validate_public_site"](site)
+
+
+@pytest.mark.parametrize("extension", ["mxl", "musicxml", "mscz", "mscx"])
+def test_compact_transport_cannot_hide_editable_score_urls(tmp_path: Path, extension: str) -> None:
+    from catalog_payload import pack_payload
+
+    make_library(tmp_path)
+    payload = public_exporter()["build_public_catalog"](tmp_path)
+    site = tmp_path / "public_site"
+    write_json(site / "data/catalog.json", payload)
+    write_json(site / "data/search-aliases.json", {"schema_version": 1, "composers": {}, "works": {}})
+    leaked = json.loads(json.dumps(payload))
+    url = "https://example.test/score." + extension
+    leaked["works"][0]["title_en"] = url
+    envelope = pack_payload(leaked)
+    assert url not in json.dumps(envelope)
+    write_json(site / "data/catalog.compact.json", envelope)
+    validator = public_validator()
+    with pytest.raises(validator["PublicSiteValidationError"], match="differs from"):
+        validator["validate_public_site"](site)
+    write_json(site / "data/catalog.json", leaked)
+    with pytest.raises(validator["PublicSiteValidationError"], match="forbidden"):
+        validator["validate_public_site"](site)
+
+
 @pytest.mark.parametrize("asset,label", [
     ("archive-cover.webp", "hero artwork"),
     ("rosette-touch.png", "favicon"),

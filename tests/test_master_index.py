@@ -47,12 +47,14 @@ def test_offline_home_reuses_public_layout_and_search_with_embedded_data(tmp_pat
         assert f'id="{identity}"' in html
     for name in ["site.css", "search.js", "app.js"]:
         assert f'public_site/assets/{name}' in html
-    assert 'src="scripts/assets/offline-catalog.js"' in html
+    assert re.search(r'src="scripts/assets/offline-catalog\.js\?v=[0-9a-f]{10}"', html)
+    assert re.search(r'href="scripts/assets/offline-catalog\.css\?v=[0-9a-f]{10}"', html)
     scripts = re.findall(r'<script src="([^"]+)"', html)
     app_sources = [src for src in scripts if src.split("?", 1)[0] == "public_site/assets/app.js"]
     assert len(app_sources) == 1
-    assert scripts.count("scripts/assets/offline-catalog.js") == 1
-    assert scripts.index("scripts/assets/offline-catalog.js") < scripts.index(app_sources[0])
+    offline_sources = [src for src in scripts if src.split("?", 1)[0] == "scripts/assets/offline-catalog.js"]
+    assert len(offline_sources) == 1
+    assert scripts.index(offline_sources[0]) < scripts.index(app_sources[0])
     # Cache-version queries must survive without losing the offline adapter.
     public_app = re.search(r'<script src="assets/app\.js([^"]*)"', (ROOT / "public_site/index.html").read_text())
     assert public_app and app_sources[0] == "public_site/assets/app.js" + public_app[1]

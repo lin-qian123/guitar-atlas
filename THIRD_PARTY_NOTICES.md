@@ -169,9 +169,12 @@ Domain Mark labels remain record-specific observations, separate from the datase
 license and from unverified current source availability. This is a frozen subset,
 not a live or complete MuseScore catalog.
 
-The authorized local extension acquires the same publication's exported PDFs
-for these 924 records, validates the full archive and each selected PDF, and
-stores them only in the private offline collection. It does not acquire native
+The authorized local extension acquires the same publication's exported PDF,
+compressed MusicXML (MXL) and MIDI for these 924 native records. It validates
+each complete archive and selected file and stores them only in the private
+offline collection, preserving their shared native-record associations and
+separate format receipts. Structural validation does not establish note-level
+equivalence or acoustic playback. It does not acquire or convert native
 MSCZ files or request MuseScore download services. Source-file terms remain
 separate from this repository's software and documentation licenses.
 
@@ -181,7 +184,7 @@ and third-party score rights; it does not supply a bundled score database.
 
 ## Publication boundary
 
-The public site hosts no scores, MIDI, or Guitar Pro files and exposes no direct
+The public site hosts no PDF, MXL/MusicXML, MSCZ/MSCX, MIDI or Guitar Pro files and exposes no direct
 file or download URLs. Verified files in a private local collection are not
 included in the Git repository or GitHub Pages export. Every public record links
 to a validated page on its source website.

@@ -114,7 +114,8 @@ def test_real_pipeline_closes_statistics_and_preserves_historical_scope(tmp_path
     assert all(asset["status"] == "metadata_only" for row in catalog["works"] for asset in row["assets"])
 
 
-def test_metadata_rebuild_refuses_verified_pdf_before_any_write_or_network(tmp_path, no_network):
+@pytest.mark.parametrize("format", ["PDF", "MUSICXML", "MIDI"])
+def test_metadata_rebuild_refuses_verified_pdf_before_any_write_or_network(tmp_path, no_network, format):
     fixture_library(tmp_path)
     pipeline.build(tmp_path)
     path = tmp_path / "sources/musescore/catalog.json"
@@ -129,7 +130,7 @@ def test_metadata_rebuild_refuses_verified_pdf_before_any_write_or_network(tmp_p
     pdf = tmp_path / relative
     pdf.parent.mkdir(parents=True)
     pdf.write_bytes(body)
-    pdf_asset = next(asset for asset in catalog["works"][0]["assets"] if asset["format"] == "PDF")
+    pdf_asset = next(asset for asset in catalog["works"][0]["assets"] if asset["format"] == format)
     pdf_asset.update(status="verified", local_path=relative, sha256=sha, size=len(body))
     catalog["works"][0]["composer_en"] = "Reviewed responsibility preserved"
     write_json(path, catalog)
@@ -143,14 +144,15 @@ def test_metadata_rebuild_refuses_verified_pdf_before_any_write_or_network(tmp_p
 
 
 @pytest.mark.parametrize("journal_state", ["running", "complete", "interrupted", "invalid_json"])
-def test_metadata_rebuild_preserves_active_or_unreadable_pdf_journal(tmp_path, no_network, journal_state):
+@pytest.mark.parametrize("filename", ["pdf-extraction.json", "mxl-extraction.json", "mid-extraction.json"])
+def test_metadata_rebuild_preserves_active_or_unreadable_pdf_journal(tmp_path, no_network, journal_state, filename):
     fixture_library(tmp_path)
     pipeline.build(tmp_path)
     path = tmp_path / "sources/musescore/catalog.json"
     catalog = json.loads(path.read_text())
     catalog["works"][0]["composer_en"] = "Reviewed responsibility preserved"
     write_json(path, catalog)
-    journal = tmp_path / "sources/musescore/pdmx/pdf-extraction.json"
+    journal = tmp_path / "sources/musescore/pdmx" / filename
     if journal_state == "invalid_json":
         journal.write_bytes(b'{"interrupted write":')
     else:

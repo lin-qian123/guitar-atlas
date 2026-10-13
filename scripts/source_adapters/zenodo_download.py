@@ -1,4 +1,4 @@
-"""Two resumable ranges for the one approved PDMX v9 PDF publication page.
+"""Two resumable ranges for fixed, reviewed PDMX v9 publication pages.
 
 Original prefixes and segment bytes remain private until whole-archive upstream
 MD5 verification. This route never follows redirects or requests MuseScore.
@@ -23,8 +23,18 @@ from source_adapters.pdmx_assets import source_lock
 
 
 PAGE_URL = "https://zenodo.org/records/15571083/files/pdf.tar.gz"
+PAGE_URLS = frozenset("https://zenodo.org/records/15571083/files/" + name + ".tar.gz"
+                      for name in ("pdf", "mxl", "mid"))
+
+
+def _page_stem(url):
+    if url not in PAGE_URLS:
+        raise ValueError("unapproved fixed Zenodo publication endpoint")
+    return url.rsplit("/", 1)[1].split(".", 1)[0]
 ROBOTS_URL = "https://zenodo.org/robots.txt"
 AGENT = "GuitarAtlas/1.0 (source-attributed personal offline guitar score library)"
+GAP_CHUNK_BYTES = 64*1024*1024
+MAX_GAP_SEGMENTS = 32
 
 
 def now():
@@ -45,7 +55,9 @@ def _fingerprint(path):
 
 
 class RangeClient:
-    def __init__(self, *, session=None, clock=None, sleep=None, delay=10):
+    def __init__(self, *, session=None, clock=None, sleep=None, delay=10, page_url=PAGE_URL):
+        _page_stem(page_url)
+        self.page_url = page_url
         self.session = session if session is not None else requests.Session()
         self.clock, self.sleep = clock or time.monotonic, sleep or time.sleep
         self.delay = max(10, delay)
@@ -58,8 +70,8 @@ class RangeClient:
         raise AccessStopped(reason)
 
     def request(self, url, *, headers=None, stream=True):
-        if url not in {PAGE_URL, ROBOTS_URL}:
-            raise ValueError("unapproved fixed Zenodo PDF endpoint")
+        if url not in {self.page_url, ROBOTS_URL}:
+            raise ValueError("unapproved fixed Zenodo publication endpoint")
         with self.lock:
             if self.stopped:
                 raise AccessStopped(self.stopped)
@@ -76,13 +88,13 @@ class RangeClient:
                 self.stopped = f"Zenodo range access stopped: HTTP {response.status_code}"
                 response.close()
                 raise AccessStopped(self.stopped)
-            if url == PAGE_URL and "text/html" in str(response.headers.get("Content-Type", "")).lower():
+            if url == self.page_url and "text/html" in str(response.headers.get("Content-Type", "")).lower():
                 self.stopped = "Zenodo range returned HTML; human verification/access stop"
                 response.close()
                 raise AccessStopped(self.stopped)
         try:
             if response.url != url or response.status_code in {301, 302, 303, 307, 308}:
-                raise ValueError("unapproved Zenodo PDF page redirect/response URL")
+                raise ValueError("unapproved Zenodo publication page redirect/response URL")
             return response
         except BaseException:
             response.close()
@@ -97,8 +109,8 @@ class RangeClient:
             if any(value in text.lower() for value in ("verify you are human", "cf-chl-", "hcaptcha", "g-recaptcha")):
                 self.stop("Zenodo robots human verification required")
             _atomic_json(receipt_path, {"checked_at": now(), "url": ROBOTS_URL, "status_code": 200, "text": text})
-            if not robots_allows(text, "GuitarAtlas", PAGE_URL):
-                self.stop("Zenodo robots disallows the approved PDF page endpoint")
+            if not robots_allows(text, "GuitarAtlas", self.page_url):
+                self.stop("Zenodo robots disallows the approved publication page endpoint")
             import urllib.robotparser
             parser = urllib.robotparser.RobotFileParser()
             parser.parse(text.splitlines())
@@ -109,45 +121,49 @@ class RangeClient:
 
 def download_file(url, destination, *, expected_size, expected_md5, client=None, chunk_bytes=1024*1024,
                   plan_path=None, receipt_path=None):
-    if url != PAGE_URL:
-        raise ValueError("unapproved fixed Zenodo PDF endpoint")
+    stem = _page_stem(url)
+    if client is not None and client.page_url != url:
+        raise ValueError("range client endpoint disagrees with requested publication")
     if (type(expected_size) is not int or expected_size <= 0
             or not re.fullmatch(r"[0-9a-f]{32}", str(expected_md5))
             or type(chunk_bytes) is not int or chunk_bytes <= 0):
         raise ValueError("positive frozen size, checksum and chunk size required")
     destination = _safe(destination)
     destination.parent.mkdir(parents=True, exist_ok=True)
-    plan_path = _safe(plan_path or destination.parent / "pdf-range-plan.json")
-    receipt_path = _safe(receipt_path or destination.parent / "pdf-receipt.json")
-    with source_lock(_safe(destination.parent / ".pdf-range.lock")):
+    plan_path = _safe(plan_path or destination.parent / (stem + "-range-plan.json"))
+    receipt_path = _safe(receipt_path or destination.parent / (stem + "-receipt.json"))
+    with source_lock(_safe(destination.parent / ".publication-range.lock")), source_lock(_safe(destination.parent / ("." + stem + "-range.lock"))):
         return _download_locked(destination, expected_size=expected_size, expected_md5=expected_md5,
-                                client=client or RangeClient(), chunk_bytes=chunk_bytes,
+                                client=client or RangeClient(page_url=url), chunk_bytes=chunk_bytes,
                                 plan_path=plan_path, receipt_path=receipt_path)
 
 
 def _download_locked(destination, *, expected_size, expected_md5, client, chunk_bytes, plan_path, receipt_path):
+    page_url = client.page_url
+    stem = _page_stem(page_url)
     prefix = _safe(destination.with_name(destination.name + ".part"))
     assembly = _safe(destination.with_name(destination.name + ".complete.part"))
     if destination.is_file():
         before = _fingerprint(destination)
         size, md5, sha = _digests(destination)
         if before != _fingerprint(destination):
-            raise ValueError("cached final PDF archive changed during checksum validation")
+            raise ValueError("cached final publication archive changed during checksum validation")
         if size != expected_size or md5 != expected_md5:
-            raise ValueError("existing final PDF archive integrity failure; original bytes preserved")
+            raise ValueError("existing final publication archive integrity failure; original bytes preserved")
         previous = json.loads(receipt_path.read_text()) if receipt_path.is_file() else {}
-        approved_origins = {PAGE_URL, "https://zenodo.org/api/records/15571083/files/pdf.tar.gz/content"}
+        approved_origins = {page_url, "https://zenodo.org/api/records/15571083/files/" + page_url.rsplit("/", 1)[1] + "/content"}
         preserve = (previous.get("url") in approved_origins and previous.get("bytes") == size
                     and previous.get("sha256") == sha and previous.get("upstream_checksum") == "md5:" + md5
                     and previous.get("upstream_checksum_verified") is True)
-        receipt = {**(previous if preserve else {}), "url": previous["url"] if preserve else PAGE_URL,
-                   "final_url": previous.get("final_url", previous["url"]) if preserve else PAGE_URL,
+        receipt = {**(previous if preserve else {}), "url": previous["url"] if preserve else page_url,
+                   "final_url": previous.get("final_url", previous["url"]) if preserve else page_url,
                    "bytes": size, "sha256": sha, "upstream_checksum": "md5:" + md5,
                    "upstream_checksum_verified": True, "cached": True, "checked_at": now()}
         if not preserve:
             receipt.update(completed_at=now(), segment_count=0, prefix_bytes=0)
         _atomic_json(receipt_path, receipt)
         return receipt
+    _refuse_any_publication_access(destination.parent)
     if not prefix.exists():
         prefix.touch()
     before = _fingerprint(prefix)
@@ -158,15 +174,18 @@ def _download_locked(destination, *, expected_size, expected_md5, client, chunk_
         raise ValueError("original prefix exceeds frozen archive size")
     if plan_path.is_file():
         plan = json.loads(plan_path.read_text())
+        if _source_refused(plan):
+            raise AccessStopped("range source access refusal cannot be silently retried")
         if plan.get("consolidation", {}).get("status") == "prepared":
             raise ValueError("pending local consolidation must finish before HTTP range resume")
-        if (plan.get("schema_version") != 1 or plan.get("url") != PAGE_URL
+        if plan.get("rebalance", {}).get("status") == "prepared":
+            raise ValueError("pending local rebalance must finish before HTTP range resume")
+        if (plan.get("schema_version") != 1 or plan.get("url") != page_url
                 or plan.get("expected_size") != expected_size or plan.get("expected_md5") != expected_md5
                 or plan.get("prefix") != {"bytes": prefix_size, "sha256": prefix_sha}):
             raise ValueError("range plan no longer agrees with the untouched original prefix/publication")
-        remaining = expected_size - prefix_size
-        midpoint = prefix_size + (remaining + 1)//2
-        expected_segments = [(prefix_size, midpoint-1), (midpoint, expected_size-1)] if remaining > 1 else [(prefix_size, expected_size-1)] if remaining else []
+        tail = _validate_retained_tail(destination,plan) if "retained_tail" in plan else None
+        expected_segments = _planned_offsets(prefix_size,expected_size,plan)
         if (len(plan.get("segments", [])) != len(expected_segments)
                 or any((row.get("start"), row.get("end")) != offsets
                        or row.get("filename") != _segment_filename(destination, index, plan)
@@ -174,10 +193,11 @@ def _download_locked(destination, *, expected_size, expected_md5, client, chunk_
                        for index, (row, offsets) in enumerate(zip(plan["segments"], expected_segments)))):
             raise ValueError("range plan offsets or segment filenames changed")
     else:
+        tail = None
         remaining = expected_size - prefix_size
         midpoint = prefix_size + (remaining + 1)//2
         offsets = [(prefix_size, midpoint-1), (midpoint, expected_size-1)] if remaining > 1 else [(prefix_size, expected_size-1)] if remaining else []
-        plan = {"schema_version": 1, "url": PAGE_URL, "expected_size": expected_size, "expected_md5": expected_md5,
+        plan = {"schema_version": 1, "url": page_url, "expected_size": expected_size, "expected_md5": expected_md5,
                 "prefix": {"bytes": prefix_size, "sha256": prefix_sha}, "created_at": now(),
                 "segments": [{"start": start, "end": end, "length": end-start+1,
                               "filename": destination.name + f".range-{index}.part", "received": 0, "status": "pending"}
@@ -202,7 +222,7 @@ def _download_locked(destination, *, expected_size, expected_md5, client, chunk_
         if received == row["length"]:
             return
         offset = row["start"] + received
-        response = client.request(PAGE_URL, headers={"Range": f"bytes={offset}-{row['end']}"})
+        response = client.request(page_url, headers={"Range": f"bytes={offset}-{row['end']}"})
         try:
             headers = {key.lower(): value for key, value in response.headers.items()}
             if response.status_code != 206:
@@ -252,7 +272,7 @@ def _download_locked(destination, *, expected_size, expected_md5, client, chunk_
     try:
         incomplete = [row for row in plan["segments"] if row["status"] != "complete"]
         if incomplete:
-            client.check_robots(_safe(destination.parent / "pdf-range-robots.json"))
+            client.check_robots(_safe(destination.parent / (stem + "-range-robots.json")))
             with ThreadPoolExecutor(max_workers=2) as workers:
                 futures = {workers.submit(fetch, row): row for row in incomplete}
                 try:
@@ -277,10 +297,14 @@ def _download_locked(destination, *, expected_size, expected_md5, client, chunk_
                 raise RuntimeError("range transfer interrupted; original prefix and fragment bytes retained: " + str(failures[0]))
         if before != _fingerprint(prefix):
             raise ValueError("original prefix changed during range transfer")
+        if tail:
+            _validate_retained_tail(destination,plan)
         plan.update(status="assembling")
         checkpoint()
         size, sha, md5 = 0, hashlib.sha256(), hashlib.md5(usedforsecurity=False)
         paths = [prefix, *(_safe(destination.parent / row["filename"]) for row in plan["segments"])]
+        if tail:
+            paths.append(_safe(destination.parent / tail["filename"]))
         input_fingerprints = {path: _fingerprint(path) for path in paths}
         with assembly.open("wb") as output:
             for path in paths:
@@ -297,10 +321,13 @@ def _download_locked(destination, *, expected_size, expected_md5, client, chunk_
         if assembly_before != _fingerprint(assembly) or (verified_size, verified_md5, verified_sha) != (size, md5.hexdigest(), sha.hexdigest()):
             raise ValueError("assembled archive changed before publication")
         os.replace(assembly, destination)
-        receipt = {"url": PAGE_URL, "final_url": PAGE_URL, "bytes": size, "sha256": sha.hexdigest(),
+        receipt = {"url": page_url, "final_url": page_url, "bytes": size, "sha256": sha.hexdigest(),
                    "upstream_checksum": "md5:" + md5.hexdigest(), "upstream_checksum_verified": True,
                    "cached": False, "completed_at": now(), "prefix_bytes": prefix_size,
                    "segment_count": len(plan["segments"]), "range_plan": plan_path.name}
+        if tail:
+            receipt.update(retained_tail_bytes=tail["length"],retained_tail_sha256=tail["sha256"],
+                           gap_chunk_bytes=GAP_CHUNK_BYTES)
         _atomic_json(receipt_path, receipt)
         plan.update(status="complete", completed_at=now(), final_sha256=sha.hexdigest(), upstream_checksum_verified=True)
         checkpoint()
@@ -342,6 +369,258 @@ def _source_refused(plan):
         marker in errors for marker in ("http 401", "http 403", "http 429", "human verification", "robots disallows"))
 
 
+def _ordinary_offsets(start,end):
+    remaining = end-start
+    midpoint = start+(remaining+1)//2
+    return [(start,midpoint-1),(midpoint,end-1)] if remaining > 1 else [(start,end-1)] if remaining else []
+
+
+def _planned_offsets(start,expected_size,plan):
+    if "retained_tail" not in plan:
+        return _ordinary_offsets(start,expected_size)
+    tail = plan["retained_tail"]
+    if (plan.get("range_mode") != "retained_tail_v1" or plan.get("gap_chunk_bytes") != GAP_CHUNK_BYTES
+            or type(tail.get("start")) is not int or not start < tail["start"] < expected_size):
+        raise ValueError("retained-tail fixed gap configuration/boundaries are invalid")
+    offsets = [(left,min(left+GAP_CHUNK_BYTES,tail["start"])-1) for left in range(start,tail["start"],GAP_CHUNK_BYTES)]
+    if not offsets or len(offsets) > MAX_GAP_SEGMENTS:
+        raise ValueError("retained-tail gap job limit exceeded")
+    return offsets
+
+
+def _tail_filename(destination,digest):
+    if not re.fullmatch(r"[0-9a-f]{64}",str(digest)):
+        raise ValueError("invalid retained-tail SHA-256 guard")
+    return destination.name+f".tail-{digest}.part"
+
+
+def _checked_identity(path,guard,context):
+    before = _fingerprint(path)
+    size,_,sha = _digests(path)
+    if before != _fingerprint(path) or {"bytes":size,"sha256":sha} != {"bytes":guard.get("bytes"),"sha256":guard.get("sha256")}:
+        raise ValueError(f"{context} checksum/size identity changed")
+    return before
+
+
+def _rebalance_shape(destination,plan):
+    """Validate stored tail offset evidence against exact old two-half slots."""
+    intent = plan.get("rebalance",{})
+    old = intent.get("old_plan_summary",{})
+    if (intent.get("version") != 1 or intent.get("status") not in {"prepared","complete"}
+            or old.get("schema_version") != 1 or old.get("url") != plan.get("url")
+            or old.get("expected_size") != plan.get("expected_size") or old.get("expected_md5") != plan.get("expected_md5")
+            or _source_refused(old) or "retained_tail" in old or "rebalance" in old):
+        raise ValueError("retained-tail prepared publication/access evidence drift")
+    _page_stem(old.get("url"))
+    old_prefix = old.get("prefix",{})
+    new_prefix = intent.get("new_prefix",{})
+    guards = intent.get("input_guards",[])
+    if (type(old_prefix.get("bytes")) is not int or old_prefix["bytes"] < 0
+            or not re.fullmatch(r"[0-9a-f]{64}",str(old_prefix.get("sha256","")))
+            or type(new_prefix.get("bytes")) is not int
+            or not re.fullmatch(r"[0-9a-f]{64}",str(new_prefix.get("sha256","")))
+            or len(guards) != 3):
+        raise ValueError("retained-tail original input guards are invalid")
+    offsets = _ordinary_offsets(old_prefix["bytes"],plan["expected_size"])
+    if len(offsets) != 2 or len(old.get("segments",[])) != 2:
+        raise ValueError("retained-tail requires exactly two old half-range boundaries")
+    if (guards[0] != {"filename":destination.name+".part",**old_prefix}
+            or any((row.get("start"),row.get("end")) != interval or row.get("length") != interval[1]-interval[0]+1
+                or row.get("filename") != _segment_filename(destination,index,old)
+                or guard.get("filename") != row.get("filename") or type(guard.get("bytes")) is not int
+                or not 0 <= guard["bytes"] <= row["length"]
+                or not re.fullmatch(r"[0-9a-f]{64}",str(guard.get("sha256","")))
+                for index,(row,interval,guard) in enumerate(zip(old["segments"],offsets,guards[1:])))
+            or not 0 < guards[1]["bytes"] < old["segments"][0]["length"]
+            or guards[2]["bytes"] != old["segments"][1]["length"]
+            or new_prefix["bytes"] != guards[0]["bytes"]+guards[1]["bytes"]):
+        raise ValueError("retained-tail input guards/offsets disagree with exact old plan")
+    tail = intent.get("retained_tail",{})
+    second = old["segments"][1]
+    expected_tail = {"start":second["start"],"end":second["end"],"length":second["length"],
+        "bytes":guards[2]["bytes"],"sha256":guards[2]["sha256"],
+        "filename":_tail_filename(destination,guards[2]["sha256"]),"status":"complete"}
+    if tail != expected_tail or not old_prefix["bytes"] < new_prefix["bytes"] < tail["start"]:
+        raise ValueError("retained-tail extent/filename does not preserve exact old upper range")
+    return intent,old,guards,new_prefix,tail
+
+
+def _validate_retained_tail(destination,plan):
+    intent,_,guards,new_prefix,tail = _rebalance_shape(destination,plan)
+    if (intent.get("status") != "complete" or plan.get("prefix") != new_prefix
+            or plan.get("retained_tail") != tail or plan.get("fragment_generation") != new_prefix["sha256"]):
+        raise ValueError("retained-tail active plan does not equal completed local transaction")
+    _planned_offsets(new_prefix["bytes"],plan["expected_size"],plan)
+    prefix = _safe(destination.with_name(destination.name+".part"))
+    _check_original_prefix_slices(prefix,guards[:2])
+    _checked_identity(_safe(destination.parent / tail["filename"]),tail,"retained tail")
+    return tail
+
+
+def _refuse_any_publication_access(directory):
+    for stem in ("pdf","mxl","mid"):
+        for kind in ("range-plan","extraction"):
+            path = _safe(directory / f"{stem}-{kind}.json")
+            if path.is_file():
+                value = json.loads(path.read_text())
+                if not isinstance(value,dict):
+                    raise ValueError("malformed publication access journal")
+                if _source_refused(value):
+                    raise AccessStopped("publication source access refusal cannot be rebalanced or retried")
+
+
+def rebalance_received_ranges(destination,*,page_url,expected_size,expected_md5,source_lock_path=None,plan_path=None):
+    """Pure local recovery: retain complete upper bytes and chunk only the gap.
+
+    No network request or catalog publication occurs. Both old fragments remain
+    recoverable until an exact prepared transaction has committed its new plan.
+    """
+    stem = _page_stem(page_url)
+    if type(expected_size) is not int or expected_size <= 0 or not re.fullmatch(r"[0-9a-f]{32}",str(expected_md5)):
+        raise ValueError("positive frozen publication size/upstream checksum required")
+    destination = _safe(destination)
+    source_lock_path = _safe(source_lock_path or destination.parent.parent / ".pdf-acquisition.lock")
+    plan_path = _safe(plan_path or destination.parent / (stem+"-range-plan.json"))
+    with source_lock(source_lock_path),source_lock(_safe(destination.parent / ".publication-range.lock")),source_lock(_safe(destination.parent / ("."+stem+"-range.lock"))):
+        _refuse_any_publication_access(destination.parent)
+        original_bytes = plan_path.read_bytes()
+        plan = json.loads(original_bytes)
+        if (plan.get("schema_version") != 1 or plan.get("url") != page_url or plan.get("expected_size") != expected_size
+                or plan.get("expected_md5") != expected_md5 or _source_refused(plan)):
+            raise ValueError("rebalance plan disagrees with frozen publication/access scope")
+        if destination.exists():
+            raise ValueError("rebalance is only for an incomplete publication archive")
+        prefix = _safe(destination.with_name(destination.name+".part"))
+        staging = _safe(destination.with_name(destination.name+".prefix-rebalance.part"))
+        if plan.get("consolidation",{}).get("status") == "prepared":
+            raise ValueError("finish the pending ordinary consolidation before rebalance")
+        if plan.get("rebalance",{}).get("status") == "prepared":
+            return _finish_rebalance(destination,prefix,staging,plan_path,plan)
+        if "retained_tail" in plan:
+            _validate_retained_tail(destination,plan)
+            _clean_rebalance_inputs(destination,plan)
+            return {"status":"unchanged","reason":"retained_tail_plan_already_committed","archive_verified":False,"catalog_committed":False}
+        before = _fingerprint(prefix)
+        prefix_size,_,prefix_sha = _digests(prefix)
+        if before != _fingerprint(prefix) or plan.get("prefix") != {"bytes":prefix_size,"sha256":prefix_sha}:
+            raise ValueError("rebalance original prefix drift")
+        offsets = _ordinary_offsets(prefix_size,expected_size)
+        if (len(offsets) != 2 or len(plan.get("segments",[])) != 2
+                or any((row.get("start"),row.get("end")) != interval or row.get("length") != interval[1]-interval[0]+1
+                    or row.get("filename") != _segment_filename(destination,index,plan)
+                    for index,(row,interval) in enumerate(zip(plan["segments"],offsets)))):
+            raise ValueError("rebalance old range offsets/filenames changed")
+        fragments = [_safe(destination.parent / row["filename"]) for row in plan["segments"]]
+        if any(not path.is_file() for path in fragments):
+            return {"status":"unchanged","reason":"missing_original_fragment"}
+        sizes = [path.stat().st_size for path in fragments]
+        if any(size > row["length"] for size,row in zip(sizes,plan["segments"])):
+            raise ValueError("rebalance fragment exceeds approved exact offsets")
+        if sizes[1] != plan["segments"][1]["length"] or not 0 < sizes[0] < plan["segments"][0]["length"]:
+            return {"status":"unchanged","reason":"requires_partial_lower_and_complete_upper_range"}
+        _planned_offsets(prefix_size+sizes[0],expected_size,{"retained_tail":{"start":plan["segments"][1]["start"]},
+                         "range_mode":"retained_tail_v1","gap_chunk_bytes":GAP_CHUNK_BYTES})
+        paths = [prefix,*fragments]
+        fingerprints,guards = {},[]
+        for path in paths:
+            stamp = _fingerprint(path)
+            size,_,sha = _digests(path)
+            if stamp != _fingerprint(path):
+                raise ValueError("rebalance input changed during fresh hashing")
+            fingerprints[path] = stamp
+            guards.append({"filename":path.name,"bytes":size,"sha256":sha})
+        try:
+            new_prefix = _copy_prefix([prefix,fragments[0]],staging)
+            if any(_fingerprint(path) != stamp for path,stamp in fingerprints.items()):
+                raise ValueError("rebalance input changed during prefix copy")
+            _checked_identity(staging,new_prefix,"rebalance staged prefix")
+            if plan_path.read_bytes() != original_bytes:
+                raise ValueError("rebalance range plan changed during local copy")
+            second = plan["segments"][1]
+            tail = {"start":second["start"],"end":second["end"],"length":second["length"],
+                    "bytes":guards[2]["bytes"],"sha256":guards[2]["sha256"],
+                    "filename":_tail_filename(destination,guards[2]["sha256"]),"status":"complete"}
+            old = {key:plan[key] for key in ("schema_version","url","expected_size","expected_md5","prefix","segments","status")}
+            if plan.get("fragment_generation"):
+                old["fragment_generation"] = plan["fragment_generation"]
+            plan["rebalance"] = {"version":1,"status":"prepared","prepared_at":now(),"old_plan_summary":old,
+                "old_plan_sha256":hashlib.sha256(original_bytes).hexdigest(),"input_guards":guards,
+                "new_prefix":new_prefix,"retained_tail":tail}
+            _rebalance_shape(destination,plan)
+            _atomic_json(plan_path,plan)
+            return _finish_rebalance(destination,prefix,staging,plan_path,plan)
+        except BaseException:
+            if staging.exists() and plan.get("rebalance",{}).get("status") != "prepared":
+                staging.unlink()
+            raise
+
+
+def _finish_rebalance(destination,prefix,staging,plan_path,plan):
+    prepared_bytes = plan_path.read_bytes()
+    if json.loads(prepared_bytes) != plan:
+        raise ValueError("prepared rebalance plan changed before recovery")
+    intent,old,guards,new_prefix,tail = _rebalance_shape(destination,plan)
+    if plan.get("prefix") != old["prefix"] or plan.get("segments") != old["segments"] or "retained_tail" in plan:
+        raise ValueError("prepared rebalance outer plan disagrees with original boundaries")
+    first = _safe(destination.parent / guards[1]["filename"])
+    original_tail = _safe(destination.parent / guards[2]["filename"])
+    _checked_identity(first,guards[1],"original lower fragment")
+    _checked_identity(original_tail,guards[2],"original upper fragment")
+    tail_path = _safe(destination.parent / tail["filename"])
+    if not tail_path.exists():
+        os.link(original_tail,tail_path)
+    _checked_identity(tail_path,tail,"retained tail")
+    tail_path.chmod(0o444)
+    stamp = _fingerprint(prefix)
+    size,_,sha = _digests(prefix)
+    if stamp != _fingerprint(prefix):
+        raise ValueError("rebalance prefix changed during recovery")
+    current = {"bytes":size,"sha256":sha}
+    if current == old["prefix"]:
+        if _concatenation_identity([prefix,first]) != new_prefix:
+            raise ValueError("rebalance new prefix disagrees with original concatenation identity")
+        if not staging.exists() and _copy_prefix([prefix,first],staging) != new_prefix:
+            raise ValueError("recovered rebalance prefix identity mismatch")
+        _checked_identity(staging,new_prefix,"prepared rebalance prefix")
+        _checked_identity(prefix,guards[0],"original prefix")
+        if plan_path.read_bytes() != prepared_bytes:
+            raise ValueError("prepared rebalance plan changed before prefix replacement")
+        staging.chmod(0o444)
+        os.replace(staging,prefix)
+    elif current != new_prefix:
+        raise ValueError("rebalance prefix is neither original nor prepared version")
+    _check_original_prefix_slices(prefix,guards[:2])
+    _checked_identity(prefix,new_prefix,"rebalance published prefix")
+    plan.update(prefix=new_prefix,fragment_generation=new_prefix["sha256"],retained_tail=tail,
+                range_mode="retained_tail_v1",gap_chunk_bytes=GAP_CHUNK_BYTES,status="pending",error="",upstream_checksum_verified=False)
+    offsets = _planned_offsets(new_prefix["bytes"],plan["expected_size"],plan)
+    plan["segments"] = [{"start":left,"end":right,"length":right-left+1,
+                         "filename":_segment_filename(destination,index,plan),"received":0,"status":"pending"}
+                        for index,(left,right) in enumerate(offsets)]
+    intent.update(status="complete",completed_at=now())
+    if plan_path.read_bytes() != prepared_bytes:
+        raise ValueError("prepared rebalance plan changed before final plan publication")
+    _atomic_json(plan_path,plan)
+    _clean_rebalance_inputs(destination,plan)
+    if staging.exists():
+        staging.unlink()
+    return {"status":"rebalanced","prefix_bytes":new_prefix["bytes"],"retained_tail_bytes":tail["length"],
+            "pending_bytes":tail["start"]-new_prefix["bytes"],"gap_segments":len(offsets),
+            "gap_chunk_bytes":GAP_CHUNK_BYTES,"archive_verified":False,"catalog_committed":False}
+
+
+def _clean_rebalance_inputs(destination,plan):
+    _,_,guards,_,tail = _rebalance_shape(destination,plan)
+    _validate_retained_tail(destination,plan)
+    for guard in guards[1:]:
+        path = _safe(destination.parent / guard["filename"])
+        if path.name == tail["filename"] or path.name in {row["filename"] for row in plan["segments"]}:
+            raise ValueError("rebalance cleanup cannot target an active fragment")
+        if path.exists():
+            _checked_identity(path,guard,"retired rebalance input")
+            path.unlink()
+
+
 def consolidate_received_prefix(destination, *, expected_size, expected_md5, source_lock_path=None, plan_path=None):
     """Purely local, explicit replanning after every transfer writer has exited.
 
@@ -351,9 +630,11 @@ def consolidate_received_prefix(destination, *, expected_size, expected_md5, sou
     destination = _safe(destination)
     plan_path = _safe(plan_path or destination.parent / "pdf-range-plan.json")
     source_lock_path = _safe(source_lock_path or destination.parent / ".pdf-acquisition.lock")
-    with source_lock(source_lock_path), source_lock(_safe(destination.parent / ".pdf-range.lock")):
+    with source_lock(source_lock_path), source_lock(_safe(destination.parent / ".publication-range.lock")), source_lock(_safe(destination.parent / ".pdf-range.lock")):
         original_plan_bytes = plan_path.read_bytes()
         plan = json.loads(original_plan_bytes)
+        if "retained_tail" in plan or "rebalance" in plan:
+            raise ValueError("retained-tail plans require the explicit rebalance helper, not PDF consolidation")
         if _source_refused(plan):
             raise AccessStopped("range source access refusal cannot be consolidated or retried")
         if (plan.get("schema_version") != 1 or plan.get("url") != PAGE_URL

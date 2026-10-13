@@ -87,13 +87,59 @@ def test_explicit_shared_file_creates_an_edge_without_merging_records(tmp_path: 
 
 def test_verified_zip_members_participate_in_content_relations(tmp_path: Path) -> None:
     data = unified_fixture(tmp_path, [
-        {"id": "mutopia:1", "assets": [{"status": "verified", "container": "ZIP", "members": [
-            {"status": "verified", "sha256": "a" * 64}, {"status": "failed", "sha256": "b" * 64}]}]},
-        {"id": "mutopia:2", "assets": [{"status": "verified", "sha256": "a" * 64}]},
-        {"id": "mutopia:3", "assets": [{"status": "verified", "sha256": "b" * 64}]},
+        {"id": "mutopia:1", "assets": [{"format": "PDF", "status": "verified", "container": "ZIP", "members": [
+            {"format": "PDF", "status": "verified", "sha256": "a" * 64},
+            {"format": "PDF", "status": "failed", "sha256": "b" * 64}]}]},
+        {"id": "mutopia:2", "assets": [{"format": "PDF", "status": "verified", "sha256": "a" * 64}]},
+        {"id": "mutopia:3", "assets": [{"format": "PDF", "status": "verified", "sha256": "b" * 64}]},
     ])
     assert data["relationships"] == [{"from_id": "mutopia:1", "to_id": "mutopia:2",
                                       "type": "identical_pdf", "basis": "verified_file_content"}]
+
+
+@pytest.mark.parametrize("format", ["MIDI", "MUSICXML", "UNSPECIFIED", None])
+def test_shared_nonpdf_or_untyped_content_does_not_establish_pdf_identity(tmp_path: Path, format: str | None) -> None:
+    asset = {"status": "verified", "sha256": "a" * 64}
+    if format is not None:
+        asset["format"] = format
+    data = unified_fixture(tmp_path, [
+        {"id": "musescore:1", "assets": [asset]},
+        {"id": "musescore:2", "assets": [asset]},
+    ])
+    assert data["relationships"] == []
+    assert data["summary"]["relationship_count"] == 0
+    assert {work["id"] for work in data["works"]} == {"musescore:1", "musescore:2"}
+
+
+def test_pdf_content_edges_never_cross_other_format_hashes(tmp_path: Path) -> None:
+    rows = [{"id": "musescore:" + str(index), "assets": [
+        {"format": format, "status": "verified", "sha256": "a" * 64}]}
+        for index, format in enumerate(("MIDI", "MIDI", "MUSICXML", "MUSICXML", "PDF", "PDF"), 1)]
+    data = unified_fixture(tmp_path, rows)
+    assert data["relationships"] == [{"from_id": "musescore:5", "to_id": "musescore:6",
+                                     "type": "identical_pdf", "basis": "verified_file_content"}]
+    assert len(data["works"]) == 6 and data["summary"]["relationship_count"] == 1
+
+
+@pytest.mark.parametrize("member_format", ["MIDI", "MUSICXML", None])
+def test_zip_member_requires_pdf_format_to_establish_pdf_identity(tmp_path: Path, member_format: str | None) -> None:
+    member = {"status": "verified", "sha256": "a" * 64}
+    if member_format is not None:
+        member["format"] = member_format
+    data = unified_fixture(tmp_path, [
+        {"id": "mutopia:1", "assets": [{"format": "PDF", "status": "verified", "container": "ZIP", "members": [member]}]},
+        {"id": "mutopia:2", "assets": [{"format": "PDF", "status": "verified", "sha256": "a" * 64}]},
+    ])
+    assert data["relationships"] == []
+
+
+def test_zip_container_hash_is_not_a_pdf_content_hash(tmp_path: Path) -> None:
+    data = unified_fixture(tmp_path, [
+        {"id": "mutopia:1", "assets": [{"format": "PDF", "status": "verified", "container": "ZIP",
+            "sha256": "a" * 64, "members": [{"format": "PDF", "status": "verified", "sha256": "b" * 64}]}]},
+        {"id": "mutopia:2", "assets": [{"format": "PDF", "status": "verified", "sha256": "a" * 64}]},
+    ])
+    assert data["relationships"] == []
 
 
 @pytest.mark.parametrize("institution,call,has_relation", [
