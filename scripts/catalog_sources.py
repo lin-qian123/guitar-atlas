@@ -12,7 +12,13 @@ from urllib.parse import parse_qsl, unquote, urlparse
 
 REGISTRY_PATH = Path(__file__).resolve().parents[1] / "config/sources.json"
 PUBLIC_FORMATS = {"PDF", "GPX", "MIDI", "GP3", "GP4", "GP5", "GP6", "GP7", "GP8", "GP", "MUSICXML", "LILYPOND", "IMAGE", "ONLINE", "UNSPECIFIED"}
-PUBLIC_METADATA = {"instrumentation", "arranger", "editor", "transcriber", "opus", "license", "source_edition", "difficulty", "publisher", "publication_date", "pages", "record_level", "collection", "language", "key", "period", "catalogue_number", "source_call", "institution", "license_note", "availability", "description", "component_count", "contributors", "isbn", "original_arrangement_status", "source_type", "title_annotations", "responsibility_statement", "source_title_transcription", "translated_title_transcription", "source_attribution_note", "dimensions", "physical_description", "text_quality_note", "attribution_role", "material_type"}
+SOURCE_PUBLIC_METADATA = {"instrumentation", "arranger", "editor", "transcriber", "opus", "license", "source_edition", "difficulty", "publisher", "publication_date", "pages", "record_level", "collection", "language", "key", "period", "catalogue_number", "source_call", "institution", "license_note", "availability", "description", "component_count", "contributors", "isbn", "original_arrangement_status", "source_type", "title_annotations", "responsibility_statement", "source_title_transcription", "translated_title_transcription", "source_attribution_note", "dimensions", "physical_description", "text_quality_note", "attribution_role", "material_type"}
+NEW_DETAIL_FIELDS = frozenset({"instrumentation_zh", "source_instrumentation", "instrumentation_review",
+                        "guitar_player_count", "ensemble_player_count", "file_title", "file_identity_note",
+                        "written_guitar_part_count", "ensemble_size_note", "file_part_labels"})
+# The public schema includes guarded file-review descriptions. Their availability
+# is source scoped; a historical adapter's same-named private field is unrelated.
+PUBLIC_METADATA = SOURCE_PUBLIC_METADATA | NEW_DETAIL_FIELDS
 MUSESCORE_RESERVED_OWNERS = frozenset({"api", "download", "static", "score", "scores", "sheetmusic", "groups", "user", "users", "s", "editor"})
 _MUSESCORE_RECORD_PATH = re.compile(r"/(?:(?:user/[1-9][0-9]*)|(?P<owner>[A-Za-z0-9][A-Za-z0-9_.-]*))/scores/(?P<record>[1-9][0-9]*)")
 
@@ -91,12 +97,14 @@ def source_catalog(root: Path, source: dict) -> dict:
     path = root / relative
     if relative.is_absolute() or ".." in relative.parts or not path.resolve().is_relative_to(root.resolve()):
         raise ValueError("source catalog must stay inside the library")
-    payload = json.loads(path.read_text(encoding="utf-8"))
+    source_bytes = path.read_bytes()
+    payload = json.loads(source_bytes)
     if payload.get("schema_version") != 1 or payload.get("source_id") != source["id"]:
         raise ValueError(f"invalid normalized source catalog: {source['id']}")
     if not isinstance(payload.get("categories"), list) or not isinstance(payload.get("works"), list):
         raise ValueError("normalized catalog requires categories and works")
-    return payload
+    from catalog_instrumentation import apply_instrumentation_review
+    return apply_instrumentation_review(root, payload, catalog_bytes=source_bytes)
 
 
 def merge_sources(root: Path, data: dict) -> dict:
@@ -123,6 +131,8 @@ def merge_sources(root: Path, data: dict) -> dict:
             public_source["snapshots"] = {key: value for key, value in old_sources.items() if key != "imslp"}
         else:
             catalog = source_catalog(root, source)
+            from catalog_instrumentation import REVIEW_PATH, REVIEW_STATUSES
+            has_file_review = source["id"] == "musescore" and (root / REVIEW_PATH).is_file()
             snapshot = catalog.get("snapshot", {})
             public_source["snapshot"] = {
                 key: snapshot[key] for key in ("frozen_at", "discovery_complete", "page_count", "scope", "record_count", "detail_complete", "metadata_license") if key in snapshot
@@ -173,7 +183,11 @@ def merge_sources(root: Path, data: dict) -> dict:
                     "title_aliases": raw.get("title_aliases", []),
                 }
                 metadata = raw.get("metadata", {})
-                work["details"] = {key: str(metadata[key]) for key in PUBLIC_METADATA
+                file_review_applied = (has_file_review
+                    and raw.get("instrumentation_status") in REVIEW_STATUSES
+                    and metadata.get("file_instrumentation_basis") == "file_crosscheck")
+                detail_fields = PUBLIC_METADATA if file_review_applied else SOURCE_PUBLIC_METADATA
+                work["details"] = {key: str(metadata[key]) for key in detail_fields
                                    if key in metadata and isinstance(metadata[key], (str, int, float)) and str(metadata[key]).strip()}
                 if source["id"] == "dga":
                     fields = metadata.get("source_fields", {})

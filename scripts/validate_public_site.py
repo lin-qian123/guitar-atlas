@@ -318,8 +318,24 @@ def validate_payload(payload: object, *, registry: list[dict] | None = None) -> 
             mapping = work.get("topic_category_ids")
             if not isinstance(ids, list) or not ids or len(set(ids)) != len(ids) or set(ids) - topic_ids:
                 fail("invalid work shared topics")
-            if not isinstance(proof, dict) or set(proof) != set(ids) or any(value not in {"approved_source_category", "explicit_source_instrumentation", "no_exact_instrumentation_evidence", "source_resource_type", "title_keyword", "archival_source"} for value in proof.values()):
+            if not isinstance(proof, dict) or set(proof) != set(ids) or any(value not in {"approved_source_category", "explicit_source_instrumentation", "file_crosscheck", "no_exact_instrumentation_evidence", "source_resource_type", "title_keyword", "archival_source"} for value in proof.values()):
                 fail("invalid shared topic evidence")
+            if "file_crosscheck" in proof.values():
+                if (work.get("source_id") != "musescore"
+                        or work.get("instrumentation_status") not in {"file_verified", "file_reviewed_uncertain"}
+                        or not work.get("details", {}).get("instrumentation_review")):
+                    fail("file-crosschecked topic lacks a completed MuseScore instrumentation review")
+                if work["instrumentation_status"] == "file_reviewed_uncertain":
+                    details = work.get("details", {})
+                    if any(proof.get(key) == "file_crosscheck" for key in ("solo", "duo", "trio", "quartet")):
+                        fail("uncertain file review cannot establish a precise player topic")
+                    if (proof.get("guitar_ensemble") == "file_crosscheck"
+                            and not (re.fullmatch(r"[1-9][0-9]*", details.get("written_guitar_part_count", ""))
+                                and int(details["written_guitar_part_count"]) >= 5
+                                and details.get("ensemble_size_note") == "分部人数未标"
+                                and "guitar_player_count" not in details
+                                and "ensemble_player_count" not in details)):
+                        fail("uncertain file review requires explicit written parts and unspecified ensemble size")
             if not isinstance(mapping, dict) or set(mapping) != set(ids) or any(not isinstance(values, list) or not values or set(values) - set(work["category_ids"]) for values in mapping.values()):
                 fail("shared topics cross category memberships")
             observed_topics.update(ids)

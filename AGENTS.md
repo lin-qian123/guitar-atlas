@@ -259,6 +259,27 @@ source or adapter.
   IDs/URLs, title/composer transcriptions and conflict flags establish the accepted
   subset. Track/staff counts and generic auto `Solo`/`Mixed Duet` labels do not
   establish guitar player counts. Preserve excluded/pending rows and reasons.
+- Review the existing 924 downloaded records with `score_instrumentation.py`,
+  `score_pdf_evidence.py`, `score_midi_crosscheck.py` and
+  `review_musescore_instrumentation.py`. Keep the full private PDF, TAB-view,
+  actual-file-title and exceptional-case review evidence under
+  `sources/musescore/verification/`; mechanical TAB extraction does not recreate
+  the frozen visual decisions. Preserve exact exceptional decisions in
+  `metadata/instrumentation/musescore_reviewed.json`. The guarded private
+  `instrumentation-review.json` overlays runtime display/topics without editing
+  native metadata, IDs, assets, licensing or translated titles. Missing review
+  preserves legacy metadata; present incomplete/stale review must fail closed.
+- Count independent written performing roles after normal/TAB view review,
+  not software parts, staves, tracks, instrument IDs or playback patches.
+  Harmony-only or rhythmic-slash accompaniment can be an active guitar role;
+  all-rest placeholders and confirmed auxiliary layers do not add performers.
+  Collective desks, alternatives, doubling and conflicting labels retain
+  explicit limits; a confirmed guitar ensemble may have unspecified desk sizes.
+  Keep known non-guitar/voice/electric/bass scope exceptions in the shared
+  `other_instrumentation` topic rather than calling a known arrangement unknown
+  or silently deleting its native record. File-title conflicts have a visible
+  warning and searchable actual title; source titles remain verbatim. Internal
+  MusicXML template headings alone do not establish a different work.
 - Append translations with `scripts/review_musescore_translations.py`; retain all
   other source decisions byte-for-byte at the entry level. Keep unsupported names
   in their original language. Do not replay the global historical title review.

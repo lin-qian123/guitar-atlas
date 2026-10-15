@@ -1,7 +1,6 @@
 """Shared browsing vocabulary and evidence-backed edges, without identity merging."""
 from __future__ import annotations
 
-import json
 import re
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -18,6 +17,7 @@ TOPICS = [
     ("studies", "练习曲与教学", "Studies and methods"), ("historical", "历史谱与馆藏", "Historical collections"),
     ("reference", "参考资料", "Reference material"), ("unspecified", "编制尚未核明", "Instrumentation unspecified"),
     ("guitar_unspecified", "吉他·人数未明", "Guitar, player count unspecified"),
+    ("other_instrumentation", "其他编制", "Other instrumentation"),
 ]
 FORM_PATTERN = re.compile(r"\b(etude[s]?|étude[s]?|stud(?:y|ies)|method|méthode|schule|exercise[s]?|exercice[s]?|leçon[s]?|lesson[s]?)\b", re.I)
 ARCHIVES = {"boije", "rism", "dga", "loc", "gallica", "rischel", "riam_hudleston"}
@@ -74,11 +74,17 @@ def file_key(value: str) -> str:
 
 
 def unify_catalog(root: Path, data: dict, registry: list[dict]) -> None:
-    private = {}
+    from catalog_sources import source_catalog
+    from catalog_instrumentation import REVIEW_PATH
+    private, file_reviewed = {}, set()
     for source in registry:
         if source.get("catalog"):
-            payload = json.loads((root / source["catalog"]).read_text(encoding="utf-8"))
+            payload = source_catalog(root, source)
             private.update((work["id"], work) for work in payload["works"])
+            if source["id"] == "musescore" and (root / REVIEW_PATH).is_file():
+                # source_catalog has just guarded the complete overlay. Native
+                # metadata alone cannot forge the file-crosschecked basis.
+                file_reviewed.update(work["id"] for work in payload["works"])
     categories = {row["id"]: row for row in data["categories"]}
     counts, sources = Counter(), defaultdict(set)
     files, hashes = defaultdict(set), defaultdict(set)
@@ -100,7 +106,15 @@ def unify_catalog(root: Path, data: dict, registry: list[dict]) -> None:
                 topic_memberships.setdefault(topic, []).append(category_id)
         metadata = raw.get("metadata", {})
         instrument = metadata.get("instrumentation", "")
-        if isinstance(instrument, str) and instrument and metadata.get("scope_status") != "pending_review":
+        # The guarded file overlay supplies a typed, reviewed conclusion. Counted
+        # mixed descriptions need not fit the source-label grammar above.
+        file_topic = metadata.get("file_instrumentation_topic_id")
+        if (work["id"] in file_reviewed and file_topic
+                and metadata.get("file_instrumentation_basis") == "file_crosscheck"
+                and raw.get("instrumentation_status") in {"file_verified", "file_reviewed_uncertain"}):
+            topics.add(file_topic)
+            basis[file_topic] = "file_crosscheck"
+        elif isinstance(instrument, str) and instrument and metadata.get("scope_status") != "pending_review":
             topic = instrumentation_topic(instrument)
             if topic:
                 topics.add(topic)

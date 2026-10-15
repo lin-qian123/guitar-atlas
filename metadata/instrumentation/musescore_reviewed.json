@@ -1,0 +1,1020 @@
+{
+  "schema_version": 1,
+  "scope": "Exact exceptional decisions for the frozen 924 MuseScore/PDMX records; public native identities and musical review guards only, no local inventory.",
+  "references": [
+    "https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/instrument/",
+    "https://www.w3.org/2021/06/musicxml40/musicxml-reference/examples/tutorial-tablature/",
+    "https://antigo.cnfcp.gov.br/interna.php?ID_Materia=115"
+  ],
+  "entries": [
+    {
+      "id": "musescore:21001",
+      "title_en": "The Trail of the Lonesome Pine",
+      "composer_en": "Harry Carroll",
+      "source_url": "https://musescore.com/user/12368/scores/21001",
+      "part_names": [
+        "Cowboy/Oliver",
+        "Stan",
+        "Guitar"
+      ],
+      "note": "PDF明确Cowboy/Oliver与Stan两个人声声部及吉他；这是原候选的声乐范围例外。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_verified",
+        "guitar_player_count": 1,
+        "ensemble_player_count": 3,
+        "topic_id": "other_instrumentation",
+        "summary": "两个人声声部与一把吉他；实际含人声，保留为范围例外。"
+      }
+    },
+    {
+      "id": "musescore:141875",
+      "title_en": "Barfusstanz",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/94080/scores/141875",
+      "part_names": [
+        "Klarinette",
+        "Steel string \nGuitar",
+        "Guitar",
+        "Bass \nGuitar",
+        "Drumset"
+      ],
+      "note": "PDF明确单簧管、两把吉他、贝司和架子鼓；不可由原来源遗漏贝司而保留纯原声小编制。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_verified",
+        "guitar_player_count": 2,
+        "ensemble_player_count": 5,
+        "topic_id": "other_instrumentation",
+        "summary": "两把吉他、单簧管、贝司和架子鼓；实际含贝司，保留为范围例外。"
+      }
+    },
+    {
+      "id": "musescore:898991",
+      "title_en": "A Ele a Glória - Voz(Flauta) - Violão",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/283236/scores/898991",
+      "part_names": [
+        "Voz",
+        "Violão"
+      ],
+      "note": "Voz分谱附歌词，标题明确Voz(Flauta)，播放采用长笛模板，表示人声／长笛替代角色而非二者同时。",
+      "part_decisions": {
+        "P1": {
+          "kind": "voice",
+          "role_active": true,
+          "resolved": true
+        }
+      },
+      "review_override": {
+        "status": "file_verified",
+        "instrumentation": "Voice / flute and guitar",
+        "instrumentation_zh": "人声／长笛与吉他",
+        "guitar_player_count": 1,
+        "ensemble_player_count": 2,
+        "topic_id": "other_instrumentation",
+        "summary": "一条人声／长笛替代声部与一把吉他；含声乐替代选项，不增加假定的第三位演奏者。"
+      }
+    },
+    {
+      "id": "musescore:934541",
+      "title_en": "Guanyin Op. 10",
+      "composer_en": "WILSON WONG",
+      "source_url": "https://musescore.com/user/2239256/scores/934541",
+      "part_names": [
+        "Guitar",
+        "Tapping"
+      ],
+      "note": "作者冻结来源说明明确My first solo guitar piece；PDF单吉他主谱和Tapping击打层，Guitar/Harp为同谱内播放切换。结合实际记谱与作者明确独奏声明，不增设竖琴或打击乐手。",
+      "part_decisions": {
+        "P1": {
+          "kind": "guitar",
+          "role_active": true,
+          "resolved": true
+        },
+        "P2": {
+          "kind": "percussion",
+          "role_active": false,
+          "resolved": true
+        }
+      },
+      "review_override": {
+        "status": "file_verified",
+        "instrumentation": "Guitar solo with tapping and timbre layers",
+        "instrumentation_zh": "吉他独奏（含击打及音色辅助层）",
+        "topic_id": "solo",
+        "guitar_player_count": 1,
+        "ensemble_player_count": 1,
+        "summary": "作者明确独奏吉他；实际吉他主谱、击打及竖琴音色切换分别保留，不增加假定的竖琴或打击乐演奏者。"
+      }
+    },
+    {
+      "id": "musescore:440616",
+      "title_en": "Dawn",
+      "composer_en": "Sir Cortisimo the Valliant",
+      "source_url": "https://musescore.com/user/313981/scores/440616",
+      "part_names": [
+        "BaccidentalFlat Alto Ocarina",
+        "Guitar",
+        "Piano",
+        "Harp",
+        "Violins 1",
+        "Violins 2"
+      ],
+      "note": "PDF和MXL含陶笛、吉他、钢琴、竖琴及Violins 1/2两个集合分部；集合分部不能当成两位小提琴手。",
+      "part_decisions": {
+        "P1": {
+          "kind": "ocarina",
+          "role_active": true,
+          "resolved": true
+        },
+        "P5": {
+          "kind": "violin",
+          "role_active": true,
+          "resolved": true
+        },
+        "P6": {
+          "kind": "violin",
+          "role_active": true,
+          "resolved": true
+        }
+      },
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "guitar_player_count": 1,
+        "ensemble_player_count": null,
+        "summary": "吉他、陶笛、钢琴、竖琴及两个小提琴集合分部；集合人数未标。"
+      }
+    },
+    {
+      "id": "musescore:4980794",
+      "title_en": "Iris (Professor Layton and the Diabolical Box: End Theme)",
+      "composer_en": "Shiawase no Hako",
+      "source_url": "https://musescore.com/user/19803406/scores/4980794",
+      "part_names": [
+        "Melodica",
+        "Acoustic Guitar",
+        "Piano",
+        "Violin",
+        "Cajon"
+      ],
+      "note": "PDF明确Melodica，MXL使用Harmonica播放模板；角色是口风琴，不增加口琴演奏者。",
+      "part_decisions": {
+        "P1": {
+          "kind": "melodica",
+          "role_active": true,
+          "resolved": true
+        }
+      },
+      "review_override": {}
+    },
+    {
+      "id": "musescore:5201811",
+      "title_en": "8TAKES",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/5039051/scores/5201811",
+      "part_names": [
+        "Chords",
+        "Melody Line",
+        "Bass Line",
+        "Drumset"
+      ],
+      "note": "PDF三套各自标准谱／六线TAB，分写旋律、和弦与低音／琶音，另列架子鼓。播放音色的贝司、失真吉他或弦乐拨奏不增加新的角色。",
+      "part_decisions": {
+        "P1": {
+          "kind": "guitar",
+          "role_active": true,
+          "resolved": true
+        },
+        "P2": {
+          "kind": "guitar",
+          "role_active": true,
+          "resolved": true
+        },
+        "P3": {
+          "kind": "guitar",
+          "role_active": true,
+          "resolved": true
+        }
+      },
+      "review_override": {
+        "summary": "三条独立吉他演奏角色各配标准谱与TAB，另有架子鼓；个别播放音色与谱面标签不同。"
+      }
+    },
+    {
+      "id": "musescore:5201837",
+      "title_en": "Gifts",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/5039051/scores/5201837",
+      "part_names": [
+        "Chords",
+        "Melody Line",
+        "Arppegios",
+        "Drumset"
+      ],
+      "note": "PDF三套各自标准谱／六线TAB，分写旋律、和弦与低音／琶音，另列架子鼓。播放音色的贝司、失真吉他或弦乐拨奏不增加新的角色。",
+      "part_decisions": {
+        "P1": {
+          "kind": "guitar",
+          "role_active": true,
+          "resolved": true
+        },
+        "P2": {
+          "kind": "guitar",
+          "role_active": true,
+          "resolved": true
+        },
+        "P3": {
+          "kind": "guitar",
+          "role_active": true,
+          "resolved": true
+        }
+      },
+      "review_override": {
+        "summary": "三条独立吉他演奏角色各配标准谱与TAB，另有架子鼓；个别播放音色与谱面标签不同。"
+      }
+    },
+    {
+      "id": "musescore:5202857",
+      "title_en": "Pretty Little Things",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/5039051/scores/5202857",
+      "part_names": [
+        "Melody Line",
+        "Chords",
+        "Acoustic Guitar",
+        "Drumset"
+      ],
+      "note": "PDF三套各自标准谱／六线TAB，分写旋律、和弦与低音／琶音，另列架子鼓。播放音色的贝司、失真吉他或弦乐拨奏不增加新的角色。",
+      "part_decisions": {
+        "P1": {
+          "kind": "guitar",
+          "role_active": true,
+          "resolved": true
+        },
+        "P2": {
+          "kind": "guitar",
+          "role_active": true,
+          "resolved": true
+        },
+        "P3": {
+          "kind": "guitar",
+          "role_active": true,
+          "resolved": true
+        }
+      },
+      "review_override": {
+        "summary": "三条独立吉他演奏角色各配标准谱与TAB，另有架子鼓；个别播放音色与谱面标签不同。"
+      }
+    },
+    {
+      "id": "musescore:5858090",
+      "title_en": "Jesus puer est natus",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/24435421/scores/5858090",
+      "part_names": [
+        "Flute",
+        "B♭ Clarinet",
+        "Classical Guitar",
+        "Violin",
+        "Violin",
+        "Viola",
+        "Violoncello",
+        "violin solo"
+      ],
+      "note": "PDF末尾未署名的单旋律谱表与MXL violin solo对应，音域G3至C5且全曲只有一谱表发声；Piano是其音源模板。保留原三层字段。",
+      "part_decisions": {
+        "P8": {
+          "kind": "violin",
+          "role_active": true,
+          "resolved": true
+        }
+      },
+      "review_override": {
+        "summary": "长笛、单簧管、吉他、三条小提琴角色、中提琴及大提琴；末条violin solo使用钢琴播放模板。"
+      }
+    },
+    {
+      "id": "musescore:5879103",
+      "title_en": "SAUDADES DE MATAO VIOLA E VIOLAO",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/29615829/scores/5879103",
+      "part_names": [
+        "Viola",
+        "Violão"
+      ],
+      "note": "巴西曲目题名Viola e Violao、PDF八度移低G谱号与MXL Violao acustico模板共同排除弓弦中提琴；Viola保留巴西拨弦身份，不推具体十弦制式。",
+      "part_decisions": {
+        "P1": {
+          "kind": "brazilian_viola",
+          "role_active": true,
+          "resolved": true
+        }
+      },
+      "review_override": {
+        "summary": "吉他与Viola（巴西拨弦乐器）；Viola不按弓弦中提琴翻译，具体弦制未标。"
+      }
+    },
+    {
+      "id": "musescore:5891304",
+      "title_en": "Cho Nguoi Noi Ay",
+      "composer_en": "Huy Tuáº¥n",
+      "source_url": "https://musescore.com/user/33129906/scores/5891304",
+      "part_names": [
+        "Bầu\t",
+        "Sáo",
+        "Nhị",
+        "Tỳ/Nguyệt",
+        "Tranh",
+        "Trống"
+      ],
+      "note": "PDF实际民族乐器标签不能由Ukulele/Violin/Harp/Classical Guitar音源模板替换；Bau仅一孤立Dm、全谱休止，活动性未定。",
+      "part_decisions": {
+        "P1": {
+          "kind": "dan_bau",
+          "role_active": null,
+          "resolved": true
+        },
+        "P2": {
+          "kind": "flute",
+          "role_active": true,
+          "resolved": true
+        },
+        "P3": {
+          "kind": "dan_nhi",
+          "role_active": true,
+          "resolved": true
+        },
+        "P4": {
+          "kind": "vietnamese_lute",
+          "role_active": true,
+          "resolved": true
+        },
+        "P5": {
+          "kind": "dan_tranh",
+          "role_active": true,
+          "resolved": true
+        },
+        "P6": {
+          "kind": "drumset",
+          "role_active": true,
+          "resolved": true
+        }
+      },
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "guitar_player_count": 0,
+        "ensemble_player_count": null,
+        "topic_id": "other_instrumentation",
+        "instrumentation": "Vietnamese flute, dan nhi, ty ba / dan nguyet, dan tranh and drums; dan bau optional/uncertain",
+        "instrumentation_zh": "越南笛、越南二胡、越南琵琶／月琴、越南筝与鼓；独弦琴声部活动性未明",
+        "summary": "实际民族乐器标签与通用音源模板不同；无明确吉他角色。独弦琴仅一个孤立和弦符号，未强计演奏人数。"
+      }
+    },
+    {
+      "id": "musescore:5907125",
+      "title_en": "Warrior of Light",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/22761111/scores/5907125",
+      "part_names": [
+        "First Viola",
+        "Second Viola",
+        "Guitar",
+        "Accompaniment Guitar",
+        "Percussion Guitar",
+        "Konzert Bass Drum",
+        "high guitar sound only",
+        "flagoet sound only"
+      ],
+      "note": "已检查PDF三页标签：两条Viola与Guitar/Accompaniment Guitar/Percussion Guitar三条吉他角色。MXL附加大鼓及high guitar sound only/flagoet sound only为未印出的辅助层，保留原文件与层记录。",
+      "part_decisions": {
+        "P6": {
+          "kind": "bass_drum",
+          "role_active": false,
+          "resolved": true
+        },
+        "P7": {
+          "kind": "guitar",
+          "role_active": false,
+          "resolved": true
+        },
+        "P8": {
+          "kind": "guitar",
+          "role_active": false,
+          "resolved": true
+        }
+      },
+      "review_override": {
+        "status": "file_verified",
+        "guitar_player_count": 3,
+        "ensemble_player_count": 5,
+        "topic_id": "strings",
+        "summary": "PDF为三条吉他角色与两条中提琴角色；另保留MXL附加的未印出播放辅助层，不据其增加人数。"
+      }
+    },
+    {
+      "id": "musescore:5918519",
+      "title_en": "Jeux interdits (Guitar) Spanische Romanze",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/33874495/scores/5918519",
+      "part_names": [
+        "Guitar",
+        "Electric Guitar [Tablature]"
+      ],
+      "note": "PDF标准谱与TAB成对，实际是单吉他记谱；TAB模板却标Electric Guitar，与标准谱Classical Guitar冲突。视图归一，原声／电吉他身份边界保留。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "instrumentation": "Single guitar notation, acoustic / electric template conflict",
+        "instrumentation_zh": "单吉他记谱（原声／电吉他模板冲突）",
+        "guitar_player_count": null,
+        "ensemble_player_count": 1,
+        "topic_id": "guitar_unspecified",
+        "summary": "标准谱与TAB为同一演奏角色；两个文件模板的吉他类型不同，未强定为纯原声独奏。"
+      }
+    },
+    {
+      "id": "musescore:5937332",
+      "title_en": "S isch aebe-n-e Moensch uf Aerde",
+      "composer_en": "Salvatore",
+      "source_url": "https://musescore.com/user/33892666/scores/5937332",
+      "part_names": [
+        "Sopran",
+        "Git 1.",
+        "Git 2.",
+        "Git 3.",
+        "Git 4."
+      ],
+      "note": "PDF明确Sopran与Git1至Git4，Sopran使用Piano模板，不是第五件键盘。",
+      "part_decisions": {
+        "P1": {
+          "kind": "voice",
+          "role_active": true,
+          "resolved": true
+        }
+      },
+      "review_override": {
+        "status": "file_verified",
+        "guitar_player_count": 4,
+        "ensemble_player_count": 5,
+        "topic_id": "other_instrumentation",
+        "summary": "女高音与四把吉他；人声使用钢琴播放模板，保留为声乐范围例外。"
+      }
+    },
+    {
+      "id": "musescore:5959825",
+      "title_en": "Bordeias bordei - bordei",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/22481556/scores/5959825",
+      "part_names": [
+        "Fluier",
+        "Vioară",
+        "Violă",
+        "Cobză",
+        "Contrabas",
+        "Pian"
+      ],
+      "note": "PDF Cobza与MXL part-name Cobza明确，Classical Guitar仅音源模板；实际为民族拨弦科布扎琴。",
+      "part_decisions": {
+        "P4": {
+          "kind": "cobza",
+          "role_active": true,
+          "resolved": true
+        }
+      },
+      "review_override": {
+        "status": "file_verified",
+        "guitar_player_count": 0,
+        "ensemble_player_count": 6,
+        "topic_id": "other_instrumentation",
+        "summary": "实际科布扎琴使用古典吉他播放模板；六个活动乐器角色，没有明确吉他角色。"
+      }
+    },
+    {
+      "id": "musescore:2561836",
+      "title_en": "Springtime Fair",
+      "composer_en": "Thomas Powles",
+      "source_url": "https://musescore.com/user/11871376/scores/2561836",
+      "part_names": [
+        "Flute",
+        "Lute"
+      ],
+      "note": "PDF及part-name写Lute，score-instrument Classical Guitar且来源Guitar；文件与来源矛盾未消除。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "instrumentation": "Flute and lute / guitar, conflicting labels",
+        "instrumentation_zh": "长笛与鲁特琴／吉他（标注冲突）",
+        "guitar_player_count": null,
+        "ensemble_player_count": 2,
+        "topic_id": "other_instrumentation",
+        "summary": "两条活动演奏角色明确；拨弦声部的Lute名称与吉他模板／来源声明冲突，保留原始标注。"
+      }
+    },
+    {
+      "id": "musescore:1779201",
+      "title_en": "Villa Franca",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/4276146/scores/1779201",
+      "part_names": [
+        "Harm",
+        "Klassische Gitarre, Viola de Fado"
+      ],
+      "note": "Harm缩写、Harmonika模板、GM22与source Harmonica一致支持口琴；Viola de Fado在Classical Guitar同一角色名内为葡语吉他伴奏称呼。",
+      "part_decisions": {
+        "P1": {
+          "kind": "harmonica",
+          "role_active": true,
+          "resolved": true
+        },
+        "P2": {
+          "kind": "guitar",
+          "role_active": true,
+          "resolved": true
+        }
+      },
+      "review_override": {
+        "summary": "口琴与吉他两条独立演奏角色；保留原谱Viola de Fado标注。"
+      }
+    },
+    {
+      "id": "musescore:1779206",
+      "title_en": "Rosinha dos Limões",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/4276146/scores/1779206",
+      "part_names": [
+        "Pedal-Steel-Gitarre, Guitarra Portuguesa",
+        "Klassische Gitarre"
+      ],
+      "note": "MXL part-name并列Guitarra Portuguesa与其他吉他模板词，score-instrument Harmonika且source Harmonica；PDF未另印完整器名，不能抹去矛盾。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "instrumentation": "Guitar and harmonica / Portuguese guitar, conflicting labels",
+        "instrumentation_zh": "吉他与口琴／葡萄牙吉他（标注冲突）",
+        "guitar_player_count": 1,
+        "ensemble_player_count": 2,
+        "topic_id": "unspecified",
+        "summary": "两条独立演奏角色；一条吉他确定，另一条在来源口琴与文件葡萄牙吉他标签间存在冲突。"
+      }
+    },
+    {
+      "id": "musescore:1779211",
+      "title_en": "Dois Tons",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/4276146/scores/1779211",
+      "part_names": [
+        "Pedal-Steel-Gitarre, Guitarra Portuguesa",
+        "Klassische Gitarre, Viola de Fado"
+      ],
+      "note": "MXL part-name并列Guitarra Portuguesa与其他吉他模板词，score-instrument Harmonika且source Harmonica；PDF未另印完整器名，不能抹去矛盾。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "instrumentation": "Guitar and harmonica / Portuguese guitar, conflicting labels",
+        "instrumentation_zh": "吉他与口琴／葡萄牙吉他（标注冲突）",
+        "guitar_player_count": 1,
+        "ensemble_player_count": 2,
+        "topic_id": "unspecified",
+        "summary": "两条独立演奏角色；一条吉他确定，另一条在来源口琴与文件葡萄牙吉他标签间存在冲突。"
+      }
+    },
+    {
+      "id": "musescore:1783491",
+      "title_en": "Rosita",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/4276146/scores/1783491",
+      "part_names": [
+        "Akustische Gitarre, Guitarra Portuguesa",
+        "Klassische Gitarre, Viola de Fado"
+      ],
+      "note": "MXL part-name并列Guitarra Portuguesa与其他吉他模板词，score-instrument Harmonika且source Harmonica；PDF未另印完整器名，不能抹去矛盾。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "instrumentation": "Guitar and harmonica / Portuguese guitar, conflicting labels",
+        "instrumentation_zh": "吉他与口琴／葡萄牙吉他（标注冲突）",
+        "guitar_player_count": 1,
+        "ensemble_player_count": 2,
+        "topic_id": "unspecified",
+        "summary": "两条独立演奏角色；一条吉他确定，另一条在来源口琴与文件葡萄牙吉他标签间存在冲突。"
+      }
+    },
+    {
+      "id": "musescore:5848398",
+      "title_en": "Il Tamburo di Feng Yang - orchestra",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/33382859/scores/5848398",
+      "part_names": [
+        "Tamburo",
+        "Triangolo",
+        "Piatto",
+        "Chitarra",
+        "Tastiera (Violini)",
+        "Flauto dolce"
+      ],
+      "note": "PDF明确Tastiera(Violini)为键盘弦乐音色；Recorder指令Solo1/Solo2/Solo3/Tutti e3和Guitar Raddoppio表示集合与加倍，六个part并非六人。",
+      "part_decisions": {
+        "P5": {
+          "kind": "keyboard",
+          "role_active": true,
+          "resolved": true
+        }
+      },
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "guitar_player_count": null,
+        "ensemble_player_count": null,
+        "topic_id": "mixed_chamber",
+        "summary": "吉他、键盘（小提琴音色）、至少三个竖笛角色与小鼓／三角铁／钹；含加倍与集合指示，人数未定。"
+      }
+    },
+    {
+      "id": "musescore:5871890",
+      "title_en": "4ã¤ã®ã´ã¡ã¤ãªãªã³ã®ããã®åå¥æ²",
+      "composer_en": "Antonio Vivaldi",
+      "source_url": "https://musescore.com/user/33250520/scores/5871890",
+      "part_names": [
+        "A1.S",
+        "A2.S",
+        "A3.S",
+        "A4.S",
+        "A1.",
+        "A2.",
+        "A3.",
+        "A4.",
+        "P1.",
+        "P2.",
+        "B.S.",
+        "B.",
+        "Cb/Gr."
+      ],
+      "note": "完整文件有13条独立吉他编制谱线，source列Guitar13；A1.S等为合奏分部/独奏标记，不能保证每分部仅一人。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "guitar_player_count": null,
+        "ensemble_player_count": null,
+        "topic_id": "guitar_ensemble",
+        "instrumentation": "Guitar ensemble, 13 written parts; desk sizes unspecified",
+        "instrumentation_zh": "吉他合奏（13个记谱声部，分部人数未标）",
+        "summary": "13个独立记谱声部及独奏／合奏分组已核对；各分部实际人数未标，不将13条软件分谱直接写成13人。",
+        "ensemble_size_unspecified": true,
+        "written_guitar_part_count": 13
+      }
+    },
+    {
+      "id": "musescore:5984502",
+      "title_en": "Taraneasca de la Coteala_Northern Bessarabia",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/22481556/scores/5984502",
+      "part_names": [
+        "Recoreder / as\nRomanian whistle / \nas Fluier",
+        "Trumpetă Si♭",
+        "Violin 1",
+        "Violin 2",
+        "Viola",
+        "Classic guitar / \nas Romanian lute / \nas Cobza",
+        "Contrabas"
+      ],
+      "note": "PDF明确recorder/asRomanianwhistle/asFluier和classicguitar/asRomanianlute/asCobza为替代器种，不是额外叠加多人。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_verified",
+        "guitar_player_count": null,
+        "ensemble_player_count": 7,
+        "topic_id": "mixed_chamber",
+        "instrumentation": "Guitar / cobza, recorder / Romanian whistle, trumpet, 2 violins, viola and double bass",
+        "instrumentation_zh": "吉他／科布扎琴、竖笛／罗马尼亚笛、小号、2×小提琴、中提琴与低音提琴",
+        "summary": "七条独立演奏角色；吉他／科布扎琴和竖笛／罗马尼亚笛为明确替代选项，未累加替代乐器人数。"
+      }
+    },
+    {
+      "id": "musescore:5989551",
+      "title_en": "60 Lessons for 2 Guitars, Op.168/59 - Joseph Küffner (1776 - 1856)",
+      "composer_en": "Joseph Küffner (1776 - 1856)",
+      "source_url": "https://musescore.com/user/385716/scores/5989551",
+      "part_names": [
+        "Piccolo",
+        "Oboe",
+        "Huilu",
+        "Viulu",
+        "Viulu",
+        "Viola",
+        "Klassinen kitara",
+        "F-torvi",
+        "Viulusello",
+        "Kontrabasso",
+        "Harppu"
+      ],
+      "note": "曲题虽为2Guitars，实际PDF/MXL为11个活动器乐角色；标题不建立二重奏编制，超过批准的小型混合编制阈值。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "guitar_player_count": 1,
+        "ensemble_player_count": null,
+        "topic_id": "other_instrumentation",
+        "summary": "实际文件为含吉他、木管、弦乐、圆号及竖琴的11记谱角色管弦编制；分部人数未标，实际谱题又与原来源题名冲突。",
+        "file_title": "TWO ITALIAN MELODIES FOR AN ORCHESTRA — LA PALOMA",
+        "file_identity_note": "实际PDF与MXL题名为管弦乐《两首意大利旋律／La Paloma》，与来源的库夫纳双吉他练习曲题名不一致；保留出版包原始关联，不能确认为该练习曲。"
+      }
+    },
+    {
+      "id": "musescore:4552754",
+      "title_en": "Mori Shej Cigan Tanc",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/16410212/scores/4552754",
+      "part_names": [
+        ""
+      ],
+      "note": "实际PDF未命名单旋律、普通G谱号，无TAB/指法/吉他八度谱号；来源Guitar与GM24仅支持候选身份，未从文件独立确认器种。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "instrumentation": "One unnamed written role; source declares guitar",
+        "instrumentation_zh": "单条未命名器乐声部（来源称吉他）",
+        "guitar_player_count": null,
+        "ensemble_player_count": 1,
+        "topic_id": "unspecified",
+        "summary": "已核对单条活动旋律；文件缺乐器名及吉他专属记谱证据，保留来源吉他声明及器种未明边界。"
+      }
+    },
+    {
+      "id": "musescore:4603877",
+      "title_en": "Koga me mama rodila",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/12305047/scores/4603877",
+      "part_names": [
+        ""
+      ],
+      "note": "实际PDF未命名单旋律、普通G谱号，无TAB/指法/吉他八度谱号；来源Guitar与GM24仅支持候选身份，未从文件独立确认器种。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "instrumentation": "One unnamed written role; source declares guitar",
+        "instrumentation_zh": "单条未命名器乐声部（来源称吉他）",
+        "guitar_player_count": null,
+        "ensemble_player_count": 1,
+        "topic_id": "unspecified",
+        "summary": "已核对单条活动旋律；文件缺乐器名及吉他专属记谱证据，保留来源吉他声明及器种未明边界。"
+      }
+    },
+    {
+      "id": "musescore:4964587",
+      "title_en": "Trabzoni Bar",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/18800337/scores/4964587",
+      "part_names": [
+        ""
+      ],
+      "note": "实际PDF未命名单旋律、普通G谱号，无TAB/指法/吉他八度谱号；来源Guitar与GM24仅支持候选身份，未从文件独立确认器种。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "instrumentation": "One unnamed written role; source declares guitar",
+        "instrumentation_zh": "单条未命名器乐声部（来源称吉他）",
+        "guitar_player_count": null,
+        "ensemble_player_count": 1,
+        "topic_id": "unspecified",
+        "summary": "已核对单条活动旋律；文件缺乐器名及吉他专属记谱证据，保留来源吉他声明及器种未明边界。"
+      }
+    },
+    {
+      "id": "musescore:5048672",
+      "title_en": "Greece - Laziko",
+      "composer_en": "Greece",
+      "source_url": "https://musescore.com/user/11886042/scores/5048672",
+      "part_names": [
+        ""
+      ],
+      "note": "实际PDF未命名单旋律、普通G谱号，无TAB/指法/吉他八度谱号；来源Guitar与GM24仅支持候选身份，未从文件独立确认器种。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "instrumentation": "One unnamed written role; source declares guitar",
+        "instrumentation_zh": "单条未命名器乐声部（来源称吉他）",
+        "guitar_player_count": null,
+        "ensemble_player_count": 1,
+        "topic_id": "unspecified",
+        "summary": "已核对单条活动旋律；文件缺乐器名及吉他专属记谱证据，保留来源吉他声明及器种未明边界。"
+      }
+    },
+    {
+      "id": "musescore:4679766",
+      "title_en": "Mindra Mea De La Ciubud",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/12607792/scores/4679766",
+      "part_names": [
+        "",
+        ""
+      ],
+      "note": "两个活动角色无器名，source Violin1/Guitar1与MIDI40/24对应；保留source支持，不声称文件独立命名。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "instrumentation": "Violin and guitar source declaration; unnamed file roles",
+        "instrumentation_zh": "小提琴与吉他（来源声明，文件声部未标名）",
+        "guitar_player_count": null,
+        "ensemble_player_count": 2,
+        "topic_id": "strings",
+        "summary": "两条独立活动声部；来源小提琴／吉他与播放音色相符，文件未明示器名，身份边界保留。"
+      }
+    },
+    {
+      "id": "musescore:4802034",
+      "title_en": "Mindra Mea De La Ciubud",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/22764302/scores/4802034",
+      "part_names": [
+        "",
+        ""
+      ],
+      "note": "两个活动角色无器名，source Violin1/Guitar1与MIDI40/24对应；保留source支持，不声称文件独立命名。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "instrumentation": "Violin and guitar source declaration; unnamed file roles",
+        "instrumentation_zh": "小提琴与吉他（来源声明，文件声部未标名）",
+        "guitar_player_count": null,
+        "ensemble_player_count": 2,
+        "topic_id": "strings",
+        "summary": "两条独立活动声部；来源小提琴／吉他与播放音色相符，文件未明示器名，身份边界保留。"
+      }
+    },
+    {
+      "id": "musescore:4972483",
+      "title_en": "Mindra Mea De La Ciubud",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/10636897/scores/4972483",
+      "part_names": [
+        "",
+        ""
+      ],
+      "note": "两个活动角色无器名，source Violin1/Guitar1与MIDI40/24对应；保留source支持，不声称文件独立命名。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "instrumentation": "Violin and guitar source declaration; unnamed file roles",
+        "instrumentation_zh": "小提琴与吉他（来源声明，文件声部未标名）",
+        "guitar_player_count": null,
+        "ensemble_player_count": 2,
+        "topic_id": "strings",
+        "summary": "两条独立活动声部；来源小提琴／吉他与播放音色相符，文件未明示器名，身份边界保留。"
+      }
+    },
+    {
+      "id": "musescore:5962925",
+      "title_en": "Tanguillo",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/14204081/scores/5962925",
+      "part_names": [
+        "Guitarra clásica",
+        "Guitarra clásica",
+        "Guitarra clásica [Tablatura]"
+      ],
+      "note": "实际PDF一套标准谱与TAB；P1/P3同角色，P2负staff-distance完全叠印且942音符；叠印层与主角色关系未足够明确，不强写独奏或二重奏人数。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "guitar_player_count": null,
+        "ensemble_player_count": null,
+        "topic_id": "guitar_unspecified",
+        "instrumentation": "Guitar notation with overlaid additional layer; player count unspecified",
+        "instrumentation_zh": "吉他记谱与叠印附加层（人数未明）",
+        "summary": "标准谱／TAB视图已归一；另有完全叠印的附加记谱层，未据软件part数强定演奏人数。"
+      }
+    },
+    {
+      "id": "musescore:206926",
+      "title_en": "Grand Budapest Medley",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/151673/scores/206926",
+      "part_names": [
+        "Guitar",
+        "Guitar"
+      ],
+      "note": "MXL第一Guitar的第102小节明确cymbal on remaining downbeats，PDF第4页同指示；两吉他记谱之外有钹提示，未指定另人或兼奏。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "instrumentation": "2 guitars with additional cymbal instruction",
+        "instrumentation_zh": "两把吉他及钹演奏提示",
+        "guitar_player_count": 2,
+        "ensemble_player_count": null,
+        "topic_id": "percussion",
+        "summary": "两条吉他角色明确；后段另写钹提示，是否另设演奏者或兼奏未标，不作为纯吉他二重奏。"
+      }
+    },
+    {
+      "id": "musescore:5704396",
+      "title_en": "I Want You Back",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/17609746/scores/5704396",
+      "part_names": [
+        "B♭ Trumpet",
+        "B♭ Trumpet",
+        "B♭ Trumpet",
+        "B♭ Trumpet",
+        "Tuba",
+        "Acoustic Guitar"
+      ],
+      "note": "Tuba行第25小节明确Trombone并滑音，PDF第6页可见；同一低音铜管分谱的换器提示不增加未经声明人数。",
+      "part_decisions": {},
+      "review_override": {
+        "instrumentation": "Guitar, 4 trumpets and tuba / trombone",
+        "instrumentation_zh": "吉他、4×小号及大号／长号",
+        "status": "file_reviewed_uncertain",
+        "guitar_player_count": 1,
+        "ensemble_player_count": null,
+        "topic_id": "brass",
+        "summary": "低音铜管声部另有长号换器及滑音提示；保留全部乐器标记，换器／兼奏人数未标。"
+      }
+    },
+    {
+      "id": "musescore:5975583",
+      "title_en": "Spanish Romance",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/29277646/scores/5975583",
+      "part_names": [
+        "Guitar (Tablature)",
+        "Classical Guitar",
+        "Piano arp.",
+        "Piano Blocked"
+      ],
+      "note": "作者冻结说明为学习钢琴伴奏柱式和弦；PDF标准谱/TAB一吉他角色，钢琴有Piano arp.与Piano Blocked两种教学写法，未声明必须两位钢琴同时演奏。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "instrumentation": "Guitar and piano, arpeggiated / blocked accompaniment exercises",
+        "instrumentation_zh": "吉他与钢琴（分解／柱式和弦两种伴奏练习）",
+        "guitar_player_count": 1,
+        "ensemble_player_count": null,
+        "topic_id": "keyboard_reed",
+        "summary": "吉他标准谱／TAB属同一角色；钢琴保留分解与柱式两套练习写法，是否同时演奏未标，不强计两位钢琴者。"
+      }
+    },
+    {
+      "id": "musescore:1783496",
+      "title_en": "Maria Lisboa",
+      "composer_en": "",
+      "source_url": "https://musescore.com/user/4276146/scores/1783496",
+      "part_names": [
+        "Harmonika",
+        "Klassische Gitarre"
+      ],
+      "note": "Harmonika词义依上下文；source Harmonica、实际八度谱号与GM22共同支持口琴，不采用手风琴通用猜测。",
+      "part_decisions": {
+        "P1": {
+          "kind": "harmonica",
+          "role_active": true,
+          "resolved": true
+        }
+      },
+      "review_override": {
+        "summary": "口琴与吉他；Harmonika依原来源口琴声明及实际记谱上下文判读。"
+      }
+    },
+    {
+      "id": "musescore:4811901",
+      "title_en": "Corta Jaca",
+      "composer_en": "Francisca Gonzaga",
+      "source_url": "https://musescore.com/user/15602766/scores/4811901",
+      "part_names": [
+        "Melodia",
+        "Violão 6"
+      ],
+      "note": "PDF与MXL仅标Melodia及Violao6；后一是6弦吉他，不是6把吉他，前一实际器种未标。",
+      "part_decisions": {},
+      "review_override": {
+        "status": "file_reviewed_uncertain",
+        "instrumentation": "Guitar and an unnamed melody instrument",
+        "instrumentation_zh": "吉他与未标器种的旋律声部",
+        "guitar_player_count": 1,
+        "ensemble_player_count": 2,
+        "topic_id": "unspecified",
+        "summary": "两条活动角色；一条吉他明确，另一条仅写Melodia，未猜成第二吉他或人声。"
+      }
+    },
+    {
+      "id": "musescore:5984741",
+      "title_en": "Sahara",
+      "composer_en": "Alpineer",
+      "source_url": "https://musescore.com/user/32239032/scores/5984741",
+      "part_names": [
+        "Acoustic Guitar (Melody)",
+        "Acoustic Guitar (Background)",
+        "Acoustic Guitar (Alternate Melody)",
+        "Concert Snare Drum",
+        "Piano"
+      ],
+      "note": "PDF三吉他行分别写Melody/Background/AlternateMelody，另Piano和Snare；未见明确二选一，保留三角色并保留替代旋律限定。",
+      "part_decisions": {},
+      "review_override": {
+        "summary": "三条吉他记谱角色分别为旋律、伴奏及替代旋律，另有钢琴与小鼓；原稿未明确替代声部是否同时演奏。",
+        "status": "file_reviewed_uncertain",
+        "guitar_player_count": null,
+        "ensemble_player_count": null
+      }
+    }
+  ]
+}

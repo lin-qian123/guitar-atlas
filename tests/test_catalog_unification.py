@@ -41,7 +41,8 @@ def unified_fixture(root: Path, raw_works: list[dict]) -> dict:
     for source_id in sorted({row["id"].split(":", 1)[0] for row in raw_works}):
         rows = [row for row in raw_works if row["id"].startswith(source_id + ":")]
         catalog = f"sources/{source_id}/catalog.json"
-        write_json(root / catalog, {"works": rows})
+        write_json(root / catalog, {"schema_version": 1, "source_id": source_id,
+                                    "categories": [], "works": rows})
         registry.append({"id": source_id, "catalog": catalog})
         category_id = len(categories)
         categories.append({"id": category_id, "source_id": source_id,

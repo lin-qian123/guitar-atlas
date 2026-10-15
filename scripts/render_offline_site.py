@@ -182,6 +182,9 @@ def offline_input_fingerprint(root: Path) -> dict:
     paths = {Path("config") / name for name in
              ("categories.json", "mixed_categories.json", "sources.json", "score_exclusions.json")}
     paths.add(Path("sources/objects/deduplication_report.json"))
+    # Presence, edits and removal invalidate an offline metadata-only refresh.
+    # Instrumentation changes require a complete file-verified render.
+    paths.add(Path("sources/musescore/instrumentation-review.json"))
     format_config = Path("config/musescore_pdmx_formats.json")
     if (root / format_config).is_file():
         paths.add(format_config)

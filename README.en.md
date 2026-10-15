@@ -21,11 +21,11 @@
 
 ## Current scope
 
-The frozen catalog contains **17 sources and 49,373 source records** (49,288 scores and 85 references), 2,229 native categories, 57,986 memberships, 17 shared topics and 700 evidenced relationships. Records include works, editions, collections and holdings; they are not unique compositions across websites. Discovery gaps such as Cantorion pagination remain explicit.
+The frozen catalog contains **17 sources and 49,373 source records** (49,288 scores and 85 references), 2,229 native categories, 57,986 memberships, 18 shared topics and 700 evidenced relationships. Records include works, editions, collections and holdings; they are not unique compositions across websites. Discovery gaps such as Cantorion pagination remain explicit.
 
 Exact title decisions cover every record: 47,469 reference or evidenced conventional Chinese titles, 1,904 intentional original-title retentions, and no machine title drafts or missing title decisions. Native titles and attributions remain intact. Reference translations are not claims of unique authoritative Chinese names.
 
-The current rounded collection interface uses self-hosted Latin display fonts, system Chinese fonts and model-generated illustrations. Lists start with 18 records and build full-text/fuzzy indexes on demand. Referenced static assets total 283,302B; compact transport is 5,767,964B, with canonical JSON retained for audit and compatibility fallback.
+The current rounded collection interface uses self-hosted Latin display fonts, system Chinese fonts and model-generated illustrations. Lists start with 18 records and build full-text/fuzzy indexes on demand. Referenced static assets total 284,048B; compact transport is 5,802,828B, with canonical JSON retained for audit and compatibility fallback.
 
 The October 13 version was pushed and deployed, integrating PDF, MXL and MIDI for all 924 PDMX records into the existing offline entry. Full offline rebuilding and independent mapping verification passed: all 38,202 local links are valid, with existing source records, PDF mappings and translation decisions preserved. All 18 live content files match local bytes. See the [publication and maintenance record](docs/research/publication.md) for evidence and deployment status, and [TODO](TODO.md) for open work.
 
@@ -38,6 +38,8 @@ The 924 historical MuseScore records from the author-published PDMX v9 subset sh
 | MIDI | 924 | 0 / 0 / 0 | 921 | 7,072,991B |
 
 This extension adds 1,848 format-file associations and 1,845 unique content objects totaling 17,845,158B. Three duplicate MIDI contents reuse SHA-256 objects while preserving every record association. Existing PDFs, native metadata and translation decisions are unchanged. LibreScore is a retrieval tool; this frozen historical subset does not cover the live site and provides no native MSCZ. See the [source supplement](docs/research/2026-10-01-integration-log.md#musescore--pdmx-补记2026-10-11) for scope, exclusions, translation decisions and file acquisition.
+
+The October 15 review cross-checks all 924 candidates against their actual MXL, MIDI and PDF files: 558 solos, 69 duos, 9 trios, 18 quartets, 6 guitar ensembles, 229 mixed ensembles, 22 other instrumentations and 13 retaining instrument, player-count or file-identity boundaries. Instrumentation is clear for 897 records; 27 retain specific limits, including five source-title/file-identity conflicts. Native declarations remain visible, actual conflicting file titles are searchable, and collective desks, alternatives and doubling do not invent performer counts. See the [instrumentation receipt](docs/research/2026-10-01-integration-log.md#pdmx-实际编制核验补记2026-10-15).
 
 ## Two editions
 
@@ -169,6 +171,8 @@ After downloads stop, run each applicable deduplicator as a dry run. Only freshl
 python scripts/deduplicate_source_pdfs.py --root .
 python scripts/deduplicate_added_pdfs.py --root .
 ```
+
+The instrumentation workflow uses `score_instrumentation.py`, `score_pdf_evidence.py` and `score_midi_crosscheck.py`. Frozen private visual/TAB/title decisions and exact exceptions under `metadata/instrumentation/` protect the review; mechanical re-extraction does not replace semantic decisions. With those guarded inputs, regenerate with `python scripts/review_musescore_instrumentation.py --root .`, then export, fully rebuild offline and run `python scripts/verify_musescore_instrumentation.py --root .`. Actual part labels, checked Chinese instrumentation, original declarations and conflicting printed titles share the existing lazy search. Part labels include views and auxiliary layers and are not player counts.
 
 A production export requires the private frozen source metadata and copies no score files:
 
