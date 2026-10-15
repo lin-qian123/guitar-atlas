@@ -161,4 +161,8 @@
 
 最终清理共199个已审计文件、315,738,702逻辑字节：20项旧中间文件56,701,988B，5份无损归并提案244,118,664B，12张过程PNG912,587B，4份被完整测试替代的日志7,090B，157个缓存文件6,202,785B及1份旧入口回退7,795,588B。保留唯一最新7,904,148B回退、全部源谱件及有效来源／翻译／出版证据；ZIP与GZIP另有保留成本，不把删除逻辑字节写成净物理回收量。清理前后当前源目录、编制覆盖、精确case、译名及新入口守卫不变。
 
-远端精确提交／成功Pages运行与线上逐文件核对在本节接续。私有规范回执为sources/musescore/verification/verification.json；本地验收完成不代表已同步远端。
+内容提交为[`8541832cbb77e92a52b401bc74d2bedb76d88d6e`](https://github.com/lin-qian123/guitar-atlas/commit/8541832cbb77e92a52b401bc74d2bedb76d88d6e)，测试修正提交为[`b7a76a4bc008335dcebd08ac6ae507df04d07a27`](https://github.com/lin-qian123/guitar-atlas/commit/b7a76a4bc008335dcebd08ac6ae507df04d07a27)。[Pages运行38773298799](https://github.com/lin-qian123/guitar-atlas/actions/runs/38773298799)对应修正后精确head，远端Python为2,714通过／1项可选pdfinfo兼容测试跳过（该项本地通过），Node83项通过；公开边界、译名、文本审计与部署均成功。线上18个HTTP内容文件全部200，逐个大小／SHA-256等于本地冻结清单，`.nojekyll`单列控制文件。内容与修正提交的公开网站树完全相同。
+
+实际HTTPS页面确认全库49,697条、MuseScore范围1,248条／16个有成员共同分类；独奏725、二重奏75、三重奏13、四重奏22、吉他合奏7显示正确。“旋律小练习曲”检索得到5822755和5822757，两者均显示文件题名差异，展开可见实际Petites Etudes Mélodiques与完整分部原标注；“索尔 作品60”找到5711000，并保持原缺署名；crystals找到5968722，详情显示已核明的共享通道MIDI音色限制及原文件未修复说明。页面控制台无warn/error，仅关闭本轮临时核验页，用户原离线页保留。重测后147个再生缓存／5,944,554B再次清理，均属于先前路径，不叠加到199个唯一路径统计。
+
+随后仅提交本段、接入日志与TODO的最终回执，公开网站树保持相同；最终文档ref、对应成功Pages运行、线上字节核对及当前输入守卫在私有规范回执`sources/musescore/verification/verification.json`原位接续。
