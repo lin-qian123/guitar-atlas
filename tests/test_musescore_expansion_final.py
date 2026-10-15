@@ -215,6 +215,8 @@ def test_final_workers_are_controlled_before_any_file_is_read(tmp_path, workers)
 @pytest.mark.parametrize("extra_private_formats", [False, True])
 @pytest.mark.parametrize("inherited_midi_template", [False, True, "instrument_name", "lyric_text"])
 def test_real_three_format_review_binds_plan_scope_assets_and_native_projection(tmp_path, extra_private_formats, inherited_midi_template):
+    if inherited_midi_template == "lyric_text":
+        pytest.importorskip("pymupdf")
     from pypdf import PdfWriter
     from pypdf.generic import DictionaryObject, NameObject, DecodedStreamObject
     from review_musescore_expansion import review_scope
