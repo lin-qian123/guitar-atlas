@@ -75,16 +75,16 @@ def file_key(value: str) -> str:
 
 def unify_catalog(root: Path, data: dict, registry: list[dict]) -> None:
     from catalog_sources import source_catalog
-    from catalog_instrumentation import REVIEW_PATH
+    from catalog_instrumentation import APPLIED_REVIEW_IDS
     private, file_reviewed = {}, set()
     for source in registry:
         if source.get("catalog"):
             payload = source_catalog(root, source)
             private.update((work["id"], work) for work in payload["works"])
-            if source["id"] == "musescore" and (root / REVIEW_PATH).is_file():
-                # source_catalog has just guarded the complete overlay. Native
-                # metadata alone cannot forge the file-crosschecked basis.
-                file_reviewed.update(work["id"] for work in payload["works"])
+            if source["id"] == "musescore":
+                # Only this successfully checked scope has a file review. An
+                # appended native record cannot inherit another record's proof.
+                file_reviewed.update(payload.get(APPLIED_REVIEW_IDS, []))
     categories = {row["id"]: row for row in data["categories"]}
     counts, sources = Counter(), defaultdict(set)
     files, hashes = defaultdict(set), defaultdict(set)

@@ -1,8 +1,15 @@
-"""Guarded, private file-review overlay for the frozen MuseScore identities.
+"""Guarded, private file-review overlays for exact MuseScore native identities.
 
 The source catalog remains a native transcription. A complete review may change
 its runtime display and common topics only while every identity and score byte
 still agrees with the reviewed inputs. No paths or digest evidence is projected.
+
+Schema 1 binds the complete native catalog bytes and requires complete coverage.
+Schema 2 binds every reviewed native record in full with ``native_record_sha256``
+and requires complete coverage of that declared, nonempty review scope. It may
+coexist with appended, unreviewed native records; those receive no file review.
+Its ``works`` entries retain the schema-1 shape and exact existing review values.
+Use ``per_record_guard`` to build the scope guards from the original records.
 """
 from __future__ import annotations
 
@@ -13,6 +20,7 @@ import re
 from pathlib import Path
 
 REVIEW_PATH = Path("sources/musescore/instrumentation-review.json")
+APPLIED_REVIEW_IDS = "_applied_instrumentation_review_ids"
 REVIEW_FORMATS = frozenset({"PDF", "MUSICXML", "MIDI"})
 REVIEW_STATUSES = frozenset({"file_verified", "file_reviewed_uncertain"})
 PLAYER_TOPICS = {"solo": 1, "duo": 2, "trio": 3, "quartet": 4}
@@ -28,6 +36,22 @@ _PRIVATE_TEXT = re.compile(
 
 def _fail(reason: str) -> None:
     raise ValueError("invalid instrumentation review: " + reason)
+
+
+def per_record_guard(work: dict) -> str:
+    """Hash every native field, including attribution, licensing and all assets.
+
+    Object-key ordering is immaterial; lists, types and all string bytes remain
+    exact. This guard is for a private schema-2 review, never the public catalog.
+    """
+    if not isinstance(work, dict):
+        raise ValueError("native record guard requires an object")
+    try:
+        raw = json.dumps(work, ensure_ascii=False, sort_keys=True,
+                         separators=(",", ":"), allow_nan=False).encode("utf-8")
+    except (TypeError, ValueError) as error:
+        raise ValueError("native record guard requires finite JSON data") from error
+    return hashlib.sha256(raw).hexdigest()
 
 
 def _public_text(value: object, field: str, *, optional: bool = False) -> str:
@@ -120,7 +144,10 @@ def apply_instrumentation_review(root: Path, catalog: dict, *, catalog_bytes: by
 
     A present incomplete/stale review is always an error. Each call checks file
     bytes afresh; a previous export cannot stand in for current file evidence.
+    The controlled runtime marker contains only the successfully applied IDs.
     """
+    if APPLIED_REVIEW_IDS in catalog:
+        _fail("native catalog cannot supply the controlled runtime review marker")
     if catalog.get("source_id") != "musescore":
         return catalog
     path = root / REVIEW_PATH
@@ -133,20 +160,28 @@ def apply_instrumentation_review(root: Path, catalog: dict, *, catalog_bytes: by
     except (OSError, ValueError) as error:
         _fail(f"review cannot be read: {error.__class__.__name__}")
     if (not isinstance(payload, dict) or type(payload.get("schema_version")) is not int
-            or payload["schema_version"] != 1 or payload.get("source_id") != "musescore"
-            or payload.get("status") != "complete"
-            or payload.get("catalog_sha256") != hashlib.sha256(catalog_bytes).hexdigest()
-            or not isinstance(payload.get("works"), list)):
+            or payload["schema_version"] not in {1, 2} or payload.get("source_id") != "musescore"
+            or payload.get("status") != "complete" or not isinstance(payload.get("works"), list)):
+        _fail("schema or completion status disagrees")
+    schema = payload["schema_version"]
+    if schema == 1 and payload.get("catalog_sha256") != hashlib.sha256(catalog_bytes).hexdigest():
         _fail("schema, completion status or native catalog digest disagrees")
     originals = {work["id"]: work for work in catalog["works"]}
     if len(originals) != len(catalog["works"]):
         _fail("native catalog contains duplicate identities")
+    native_guards = payload.get("native_record_sha256") if schema == 2 else None
+    if schema == 2 and (not isinstance(native_guards, dict) or not native_guards
+            or any(not isinstance(identity, str) or identity not in originals
+                   or not _SHA256.fullmatch(str(guard)) for identity, guard in native_guards.items())):
+        _fail("schema-2 native record guards must declare a nonempty current review scope")
     entries = {}
     for entry in payload["works"]:
         if (not isinstance(entry, dict) or not isinstance(entry.get("id"), str)
                 or entry["id"] not in originals or entry["id"] in entries):
             _fail("unknown or duplicate reviewed identity")
         work = originals[entry["id"]]
+        if schema == 2 and native_guards.get(entry["id"]) != per_record_guard(work):
+            _fail(f"{work['id']} complete native record guard changed")
         if any(entry.get(key) != work.get(key) for key in ("title_en", "composer_en", "source_url")):
             _fail(f"{work['id']} exact native title, attribution or source URL changed")
         guards = entry.get("assets")
@@ -156,10 +191,15 @@ def apply_instrumentation_review(root: Path, catalog: dict, *, catalog_bytes: by
         for label in sorted(REVIEW_FORMATS):
             _check_asset(root, work, label, guards[label])
         entries[entry["id"]] = review
-    if set(entries) != set(originals):
+    if schema == 1 and set(entries) != set(originals):
         _fail("review must cover every native catalog identity exactly once")
+    if schema == 2 and set(entries) != set(native_guards):
+        _fail("review must cover every declared native record guard exactly once")
     result = copy.deepcopy(catalog)
+    result[APPLIED_REVIEW_IDS] = sorted(entries)
     for work in result["works"]:
+        if work["id"] not in entries:
+            continue
         review = entries[work["id"]]
         metadata = work.setdefault("metadata", {})
         source_instrumentation = metadata.get("instrumentation")

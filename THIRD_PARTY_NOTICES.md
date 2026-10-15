@@ -149,7 +149,7 @@ grant no score-copying or redistribution rights.
 
 ## MuseScore through PDMX v9
 
-[MuseScore](https://musescore.com/) is the native source of 924 historical guitar
+[MuseScore](https://musescore.com/) is the native source of historical guitar
 records imported through the author-published [PDMX v9 dataset](https://zenodo.org/records/15571083),
 DOI 10.5281/zenodo.15571083, under
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
@@ -160,7 +160,7 @@ PDMX requests credit to its underlying metadata study,
 by Weihan Xu, Julian McAuley, Taylor Berg-Kirkpatrick, Shlomo Dubnov, and Hao-Wen Dong.
 
 Guitar Atlas selects records without a reported license conflict, checks native
-identity, titles, source-page URLs and explicitly declared acoustic guitar scope,
+identity, titles, source-page URLs and source-declared or actual-file acoustic guitar scope,
 separates responsibility labels, and adds guarded display translations and
 reversible encoding repairs. Original source credits and transcriptions remain
 available. The CSV and original-metadata archive stay in the private source cache;
@@ -170,7 +170,10 @@ license and from unverified current source availability. This is a frozen subset
 not a live or complete MuseScore catalog.
 
 The authorized local extension acquires the same publication's exported PDF,
-compressed MusicXML (MXL) and MIDI for these 924 native records. It validates
+compressed MusicXML (MXL) and MIDI for the initial 924 native records and the
+separately guarded supplement after full-publication review. All 254,077 metadata
+records and 254,035 declared MXL files were inspected; structural failures and
+undeclared assets remain explicit boundaries in the integration receipt. It validates
 each complete archive and selected file and stores them only in the private
 offline collection, preserving their shared native-record associations and
 separate format receipts. Structural validation does not establish note-level

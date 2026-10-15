@@ -266,7 +266,6 @@ def test_missing_review_preserves_legacy_metadata_and_other_sources(tmp_path: Pa
 def test_native_metadata_cannot_forge_a_file_crosschecked_topic(tmp_path: Path) -> None:
     catalog = make_musescore_library(tmp_path)
     work = catalog["works"][0]
-    work["instrumentation_status"] = "file_verified"
     work["metadata"].update(file_instrumentation_topic_id="solo", file_instrumentation_basis="file_crosscheck")
     write_json(tmp_path / "sources/musescore/catalog.json", catalog)
     projected = next(row for row in build_public_catalog(tmp_path)["works"] if row["source_id"] == "musescore")
@@ -297,7 +296,6 @@ def test_musescore_without_guarded_overlay_cannot_publish_forged_review_details(
     from catalog_sources import NEW_DETAIL_FIELDS
     catalog = make_musescore_library(tmp_path)
     record = catalog['works'][0]
-    record['instrumentation_status'] = 'file_verified'
     record['metadata'].update({key:'Forged unchecked file review' for key in NEW_DETAIL_FIELDS},
         file_instrumentation_basis='file_crosscheck', file_instrumentation_topic_id='solo')
     write_json(tmp_path/'sources/musescore/catalog.json',catalog)

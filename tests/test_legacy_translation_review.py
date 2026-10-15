@@ -76,14 +76,15 @@ def test_current_assets_pass_full_structural_and_music_context_sweep():
     baseline=audit_assets(ROOT,preceding)
     assert baseline['issue_count']==0
     assert sum(baseline['scope'].values())==28318
-    added={'musicians_zh.json':341,'categories_zh.json':1}
+    # The initial 341 attributions remain, with 120 exact new-source entries.
+    added={'musicians_zh.json':341+120,'categories_zh.json':1}
     for name,count in added.items():
         assert len(docs[name]['entries']['musescore'])==count
     result=audit_assets(ROOT,docs)
     assert result['issue_count']==0
     assert result['scope']=={name:count+added.get(name,0)
                              for name,count in baseline['scope'].items()}
-    assert sum(result['scope'].values())==28318+341+1
+    assert sum(result['scope'].values())==28318+341+120+1
     assert set(result['scope'])==ASSETS
 
 
@@ -220,9 +221,11 @@ def test_musescore_attribution_review_contexts_cover_every_guarded_entry():
             checked['absent_source_attribution']+=1
         else:
             raise AssertionError(f'unresolved MuseScore attribution: {original}: {status}')
-    assert checked=={'supported_full_name':68,'supported_source_label':3,
-                     'retained_source_text':269,'absent_source_attribution':1}
-    assert sum(checked.values())==len(musicians)==341
+    # Audit all current rows; expansion adds 17 supported names and 103
+    # retained transcriptions without upgrading unsupported abbreviations.
+    assert checked=={'supported_full_name':68+17,'supported_source_label':3,
+                     'retained_source_text':269+103,'absent_source_attribution':1}
+    assert sum(checked.values())==len(musicians)==341+120
     for original in ['F. Sor','J.S. Bach','Bach','Beethoven','Giuliani','Pixinguinha','Yiruma']:
         assert musicians[original]['status']=='retained'
         assert musicians[original]['zh']==original

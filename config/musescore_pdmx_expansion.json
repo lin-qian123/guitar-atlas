@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "source_id": "musescore",
+  "scope_version": "2026-10-15.2",
+  "scope": "Full frozen PDMX v9 metadata and MXL instrumentation recall; append exact native identities with published CC0/Public Domain Mark and no license conflict, after actual acoustic-guitar notation review. Preserve the prior 924 records, assets, translations and instrumentation reviews. No live MuseScore requests.",
+  "publication_record_id": "15571083",
+  "original_record_count": 924,
+  "max_chamber_roles": 8,
+  "max_guitar_roles": 16,
+  "files": {
+    "PDMX.csv": {"size": 225399738, "md5": "30392ccf38bb63ce70e7afae70f9c88c", "sha256": "fc2187e7e09185f4b28be57b6478a96a1243a037f8fd13624f17de2d8bfd44bd"},
+    "metadata.tar.gz": {"size": 159444765, "md5": "5bc79445090dd2fe5e96cffa77a3461c", "sha256": "325b57ad69c34d45b05b8f307d88ebd10ff67554a7a9b4c183676e7586deffa3"},
+    "pdf.tar.gz": {"size": 9621915440, "md5": "2e03ccd072755332bd63a75c57c89b3f", "sha256": "b5700ba8d4f0d7c8028801d0c0c409b466cb7ad92a65d2812f804ffb2ebfface"},
+    "mxl.tar.gz": {"size": 1894335797, "md5": "49ffd75ecf5489c0be6d41182eb11ff7", "sha256": "01949cc0d9215e2f30924eadc8b1dd148aca90c02e2cf1999bb83df5ffe4d7a4"},
+    "mid.tar.gz": {"size": 214395208, "md5": "d920a21b2fcd99a56d9c381b39debbb2", "sha256": "e444f9b466f02c9a054d31478c9886847f39c575a65ec45a0aaa1a5ee088c1d1"}
+  }
+}

@@ -188,6 +188,13 @@ def offline_input_fingerprint(root: Path) -> dict:
     format_config = Path("config/musescore_pdmx_formats.json")
     if (root / format_config).is_file():
         paths.add(format_config)
+    # Keep libraries that have never used append-only PDMX expansion compatible
+    # with their preceding fingerprint; once present, these inputs are guarded.
+    for relative in (Path("config/musescore_pdmx_expansion.json"),
+                     Path("sources/musescore/expansion/integration.json"),
+                     Path("metadata/instrumentation/musescore_expansion_reviewed.json")):
+        if (root / relative).exists() or (root / relative).is_symlink():
+            paths.add(relative)
     paths.update(Path(row["name"]) / "metadata/score_manifest.json" for row in configured_categories(root))
     if (root / "config/sources.json").is_file():
         paths.update(Path(row["catalog"]) for row in load_registry(root) if row["adapter"] == "normalized_catalog")

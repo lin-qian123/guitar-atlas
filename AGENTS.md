@@ -269,6 +269,17 @@ source or adapter.
   `instrumentation-review.json` overlays runtime display/topics without editing
   native metadata, IDs, assets, licensing or translated titles. Missing review
   preserves legacy metadata; present incomplete/stale review must fail closed.
+- Instrumentation review schema 1 keeps its complete-catalog byte guard and
+  complete coverage. Schema 2 permits a completed reviewed scope within an
+  appended native catalog: `native_record_sha256` maps exactly the reviewed IDs
+  to `catalog_instrumentation.per_record_guard` of every original native field,
+  including all asset and licensing fields. Keep the corresponding `works`
+  entries and prior review values unchanged; each entry still requires fresh
+  PDF, MXL and MIDI file guards. Unreviewed appended records receive no file
+  conclusion. Only the reader may emit `_applied_instrumentation_review_ids`;
+  reject that marker in native catalogs and restrict public review fields and
+  `file_crosscheck` topics to its exact IDs. Do not rebase historical proof
+  hashes or overwrite the original 924-record acquisition/review receipts.
 - Count independent written performing roles after normal/TAB view review,
   not software parts, staves, tracks, instrument IDs or playback patches.
   Harmony-only or rhythmic-slash accompaniment can be an active guitar role;
@@ -292,6 +303,51 @@ source or adapter.
   PDFs produce offline file links; source access restrictions and metadata-only
   assets never establish local score availability. Preserve all unrelated
   records, categories, translation bytes and old local-edition mappings.
+
+### PDMX full-publication supplement
+
+- The original 924 records are a historical selection, not the complete guitar
+  scope of the 254,077-row PDMX v9 publication. Preserve their original import,
+  three acquisition journals, native work objects and completed review values.
+  Do not relax or replay the historical fixed-scope acquisition commands.
+- `config/musescore_pdmx_expansion.json` and
+  `scripts/expand_musescore_library.py` own the separately authorized append.
+  Audit every original CSV/metadata record and every MXL member, including
+  records without GM 24/25 or a guitar keyword in their metadata. Bind exact
+  native identities and all format locators to the checksum-pinned CSV.
+- Full-file recall is not acceptance. Keep electric/bass/voice/large-ensemble
+  exclusions and ambiguous instrument identities separate; TAB and tuning can
+  also describe other fretted instruments. Lyrics elements may be annotations.
+  Explicit instrumental roles establish scope; playback patches alone do not.
+  Uncertain player counts may retain an accepted guitar scope with a visible
+  unnumbered classification, rather than inventing solo/duo/trio counts.
+- Preserve every title/URL equivalence decision. A single reversible HTML
+  entity representation and URLs independently verified against the same native
+  score and uploader IDs may establish equivalent representations, without
+  changing any raw title, original URL, uploader or source transcription.
+- Keep the append plan, extraction/review outcomes, rejected/pending records,
+  fresh archive integrity, transaction and preservation evidence privately in
+  `sources/musescore/expansion/`. Old journals remain historical evidence.
+  Finalize `integration.json` before a complete offline render; publication
+  receipts belong outside that fingerprinted input. Only new translation
+  entries may be appended, retaining all earlier decisions exactly.
+- Exact expansion decisions live in
+  `metadata/instrumentation/musescore_expansion_reviewed.json`. Guard each
+  appended decision with the complete planned native-record digest, original
+  identity fields, MXL bytes and all part names; PDF-based decisions also guard
+  the exact PDF. Source-scoped exclusions must retain their specific source and
+  active-file evidence, automatic result and unknown player counts. Never turn
+  bare Bass, Alto, Primo/Secondo or a playback patch into a global identity rule.
+- Use the separately typed expansion vocabulary and official instrument-name
+  references without changing the frozen 924-record producer. Collective names
+  retain unknown counts. Only finite known drum-kit components may share that
+  exemption; a named percussion instrument does not suppress cross-family
+  conflicts. Keep actual non-rest instrument changes when reviewing scope.
+- A reviewed MIDI template-name explanation additionally requires exact MIDI
+  and PDF bytes, a resolved actual part and a single-part, verbatim track-name
+  correspondence. Preserve its automatic conflict and original labels; this
+  explanation never clears unrelated name or playback conflicts. New or changed
+  instrumentation decisions require a complete offline rebuild.
 
 ## Public and offline editions
 

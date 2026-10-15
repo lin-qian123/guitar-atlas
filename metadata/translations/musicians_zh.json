@@ -58843,6 +58843,979 @@
         "status": "retained",
         "basis": "exact_source_attribution_preservation",
         "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      ": The Creeps": {
+        "original": ": The Creeps",
+        "zh": ": The Creeps",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "A. Chambers": {
+        "original": "A. Chambers",
+        "zh": "A. Chambers",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "A. R. Rahman": {
+        "original": "A. R. Rahman",
+        "zh": "A. R. Rahman",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "AcousticRenegade": {
+        "original": "AcousticRenegade",
+        "zh": "AcousticRenegade",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Adele": {
+        "original": "Adele",
+        "zh": "Adele",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Afonso Trigo": {
+        "original": "Afonso Trigo",
+        "zh": "Afonso Trigo",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Agustin Barrios Mangoré (1885-1944)": {
+        "original": "Agustin Barrios Mangoré (1885-1944)",
+        "zh": "阿古斯丁·巴里奥斯·曼戈雷",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:classclef:Agustin Barrios Mangore",
+          "musicians_zh.json:delcamp:Agustín Barrios Mangoré",
+          "musicians_zh.json:dga:Barrios Mangoré, Agustín, 1885-1944",
+          "musicians_zh.json:guitardownunder:Agustin Barrios Mangore",
+          "musicians_zh.json:imslp:Barrios Mangoré, Agustín"
+        ]
+      },
+      "Alberto Estévez": {
+        "original": "Alberto Estévez",
+        "zh": "Alberto Estévez",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Allie Wrubel & Herb Magidson": {
+        "original": "Allie Wrubel & Herb Magidson",
+        "zh": "Allie Wrubel & Herb Magidson",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Anonyme": {
+        "original": "Anonyme",
+        "zh": "Anonyme",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Antonio J. Manjon (1866 - 1919)": {
+        "original": "Antonio J. Manjon (1866 - 1919)",
+        "zh": "Antonio J. Manjon (1866 - 1919)",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Arling Shaeffer (1859 - 1943)": {
+        "original": "Arling Shaeffer (1859 - 1943)",
+        "zh": "Arling Shaeffer (1859 - 1943)",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "既有资产对该完整署名给出不同中文对应，本条来源元数据未附可消除歧义的中文依据；保留原始署名。"
+      },
+      "Autor y Compositor: Ángel Anibal Rosado": {
+        "original": "Autor y Compositor: Ángel Anibal Rosado",
+        "zh": "Autor y Compositor: Ángel Anibal Rosado",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Billy Joel": {
+        "original": "Billy Joel",
+        "zh": "Billy Joel",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Bob Dylan, Adele": {
+        "original": "Bob Dylan, Adele",
+        "zh": "Bob Dylan, Adele",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Brownie McGhee/Daddy Stovepipe": {
+        "original": "Brownie McGhee/Daddy Stovepipe",
+        "zh": "Brownie McGhee/Daddy Stovepipe",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Carl Michael Bellmann (1740-1795) ": {
+        "original": "Carl Michael Bellmann (1740-1795) ",
+        "zh": "Carl Michael Bellmann (1740-1795) ",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Carl-Axel Dominique": {
+        "original": "Carl-Axel Dominique",
+        "zh": "Carl-Axel Dominique",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Chris Hall": {
+        "original": "Chris Hall",
+        "zh": "Chris Hall",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Craig morrison": {
+        "original": "Craig morrison",
+        "zh": "Craig morrison",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Danny Elfman": {
+        "original": "Danny Elfman",
+        "zh": "Danny Elfman",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Desconocido": {
+        "original": "Desconocido",
+        "zh": "Desconocido",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Dominico Pellegrini": {
+        "original": "Dominico Pellegrini",
+        "zh": "Dominico Pellegrini",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Dona Onete": {
+        "original": "Dona Onete",
+        "zh": "Dona Onete",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Ed Sheeran": {
+        "original": "Ed Sheeran",
+        "zh": "艾德·希兰",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:classclef:Ed Sheeran"
+        ]
+      },
+      "Edvard Grieg": {
+        "original": "Edvard Grieg",
+        "zh": "爱德华·格里格",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Grieg. Edvard",
+          "musicians_zh.json:classclef:Edvard Grieg",
+          "musicians_zh.json:classclef:Grieg, Edvard",
+          "musicians_zh.json:delcamp:Edvard Grieg",
+          "musicians_zh.json:dga:Grieg, Edvard, 1843-1907",
+          "musicians_zh.json:imslp:Grieg, Edvard"
+        ]
+      },
+      "Elvis Presley": {
+        "original": "Elvis Presley",
+        "zh": "Elvis Presley",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Enrique Granados æ´çï¼wind_170": {
+        "original": "Enrique Granados æ´çï¼wind_170",
+        "zh": "Enrique Granados 整理：wind_170",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "来源署名本身包含中文；保留其原文，未新增中文姓名或把来源文字升级为规范人名核定。"
+      },
+      "Everlast": {
+        "original": "Everlast",
+        "zh": "Everlast",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "F. P. Herrera": {
+        "original": "F. P. Herrera",
+        "zh": "F. P. Herrera",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Fairport Convention": {
+        "original": "Fairport Convention",
+        "zh": "Fairport Convention",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Francisco Codoñer Pascual": {
+        "original": "Francisco Codoñer Pascual",
+        "zh": "Francisco Codoñer Pascual",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Francisco T?rrega": {
+        "original": "Francisco T?rrega",
+        "zh": "Francisco T?rrega",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Franz Schubert": {
+        "original": "Franz Schubert",
+        "zh": "弗朗茨·舒伯特",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Schubert. Franz",
+          "musicians_zh.json:classclef:Franz Schubert",
+          "musicians_zh.json:delcamp:Franz Schubert",
+          "musicians_zh.json:dga:Schubert, Franz",
+          "musicians_zh.json:dga:Schubert, Franz    ",
+          "musicians_zh.json:dga:Schubert, Franz, 1797-1828",
+          "musicians_zh.json:guitarschool:Franz Schubert",
+          "musicians_zh.json:imslp:Schubert, Franz",
+          "musicians_zh.json:rism:Schubert, Franz (1797-1828)"
+        ]
+      },
+      "Franz Schubert (1797-1828)": {
+        "original": "Franz Schubert (1797-1828)",
+        "zh": "弗朗茨·舒伯特",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Schubert. Franz",
+          "musicians_zh.json:classclef:Franz Schubert",
+          "musicians_zh.json:delcamp:Franz Schubert",
+          "musicians_zh.json:dga:Schubert, Franz",
+          "musicians_zh.json:dga:Schubert, Franz    ",
+          "musicians_zh.json:dga:Schubert, Franz, 1797-1828",
+          "musicians_zh.json:guitarschool:Franz Schubert",
+          "musicians_zh.json:imslp:Schubert, Franz",
+          "musicians_zh.json:rism:Schubert, Franz (1797-1828)"
+        ]
+      },
+      "Franz Schwab": {
+        "original": "Franz Schwab",
+        "zh": "Franz Schwab",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Franz Xaver Huber": {
+        "original": "Franz Xaver Huber",
+        "zh": "Franz Xaver Huber",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "French Traditional": {
+        "original": "French Traditional",
+        "zh": "French Traditional",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Georges Bizet": {
+        "original": "Georges Bizet",
+        "zh": "乔治·比才",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Bizet. Georges",
+          "musicians_zh.json:classclef:Georges Bizet",
+          "musicians_zh.json:delcamp:Georges Bizet",
+          "musicians_zh.json:dga:Bizet, Georges, 1838-1875",
+          "musicians_zh.json:guitardownunder:Georges Bizet",
+          "musicians_zh.json:imslp:Bizet, Georges",
+          "musicians_zh.json:rism:Bizet, Georges (1838-1875)"
+        ]
+      },
+      "Grubber": {
+        "original": "Grubber",
+        "zh": "Grubber",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Guillaume de Machaut": {
+        "original": "Guillaume de Machaut",
+        "zh": "纪尧姆·德·马肖",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Machaut, Guillaume de"
+        ]
+      },
+      "Guy Béart": {
+        "original": "Guy Béart",
+        "zh": "Guy Béart",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "HIROKI KIKUTA": {
+        "original": "HIROKI KIKUTA",
+        "zh": "HIROKI KIKUTA",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Hank Green": {
+        "original": "Hank Green",
+        "zh": "Hank Green",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Henrique Pinto": {
+        "original": "Henrique Pinto",
+        "zh": "Henrique Pinto",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Innsamlet av C. J. Johansen, 1983": {
+        "original": "Innsamlet av C. J. Johansen, 1983",
+        "zh": "Innsamlet av C. J. Johansen, 1983",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Isac Saleh": {
+        "original": "Isac Saleh",
+        "zh": "Isac Saleh",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Izz Hafeez": {
+        "original": "Izz Hafeez",
+        "zh": "Izz Hafeez",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "JON BON JOVI": {
+        "original": "JON BON JOVI",
+        "zh": "JON BON JOVI",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "JS Bach": {
+        "original": "JS Bach",
+        "zh": "JS Bach",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Joaquim Antonio da Silva Callado e Catulo da Paixão Cearense": {
+        "original": "Joaquim Antonio da Silva Callado e Catulo da Paixão Cearense",
+        "zh": "Joaquim Antonio da Silva Callado e Catulo da Paixão Cearense",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Johann Sebastian BACH": {
+        "original": "Johann Sebastian BACH",
+        "zh": "约翰·塞巴斯蒂安·巴赫",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:cantorion:Johann Sebastian Bach",
+          "musicians_zh.json:cglib:Bach. Johann Sebastian",
+          "musicians_zh.json:classclef:Bach, Johann Sebastian",
+          "musicians_zh.json:classclef:Johann Sebastian Bach",
+          "musicians_zh.json:delcamp:Bach, Johann Sebastian",
+          "musicians_zh.json:delcamp:Johann Sebastian Bach",
+          "musicians_zh.json:dga:Bach, Johann Sebastian",
+          "musicians_zh.json:dga:Bach, Johann Sebastian, 1685-1750",
+          "musicians_zh.json:imslp:Bach, Johann Sebastian",
+          "musicians_zh.json:rism:Bach, Johann Sebastian (1685-1750)"
+        ]
+      },
+      "Johann Sebastion Bach (1685-1750)": {
+        "original": "Johann Sebastion Bach (1685-1750)",
+        "zh": "Johann Sebastion Bach (1685-1750)",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "John Denver": {
+        "original": "John Denver",
+        "zh": "约翰·丹佛",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Denver. John",
+          "musicians_zh.json:classclef:John Denver"
+        ]
+      },
+      "John Frederick Coots": {
+        "original": "John Frederick Coots",
+        "zh": "约翰·弗雷德里克·库茨",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Coots. John Frederick",
+          "musicians_zh.json:classclef:John Frederick Coots"
+        ]
+      },
+      "John Legend": {
+        "original": "John Legend",
+        "zh": "John Legend",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Joni Mitchell": {
+        "original": "Joni Mitchell",
+        "zh": "Joni Mitchell",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Joseph Yanchar": {
+        "original": "Joseph Yanchar",
+        "zh": "Joseph Yanchar",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "José Ferrer y Esteve": {
+        "original": "José Ferrer y Esteve",
+        "zh": "José Ferrer y Esteve",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Justin Hayward": {
+        "original": "Justin Hayward",
+        "zh": "Justin Hayward",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Karl Gottlieb Hering (1766-1853)": {
+        "original": "Karl Gottlieb Hering (1766-1853)",
+        "zh": "Karl Gottlieb Hering (1766-1853)",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Kittyko": {
+        "original": "Kittyko",
+        "zh": "Kittyko",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Koji kondo": {
+        "original": "Koji kondo",
+        "zh": "Koji kondo",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "LGLabian": {
+        "original": "LGLabian",
+        "zh": "LGLabian",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Lady Gaga": {
+        "original": "Lady Gaga",
+        "zh": "Lady Gaga",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Lee Sollory (born 1959)": {
+        "original": "Lee Sollory (born 1959)",
+        "zh": "Lee Sollory (born 1959)",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Leonard Cohen": {
+        "original": "Leonard Cohen",
+        "zh": "Leonard Cohen",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Leyton McKinney": {
+        "original": "Leyton McKinney",
+        "zh": "Leyton McKinney",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Lotte Meijer & Izzy Smit": {
+        "original": "Lotte Meijer & Izzy Smit",
+        "zh": "Lotte Meijer & Izzy Smit",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Louis Armstrong & Lil Hardin": {
+        "original": "Louis Armstrong & Lil Hardin",
+        "zh": "Louis Armstrong & Lil Hardin",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Louis Silvers": {
+        "original": "Louis Silvers",
+        "zh": "Louis Silvers",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Luigi Legnani": {
+        "original": "Luigi Legnani",
+        "zh": "路易吉·莱尼亚尼",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Legnani. Luigi",
+          "musicians_zh.json:classclef:Legnani, Luigi",
+          "musicians_zh.json:classclef:Luigi Legnani",
+          "musicians_zh.json:delcamp:Luigi Legnani",
+          "musicians_zh.json:dga:Legnani, Luigi",
+          "musicians_zh.json:dga:Legnani, Luigi, 1790-1877",
+          "musicians_zh.json:dga:Luigi Legnani",
+          "musicians_zh.json:guitarschool:Luigi Legnani",
+          "musicians_zh.json:imslp:Legnani, Luigi"
+        ]
+      },
+      "Luís Bonfá": {
+        "original": "Luís Bonfá",
+        "zh": "路易斯·邦法",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:classclef:Luis Bonfa"
+        ]
+      },
+      "M. CARCASSI": {
+        "original": "M. CARCASSI",
+        "zh": "M. CARCASSI",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Mario Pasquale Costa": {
+        "original": "Mario Pasquale Costa",
+        "zh": "Mario Pasquale Costa",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Masumi Ito": {
+        "original": "Masumi Ito",
+        "zh": "Masumi Ito",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Mauro Giuliani (1781 - 1829)": {
+        "original": "Mauro Giuliani (1781 - 1829)",
+        "zh": "毛罗·朱利亚尼",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Giuliani. Mauro",
+          "musicians_zh.json:classclef:Mauro Giuliani",
+          "musicians_zh.json:classicalguitarorg:Mauro Giuliani",
+          "musicians_zh.json:delcamp:Giuliani, Mauro",
+          "musicians_zh.json:delcamp:Mauro Giuliani",
+          "musicians_zh.json:delcamp:Mauro Giuliani,",
+          "musicians_zh.json:dga:GIULIANI, Mauro.",
+          "musicians_zh.json:dga:Giuliani, Mauro",
+          "musicians_zh.json:dga:Giuliani, Mauro    ",
+          "musicians_zh.json:dga:Giuliani, Mauro, 1781-1829",
+          "musicians_zh.json:dga:Giuliani, Mauro, 1781-1829. ",
+          "musicians_zh.json:dga:Mauro Giuliani",
+          "musicians_zh.json:freeguitarmusic:Mauro Giuliani",
+          "musicians_zh.json:guitarschool:Mauro Giuliani",
+          "musicians_zh.json:imslp:Giuliani, Mauro",
+          "musicians_zh.json:rism:Giuliani, Mauro (1781-1829)",
+          "musicians_zh.json:werner:Mauro Giuliani"
+        ]
+      },
+      "Miguel Ríos": {
+        "original": "Miguel Ríos",
+        "zh": "Miguel Ríos",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Miguel Villones ": {
+        "original": "Miguel Villones ",
+        "zh": "Miguel Villones ",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Mike Stern": {
+        "original": "Mike Stern",
+        "zh": "Mike Stern",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Music & Lyrics: Luísa Sobral": {
+        "original": "Music & Lyrics: Luísa Sobral",
+        "zh": "Music & Lyrics: Luísa Sobral",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "N. Gow (1727–1807)": {
+        "original": "N. Gow (1727–1807)",
+        "zh": "N. Gow (1727–1807)",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Nao Hiiragi": {
+        "original": "Nao Hiiragi",
+        "zh": "Nao Hiiragi",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Napoleon Coste (1805-1883)": {
+        "original": "Napoleon Coste (1805-1883)",
+        "zh": "拿破仑·科斯特",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Coste. Napoleon",
+          "musicians_zh.json:classclef:Napoleon Coste",
+          "musicians_zh.json:delcamp:Coste, Napoléon",
+          "musicians_zh.json:delcamp:Napoléon Coste",
+          "musicians_zh.json:dga:COSTE, Napoleon",
+          "musicians_zh.json:dga:Coste, Napoleon",
+          "musicians_zh.json:dga:Coste, Napoleon    ",
+          "musicians_zh.json:dga:Coste, Napoléon",
+          "musicians_zh.json:dga:Coste, Napoléon, 1805-1883",
+          "musicians_zh.json:guitarschool:Napoléon Coste",
+          "musicians_zh.json:imslp:Coste, Napoléon",
+          "musicians_zh.json:rism:Coste, Napoléon (1805-1883)"
+        ]
+      },
+      "Nathan Gunaselvam": {
+        "original": "Nathan Gunaselvam",
+        "zh": "Nathan Gunaselvam",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Nicolás López": {
+        "original": "Nicolás López",
+        "zh": "Nicolás López",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Nikolauslied aus dem Hunsrück": {
+        "original": "Nikolauslied aus dem Hunsrück",
+        "zh": "Nikolauslied aus dem Hunsrück",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Nino Rota": {
+        "original": "Nino Rota",
+        "zh": "尼诺·罗塔",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Rota. Nino",
+          "musicians_zh.json:classclef:Nino Rota",
+          "musicians_zh.json:guitardownunder:Nino Rota",
+          "musicians_zh.json:guitarschool:Nino Rota"
+        ]
+      },
+      "Nintendo": {
+        "original": "Nintendo",
+        "zh": "Nintendo",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Oliver Cooling": {
+        "original": "Oliver Cooling",
+        "zh": "Oliver Cooling",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Original by ç¿èåº(ç®è°±)": {
+        "original": "Original by ç¿èåº(ç®è°±)",
+        "zh": "Original by 瞿耀庆(简谱)",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "来源署名本身包含中文；保留其原文，未新增中文姓名或把来源文字升级为规范人名核定。"
+      },
+      "POPULAR": {
+        "original": "POPULAR",
+        "zh": "POPULAR",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Paul Desmond & Dave Brubeck": {
+        "original": "Paul Desmond & Dave Brubeck",
+        "zh": "Paul Desmond & Dave Brubeck",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Paul Simon": {
+        "original": "Paul Simon",
+        "zh": "保罗·西蒙",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:classclef:Paul Simon",
+          "musicians_zh.json:guitardownunder:Paul Simon",
+          "musicians_zh.json:guitarschool:Paul Simon"
+        ]
+      },
+      "Paul de SENNEVILLE Olivier Toussaint": {
+        "original": "Paul de SENNEVILLE Olivier Toussaint",
+        "zh": "Paul de SENNEVILLE Olivier Toussaint",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Pee-Wee Ellis": {
+        "original": "Pee-Wee Ellis",
+        "zh": "Pee-Wee Ellis",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Rabindranath Tagore": {
+        "original": "Rabindranath Tagore",
+        "zh": "罗宾德拉纳特·泰戈尔",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Tagore, Rabindranath"
+        ]
+      },
+      "Ramin Djawadi": {
+        "original": "Ramin Djawadi",
+        "zh": "Ramin Djawadi",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Revo": {
+        "original": "Revo",
+        "zh": "Revo",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Roy E Agnew": {
+        "original": "Roy E Agnew",
+        "zh": "Roy E Agnew",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Sebastián de Iradier y Salaverri - versión de Francisco Tárrega": {
+        "original": "Sebastián de Iradier y Salaverri - versión de Francisco Tárrega",
+        "zh": "Sebastián de Iradier y Salaverri - versión de Francisco Tárrega",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Silvestre Vargas": {
+        "original": "Silvestre Vargas",
+        "zh": "Silvestre Vargas",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Snelle": {
+        "original": "Snelle",
+        "zh": "Snelle",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Sriram S": {
+        "original": "Sriram S",
+        "zh": "Sriram S",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "TheFatRat (feat. Laura Brehm)": {
+        "original": "TheFatRat (feat. Laura Brehm)",
+        "zh": "TheFatRat (feat. Laura Brehm)",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Tolstoy1910": {
+        "original": "Tolstoy1910",
+        "zh": "Tolstoy1910",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Vesuvial": {
+        "original": "Vesuvial",
+        "zh": "Vesuvial",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Volkstümlich": {
+        "original": "Volkstümlich",
+        "zh": "Volkstümlich",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Waldir Azevedo": {
+        "original": "Waldir Azevedo",
+        "zh": "Waldir Azevedo",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Yusuf Biberci": {
+        "original": "Yusuf Biberci",
+        "zh": "Yusuf Biberci",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "from the Dowland's MS": {
+        "original": "from the Dowland's MS",
+        "zh": "from the Dowland's MS",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "jw.org": {
+        "original": "jw.org",
+        "zh": "jw.org",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "teoria musical": {
+        "original": "teoria musical",
+        "zh": "teoria musical",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "traditional": {
+        "original": "traditional",
+        "zh": "traditional",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "ukjent opphav": {
+        "original": "ukjent opphav",
+        "zh": "ukjent opphav",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Ð. Ð¡. ÐÐ°Ñ ÐÐµÑÐµÐ»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð. Ð¡ÐµÐ³Ð¾Ð²Ð¸Ð¸": {
+        "original": "Ð. Ð¡. ÐÐ°Ñ ÐÐµÑÐµÐ»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð. Ð¡ÐµÐ³Ð¾Ð²Ð¸Ð¸",
+        "zh": "И. С. Бах Переложение А. Сеговии",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "ÐÑÐ·ÑÐºÐ° Ð. ÐÐµÑÑÐ¾Ð²ÐµÐ½Ð°": {
+        "original": "ÐÑÐ·ÑÐºÐ° Ð. ÐÐµÑÑÐ¾Ð²ÐµÐ½Ð°",
+        "zh": "Музыка Л. Бетховена",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "à¹à¸à¸µà¸¢à¸à¹à¸à¹à¸¥à¸°à¸§à¸²à¸à¸´à¸": {
+        "original": "à¹à¸à¸µà¸¢à¸à¹à¸à¹à¸¥à¸°à¸§à¸²à¸à¸´à¸",
+        "zh": "เขียนไขและวานิช",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "æ¥³ç°ææ": {
+        "original": "æ¥³ç°ææ",
+        "zh": "楳田慎悟",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "来源署名本身包含中文；保留其原文，未新增中文姓名或把来源文字升级为规范人名核定。"
+      },
+      "ç½å¤§ä½": {
+        "original": "ç½å¤§ä½",
+        "zh": "罗大佑",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "来源署名本身包含中文；保留其原文，未新增中文姓名或把来源文字升级为规范人名核定。"
       }
     }
   }

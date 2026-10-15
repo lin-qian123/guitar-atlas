@@ -119,8 +119,15 @@ def _format_journal_reference(root: Path, source_id: str, asset_format: str) -> 
     if not path.resolve().is_relative_to(root) or not path.is_file():
         return None
     body = path.read_bytes()
-    return {'path': relative.as_posix(), 'sha256': hashlib.sha256(body).hexdigest(), 'bytes': len(body),
-            'method': 'Acquisition journal reference only; this report does not validate journal completeness or input guards.'}
+    result = {'path': relative.as_posix(), 'sha256': hashlib.sha256(body).hexdigest(), 'bytes': len(body),
+              'method': 'Historical acquisition journal reference only; this report does not validate journal completeness or input guards.'}
+    appended = Path(f'sources/musescore/expansion/{code}-extraction.json')
+    appended_path = root / appended
+    if appended_path.resolve().is_relative_to(root) and appended_path.is_file():
+        append_bytes = appended_path.read_bytes()
+        result['append_journal'] = {'path': appended.as_posix(), 'sha256': hashlib.sha256(append_bytes).hexdigest(),
+            'bytes': len(append_bytes), 'method': 'Separate full-publication candidate extraction; admitted record counts require the completed integration review.'}
+    return result
 
 
 def report(root: Path, *, machine_only=False, offline_report=None,

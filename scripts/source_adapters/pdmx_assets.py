@@ -113,6 +113,8 @@ def _locator(value):
 
 
 def _jobs(catalog, registry=None):
+    if isinstance(catalog.get("snapshot"), dict) and "expansion" in catalog["snapshot"]:
+        raise ValueError("legacy PDMX PDF acquisition cannot replace an expanded catalog or historical journal; use the append-only expansion route")
     if (catalog.get("source_id") != "musescore" or catalog.get("schema_version") != 1
             or catalog.get("snapshot", {}).get("publication") != PUBLICATION):
         raise ValueError("catalog is not the approved frozen PDMX publication")

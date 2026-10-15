@@ -22,25 +22,23 @@
 
 ## 当前范围与进展
 
-冻结目录包含 **17个来源、49,373条来源记录**（49,288条乐谱、85条参考资料）、2,229个原分类、57,986条分类成员关系、18个共同分类、700条有证据的关联。记录可代表作品、版本、合集或馆藏，不能当作跨站唯一乐曲数；Cantorion分页等范围缺口保留。
+冻结目录包含 **17个来源、49,669条来源记录**（49,584条乐谱、85条参考资料）、2,229个原分类、58,282条分类成员关系及18个共同分类。记录可代表作品、版本、合集或馆藏，不能当作跨站唯一乐曲数；Cantorion分页等范围缺口保留。
 
-全库题名已有精确原文守卫的处理决定：47,469条采用参考译法或有据惯用名，1,904条有理由保留原名；0条机器题名草稿或漏译。完整原题和署名始终保留，参考译名不等于唯一权威中文定名。
+全库题名都有精确原文守卫的处理决定：47,488条采用参考译法或有据惯用名，2,181条有理由保留原名，0条机器题名草稿或漏译。完整原题和署名始终保留，参考译名不等于唯一权威中文定名。
 
-当前页面采用圆角收藏目录、自托管拉丁展示字体、系统中文字体及模型插图。结果首批18条，全文与模糊索引按需建立；实际引用静态资产284,048B，压缩目录5,802,828B，完整JSON用于审计与兼容回退。
+MuseScore的原924条是历史筛选子集。本次复查PDMX v9全部254,077条元数据及254,035份已声明MXL，正式补充296条，现为**1,220条来源记录**，全部融入现有分类、搜索及离线PDF／MXL／MIDI入口。42条未声明格式和3份结构异常保留明确边界；这不是实时MuseScore全库，也没有原生MSCZ。
 
-2026-10-15版本已同步远端并部署，924条PDMX记录完成实际文件编制核验，统一分类、搜索及本地三格式入口同步更新。完整离线重建与独立保全通过，38,202条本地链接有效；旧来源记录、文件映射及全部译名决定保留，线上18个内容文件与本地字节一致。最新验收与发布状态见[发布记录](docs/research/publication.md)，未完成项只维护在[TODO](TODO.md)。
-
-MuseScore的924条PDMX v9历史记录参加同一搜索与分类。现已取得对应PDF、MXL（压缩MusicXML）和MIDI；以下为本地文件验收统计，公开目录仅保留格式信息和来源导航：
-
-| 格式 | 成功关联 | 失败／缺失／待处理 | 独立内容对象 | 独立内容字节 |
+| 格式 | 成功关联 | 失败／缺失／待取得 | 不同内容对象 | 不同内容字节 |
 | --- | ---: | --- | ---: | ---: |
-| PDF | 924 | 0／0／0 | 924 | 63,081,172B |
-| MXL | 924 | 0／0／0 | 924 | 10,772,167B |
-| MIDI | 924 | 0／0／0 | 921 | 7,072,991B |
+| PDF | 1,220 | 0／0／0 | 1,220 | 83,628,367B |
+| MXL | 1,220 | 0／0／0 | 1,220 | 14,228,878B |
+| MIDI | 1,220 | 0／0／0 | 1,212 | 8,970,785B |
 
-本轮新增1,848条格式文件关系、1,845个独立内容对象，共17,845,158B；三个重复MIDI内容按SHA-256复用对象，曲目关联完整保留。既有PDF、来源信息及译名决定不变。LibreScore是检索工具，这批数据来自作者许可发布的固定历史子集，未接入实时全库，也没有原生MSCZ。范围、译名、排除与文件取得情况见[来源补记](docs/research/2026-10-01-integration-log.md#musescore--pdmx-补记2026-10-11)。
+新增888条格式文件关系，相对旧库新增883个内容对象／25,901,700B；重复MIDI复用存储，来源身份及版本关系全部保留。原924条完整记录、文件与审读决定保留。1,641条候选的文件取得成功，与最终296条正式收录分开统计；586条不符范围、759条编制或MIDI对应未定，以及前序许可排除，均保留逐条原因。完整筛选链见[全库复查日志](docs/research/2026-10-01-integration-log.md#pdmx全库复查与补充2026-10-15)。
 
-2026-10-15已对这924条候选逐条核对实际MXL、MIDI与PDF：独奏558、二重奏69、三重奏9、四重奏18、吉他合奏6，混合合奏229，其他编制22，器种、人数或谱题关联待核13。897条编制信息明确，27条保留具体边界（含5条来源题名与文件冲突）。原来源声明并列保留，实际谱题可检索；缺题、集合人数、替代和兼奏不强行推断。完整方法与逐类统计见[编制核验补记](docs/research/2026-10-01-integration-log.md#pdmx-实际编制核验补记2026-10-15)。
+当前MuseScore分类为独奏723、二重奏75、三重奏13、四重奏22、吉他合奏7、混合合奏334，另保留22条其他编制及24条器种／人数或来源关联边界。1,157条编制信息明确，63条保留具体限制；标准谱／TAB、琴体打击及辅助层不直接计为额外演奏者，跨格式差异在曲目详情中说明。
+
+页面保留圆角收藏目录、自托管拉丁展示字体、系统中文字体及模型插图。首批显示18条，全文与模糊索引按需建立；本次没有新增前端依赖或插图，实际引用静态资产仍为284,048B。压缩目录5,853,476B，比补充前增加50,648B（约0.87%），用于浏览，完整JSON保留审计与兼容回退，乐谱字节不嵌入HTML。完整离线重建、保全、测试与远端部署状态见[发布记录](docs/research/publication.md)，未完成项只维护在[TODO](TODO.md)。
 
 ## 两种版本
 
@@ -108,7 +106,7 @@ python scripts/build_classclef_library.py --root . download
 python scripts/build_classclef_library.py --root . verify
 ```
 
-MuseScore使用已许可的PDMX v9出版入口。以下命令用于首次元数据接入和题名整理，保留其他来源的精确决定；已有PDF、MXL或MIDI获取journal或已验证文件时，元数据重建会拒绝覆盖，改用下方独立获取流程：
+MuseScore使用已许可的PDMX v9出版入口。下列初次元数据、PDF和MXL／MIDI获取命令仅适用于原924条历史范围；追加后均受防覆盖护栏限制，当前补充使用“全库复查与追加”路线。题名整理只追加新的精确决定，保留旧条目：
 
 ```bash
 python scripts/build_musescore_library.py --root . --acquire-metadata
@@ -116,7 +114,7 @@ python scripts/build_musescore_library.py --root .  # 使用已核验缓存
 python scripts/review_musescore_translations.py --root . --apply
 ```
 
-现有924条记录的PDF按原生编号和出版包内精确路径获取，不访问MuseScore下载接口。出版包支持原子下载／适用的断点续传；完整包通过大小与MD5检查后流式选取目标PDF，每份独立解析并按SHA-256存储、硬链接复用。源站的历史文件限制与独立出版档案分别保留：
+原始924条历史记录的PDF按原生编号和出版包内精确路径获取，不访问MuseScore下载接口。出版包支持原子下载／适用的断点续传；完整包通过大小与MD5检查后流式选取目标PDF，每份独立解析并按SHA-256存储、硬链接复用。源站的历史文件限制与独立出版档案分别保留：
 
 ```bash
 python scripts/acquire_musescore_pdfs.py --root . --acquire-archive
@@ -152,15 +150,32 @@ python scripts/deduplicate_added_pdfs.py --root .
 
 ### 实际编制核验
 
-现有924条的底层提取器为 `score_instrumentation.py`（MXL／MIDI）、`score_pdf_evidence.py` 和 `score_midi_crosscheck.py`。实际视觉／题名判断冻结保存在私有verification目录，精确异常决定在 `metadata/instrumentation/`；重新提取底层证据后，必须核对相应守卫，不能用机械TAB比对覆盖已完成的视觉结论。当前冻结输入可用以下入口重新生成覆盖层并独立验收：
-
-```bash
-python scripts/review_musescore_instrumentation.py --root .
-# 完成下节公开导出和完整离线重建后：
-python scripts/verify_musescore_instrumentation.py --root .
-```
+最初924条的底层提取器为 `score_instrumentation.py`（MXL／MIDI）、`score_pdf_evidence.py` 和 `score_midi_crosscheck.py`。实际视觉／题名判断冻结保存在私有verification目录，精确异常决定在 `metadata/instrumentation/`。原924条producer与verifier仅用于该历史基线；扩展后的目录使用下面的追加路线，不能重放初次导入或获取命令覆盖现有文件。机械TAB比对不能覆盖已有视觉结论。
 
 中文编制、按谱面统计的人数、来源旧声明、完整文件分部原标注、冲突实际谱题均进入同一搜索；分部原标注包含TAB视图与辅助层，不直接用来计人数。27条保留边界的记录已逐条处理，不需要用户逐项审校；有新证据时再更新具体决定。
+
+### 全库复查与追加
+
+924是初次筛选的历史子集。全库审计分别检查254,077条CSV／metadata和254,035份已声明MXL，保留42条未声明MXL及3份结构异常的边界。实际谱面召回与来源身份、许可和最终编制分开判断；不用GM、歌词元素或题名关键词直接决定是否收录，也不把近似曲名合并为同一版本。
+
+新增范围固定在 `config/musescore_pdmx_expansion.json`；全量审计、原始候选补齐、追加plan、格式取得、编制与谱题审读和恢复事务集中在私有 `sources/musescore/expansion/`。所有出版包必须保持配置中的大小、MD5和SHA-256；该路线只读取本地冻结档案，不访问MuseScore接口。初次924条的来源对象、获取journal和review entries保留，新的三格式对象按格式复用。
+
+在已保存全量审计及任务前保全基线的环境中，追加入口依次为：
+
+```bash
+python scripts/expand_musescore_library.py verify-archives --root .
+python scripts/expand_musescore_library.py recall --root .
+python scripts/expand_musescore_library.py prepare --root . --selection sources/musescore/expansion/selected-records.json
+python scripts/expand_musescore_library.py extract --root . --format MUSICXML
+python scripts/review_musescore_expansion.py --root . --phase scope
+python scripts/expand_musescore_library.py extract --root . --format PDF
+python scripts/expand_musescore_library.py extract --root . --format MIDI
+python scripts/review_musescore_expansion.py --root . --phase final
+python scripts/expand_musescore_library.py commit --root .
+python scripts/review_musescore_translations.py --root .
+```
+
+格式提取可保留整批候选，只有最终获准的原生记录进入目录；候选取得成功不等于已经收录。新发现的标注歧义在精确审读资产处理，不能靠放宽全局器种规则补齐。需要扩充尚处MXL阶段的plan时，先退出所有写入者，再显式使用 `prepare --extend-plan`；它只接受旧entries完全不变的超集，并保留恢复证据。完成公开导出后先运行 `python scripts/verify_musescore_expansion.py --root . --precheck`；完整离线重建后去掉 `--precheck` 再核对全部文件入口和旧记录保全。
 
 ### 导出与离线更新
 

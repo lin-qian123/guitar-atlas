@@ -21,25 +21,23 @@
 
 ## Current scope
 
-The frozen catalog contains **17 sources and 49,373 source records** (49,288 scores and 85 references), 2,229 native categories, 57,986 memberships, 18 shared topics and 700 evidenced relationships. Records include works, editions, collections and holdings; they are not unique compositions across websites. Discovery gaps such as Cantorion pagination remain explicit.
+The frozen catalog contains **17 sources and 49,669 source records** (49,584 scores and 85 references), 2,229 native categories, 58,282 memberships and 18 shared topics. Records may represent editions, collections or holdings, rather than unique compositions across websites. Discovery gaps such as Cantorion pagination remain explicit.
 
-Exact title decisions cover every record: 47,469 reference or evidenced conventional Chinese titles, 1,904 intentional original-title retentions, and no machine title drafts or missing title decisions. Native titles and attributions remain intact. Reference translations are not claims of unique authoritative Chinese names.
+Every title has an exact-original guarded decision: 47,488 reference or evidenced conventional Chinese titles, 2,181 intentional original-title retentions, and no machine drafts or missing title decisions. Native titles and attributions remain intact; reference translations do not claim unique authoritative names.
 
-The current rounded collection interface uses self-hosted Latin display fonts, system Chinese fonts and model-generated illustrations. Lists start with 18 records and build full-text/fuzzy indexes on demand. Referenced static assets total 284,048B; compact transport is 5,802,828B, with canonical JSON retained for audit and compatibility fallback.
+The original 924 MuseScore records were a historical selection. Reviewing all 254,077 PDMX v9 metadata records and all 254,035 declared MXL files adds 296 records, bringing the source to **1,220 records** in the same topics, search and offline PDF/MXL/MIDI entries. The 42 records with undeclared formats and three structurally invalid MXL files remain explicit boundaries. This is not the live MuseScore corpus and provides no native MSCZ.
 
-The October 15 version was pushed and deployed after reviewing actual PDF, MXL and MIDI instrumentation for all 924 PDMX records. Shared topics, search and local format entries are synchronized. Full offline rebuilding and independent preservation checks passed: all 38,202 local links are valid, with existing source records, file mappings and translation decisions preserved. All 18 live content files match local bytes. See the [publication and maintenance record](docs/research/publication.md) for evidence and deployment status, and [TODO](TODO.md) for open work.
-
-The 924 historical MuseScore records from the author-published PDMX v9 subset share existing search and topics. Corresponding PDF, MXL (compressed MusicXML) and MIDI files are now acquired. The following counts describe verified local files; the public catalog retains format metadata and source navigation only:
-
-| Format | Verified record associations | Failed / missing / pending | Unique content objects | Unique content bytes |
+| Format | Verified record associations | Failed / missing / awaiting acquisition | Unique content objects | Unique content bytes |
 | --- | ---: | --- | ---: | ---: |
-| PDF | 924 | 0 / 0 / 0 | 924 | 63,081,172B |
-| MXL | 924 | 0 / 0 / 0 | 924 | 10,772,167B |
-| MIDI | 924 | 0 / 0 / 0 | 921 | 7,072,991B |
+| PDF | 1,220 | 0 / 0 / 0 | 1,220 | 83,628,367B |
+| MXL | 1,220 | 0 / 0 / 0 | 1,220 | 14,228,878B |
+| MIDI | 1,220 | 0 / 0 / 0 | 1,212 | 8,970,785B |
 
-This extension adds 1,848 format-file associations and 1,845 unique content objects totaling 17,845,158B. Three duplicate MIDI contents reuse SHA-256 objects while preserving every record association. Existing PDFs, native metadata and translation decisions are unchanged. LibreScore is a retrieval tool; this frozen historical subset does not cover the live site and provides no native MSCZ. See the [source supplement](docs/research/2026-10-01-integration-log.md#musescore--pdmx-补记2026-10-11) for scope, exclusions, translation decisions and file acquisition.
+The addition contributes 888 format-file associations and 883 content objects not already in the library, totaling 25,901,700B. Shared MIDI bytes reuse storage without merging source identities or editions. Original records, files and review decisions are preserved. Successful extraction for 1,641 candidates is distinct from the 296 admitted records; 586 out-of-scope and 759 unresolved instrumentation/MIDI cases, plus prior licensing exclusions, retain individual reasons. See the [full-publication receipt](docs/research/2026-10-01-integration-log.md#pdmx全库复查与补充2026-10-15).
 
-The October 15 review cross-checks all 924 candidates against their actual MXL, MIDI and PDF files: 558 solos, 69 duos, 9 trios, 18 quartets, 6 guitar ensembles, 229 mixed ensembles, 22 other instrumentations and 13 retaining instrument, player-count or file-identity boundaries. Instrumentation is clear for 897 records; 27 retain specific limits, including five source-title/file-identity conflicts. Native declarations remain visible, actual conflicting file titles are searchable, and collective desks, alternatives and doubling do not invent performer counts. See the [instrumentation receipt](docs/research/2026-10-01-integration-log.md#pdmx-实际编制核验补记2026-10-15).
+MuseScore now has 723 solos, 75 duos, 13 trios, 22 quartets, seven guitar ensembles and 334 mixed ensembles, with 22 other instrumentations and 24 retaining instrument, player-count or source-association boundaries. Instrumentation is clear for 1,157 records; 63 retain concrete limits. Notation views, guitar-body percussion and auxiliary layers do not automatically add performers. Cross-format differences remain visible in record details.
+
+The rounded collection interface keeps self-hosted Latin display fonts, system Chinese fonts and model-generated artwork. Lists start with 18 records and build full-text/fuzzy indexes on demand. No frontend dependency or artwork was added; referenced static assets remain 284,048B. Compact transport is 5,853,476B, an increase of 50,648B (about 0.87%), for browsing while canonical JSON remains for audit and fallback; scores are not embedded in HTML. See the [publication record](docs/research/publication.md) for full rebuilding, preservation, tests and deployment, and [TODO](TODO.md) for open work.
 
 ## Two editions
 
@@ -108,13 +106,15 @@ The following commands perform initial metadata import and source-scoped title
 review. A PDF, MXL or MIDI acquisition journal or verified file protects the existing
 snapshot from metadata rebuilds; resume files through the dedicated route below:
 
+The initial metadata and PDF/MXL/MIDI acquisition commands below describe the historical 924-record scope. After expansion, their overwrite guards protect the existing library; use the full-publication append route for supplementation.
+
 ```bash
 python scripts/build_musescore_library.py --root . --acquire-metadata
 python scripts/build_musescore_library.py --root .
 python scripts/review_musescore_translations.py --root . --apply
 ```
 
-The existing 924 records have exact publication PDF locators. The dedicated
+The initial 924 records have exact publication PDF locators. The dedicated
 pipeline downloads the frozen archive atomically, resumes supported byte ranges,
 checks its exact size and MD5, then safely streams only the selected members.
 Every PDF is independently parsed and stored as an immutable SHA-256 object with
@@ -172,7 +172,17 @@ python scripts/deduplicate_source_pdfs.py --root .
 python scripts/deduplicate_added_pdfs.py --root .
 ```
 
-The instrumentation workflow uses `score_instrumentation.py`, `score_pdf_evidence.py` and `score_midi_crosscheck.py`. Frozen private visual/TAB/title decisions and exact exceptions under `metadata/instrumentation/` protect the review; mechanical re-extraction does not replace semantic decisions. With those guarded inputs, regenerate with `python scripts/review_musescore_instrumentation.py --root .`, then export, fully rebuild offline and run `python scripts/verify_musescore_instrumentation.py --root .`. Actual part labels, checked Chinese instrumentation, original declarations and conflicting printed titles share the existing lazy search. Part labels include views and auxiliary layers and are not player counts.
+The original 924-record instrumentation workflow uses `score_instrumentation.py`, `score_pdf_evidence.py` and `score_midi_crosscheck.py`. Frozen private visual/TAB/title decisions and exact exceptions under `metadata/instrumentation/` protect that historical baseline. Its producer and verifier are historical tools; use the append workflow below for the expanded catalog. Mechanical TAB matching does not replace reviewed visual decisions. Actual part labels, Chinese instrumentation, original declarations and conflicting printed titles share the existing lazy search. Part labels include views and auxiliary layers and are not player counts.
+
+### Full-publication audit and append
+
+The original 924 records were a selection. The full audit checks all 254,077 CSV/metadata records and all 254,035 declared MXL files; 42 records declare no MXL and three files have structural failures. File recall, native identity, licensing, accepted instrumentation and player counts remain separate decisions. GM programs, lyric elements and title keywords do not establish a guitar arrangement or work identity.
+
+`config/musescore_pdmx_expansion.json` freezes the new scope. Private full-scan evidence, raw candidates, plans, extraction outcomes, reviews and recovery transactions live in `sources/musescore/expansion/`. The append pipeline reads checksum-pinned local publication archives and makes no MuseScore requests. Original work objects, acquisition journals and review entries remain intact; physical reuse is format-specific.
+
+With the complete audit and pre-task preservation baseline present, run `expand_musescore_library.py` phases `verify-archives`, `recall`, `prepare --selection sources/musescore/expansion/selected-records.json`, then `extract --format MUSICXML`. Run `review_musescore_expansion.py --phase scope`, extract PDF and MIDI, and run its `--phase final`. Only then run the append `commit` phase and `review_musescore_translations.py`. All commands accept `--root .`.
+
+Extraction may retain the full candidate batch; only final accepted native identities enter the shared catalog. To extend a plan still in its MXL stage, stop every writer and explicitly use `prepare --extend-plan`; it requires an unchanged prior-entry subset and preserves recovery evidence. After public export, run `python scripts/verify_musescore_expansion.py --root . --precheck`. Repeat without `--precheck` after a complete offline render to check every local entry and prior-record preservation.
 
 A production export requires the private frozen source metadata and copies no score files:
 

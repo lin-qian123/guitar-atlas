@@ -103,7 +103,9 @@ def source_catalog(root: Path, source: dict) -> dict:
         raise ValueError(f"invalid normalized source catalog: {source['id']}")
     if not isinstance(payload.get("categories"), list) or not isinstance(payload.get("works"), list):
         raise ValueError("normalized catalog requires categories and works")
-    from catalog_instrumentation import apply_instrumentation_review
+    from catalog_instrumentation import APPLIED_REVIEW_IDS, apply_instrumentation_review
+    if APPLIED_REVIEW_IDS in payload:
+        raise ValueError("native catalog cannot supply the controlled runtime review marker")
     return apply_instrumentation_review(root, payload, catalog_bytes=source_bytes)
 
 
@@ -131,8 +133,8 @@ def merge_sources(root: Path, data: dict) -> dict:
             public_source["snapshots"] = {key: value for key, value in old_sources.items() if key != "imslp"}
         else:
             catalog = source_catalog(root, source)
-            from catalog_instrumentation import REVIEW_PATH, REVIEW_STATUSES
-            has_file_review = source["id"] == "musescore" and (root / REVIEW_PATH).is_file()
+            from catalog_instrumentation import APPLIED_REVIEW_IDS, REVIEW_STATUSES
+            file_review_ids = set(catalog.get(APPLIED_REVIEW_IDS, [])) if source["id"] == "musescore" else set()
             snapshot = catalog.get("snapshot", {})
             public_source["snapshot"] = {
                 key: snapshot[key] for key in ("frozen_at", "discovery_complete", "page_count", "scope", "record_count", "detail_complete", "metadata_license") if key in snapshot
@@ -162,6 +164,9 @@ def merge_sources(root: Path, data: dict) -> dict:
                 identity = raw["id"]
                 if not identity.startswith(source["id"] + ":") or identity in all_ids:
                     raise ValueError("source work identity must be unique and namespaced")
+                if (source["id"] == "musescore" and identity not in file_review_ids
+                        and raw.get("instrumentation_status") in REVIEW_STATUSES):
+                    raise ValueError("uncontrolled MuseScore file review status: " + identity)
                 all_ids.add(identity)
                 memberships = raw["category_ids"]
                 if not memberships or len(memberships) != len(set(memberships)):
@@ -183,7 +188,7 @@ def merge_sources(root: Path, data: dict) -> dict:
                     "title_aliases": raw.get("title_aliases", []),
                 }
                 metadata = raw.get("metadata", {})
-                file_review_applied = (has_file_review
+                file_review_applied = (raw["id"] in file_review_ids
                     and raw.get("instrumentation_status") in REVIEW_STATUSES
                     and metadata.get("file_instrumentation_basis") == "file_crosscheck")
                 detail_fields = PUBLIC_METADATA if file_review_applied else SOURCE_PUBLIC_METADATA
