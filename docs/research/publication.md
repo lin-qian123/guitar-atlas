@@ -135,3 +135,7 @@
 完整离线重建已完成：38,495条PDF清单中36,605条有效、1,890条未就绪，不同PDF内容35,040份；6条精确排除保持。所有适用PDF重新散列／解析，MXL与MIDI分别重新验收。既有IMSLP的495条work-level目标吉他候选及33条其他分区候选仍待文件级编制核明，完整性验收不替代该项。
 
 最终独立验收通过：39,085条本地路径零失效，实际离线快照及生产codec／search／offline adapter的NodeVM覆盖1,220条MuseScore、3,660格式控件、2,440个MXL／MIDI安全下载文件名和1,220次当前分类限制检查。公开／离线共享字段、compact／canonical、别名／排名和完整文件指纹一致；旧49,373条公开与离线记录及全部旧local_editions精确保留。该项是实际快照的VM／路径验收，不冒称受工具限制的file协议浏览器点击实测。仅保留最近一份、与替换前总入口SHA一致的回退副本。
+
+内容提交为[`c9e3221f647669f42984bece43c1cf95f7ffff05`](https://github.com/lin-qian123/guitar-atlas/commit/c9e3221f647669f42984bece43c1cf95f7ffff05)。首次CI因测试环境缺少PDF几何解析依赖而失败；[`1d8a01faec442e317cff8a9e515f96df6e405240`](https://github.com/lin-qian123/guitar-atlas/commit/1d8a01faec442e317cff8a9e515f96df6e405240)把已实际使用的PyMuPDF纳入测试依赖，并明确几何fixture的依赖，没有改变生产方法、谱件、目录或前端资源。本地完整测试重新通过；[Pages运行38703964602](https://github.com/lin-qian123/guitar-atlas/actions/runs/38703964602)的精确head为1d8a01f，远端测试、两项审计、公开验证和部署全部成功。本地HEAD、origin/main及实时远端ref一致，公开网站树与内容提交相同。线上18个HTTP内容文件均返回200，逐个大小／SHA-256与本地冻结清单一致，包括完整及压缩目录；`.nojekyll`单列控制文件。
+
+实际HTTPS页面显示全库49,669条、MuseScore范围1,220条；独奏723、二重奏75、三重奏13、四重奏22、吉他合奏7均正确。统一检索《Amor que viene cantando》得到新增原生41996号，展开详情可见三位演奏者、Bandurria／Laud／Guitarra完整原标注、核验编制、历史许可和原站人类页面链接，控制台无warn/error。仅关闭本轮创建的核验页，用户原离线页保留。随后仅同步正式回执与README／TODO，公开网站树保持相同；最终文档提交、成功Pages工作流及线上字节证据在私有 `sources/musescore/verification/verification.json` 原位接续。

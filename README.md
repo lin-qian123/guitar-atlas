@@ -93,6 +93,8 @@ python scripts/audit_translations.py
 python scripts/audit_catalog_text.py
 ```
 
+测试依赖包含PyMuPDF，用于核验PDF谱表与文字的位置；基础目录依赖仍保留pypdf文本读取回退。
+
 ### 来源与文件流程
 
 批准范围由 `config/sources.json` 和各来源配置定义；候选政策不是获取许可。各生产入口支持续传，挑战／认证／限速需停止并保留状态。

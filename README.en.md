@@ -90,6 +90,8 @@ python scripts/audit_translations.py
 python scripts/audit_catalog_text.py
 ```
 
+The test extra includes PyMuPDF for PDF staff and text geometry checks. Base catalog dependencies retain the pypdf text fallback.
+
 Production discovery is resumable and restricted to approved configurations:
 
 ```bash
