@@ -328,6 +328,185 @@ def test_commit_rejects_stale_or_out_of_scope_inputs_before_replacing_native_cat
     assert expansion.load(tmp_path / 'sources/musescore/catalog.json') == old
 
 
+def continuation_fixture(tmp_path, monkeypatch):
+    import render_offline_site
+    from verify_musescore_expansion import SOURCE, REVIEW, PUBLIC, ALIASES, RANKING
+    old, overlay, planned = commit_fixture(tmp_path, monkeypatch)
+    base = tmp_path / expansion.BASE
+    plan = expansion.load(base / 'plan.json')
+    second = copy.deepcopy(planned)
+    second.update(id='musescore:102', title_en='Later Study', source_url='https://musescore.com/user/321/scores/102')
+    plan['works'].append(second); document(base / 'plan.json', plan)
+    for code, _ in expansion.FORMATS.values():
+        path = base / (code + '-extraction.json'); proof = expansion.load(path)
+        proof['plan_sha256'] = expansion.sha((base / 'plan.json').read_bytes())
+        proof['scope_ids'].append(second['id'])
+        proof['records'][second['id']] = copy.deepcopy(proof['records'][planned['id']])
+        proof['counts'] = {'verified': 2}; document(path, proof)
+    scope = expansion.load(base / 'scope-review.json'); scope['accepted_ids'].append(second['id'])
+    document(base / 'scope-review.json', scope); refresh_commit_review_guards(tmp_path)
+    expansion.commit(tmp_path)
+    native = expansion.load(tmp_path / SOURCE)
+    current_overlay = expansion.load(tmp_path / REVIEW)
+    baseline = expansion.baseline(tmp_path)
+    baseline.update(schema_version=1, translations={}, files={})
+    for asset in old['works'][0]['assets']:
+        path = tmp_path / asset['local_path']; stat = path.stat()
+        baseline['files'][asset['local_path']] = {'size': stat.st_size, 'sha256': asset['sha256'],
+            'device': stat.st_dev, 'inode': stat.st_ino}
+    public = {'works': [{key: row[key] for key in ('id', 'title_en', 'composer_en', 'source_url')} for row in native['works']]}
+    for relative, value in [(PUBLIC, public), (ALIASES, {}), (RANKING, {})]:
+        document(tmp_path / relative, value)
+        baseline['documents'][relative] = {'sha256': expansion.sha((tmp_path / relative).read_bytes()), 'value': value}
+    with gzip.open(base / 'baseline.json.gz', 'wt') as stream: json.dump(baseline, stream)
+    document(base / 'preservation.json', {'status': 'complete', 'completed_final_verification': True})
+    verification = tmp_path / 'sources/musescore/verification'; verification.mkdir(parents=True, exist_ok=True)
+    document(verification / 'offline.json', {'completed': True})
+    document(verification / 'verification.json', {'published': True})
+    document(tmp_path / expansion.CONTINUATION_SCOPE, {'schema_version': 1, 'ids': [second['id']]})
+    monkeypatch.setattr(render_offline_site, 'offline_input_fingerprint', lambda root: {'fixture': 'current'})
+    wrapper = {'data': {'works': [{**row, 'local_editions': []} for row in public['works']],
+        'offline_inputs': {'fixture': 'current'}}, 'aliases': {}, 'ranking': {}}
+    (tmp_path / 'index.html').write_text('<script type="application/json" id="offline-data">' + json.dumps(wrapper) + '</script>')
+    return old, native, current_overlay, second
+
+
+def test_continuation_container_freezes_prior_evidence_and_excludes_active_remaining_writers(tmp_path, monkeypatch):
+    _, native, overlay, _ = continuation_fixture(tmp_path, monkeypatch)
+    base = tmp_path / expansion.BASE
+    document(base / 'remaining-review-a.json', {'active': True})
+    document(base / 'remaining-visual/page.json', {'active': True})
+    original = (base / 'baseline.json.gz').read_bytes()
+    old_scope = (base / 'scope-review.json').read_bytes()
+    result = expansion.capture_continuation(tmp_path)
+    assert result['status'] == 'captured' and result['records'] == len(native['works'])
+    value = expansion.validate_continuation_archive(tmp_path / expansion.CONTINUATION)
+    assert value['documents']['sources/musescore/catalog.json']['value'] == native
+    assert value['documents']['sources/musescore/instrumentation-review.json']['value'] == overlay
+    assert not any('remaining' in name for name in value['continuation']['evidence'])
+    import zipfile
+    with zipfile.ZipFile(tmp_path / expansion.CONTINUATION) as archive:
+        member = value['continuation']['evidence'][str(expansion.BASE / 'scope-review.json')]['member']
+        assert archive.read(member) == old_scope
+    assert (base / 'baseline.json.gz').read_bytes() == original
+    document(base / 'scope-review.json', {'new_round': True})
+    assert expansion.capture_continuation(tmp_path)['status'] == 'already_captured'
+
+
+@pytest.mark.parametrize('mutation', ['plan', 'original_baseline', 'published_case', 'archive_member'])
+def test_continuation_rejects_changed_frozen_inputs_cases_and_evidence(tmp_path, monkeypatch, mutation):
+    _, native, _, _ = continuation_fixture(tmp_path, monkeypatch)
+    expansion.capture_continuation(tmp_path)
+    base = tmp_path / expansion.BASE
+    if mutation == 'plan': document(base / 'plan.json', {'foreign': True})
+    elif mutation == 'original_baseline':
+        with (base / 'baseline.json.gz').open('ab') as stream: stream.write(b'changed')
+    elif mutation == 'published_case':
+        document(tmp_path / 'metadata/instrumentation/musescore_expansion_reviewed.json',
+            {'schema_version': 1, 'entries': [{'id': native['works'][-1]['id'], 'new_decision': True}]})
+    else:
+        import zipfile
+        with zipfile.ZipFile(tmp_path / expansion.CONTINUATION, 'a') as archive: archive.writestr('unlisted.json', '{}')
+    with pytest.raises(ValueError): expansion.check_continuation_state(tmp_path)
+
+
+def test_continuation_commit_inherits_prior_reviews_and_appends_only_new_final_ids(tmp_path, monkeypatch):
+    _, native, overlay, second = continuation_fixture(tmp_path, monkeypatch)
+    expansion.capture_continuation(tmp_path)
+    base = tmp_path / expansion.BASE
+    prior_container = (tmp_path / expansion.CONTINUATION).read_bytes()
+    final = expansion.load(base / 'final-review.json')
+    addition = copy.deepcopy(final['works'][0])
+    addition.update({key: second[key] for key in ('id', 'title_en', 'composer_en', 'source_url')})
+    final['works'][0]['review']['summary'] = 'A newly regenerated prior decision must be ignored.'
+    final['works'].append(addition); document(base / 'final-review.json', final)
+    refresh_commit_review_guards(tmp_path)
+    result = expansion.commit(tmp_path)
+    assert result['original_records'] == len(native['works']) and result['added_records'] == 1
+    now = expansion.load(tmp_path / 'sources/musescore/catalog.json')
+    current = {row['id']: row for row in now['works']}
+    assert set(current) == {row['id'] for row in native['works']} | {second['id']}
+    assert all(current[row['id']] == row for row in native['works'])
+    now_review = expansion.load(tmp_path / 'sources/musescore/instrumentation-review.json')
+    assert now_review['works'][:len(overlay['works'])] == overlay['works']
+    ledger = expansion.load(base / 'integration.json')
+    assert ledger['continuation']['ignored_regenerated_review_ids'] == ['musescore:101']
+    assert expansion.commit(tmp_path) == result
+    assert (tmp_path / expansion.CONTINUATION).read_bytes() == prior_container
+
+
+def test_continuation_commit_recovers_a_new_round_two_file_interruption(tmp_path, monkeypatch):
+    _, native, old_review, second = continuation_fixture(tmp_path, monkeypatch)
+    expansion.capture_continuation(tmp_path)
+    base = tmp_path / expansion.BASE
+    final = expansion.load(base / 'final-review.json')
+    addition = copy.deepcopy(final['works'][0])
+    addition.update({key: second[key] for key in ('id', 'title_en', 'composer_en', 'source_url')})
+    final['works'].append(addition); document(base / 'final-review.json', final)
+    refresh_commit_review_guards(tmp_path)
+    real_replace = expansion.os.replace
+    target = tmp_path / 'sources/musescore/instrumentation-review.json'
+    def interrupted(source, destination):
+        if destination == target: raise OSError('new round overlay interruption')
+        return real_replace(source, destination)
+    monkeypatch.setattr(expansion.os, 'replace', interrupted)
+    with pytest.raises(OSError, match='new round overlay interruption'): expansion.commit(tmp_path)
+    assert expansion.load(base / 'commit.json')['status'] == 'prepared'
+    assert expansion.load(target) == old_review
+    monkeypatch.setattr(expansion.os, 'replace', real_replace)
+    assert expansion.commit(tmp_path)['current_records'] == len(native['works']) + 1
+    assert expansion.load(target)['works'][:len(old_review['works'])] == old_review['works']
+
+
+def test_continuation_baseline_cannot_be_redirected_through_a_symlink(tmp_path):
+    path = tmp_path / expansion.CONTINUATION
+    path.parent.mkdir(parents=True)
+    target = tmp_path / 'foreign.zip'; target.write_bytes(b'foreign')
+    path.symlink_to(target)
+    with pytest.raises(ValueError, match='symlinks'):
+        expansion.active_baseline_path(tmp_path)
+
+
+def test_continuation_does_not_hide_foreign_final_id_just_because_it_is_an_inherited_native_record(tmp_path, monkeypatch):
+    old, _, _, second = continuation_fixture(tmp_path, monkeypatch)
+    expansion.capture_continuation(tmp_path)
+    base = tmp_path / expansion.BASE; final = expansion.load(base / 'final-review.json')
+    addition = copy.deepcopy(final['works'][0])
+    addition.update({key: second[key] for key in ('id', 'title_en', 'composer_en', 'source_url')})
+    foreign = copy.deepcopy(final['works'][0]); foreign['id'] = old['works'][0]['id']
+    final['works'].extend([addition, foreign]); document(base / 'final-review.json', final)
+    refresh_commit_review_guards(tmp_path)
+    with pytest.raises(ValueError, match='accepted actual-MXL scope'): expansion.commit(tmp_path)
+
+
+def test_continuation_explicit_remaining_scope_rejects_newly_autoaccepted_prior_exclusions(tmp_path, monkeypatch):
+    _, _, _, second = continuation_fixture(tmp_path, monkeypatch)
+    expansion.capture_continuation(tmp_path)
+    base = tmp_path / expansion.BASE; final = expansion.load(base / 'final-review.json')
+    addition = copy.deepcopy(final['works'][0])
+    addition.update({key: second[key] for key in ('id', 'title_en', 'composer_en', 'source_url')})
+    final['works'].append(addition); document(base / 'final-review.json', final)
+    refresh_commit_review_guards(tmp_path)
+    document(tmp_path / expansion.CONTINUATION_SCOPE, {'schema_version': 1, 'ids': ['musescore:101']})
+    with pytest.raises(ValueError, match='exceed remaining-review-scope'): expansion.commit(tmp_path)
+
+
+def test_continuation_scope_drift_during_asset_validation_is_rejected_before_prepared_writes(tmp_path, monkeypatch):
+    _, native, _, second = continuation_fixture(tmp_path, monkeypatch)
+    expansion.capture_continuation(tmp_path)
+    base = tmp_path / expansion.BASE; final = expansion.load(base / 'final-review.json')
+    addition = copy.deepcopy(final['works'][0])
+    addition.update({key: second[key] for key in ('id', 'title_en', 'composer_en', 'source_url')})
+    final['works'].append(addition); document(base / 'final-review.json', final)
+    refresh_commit_review_guards(tmp_path)
+    def change_scope(*args):
+        document(tmp_path / expansion.CONTINUATION_SCOPE, {'schema_version': 1, 'ids': ['musescore:101']})
+    monkeypatch.setattr(expansion, 'validate_asset', change_scope)
+    with pytest.raises(ValueError, match='remaining-review-scope'): expansion.commit(tmp_path)
+    assert expansion.load(tmp_path / 'sources/musescore/catalog.json') == native
+    assert not (base / 'catalog-prepared.json').exists() and not (base / 'review-prepared.json').exists()
+
+
 def completed_scan_with_parse_limit():
     integrity = {'bytes': 1000, 'md5': 'a' * 32, 'sha256': 'b' * 64, 'stat': [1, 2, 1000, 3, 4]}
     return {'status': 'complete_with_parse_or_missing_boundaries', 'coverage_complete': False,

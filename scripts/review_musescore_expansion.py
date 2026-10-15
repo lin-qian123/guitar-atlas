@@ -49,13 +49,24 @@ LABELS = {**FROZEN_LABELS,
     "hammered_dulcimer": ("hammered dulcimer", "Hackbrett（击弦乐器）", "percussion"),
     "erhu": ("erhu", "二胡", "strings"),
     "cavaquinho": ("cavaquinho", "Cavaquinho（拨弦乐器）", "plucked"),
+    "bagpipe": ("bagpipe", "风笛", "woodwinds"),
+    "mandola": ("mandola", "Mandola（拨弦乐器）", "plucked"),
+    "contra_guitar": ("contra guitar", "Contra Guitar（吉他属拨弦乐器）", "plucked"),
+    "balalaika": ("balalaika", "Balalaika（拨弦乐器）", "plucked"),
+    "tin_whistle": ("tin whistle", "Tin Whistle（木管乐器）", "woodwinds"),
 }
 FALLBACK_EXCLUDED = {"voice", "electric_guitar", "bass_guitar", "synthesizer"}
+ACOUSTIC_GUITAR_KINDS = {"guitar", "contra_guitar"}
 NAME_ISSUES = {"part_instrument_name_conflict", "multiple_instrument_types_in_one_part", "unidentified_named_role"}
 COUNT_OR_PLAYBACK_ISSUES = {"unresolved_cross_part_TAB_view", "TAB_numbered_role_identity_conflict",
     "collective_role_count_unknown", "multiple_normal_guitar_staves_role_count_uncertain",
     "possible_playback_or_notation_layer", "written_role_activity_uncertain", "guitar_patch_label_conflict"}
 LOCAL_ALIASES = {}
+for _term, _kind in {"Bagpipe": "bagpipe", "Bagpipes": "bagpipe", "Mandola": "mandola",
+        "Tenor Mandola": "mandola", "Contra Guitar": "contra_guitar", "Contraguitar": "contra_guitar",
+        "Kontragitarre": "contra_guitar", "Balalaika": "balalaika", "Tin Whistle": "tin_whistle",
+        "D Tin Whistle": "tin_whistle", "B♭ Tin Whistle": "tin_whistle"}.items():
+    LOCAL_ALIASES[clean_label(_term)] = _kind
 for _kind, _names in {
     "banjo": "banjo|bánjo|バンジョー|班卓琴",
     "bandurria": "bandurria|bandurria española",
@@ -489,10 +500,10 @@ def classify_expansion_parts(parts, *, view_pairs=(), separate_tabs=(), part_dec
     exceptions = sorted(set(counts) & FALLBACK_EXCLUDED)
     if exceptions:
         issues.append("scope_exception_in_actual_score")
-    guitar = counts.get("guitar", 0)
+    guitar = sum(counts.get(kind, 0) for kind in ACOUSTIC_GUITAR_KINDS)
     if not guitar:
         issues.append("no_acoustic_guitar_role_in_actual_score")
-    groups = {LABELS[kind][2] for kind in counts if kind != "guitar"}
+    groups = {LABELS[kind][2] for kind in counts if kind not in ACOUSTIC_GUITAR_KINDS}
     if exceptions or not guitar and "unknown" not in counts:
         topic = "other_instrumentation"
     elif "unknown" in counts:
@@ -506,8 +517,13 @@ def classify_expansion_parts(parts, *, view_pairs=(), separate_tabs=(), part_dec
         zh = {1: "吉他独奏", 2: "吉他二重奏", 3: "吉他三重奏", 4: "吉他四重奏"}.get(guitar, f"{guitar}把吉他合奏")
     else:
         keys = sorted(counts, key=lambda key: (key != "guitar", LABELS[key][0]))
-        en = " and ".join((f"{counts[key]} " if counts[key] > 1 else "") + LABELS[key][0] for key in keys)
-        zh = "、".join((f"{counts[key]}×" if counts[key] > 1 else "") + LABELS[key][1] for key in keys)
+        # Counts describe retained notation rows. An unresolved view/doubling or
+        # collective boundary cannot turn those rows into displayed headcounts.
+        en = " and ".join((f"{counts[key]} " if counts[key] > 1 and not uncertain else "") + LABELS[key][0] for key in keys)
+        zh = "、".join((f"{counts[key]}×" if counts[key] > 1 and not uncertain else "") + LABELS[key][1] for key in keys)
+        if uncertain:
+            en += " (player counts unspecified)"
+            zh += "（演奏人数未定）"
     result.update(status="file_reviewed_uncertain" if uncertain else "file_verified", instrumentation=en,
         instrumentation_zh=zh, topic_id=topic, guitar_player_count=guitar if not uncertain else None,
         ensemble_player_count=len(retained) if not uncertain else None, role_counts=dict(counts),
@@ -648,9 +664,9 @@ def review_mxl_scope(mxl_evidence, view_sequences=None, *, source_record=None, r
         status, reason = "pending", "ambiguous_actual_instrumentation"
     elif set(counts) & FALLBACK_EXCLUDED or slides:
         status, reason = "excluded", "active_excluded_instrument"
-    elif not counts.get("guitar"):
+    elif not any(counts.get(kind) for kind in ACOUSTIC_GUITAR_KINDS):
         status, reason = "excluded", "no_active_acoustic_guitar"
-    elif len(retained) > (8 if set(counts) - {"guitar"} else 16):
+    elif len(retained) > (8 if set(counts) - ACOUSTIC_GUITAR_KINDS else 16):
         status, reason = "excluded", "large_ensemble"
     else:
         status, reason = "accepted", "actual_mxl_guitar_scope"

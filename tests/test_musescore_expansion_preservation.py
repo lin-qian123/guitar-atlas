@@ -457,6 +457,17 @@ def test_offline_capture_checks_the_exact_old_entry_and_reuses_one_baseline(tmp_
     assert not baseline_path.with_name(baseline_path.name + '.part').exists()
 
 
+def test_verifier_reads_the_single_zip_continuation_baseline_without_a_duplicate_json_archive(tmp_path):
+    import zipfile
+    path = tmp_path / 'continuation-baseline.zip'
+    value = {'schema_version': 1, 'documents': {'native': {'value': record()}},
+        'continuation': {'schema_version': 1, 'status': 'captured'}}
+    with zipfile.ZipFile(path, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
+        archive.writestr('baseline.json', json.dumps(value))
+        archive.writestr('evidence/prior-final.json', '{"completed":true}')
+    assert read_baseline(path) == value
+
+
 @pytest.mark.parametrize('field', ['source_license', 'source_parts_names', 'source_uploader', 'source_title', 'pdmx_csv_transcription'])
 def test_new_source_fields_are_rechecked_against_native_metadata_not_playback_guesses(field):
     from tests.test_pdmx_expansion_adapter import example

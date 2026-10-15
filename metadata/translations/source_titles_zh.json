@@ -410420,6 +410420,330 @@
       "display_original": "Allegretto",
       "display_zh": "《小快板》",
       "reference_entries": []
+    },
+    "musescore:50036": {
+      "original": "Peaceful Struggle",
+      "zh": "《Peaceful Struggle》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Hunter Larson",
+      "display_original": "Peaceful Struggle",
+      "display_zh": "《Peaceful Struggle》",
+      "reference_entries": []
+    },
+    "musescore:1913951": {
+      "original": "Dumb Treasure Sleeping in the Sand",
+      "zh": "《Dumb Treasure Sleeping in the Sand》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Dumb Treasure Sleeping in the Sand",
+      "display_zh": "《Dumb Treasure Sleeping in the Sand》",
+      "reference_entries": []
+    },
+    "musescore:2777136": {
+      "original": "\"A story you won't believe\"",
+      "zh": "《\"A story you won't believe\"》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "\"A story you won't believe\"",
+      "display_zh": "《\"A story you won't believe\"》",
+      "reference_entries": []
+    },
+    "musescore:5344325": {
+      "original": "A tocchi a tocchi na campana sona",
+      "zh": "《A tocchi a tocchi na campana sona》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "A tocchi a tocchi na campana sona",
+      "display_zh": "《A tocchi a tocchi na campana sona》",
+      "reference_entries": []
+    },
+    "musescore:5711000": {
+      "original": "Introduction à l'Etude de la Guitare, Op.60 - Sor, Fernando (1778 - 1839)",
+      "zh": "《吉他演奏入门：25首练习曲，作品60 — 费尔南多·索尔（1778—1839）》",
+      "status": "reference",
+      "basis": "exact_native_musical_title_semantic_review",
+      "reason": "完整原题及实际封面明确吉他入门与作品60；实际25 Etudes和既有参考目录支持25首练习曲。题内完整Sor, Fernando姓名按既有索尔译名处理，完整生卒年及责任转录保留；来源作曲者字段仍为空，不据标题补填。",
+      "original_composer": "",
+      "display_original": "Introduction à l'Etude de la Guitare, Op.60 - Sor, Fernando (1778 - 1839)",
+      "display_zh": "《吉他演奏入门：25首练习曲，作品60》",
+      "reference_entries": [
+        "imslp:93616",
+        "dga:15687",
+        "metadata/translations/composer_overrides_reviewed_zh.json:Sor, Fernando"
+      ]
+    },
+    "musescore:5780145": {
+      "original": "He Is Lord",
+      "zh": "《He Is Lord》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "He Is Lord",
+      "display_zh": "《He Is Lord》",
+      "reference_entries": []
+    },
+    "musescore:5782216": {
+      "original": "Äu vi vidis la krucon de l' Sinjor?",
+      "zh": "《Ĉu vi vidis la krucon de l' Sinjor?》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Ĉu vi vidis la krucon de l' Sinjor?",
+      "display_zh": "《Ĉu vi vidis la krucon de l' Sinjor?》",
+      "reference_entries": []
+    },
+    "musescore:5789556": {
+      "original": "Bela Jesuo, estro de la estroj",
+      "zh": "《Bela Jesuo, estro de la estroj》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Bela Jesuo, estro de la estroj",
+      "display_zh": "《Bela Jesuo, estro de la estroj》",
+      "reference_entries": []
+    },
+    "musescore:5814226": {
+      "original": "Epifanio Lucerna",
+      "zh": "《Epifanio Lucerna》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Epifanio Lucerna",
+      "display_zh": "《Epifanio Lucerna》",
+      "reference_entries": []
+    },
+    "musescore:5822755": {
+      "original": "Easy Guitar -  Cornelius Gurlitt (1820 - 1901) - Tablature",
+      "zh": "《简易吉他 — 科尼利厄斯·古利特（1820—1901）— 六线谱》",
+      "status": "reference",
+      "basis": "exact_native_musical_title_semantic_review",
+      "reason": "仅翻译来源Easy Guitar及明确Tablature版本字样，完整原题、姓名和生卒年保留；中文主名不改为实际PDF的Petites Etudes Mélodiques。旋律小练习曲仅作实际谱题的中文检索别名，题名对应警告保留。",
+      "original_composer": "Cornelius Gurlitt (1820 - 1901)",
+      "display_original": "Easy Guitar - Cornelius Gurlitt (1820 - 1901) - Tablature",
+      "display_zh": "《简易吉他（六线谱）》",
+      "reference_entries": [
+        "metadata/translations/musicians_zh.json:imslp:Gurlitt, Cornelius"
+      ],
+      "aliases_zh": [
+        "旋律小练习曲"
+      ]
+    },
+    "musescore:5822757": {
+      "original": "Easy Guitar - Cornelius Gurlitt (1820 - 1901)",
+      "zh": "《简易吉他》",
+      "status": "reference",
+      "basis": "complete_musical_title_grammar",
+      "reason": "完整显示原题通过既有音乐体裁、调性与编号词法；中文为参考译法，真实编号、题内括号和原始责任转录保留。 中文检索别名仅翻译实际PDF的Petites Etudes Mélodiques；未以它替换来源Easy Guitar主名，文件题名差异警告保留。",
+      "original_composer": "Cornelius Gurlitt (1820 - 1901)",
+      "display_original": "Easy Guitar",
+      "display_zh": "《简易吉他》",
+      "reference_entries": [],
+      "aliases_zh": [
+        "旋律小练习曲"
+      ]
+    },
+    "musescore:5832167": {
+      "original": "Cien Fuegos -- DRAFT",
+      "zh": "《Cien Fuegos -- DRAFT》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Sean Burke",
+      "display_original": "Cien Fuegos -- DRAFT",
+      "display_zh": "《Cien Fuegos -- DRAFT》",
+      "reference_entries": []
+    },
+    "musescore:5838725": {
+      "original": "Una nota de andalucia",
+      "zh": "《Una nota de andalucia》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Yusuf Biberci",
+      "display_original": "Una nota de andalucia",
+      "display_zh": "《Una nota de andalucia》",
+      "reference_entries": []
+    },
+    "musescore:5845919": {
+      "original": "Judika - Cinta Karena Cinta - No Vokal",
+      "zh": "《Judika - Cinta Karena Cinta - No Vokal》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Judika - Cinta Karena Cinta - No Vokal",
+      "display_zh": "《Judika - Cinta Karena Cinta - No Vokal》",
+      "reference_entries": []
+    },
+    "musescore:5884955": {
+      "original": "Kling Glöckchen",
+      "zh": "《Kling Glöckchen》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Kling Glöckchen",
+      "display_zh": "《Kling Glöckchen》",
+      "reference_entries": []
+    },
+    "musescore:5885434": {
+      "original": "Petrunino Horo  Hribar transc",
+      "zh": "《Petrunino Horo Hribar transc》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Petrunino Horo Hribar transc",
+      "display_zh": "《Petrunino Horo Hribar transc》",
+      "reference_entries": []
+    },
+    "musescore:5895807": {
+      "original": "Die Woaf (Menuett Version)",
+      "zh": "《Die Woaf (Menuett Version)》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Volksweise / Autor unbekannt",
+      "display_original": "Die Woaf (Menuett Version)",
+      "display_zh": "《Die Woaf (Menuett Version)》",
+      "reference_entries": []
+    },
+    "musescore:5915816": {
+      "original": "You and me by James TW",
+      "zh": "《You and me by James TW》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Arranjed by Danyelhauser",
+      "display_original": "You and me by James TW",
+      "display_zh": "《You and me by James TW》",
+      "reference_entries": []
+    },
+    "musescore:5926303": {
+      "original": "My Lady Hunsdon's Puffe",
+      "zh": "《My Lady Hunsdon's Puffe》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "John Dowland",
+      "display_original": "My Lady Hunsdon's Puffe",
+      "display_zh": "《My Lady Hunsdon's Puffe》",
+      "reference_entries": []
+    },
+    "musescore:5951309": {
+      "original": "Vivaldi Largo dall'Inverno versione didattica",
+      "zh": "《维瓦尔第〈冬〉：广板（教学版）》",
+      "status": "reference",
+      "basis": "exact_native_musical_title_semantic_review",
+      "reason": "Largo为广板，dall’Inverno为出自《冬》，versione didattica为教学版；Vivaldi题内署名按本条完整来源Antonio Vivaldi和既有译名对应保留，不增补原题没有的作品号。",
+      "original_composer": "Antonio Vivaldi",
+      "display_original": "Vivaldi Largo dall'Inverno versione didattica",
+      "display_zh": "《维瓦尔第〈冬〉：广板（教学版）》",
+      "reference_entries": [
+        "cglib:18270"
+      ]
+    },
+    "musescore:5951405": {
+      "original": "ICantForgetOldWhatsHerName.",
+      "zh": "《ICantForgetOldWhatsHerName.》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "G Wakefield",
+      "display_original": "ICantForgetOldWhatsHerName.",
+      "display_zh": "《ICantForgetOldWhatsHerName.》",
+      "reference_entries": []
+    },
+    "musescore:5968682": {
+      "original": "War is Over eta-Ya",
+      "zh": "《War is Over eta-Ya》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Paul Cantelon",
+      "display_original": "War is Over eta-Ya",
+      "display_zh": "《War is Over eta-Ya》",
+      "reference_entries": []
+    },
+    "musescore:5968722": {
+      "original": "crystals",
+      "zh": "《crystals》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "crystals",
+      "display_zh": "《crystals》",
+      "reference_entries": []
+    },
+    "musescore:5969744": {
+      "original": "Le Lac des Cygnes",
+      "zh": "《天鹅湖》",
+      "status": "reference",
+      "basis": "exact_native_musical_title_semantic_review",
+      "reason": "原法文完整题名与本曲实际西文谱题均为天鹅湖的明确词义，采用既有惯用译名；PDF原拼写Cysnes保留于核验依据，不由熟悉曲题补填来源缺失的作曲者。",
+      "original_composer": "",
+      "display_original": "Le Lac des Cygnes",
+      "display_zh": "《天鹅湖》",
+      "reference_entries": [
+        "cglib:47521"
+      ]
+    },
+    "musescore:5969751": {
+      "original": "Hijo de la Luna",
+      "zh": "《Hijo de la Luna》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Hijo de la Luna",
+      "display_zh": "《Hijo de la Luna》",
+      "reference_entries": []
+    },
+    "musescore:5970791": {
+      "original": "Lost",
+      "zh": "《Lost》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Lost",
+      "display_zh": "《Lost》",
+      "reference_entries": []
+    },
+    "musescore:5976753": {
+      "original": "Rascayú",
+      "zh": "《Rascayú》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Rascayú",
+      "display_zh": "《Rascayú》",
+      "reference_entries": []
+    },
+    "musescore:6355488": {
+      "original": "Etude en Si mineur - Augustin Barrios (2)",
+      "zh": "《B小调练习曲 — Augustin Barrios（2）》",
+      "status": "reference",
+      "basis": "exact_native_musical_title_semantic_review",
+      "reason": "Etude与Si mineur是完整体裁及调性词义；Augustin Barrios责任转录保留原拼写，来源作曲者仍为空。未解释的(2)保留，不擅改成作品号、乐章号或吉他人数。",
+      "original_composer": "",
+      "display_original": "Etude en Si mineur - Augustin Barrios (2)",
+      "display_zh": "《B小调练习曲（2）》",
+      "reference_entries": []
     }
   }
 }

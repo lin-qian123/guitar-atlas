@@ -20,6 +20,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import zipfile
 from urllib.parse import quote
 
 from catalog_instrumentation import _check_asset, _check_review, per_record_guard
@@ -55,8 +56,12 @@ def read_json(path):
 
 
 def read_baseline(path):
-    with gzip.open(path, "rt", encoding="utf-8") as stream:
-        value = json.load(stream)
+    if zipfile.is_zipfile(path):
+        with zipfile.ZipFile(path) as archive:
+            value = json.loads(archive.read('baseline.json'))
+    else:
+        with gzip.open(path, "rt", encoding="utf-8") as stream:
+            value = json.load(stream)
     require(value.get("schema_version") == 1 and isinstance(value.get("documents"), dict),
             "invalid expansion baseline")
     return value
@@ -467,6 +472,8 @@ def verify(root, baseline_path, *, precheck=False, full_report=None):
     root = Path(root).resolve()
     require(precheck or full_report is not None, "final verification requires the actual full-render receipt")
     before = read_baseline(baseline_path)
+    from expand_musescore_library import check_continuation_state, continuation_review_scope, CONTINUATION, CONTINUATION_SCOPE
+    continuation = check_continuation_state(root, before)
     documents = before["documents"]
     native_bytes = (root / SOURCE).read_bytes()
     native = json.loads(native_bytes)
@@ -477,6 +484,8 @@ def verify(root, baseline_path, *, precheck=False, full_report=None):
             "expected an actual append of native MuseScore identities")
     guarded = {Path(baseline_path), root / SOURCE, root / REVIEW, root / BASE / "integration.json"} | final_guard_paths(root)
     stamps = {Path(path): _stat_fingerprint(path) for path in guarded}
+    if continuation:
+        stamps[root / CONTINUATION_SCOPE] = _stat_fingerprint(root / CONTINUATION_SCOPE)
     case_present = (root / EXACT_CASE_PATH).exists() or (root / EXACT_CASE_PATH).is_symlink()
     scope_raw = (root / BASE / "scope-review.json").read_bytes()
     final_raw = (root / BASE / "final-review.json").read_bytes()
@@ -484,7 +493,8 @@ def verify(root, baseline_path, *, precheck=False, full_report=None):
     input_guard_result = check_final_input_guards(root, final, scope)
     require(final["inputs"]["scope_review"] == {"sha256": hashlib.sha256(scope_raw).hexdigest(), "size": len(scope_raw)},
             "parsed scope review differs from final input guard")
-    final_ids = _by_id(final.get("works"), "final appended file review")
+    all_final_ids = _by_id(final.get("works"), "final appended file review")
+    final_ids = {identity: work for identity, work in all_final_ids.items() if identity not in originals}
     require(scope.get("status") == "complete" and final.get("status") == "complete"
             and set(final_ids) == added <= set(scope["accepted_ids"]),
             "new native scope disagrees with completed cross-format acceptance decisions")
@@ -538,6 +548,16 @@ def verify(root, baseline_path, *, precheck=False, full_report=None):
         "mxl_missing_csv_members": scan_counts["csv_mxl_members_missing_archive"]}
     plan_raw = (root / BASE / "plan.json").read_bytes()
     plan = json.loads(plan_raw)
+    require(set(all_final_ids) <= {work['id'] for work in plan['works']},
+            'completed final review includes identities outside the frozen candidate plan')
+    if continuation:
+        require(integration.get('continuation') == {
+            'baseline_sha256': sha256(root / CONTINUATION),
+            'initial_records': continuation['original_record_count'], 'inherited_records': len(originals),
+            'earlier_added_records': len(originals) - continuation['original_record_count'],
+            'ignored_regenerated_review_ids': sorted(set(all_final_ids) & set(originals)),
+            'review_scope': continuation_review_scope(root, added, {work['id'] for work in plan['works']})},
+            'continuation integration does not bind inherited publication decisions and explicit review scope')
     require(integration.get("status") == "complete" and integration.get("source_id") == "musescore"
             and integration.get("plan_sha256") == hashlib.sha256(plan_raw).hexdigest()
             and integration.get("configuration_sha256") == sha256(root / "config/musescore_pdmx_expansion.json")
@@ -674,7 +694,8 @@ def main():
     parser.add_argument("--capture-offline", action="store_true")
     args = parser.parse_args()
     root = args.root.resolve()
-    baseline = args.baseline or root / BASE / "baseline.json.gz"
+    from expand_musescore_library import active_baseline_path
+    baseline = args.baseline or active_baseline_path(root)
     if args.capture_offline:
         result = capture_offline_baseline(root, baseline)
     else:

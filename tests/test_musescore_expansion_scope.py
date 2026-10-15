@@ -5,6 +5,33 @@ import pytest
 from review_musescore_expansion import review_mxl_scope, classify_expansion_parts, LABELS
 
 
+@pytest.mark.parametrize("label,kind,family", [
+    ("Bagpipe", "bagpipe", "woodwinds"), ("Mandola", "mandola", "plucked"),
+    ("Tenor Mandola", "mandola", "plucked"), ("Contra Guitar", "contra_guitar", "plucked"),
+    ("Kontragitarre", "contra_guitar", "plucked"), ("Balalaika", "balalaika", "plucked"),
+    ("Tin Whistle", "tin_whistle", "woodwinds"), ("D Tin Whistle", "tin_whistle", "woodwinds")])
+def test_exact_additional_instrument_types_do_not_collapse_into_guitar_or_mandolin(label, kind, family):
+    from review_musescore_expansion import expansion_kind
+    assert expansion_kind(label) == kind
+    assert LABELS[kind][2] == family
+    assert kind not in {"guitar", "bass_guitar", "mandolin"}
+    result = review_mxl_scope(evidence(part("P1"), part("P2", name=label, instrument=label)))
+    assert result["status"] == "accepted"
+    assert result["classification"]["topic_id"] == ("duo" if kind == "contra_guitar" else family)
+    assert result["classification"]["guitar_player_count"] == (2 if kind == "contra_guitar" else 1)
+
+
+def test_contra_guitar_stays_a_distinct_written_type_and_counts_in_the_guitar_family():
+    result = review_mxl_scope(evidence(part("P1", name="Violin", instrument="Violin"),
+        part("P2", name="Violin", instrument="Violin"), part("P3"),
+        part("P4", name="Contra Guitar", instrument="Contra Guitar")))
+    assert result["status"] == "accepted"
+    review = result["classification"]
+    assert review["topic_id"] == "strings"
+    assert review["guitar_player_count"] == 2 and review["ensemble_player_count"] == 4
+    assert review["roles"][3]["kind"] == "contra_guitar"
+
+
 def part(identity="P1", name="Guitar", instrument="Classical Guitar", program=24, **extra):
     return {"part_id": identity, "name": name, "score_instruments": [{"id": "i", "name": instrument}],
             "midi_instruments": [{"id": "i", "program_0based": program}], "used_instrument_ids": [],
@@ -492,3 +519,19 @@ def test_drum_role_cannot_hide_an_electric_bass_declaration_among_real_component
     result = review_mxl_scope(evidence(part(), drum))
     assert result["status"] == "pending"
     assert "P2:part_instrument_name_conflict" in result["classification"]["issues"]
+
+
+def test_uncertain_written_rows_never_display_as_confirmed_player_counts():
+    classification = classify_expansion_parts([
+        part("P1", name="Nylon Gtr.", instrument="Nylon Gtr."),
+        part("P2", name="Nylon Gtr.", instrument="Nylon Gtr.", clefs=[{"sign": "F"}]),
+        part("P3", name="Organ", instrument="Organ")],
+        part_decisions={"P3": {"kind": "organ", "resolved": True, "role_active": None}})
+    # Exact file review retains an unresolved view/doubling boundary. Row
+    # multiplicity is evidence, while the displayed player numbers stay unknown.
+    assert classification["guitar_player_count"] is None
+    assert classification["ensemble_player_count"] is None
+    assert "2 guitar" not in classification["instrumentation"]
+    assert "2×" not in classification["instrumentation_zh"]
+    assert "人数未定" in classification["instrumentation_zh"]
+    assert classification["role_counts"]["guitar"] == 2

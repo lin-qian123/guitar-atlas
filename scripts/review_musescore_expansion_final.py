@@ -263,6 +263,77 @@ def apply_midi_instrument_name_corrections(case, work, mxl, classification, auto
         midi_sha256=midi_sha256, pdf_sha256=pdf_sha256, instrument_names=True)
 
 
+def apply_midi_channel_collision_review(case, work, mxl, classification, automatic, *, midi_sha256, pdf_sha256):
+    """Explain a guarded export defect without claiming repaired playback.
+
+    Only complete, exact conflicting groups can be explained. A distinct named
+    track must actually issue the program on the affected shared port/channel;
+    the target's total note-ons must equal its complete notation note count.
+    This does not compare note sequences or change any source MIDI bytes.
+    """
+    key = "midi_channel_collision_review"
+    if case is None or key not in case:
+        return deepcopy(automatic)
+    validate_reviewed_case(case, work, mxl)
+    _require_full_native_guard(case, work)
+    if (case.get("pdf_sha256") != pdf_sha256 or case.get("midi_sha256") != midi_sha256
+            or any(not re.fullmatch(r"[0-9a-f]{64}", str(value)) for value in (pdf_sha256, midi_sha256))):
+        raise ValueError("MIDI channel collision exact file guard mismatch")
+    decisions = case[key]
+    def group_digest(group):
+        return hashlib.sha256(json.dumps(group, ensure_ascii=False, sort_keys=True,
+            separators=(",", ":"), allow_nan=False).encode()).hexdigest()
+    if (not isinstance(decisions, list) or not decisions
+            or any(not isinstance(row, dict) or set(row) != {"part_id", "origin_part_id", "group_sha256"}
+                   or any(not isinstance(row.get(field), str) or not row[field] for field in ("part_id", "origin_part_id"))
+                   or not re.fullmatch(r"[0-9a-f]{64}", str(row.get("group_sha256", ""))) for row in decisions)):
+        raise ValueError("MIDI channel collision requires exact unique group decisions")
+    targets = {row["group_sha256"]: row for row in decisions}
+    conflicts = automatic.get("conflicts", [])
+    if (len(targets) != len(decisions) or automatic.get("status") != "unresolved_conflict"
+            or len(conflicts) != len(targets) or {group_digest(row) for row in conflicts} != set(targets)):
+        raise ValueError("MIDI collision decisions do not cover exact current conflicts")
+    parts = {row["part_id"]: row for row in mxl["parts"]}
+    roles = {row["part_id"]: row for row in classification["roles"]}
+    groups = automatic["sounding_groups"]
+    for group in conflicts:
+        decision = targets[group_digest(group)]
+        target, source = decision["part_id"], decision["origin_part_id"]
+        if (target == source or target not in parts or source not in parts
+                or any(roles.get(identity, {}).get("sounding") is not True
+                       or roles[identity].get("kind") in {None, "unknown"} for identity in (target, source))
+                or group not in groups or group.get("MXL_part_ids") != [target]
+                or group.get("matching_basis") != "exact_track_name_and_MXL_channel"
+                or not group.get("track_names") or any(name.strip() != parts[target]["name"].strip() for name in group["track_names"])
+                or group.get("channel_1based") == 10 or group.get("program_0based") in group.get("MXL_programs", [])
+                or type(group.get("note_on_count")) is not int or group["note_on_count"] <= 0):
+            raise ValueError("MIDI collision lacks one exact corresponding named role")
+        target_groups = [row for row in groups if target in row.get("MXL_part_ids", [])]
+        if (any(row.get("MXL_part_ids") != [target] for row in target_groups)
+                or sum(row["note_on_count"] for row in target_groups) != parts[target].get("note_count")):
+            raise ValueError("MIDI collision notation/target note counts differ")
+        origins = group.get("program_origin_tracks", [])
+        if len(origins) != 1:
+            raise ValueError("MIDI collision requires one actual program origin")
+        origin = origins[0]
+        origin_groups = [row for row in groups if row.get("track") == origin.get("track")]
+        if (origin.get("track") == group.get("track") or not origin_groups
+                or any(row.get("MXL_part_ids") != [source] for row in origin_groups)
+                or any(origin.get(field) != group.get(field) for field in ("port", "channel_1based", "program_0based"))
+                or not origin.get("track_names") or any(name.strip() != parts[source]["name"].strip() for name in origin["track_names"])):
+            raise ValueError("MIDI collision program origin does not bind a distinct actual role")
+    result = deepcopy(automatic)
+    for row in result["sounding_groups"]:
+        if group_digest(row) in targets:
+            original = deepcopy(row)
+            row.update(status="explained_channel_collision", automatic_observation=original,
+                reason="exact_reviewed_cross_track_channel_setup_export_defect")
+    result.update(status="explained_playback_export_defect", conflicts=[], automatic_review=deepcopy(automatic),
+        review_basis="exact_native_PDF_MXL_MIDI_and_complete_conflict_groups", review_note=case["note"],
+        review_references=deepcopy(case["basis"]), midi_sha256=midi_sha256, pdf_sha256=pdf_sha256)
+    return result
+
+
 def review_pdf_instrument_labels(classification, pdf):
     known = {row["kind"] for row in classification["roles"]}
     observations, conflicts = [], []
@@ -314,8 +385,9 @@ def apply_pdf_noninstrument_labels(case, work, mxl, automatic, *, pdf_sha256):
     return result
 
 
-def make_projection(work, classification, mxl_evidence, title_review, asset_guards):
-    uncertain = classification["status"] != "mxl_scope_verified" or title_review["status"] == "identity_conflict"
+def make_projection(work, classification, mxl_evidence, title_review, asset_guards, *, playback=None):
+    export_defect = playback is not None and playback.get("status") == "explained_playback_export_defect"
+    uncertain = classification["status"] != "mxl_scope_verified" or title_review["status"] == "identity_conflict" or export_defect
     review = {key: deepcopy(classification.get(key)) for key in (
         "instrumentation", "instrumentation_zh", "topic_id", "guitar_player_count", "ensemble_player_count")}
     review["status"] = "file_reviewed_uncertain" if uncertain else "file_verified"
@@ -325,6 +397,8 @@ def make_projection(work, classification, mxl_evidence, title_review, asset_guar
         review["summary"] += f" {len(classification['omitted_empty_parts'])}条空置或已确认辅助层未额外计人数。"
     if any(part.get("lyric_count", 0) for part in mxl_evidence["parts"]):
         review["summary"] += " 谱面歌词字段已保留，未据此另加歌者人数。"
+    if export_defect:
+        review["summary"] += " MIDI导出存在已核明的共享通道音色设置冲突，播放音色可能受合并顺序影响；谱面编制按PDF与MXL保留，原MIDI未作修复。"
     case = classification.get("reviewed_case")
     if isinstance(case, dict) and case.get("part_decisions"):
         note = case.get("public_note")
@@ -446,6 +520,8 @@ def _review_final_record(job):
         midi_notation = read_midi_evidence(paths["MIDI"])
         midi = read_sounding_midi(paths["MIDI"])
         playback = crosscheck(mxl, midi, ports=_mxl_ports(paths["MUSICXML"], mxl), source_instrumentation=work["metadata"]["instrumentation"])
+        playback = apply_midi_channel_collision_review(case, work, mxl, actual_scope["classification"], playback,
+            midi_sha256=assets["MIDI"]["sha256"], pdf_sha256=assets["PDF"]["sha256"])
         automatic_names = review_midi_name_correspondence(actual_scope["classification"], playback)
         names = apply_midi_part_name_corrections(case, work, mxl, actual_scope["classification"], automatic_names,
             midi_sha256=assets["MIDI"]["sha256"], pdf_sha256=assets["PDF"]["sha256"])
@@ -465,7 +541,7 @@ def _review_final_record(job):
             return {"status": "pending", "reason": "unresolved_midi_correspondence", **private}
         if pdf_labels["status"] == "unresolved_conflict":
             return {"status": "pending", "reason": "unresolved_pdf_instrument_correspondence", **private}
-        projection = make_projection(work, actual_scope["classification"], mxl, title_review, guards)
+        projection = make_projection(work, actual_scope["classification"], mxl, title_review, guards, playback=playback)
         native = deepcopy(work)
         native["assets"] = list(assets.values())
         native["metadata"]["scope_status"] = "accepted_actual_file_review"

@@ -59816,6 +59816,58 @@
         "status": "retained",
         "basis": "exact_source_attribution_preservation",
         "reason": "来源署名本身包含中文；保留其原文，未新增中文姓名或把来源文字升级为规范人名核定。"
+      },
+      "Arranjed by Danyelhauser": {
+        "original": "Arranjed by Danyelhauser",
+        "zh": "Arranjed by Danyelhauser",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Cornelius Gurlitt (1820 - 1901)": {
+        "original": "Cornelius Gurlitt (1820 - 1901)",
+        "zh": "科尼利厄斯·古利特",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Gurlitt, Cornelius"
+        ]
+      },
+      "G Wakefield": {
+        "original": "G Wakefield",
+        "zh": "G Wakefield",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Hunter Larson": {
+        "original": "Hunter Larson",
+        "zh": "Hunter Larson",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Paul Cantelon": {
+        "original": "Paul Cantelon",
+        "zh": "Paul Cantelon",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Sean Burke": {
+        "original": "Sean Burke",
+        "zh": "Sean Burke",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Volksweise / Autor unbekannt": {
+        "original": "Volksweise / Autor unbekannt",
+        "zh": "Volksweise / Autor unbekannt",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
       }
     }
   }

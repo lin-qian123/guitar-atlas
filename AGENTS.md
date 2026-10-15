@@ -348,6 +348,31 @@ source or adapter.
   correspondence. Preserve its automatic conflict and original labels; this
   explanation never clears unrelated name or playback conflicts. New or changed
   instrumentation decisions require a complete offline rebuild.
+- For this fixed 759-candidate continuation, run the idempotent
+  `expand_musescore_library.py capture-continuation` phase. The single private
+  `continuation-baseline.zip` preserves the published 1,220 records, all prior
+  native/review/translation and offline mappings, and exact earlier evidence.
+  Reuse the immutable 1,641-record plan and format journals. New admissions must
+  belong to `remaining-review-scope.json`; inherit every published review value
+  rather than replaying it under new terminology. Keep the original 924-record
+  baseline and acquisition receipts intact.
+  Consolidate all 759 records, complete PDF-page text and original review
+  proposals losslessly with `review_musescore_remaining.py`; verify the gzip
+  readback and fresh format guards before removing merged temporary files.
+  Uncertain written-row counts must not appear as confirmed player numbers
+  in either displayed instrumentation string.
+  A later continuation must first freeze its latest published scope and roll
+  the stage guards forward; this task's 1,220-record baseline must not silently
+  stand in for the subsequently published 1,248-record library.
+- An exact MIDI channel-collision review may explain a known export playback
+  defect only with complete native and PDF/MXL/MIDI guards, every conflicting
+  group, its distinct named program-origin role, and complete target note-count
+  correspondence. Preserve the automatic conflict and original MIDI bytes;
+  show the unresolved playback quality in the public review summary. This does
+  not certify note sequences or infer performer counts from MIDI patches.
+  Independent Contra Guitar roles count in the acoustic-guitar family while
+  retaining their specific type; Mandola, Balalaika, Bagpipe and Tin Whistle
+  remain distinct instruments with their native names and written roles.
 
 ## Public and offline editions
 
