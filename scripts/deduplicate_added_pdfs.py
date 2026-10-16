@@ -11,6 +11,8 @@ from __future__ import annotations
 
 import argparse
 import collections
+from concurrent.futures import ThreadPoolExecutor
+from collections import deque
 import fcntl
 import hashlib
 import json
@@ -27,6 +29,7 @@ from deduplicate_source_pdfs import (
 
 SHA256 = re.compile(r"[0-9a-f]{64}")
 ERRORS = (OSError, ValueError, RuntimeError, subprocess.SubprocessError)
+SHA1_SCAN_WORKERS = 8
 
 
 class MetadataChanged(ValueError):
@@ -256,6 +259,38 @@ def fresh_sha1(root: Path, relative: str) -> tuple[str, int]:
         os.close(descriptor)
 
 
+def scan_fresh_sha1(root: Path, groups):
+    """Freshly scan candidate pool objects with bounded, ordered concurrency.
+
+    At most eight futures are live at once. Results are yielded in the same
+    order as ``groups`` so journal errors and candidate handling stay stable;
+    callers continue all verification and mutations serially.
+    """
+    iterator = iter(groups)
+    with ThreadPoolExecutor(max_workers=SHA1_SCAN_WORKERS) as executor:
+        pending = deque()
+
+        def submit_one():
+            try:
+                sha, group = next(iterator)
+            except StopIteration:
+                return False
+            pending.append((sha, group, executor.submit(fresh_sha1, root, group["pool"])))
+            return True
+
+        for _ in range(SHA1_SCAN_WORKERS):
+            if not submit_one():
+                break
+        while pending:
+            sha, group, future = pending.popleft()
+            try:
+                key, error = future.result(), None
+            except ERRORS as exc:
+                key, error = None, exc
+            yield sha, group, key, error
+            submit_one()
+
+
 def inode_key(verified: dict) -> tuple[int, int]:
     return verified["state"]["device"], verified["state"]["inode"]
 
@@ -426,12 +461,11 @@ def run(root: Path, *, apply: bool = False) -> dict:
         report["runs"].append(result)
         save = lambda: write_report(report_path, report)
         save()
-        for sha, group in groups.items():
-            try:
-                key = fresh_sha1(root, group["pool"])
+        for sha, group, key, scan_error in scan_fresh_sha1(root, groups.items()):
+            if scan_error is None:
                 counts["fresh_sha1_scanned_objects"] += 1
-            except ERRORS as exc:
-                result["scan_errors"].append({"sha256": sha, "path": group["pool"], "error": str(exc)})
+            else:
+                result["scan_errors"].append({"sha256": sha, "path": group["pool"], "error": str(scan_error)})
                 continue
             if key not in legacy:
                 counts["unmatched_added_objects"] += 1

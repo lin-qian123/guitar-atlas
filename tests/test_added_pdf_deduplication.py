@@ -4,6 +4,8 @@ import json
 import os
 import stat
 import sys
+import threading
+import time
 
 import pytest
 from pypdf import PdfWriter
@@ -319,3 +321,50 @@ def test_final_savings_validation_error_is_reported_and_exits_unsuccessfully(tmp
     monkeypatch.setattr(dedup, "run", lambda root, apply=False: result)
     monkeypatch.setattr(sys, "argv", ["deduplicate_added_pdfs.py", "--root", str(tmp_path), "--apply"])
     assert dedup.main() == 1
+
+
+def test_fresh_sha1_scans_are_bounded_and_yield_in_input_order(tmp_path, monkeypatch):
+    active = maximum = 0
+    lock = threading.Lock()
+
+    def scan(root, relative):
+        nonlocal active, maximum
+        with lock:
+            active += 1
+            maximum = max(maximum, active)
+        time.sleep(0.02)
+        with lock:
+            active -= 1
+        return relative, 20
+
+    monkeypatch.setattr(dedup, "fresh_sha1", scan)
+    groups = [(f"{index:064x}", {"pool": f"pool-{index}"}) for index in range(24)]
+
+    results = list(dedup.scan_fresh_sha1(tmp_path, groups))
+
+    assert maximum == dedup.SHA1_SCAN_WORKERS
+    assert [row[0] for row in results] == [row[0] for row in groups]
+    assert all(row[2] == (f"pool-{index}", 20) and row[3] is None
+               for index, row in enumerate(results))
+
+
+def test_failed_fresh_sha1_scan_is_recorded_without_candidate_or_mutation(tmp_path, monkeypatch):
+    source, pool, aliases, _, _ = fixture(tmp_path)
+    before = file_snapshot([source, pool, *aliases])
+
+    def fail_scan(root, relative):
+        raise OSError("injected SHA-1 read failure")
+
+    monkeypatch.setattr(dedup, "fresh_sha1", fail_scan)
+    result = dedup.run(tmp_path)
+
+    assert result["counts"]["fresh_sha1_scanned_objects"] == 0
+    assert result["counts"]["candidate_content_groups"] == 0
+    assert result["scan_errors"] == [{
+        "sha256": pool.stem,
+        "path": f"sources/objects/sha256/{pool.stem[:2]}/{pool.stem}.pdf",
+        "error": "injected SHA-1 read failure",
+    }]
+    assert file_snapshot([source, pool, *aliases]) == before
+    journal = json.loads((tmp_path / "sources/objects/deduplication_report.json").read_text())
+    assert journal["runs"][-1]["scan_errors"] == result["scan_errors"]

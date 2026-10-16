@@ -16,7 +16,7 @@ TOPICS = [
     ("percussion", "吉他与打击乐", "Guitar and percussion"), ("mixed_chamber", "吉他室内乐", "Guitar chamber music"),
     ("studies", "练习曲与教学", "Studies and methods"), ("historical", "历史谱与馆藏", "Historical collections"),
     ("reference", "参考资料", "Reference material"), ("unspecified", "编制尚未核明", "Instrumentation unspecified"),
-    ("guitar_unspecified", "吉他·人数未明", "Guitar, player count unspecified"),
+    ("guitar_unspecified", "吉他相关·编制未细分", "Guitar-related, instrumentation not fully specified"),
     ("other_instrumentation", "其他编制", "Other instrumentation"),
 ]
 FORM_PATTERN = re.compile(r"\b(etude[s]?|étude[s]?|stud(?:y|ies)|method|méthode|schule|exercise[s]?|exercice[s]?|leçon[s]?|lesson[s]?)\b", re.I)
@@ -28,6 +28,8 @@ def instrumentation_topic(text: str) -> str | None:
     value = re.sub(r"\s+", " ", text.casefold()).strip()
     if value in {"guitar", "classical guitar", "guit"}:
         return "guitar_unspecified"
+    if re.fullmatch(r'for [1-9][0-9]*[ -]string guitar(?: \(arr\))?', value):
+        return 'solo'
     if match := re.fullmatch(r"guit\s*\(([1-9][0-9]*)\)", value):
         count = int(match.group(1))
         return {1:"solo", 2:"duo", 3:"trio", 4:"quartet"}.get(count, "guitar_ensemble")
@@ -36,7 +38,7 @@ def instrumentation_topic(text: str) -> str | None:
         "duo": r"(?:for )?(?:2 guitars|two guitars|guitar duo|guitar duet|duo guitars|guitar duo/duet)(?: \(arr\))?",
         "trio": r"(?:for )?(?:3 guitars|three guitars|guitar trio)(?: \(arr\))?",
         "quartet": r"(?:for )?(?:4 guitars|four guitars|guitar quartet)(?: \(arr\))?",
-        "guitar_ensemble": r"(?:for )?(?:[5-9]\d* guitars|guitar ensemble|guitar orchestra)(?: \(arr\))?",
+        "guitar_ensemble": r"(?:for )?(?:(?:[5-9]|[1-9]\d+) guitars|guitar ensemble|guitar orchestra)(?: \(arr\))?",
     }
     for topic, pattern in patterns.items():
         if re.fullmatch(pattern, value):
@@ -76,15 +78,18 @@ def file_key(value: str) -> str:
 def unify_catalog(root: Path, data: dict, registry: list[dict]) -> None:
     from catalog_sources import source_catalog
     from catalog_instrumentation import APPLIED_REVIEW_IDS
-    private, file_reviewed = {}, set()
+    from catalog_classification import APPLIED_CLASSIFICATIONS, require_classification_coverage
+    private, file_reviewed, classifications = {}, set(), {}
     for source in registry:
         if source.get("catalog"):
             payload = source_catalog(root, source)
             private.update((work["id"], work) for work in payload["works"])
+            classifications.update(payload.get(APPLIED_CLASSIFICATIONS, {}))
             if source["id"] == "musescore":
                 # Only this successfully checked scope has a file review. An
                 # appended native record cannot inherit another record's proof.
                 file_reviewed.update(payload.get(APPLIED_REVIEW_IDS, []))
+    require_classification_coverage(root, classifications)
     categories = {row["id"]: row for row in data["categories"]}
     counts, sources = Counter(), defaultdict(set)
     files, hashes = defaultdict(set), defaultdict(set)
@@ -122,9 +127,13 @@ def unify_catalog(root: Path, data: dict, registry: list[dict]) -> None:
         if not topics:
             topics.add("unspecified")
             basis["unspecified"] = "no_exact_instrumentation_evidence"
+        if work['id'] in classifications:
+            decision = classifications[work['id']]
+            topics, basis = {decision['topic_id']}, {decision['topic_id']: decision['basis']}
+            topic_memberships = {}
         if work.get("resource_type") == "reference":
             topics.add("reference")
-            basis["reference"] = "source_resource_type"
+            basis.setdefault("reference", "source_resource_type")
         if FORM_PATTERN.search(work["title_en"]):
             topics.add("studies")
             basis["studies"] = "title_keyword"

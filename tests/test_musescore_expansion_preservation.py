@@ -506,3 +506,26 @@ def test_actual_production_offline_adapter_vm_uses_dynamic_scope_and_safe_downlo
     assert proof['records'] == 1 and proof['controls'] == 3 and proof['downloads'] == 2 and proof['restricted'] == 1
     with pytest.raises(AuditFailure, match='appended native scope'):
         node_offline_adapter(tmp_path, 2)
+
+
+def test_new_public_review_accepts_exact_source_instrumentation_projection_repair():
+    from catalog_sources import MUSESCORE_SYNTHETIC_SOURCE_INSTRUMENTATION
+    from verify_musescore_expansion import check_public_review
+
+    native = {'id': 'musescore:6099968', 'metadata': {
+        'instrumentation': MUSESCORE_SYNTHETIC_SOURCE_INSTRUMENTATION,
+        'source_instruments': [{'name': 'Guitar', 'count': 1}, {'name': 'Piano', 'count': 1}],
+    }}
+    review = {'status': 'file_verified', 'topic_id': 'solo',
+        'instrumentation': 'Guitar', 'instrumentation_zh': '吉他',
+        'guitar_player_count': 1, 'ensemble_player_count': 1,
+        'summary': 'Verified score review', 'source_difference': ''}
+    entry = {'review': review}
+    public = {'instrumentation_status': 'file_verified',
+        'details': {'instrumentation': 'Guitar', 'instrumentation_zh': '吉他',
+            'guitar_player_count': '1', 'ensemble_player_count': '1',
+            'source_instrumentation': 'Guitar；Piano',
+            'instrumentation_review': 'Verified score review'},
+        'topic_evidence': {'solo': 'file_crosscheck'}}
+
+    assert check_public_review(native, entry, public) is True

@@ -50,6 +50,9 @@ FINAL_METHOD_PATHS = SCOPE_METHOD_PATHS | {"scripts/review_musescore_expansion_f
     "scripts/score_pdf_evidence.py", "scripts/score_midi_crosscheck.py",
     "scripts/score_mxl_playback_correspondence.py"}
 EXACT_CASE_PATH = Path("metadata/instrumentation/musescore_expansion_reviewed.json")
+BROAD_INPUTS = {'policy': Path('config/library_classification.json'),
+    'decisions': Path('metadata/instrumentation/musescore_broad_reviewed.json'),
+    'method': Path('scripts/review_musescore_broad.py')}
 
 
 def read_json(path):
@@ -166,7 +169,7 @@ def compare_offline_records(before_rows, after_rows, public_rows):
             "old_local_editions_exact": True, "all_shared_work_fields_exact": True}
 
 
-def compare_public_structure(before, after, added):
+def compare_public_structure(before, after, added, *, classification_update=False):
     """Only incremental counts, the MuseScore scope text and new edges may vary."""
     for field in ("schema_version", "unification_schema_version", "translation_schema_version", "families"):
         require(before.get(field) == after.get(field), "public catalog definition changed: " + field)
@@ -174,7 +177,12 @@ def compare_public_structure(before, after, added):
     for old, new in zip(before["categories"], after["categories"], strict=True):
         require({k: v for k, v in old.items() if k != "work_count"} ==
                 {k: v for k, v in new.items() if k != "work_count"}, "native public category definition changed")
-    require([{k: v for k, v in row.items() if k not in {"work_count", "source_count"}} for row in before["topics"]] ==
+    topic_before = [{k: v for k, v in row.items() if k not in {'work_count', 'source_count'}} for row in before['topics']]
+    if classification_update:
+        for row in topic_before:
+            if row['id'] == 'guitar_unspecified':
+                row.update(name_zh='吉他相关·编制未细分', name_en='Guitar-related, instrumentation not fully specified')
+    require(topic_before ==
             [{k: v for k, v in row.items() if k not in {"work_count", "source_count"}} for row in after["topics"]],
             "shared topic vocabulary changed")
     old_sources, sources = _by_id(before["sources"], "prior sources"), _by_id(after["sources"], "current sources")
@@ -199,7 +207,8 @@ def compare_public_structure(before, after, added):
     for edge in after["relationships"]:
         if canonical(edge) not in old_edges:
             require(edge.get("from_id") in added or edge.get("to_id") in added, "new relationship does not involve an appended record")
-    return {"old_categories_exact_except_counts": True, "topic_vocabulary_exact": True,
+    return {"old_categories_exact_except_counts": True, "topic_vocabulary_exact": not classification_update,
+            **({'reviewed_guitar_unspecified_label_update': True} if classification_update else {}),
             "preserved_relationships": len(old_edges), "added_relationships": len(edges) - len(old_edges)}
 
 
@@ -232,6 +241,8 @@ def final_guard_paths(root):
     paths.add(BASE / "final-review.json")
     if (root / EXACT_CASE_PATH).exists() or (root / EXACT_CASE_PATH).is_symlink():
         paths.add(EXACT_CASE_PATH)
+    if (root / BROAD_INPUTS['decisions']).is_file():
+        paths.update(BROAD_INPUTS.values())
     return {root / relative for relative in paths}
 
 
@@ -271,6 +282,11 @@ def check_final_input_guards(root, final, scope):
     require(scope_inputs.get("plan") == current["plan"]
             and scope_inputs.get("mxl_extraction") == current["MUSICXML"],
             "scope review input bytes changed")
+    broad = final.get('broad_review')
+    if broad is not None or scope.get('broad_review') is not None:
+        expected = {key: digest(path) for key, path in BROAD_INPUTS.items()}
+        require(broad == expected and scope.get('broad_review') == expected,
+                'broad guitar-related review inputs changed')
     require(all(_stat_fingerprint(path) == state for path, state in states.items())
             and (case_guard is not None) == (case_path.exists() or case_path.is_symlink()),
             "semantic review inputs changed during guard verification")
@@ -391,6 +407,8 @@ def compare_new_source_fields(work, candidate):
 
 
 def check_public_review(native, entry, public):
+    from catalog_sources import public_source_instrumentation
+
     review = _check_review(native, entry["review"])
     require(public["instrumentation_status"] == review["status"], "new public file-review status disagrees")
     details = public["details"]
@@ -400,9 +418,11 @@ def check_public_review(native, entry, public):
         expected = str(value) if value is not None and value != "" else None
         require(details.get(key) == expected, "new public file-review field disagrees: " + key)
     summary = review["summary"] + ("；来源差异：" + review["source_difference"] if review["source_difference"] else "")
-    require(details.get("source_instrumentation") == native["metadata"].get("instrumentation")
+    expected_source_instrumentation = public_source_instrumentation(native)
+    require(details.get("source_instrumentation") == expected_source_instrumentation
             and details.get("instrumentation_review") == summary, "new public source/file instrumentation explanation disagrees")
     require(public["topic_evidence"].get(review["topic_id"]) == "file_crosscheck", "new public instrumentation topic lacks its exact file review")
+    return expected_source_instrumentation != native["metadata"].get("instrumentation")
 
 
 def check_public_source_fields(native, public, title_entry):
@@ -416,7 +436,7 @@ def check_public_source_fields(native, public, title_entry):
     return expected_title != native["title_en"]
 
 
-def check_expansion_statistics(old, native, additions, overlay, final_rows, integration, config, scan_scope, extractions):
+def check_expansion_statistics(old, native, additions, overlay, final_rows, integration, config, scan_scope, extractions, *, root=None):
     """Recount records, format-local content groups and published summaries."""
     added_ids = {work["id"] for work in additions}
     reviewed = _by_id(overlay["works"], "statistical review scope")
@@ -452,8 +472,13 @@ def check_expansion_statistics(old, native, additions, overlay, final_rows, inte
     }
     require(native.get("snapshot", {}).get("expansion") == expected_expansion,
             "native expansion snapshot statistics disagree with independently checked scope")
-    require(native["snapshot"].get("scope") == config["scope"]
-            and native.get("summary", {}).get("scope") == config["scope"], "native source summary scope differs from configuration")
+    scope_text = config['scope']
+    if integration.get('classification_scope'):
+        policy = read_json((Path(root) if root is not None else Path(__file__).resolve().parents[1]) / 'config/library_classification.json')
+        require(integration['classification_scope'] == policy['new_musescore_scope'], 'unexpected broad classification scope')
+        scope_text = policy['new_musescore_scope']
+    require(native["snapshot"].get("scope") == scope_text
+            and native.get("summary", {}).get("scope") == scope_text, "native source summary scope differs from configuration")
     summary = native["summary"]
     require(summary.get("records") == len(native["works"]) and summary.get("source_records") == len(native["works"]),
             "native summary record totals disagree")
@@ -465,7 +490,7 @@ def check_expansion_statistics(old, native, additions, overlay, final_rows, inte
             "native_expansion_snapshot_exact": True, "native_summary_totals_recounted": True}
 
 
-def verify(root, baseline_path, *, precheck=False, full_report=None):
+def verify(root, baseline_path, *, precheck=False, full_report=None, display_refresh_report=None):
     from catalog_sources import load_registry
     from render_offline_site import offline_input_fingerprint
     from validate_public_site import validate_payload
@@ -610,7 +635,7 @@ def verify(root, baseline_path, *, precheck=False, full_report=None):
                     "new asset differs from completed extraction receipt: " + work["id"])
             associations[label] += 1
     statistics = check_expansion_statistics(old_native, native, new_works, overlay, final_ids, integration,
-        config, expected_scan_scope, extraction_records)
+        config, expected_scan_scope, extraction_records, root=root)
     # Match the production reader's exact semantic/file guards in a bounded
     # pool; this audit checks content, not a second structural score import.
     review_assets = check_review_assets(root, native, overlay)
@@ -634,25 +659,41 @@ def verify(root, baseline_path, *, precheck=False, full_report=None):
             'baseline_path': continuation_path.relative_to(root).as_posix(),
             'review_scope': continuation_review_scope(root, added, {work['id'] for work in plan['works']}),
             'historical_parent_baselines': continuation.get('parent_baselines', {}),
-            'historical_case_entries_outside_new_scope_exact': continuation.get('stage') == 'deep-pending-review'}
+            'historical_case_entries_outside_new_scope_exact': continuation.get('stage') in {'deep-pending-review', 'broad-pending-review'}}
     # Public/native parity is checked before a long full offline render as well.
     public = read_json(root / PUBLIC)
     validate_payload(public, registry=load_registry(root))
-    result["public_preservation"] = compare_existing_records(documents[PUBLIC]["value"]["works"], public["works"], "public", added)
-    result["public_structure"] = compare_public_structure(documents[PUBLIC]["value"], public, added)
+    if continuation and continuation.get('stage') == 'broad-pending-review' and (root / 'metadata/instrumentation/source_classification_reviewed.json').is_file():
+        from verify_library_classification import compare_classified_public
+        classifications = read_json(root / 'metadata/instrumentation/source_classification_reviewed.json')['entries']
+        protected_old_native = {identity: current[identity] for identity in originals}
+        result['public_preservation'] = compare_classified_public(
+            documents[PUBLIC]['value'], public, classifications, protected_old_native)
+        require({w['id'] for w in public['works']} - {w['id'] for w in documents[PUBLIC]['value']['works']} == added,
+                'broad public append identity scope differs')
+    else:
+        result["public_preservation"] = compare_existing_records(documents[PUBLIC]["value"]["works"], public["works"], "public", added)
+    result["public_structure"] = compare_public_structure(documents[PUBLIC]["value"], public, added,
+        classification_update=bool(continuation and continuation.get('stage') == 'broad-pending-review'))
     public_ids = _by_id(public["works"], "new public identity binding")
     overlay_ids = _by_id(overlay["works"], "new public review binding")
     title_entries = read_json(root / "metadata/translations/source_titles_zh.json")["entries"]
     projected_title_count = 0
+    source_declaration_repairs = 0
     for work in new_works:
         projected = public_ids[work["id"]]
         require(projected["source_id"] == "musescore" and projected["source_record_id"] == work["id"].split(":", 1)[1],
                 "new public native source identity changed")
         projected_title_count += check_public_source_fields(work, projected, title_entries.get(work["id"]))
-        check_public_review(work, overlay_ids[work["id"]], projected)
+        source_declaration_repairs += check_public_review(work, overlay_ids[work["id"]], projected)
     result["public_source_identity"] = {"records": len(new_works), "exact_native_title_review_guards": True,
         "title_projection": "Exact shared display_source_title output; native/source review originals remain unchanged.",
-        "projected_titles": projected_title_count, "composer_and_page_exact": True}
+        "projected_titles": projected_title_count, "composer_and_page_exact": True,
+        "source_declaration_projection_repairs": source_declaration_repairs}
+    result['source_declaration_projection_repairs'] = {
+        'previously_published_records': result['public_preservation'].get('source_declaration_projection_repairs', 0),
+        'newly_added_records': source_declaration_repairs,
+    }
     require(unpack_payload(read_json(root / "public_site/data/catalog.compact.json")) == public, "compact catalog differs from canonical JSON")
     for relative in (ALIASES, RANKING):
         require(sha256(root / relative) == documents[relative]["sha256"], "search aliases or recognition ranking changed")
@@ -663,7 +704,13 @@ def verify(root, baseline_path, *, precheck=False, full_report=None):
         old_offline = before["offline_snapshot"]
         data = wrapper["data"]
         require(wrapper["aliases"] == old_offline["aliases"] and wrapper["ranking"] == old_offline["ranking"], "offline aliases/ranking changed")
-        result["offline_preservation"] = compare_offline_records(old_offline["data"]["works"], data["works"], public["works"])
+        old_rows = old_offline['data']['works']
+        removed = 0
+        if continuation and continuation.get('stage') == 'broad-pending-review':
+            from verify_library_classification import corrected_offline_baseline
+            old_rows, removed = corrected_offline_baseline(root, old_rows)
+        result["offline_preservation"] = compare_offline_records(old_rows, data["works"], public["works"])
+        result['offline_preservation']['reviewed_mismatched_file_links_removed_originals_retained'] = removed
         require(data["offline_inputs"] == offline_input_fingerprint(root), "offline acquisition/configuration/review fingerprint is stale")
         require([{k: v for k, v in row.items() if k != "local_href"} for row in data["categories"]] == public["categories"],
                 "offline/public category fields differ")
@@ -685,8 +732,16 @@ def verify(root, baseline_path, *, precheck=False, full_report=None):
             require({key: value for key, value in full.items() if key != "index"} == data["offline_summary"]
                     and "mode" not in full and "input_guard" not in full,
                     "fresh full-render receipt differs from the offline snapshot")
-            require(Path(full_report).stat().st_mtime_ns >= (root / "index.html").stat().st_mtime_ns,
-                    "full-render receipt predates the final offline entry")
+            if display_refresh_report is not None:
+                from offline_display_refresh import validate_display_refresh
+                refresh = validate_display_refresh(root, full_report, display_refresh_report)
+                result["offline_display_refresh"] = refresh
+            else:
+                from offline_display_refresh import require_fresh_full_render_report
+                require_fresh_full_render_report(full_report, root / "index.html")
+        else:
+            require(display_refresh_report is None,
+                    "display-refresh evidence requires a full-render receipt")
         result.update(compact_matches_canonical=True, search_aliases_ranking_exact=True,
                       local_links_checked=len(links), local_links_failed=0,
                       offline_adapter=node_offline_adapter(root, len(current)))
@@ -705,6 +760,8 @@ def main():
     parser.add_argument("--baseline", type=Path)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--full-render-report", type=Path)
+    parser.add_argument("--display-refresh-report", type=Path,
+                        help="guarded receipt for the exact metadata-only source declaration refresh")
     parser.add_argument("--precheck", action="store_true")
     parser.add_argument("--capture-offline", action="store_true")
     args = parser.parse_args()
@@ -714,7 +771,8 @@ def main():
     if args.capture_offline:
         result = capture_offline_baseline(root, baseline)
     else:
-        result = verify(root, baseline, precheck=args.precheck, full_report=args.full_render_report)
+        result = verify(root, baseline, precheck=args.precheck, full_report=args.full_render_report,
+                        display_refresh_report=args.display_refresh_report)
         _atomic_json(args.output or root / BASE / "preservation.json", result)
     print(json.dumps(result, ensure_ascii=False, indent=2))
 

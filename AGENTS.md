@@ -144,6 +144,27 @@ source or adapter.
   with `scripts/report_source_expansion.py`; do not claim source-wide coverage
   for partial pagination or imply local changes were pushed/deployed.
 
+- The 2026-10-17 whole-library classification review is compiled with
+  `scripts/review_library_classification.py` into
+  `metadata/instrumentation/source_classification_reviewed.json`.
+  `catalog_classification.py` checks every complete native-record digest and
+  exact source-field, category, frozen-page or actual-file guard before applying
+  this display/topic overlay. Never edit native records to fit an overlay.
+  Source declarations, actual score review, and inconclusive source audits have
+  separate evidence labels. A completed audit may still have unknown instruments
+  or players; `guitar_unspecified` means guitar-related, not a confirmed pure
+  acoustic ensemble. Explicit alternative instruments are choices, not players
+  sounding together. Keep the lossless private receipt and full gaps under
+  `sources/classification/review.json.gz`; merged proposals can be restored from
+  it by the compiler. `verify_library_classification.py` checks the captured
+  formal scope, exact allowed public changes and the full offline render.
+  The CMS post ID must match both the native record and its exact URL; category
+  and tag term IDs are a different namespace even when their numbers coincide.
+  Approved extended-string solo and multi-digit guitar-ensemble grammar also
+  adds exact category-topic memberships to already classified works. Verify
+  those per-edition membership additions, not just changes from unspecified;
+  string count is never performing-player count.
+
 ## IMSLP adapter
 
 - Preserve each included IMSLP category name exactly as its directory name.
@@ -174,11 +195,15 @@ source or adapter.
   include an extra bass instrument from the new offline file links. Keep the
   original files. Do not link the two affected legacy detailed category pages
   from the new interface until those pages apply the same exclusions.
-- Separate PDF integrity from instrumentation review. The current review still
-  has 495 `Work-level target-guitar score` records and 33 other section
-  candidates awaiting exact file-level instrumentation verification. Historical
-  audit completions do not establish that the entire current library has freshly
-  passed category-purity review; retain these pending boundaries in reports.
+- Separate PDF integrity from instrumentation review. The 495 work-level and
+  33 other section cases now have a complete broad evidence audit: 129 support a
+  source/cover declaration, 36 a broad instrument family, 362 still lack exact
+  current-role evidence, and one is a proven mismatched brass PDF. The first
+  165 are not complete player-count or category-purity verification. Preserve
+  the mismatched original but exclude only its exact local link. The third
+  affected legacy page, `For 3 guitars (arr)`, remains unlinked alongside the
+  two earlier pages until it applies the same exclusions. Historical audits and
+  fresh integrity checks never establish library-wide instrumentation purity.
 
 ## ClassClef adapter
 
@@ -381,6 +406,19 @@ source or adapter.
   and acquisition journals. Never replay either older baseline over later
   admissions. Further stages require a new current-publication baseline and
   explicit stage guards.
+- The subsequent broad review starts from the published 1,282-record library and
+  exactly 296 pending candidates. Its immutable
+  `broad-continuation-baseline.zip` and `broad-review-scope.json` take precedence
+  over the older baselines. `review_musescore_broad.py` compiles the exact guarded
+  decisions in `metadata/instrumentation/musescore_broad_reviewed.json` under
+  `config/library_classification.json`, using the existing source locks and a
+  resumable two-report transaction. It preserves all published native/review
+  values and original automatic conflicts; guitar presence or a printed guitar
+  option can establish relatedness while other roles, subtypes, title identity
+  and counts remain explicitly uncertain. Empty templates establish no activity.
+  This stage adds 61 records (1,343 total), excludes 21 and retains 214 with
+  concrete gaps. Future admissions require a new baseline of that current
+  publication; never reuse the 1,282-record baseline as a later published scope.
 - Preserve deep-review proposals and full PDF-page evidence losslessly in the
   single `deep-review.json.gz` receipt before deleting merged intermediates.
   Keep proposal decisions distinct from current production scope/final results;

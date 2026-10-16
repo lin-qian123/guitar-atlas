@@ -192,7 +192,10 @@ def offline_input_fingerprint(root: Path) -> dict:
     # with their preceding fingerprint; once present, these inputs are guarded.
     for relative in (Path("config/musescore_pdmx_expansion.json"),
                      Path("sources/musescore/expansion/integration.json"),
-                     Path("metadata/instrumentation/musescore_expansion_reviewed.json")):
+                     Path("metadata/instrumentation/musescore_expansion_reviewed.json"),
+                     Path("metadata/instrumentation/source_classification_reviewed.json"),
+                     Path("metadata/instrumentation/musescore_broad_reviewed.json"),
+                     Path("config/library_classification.json")):
         if (root / relative).exists() or (root / relative).is_symlink():
             paths.add(relative)
     paths.update(Path(row["name"]) / "metadata/score_manifest.json" for row in configured_categories(root))

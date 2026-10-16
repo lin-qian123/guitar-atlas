@@ -116,7 +116,17 @@ test('the real duo catalog ranks Fernando Sor before source labels containing �
   assert.equal(result.matches[0].item.composer_en, 'Sor, Fernando');
   // The RISM authority form includes source dates; those records are also
   // Fernando Sor, rather than embedded hits for a different source name.
-  const sorNames = new Set(['Sor, Fernando', 'Sor, Fernando (1778-1839)']);
+  // Six exact source spellings cover the 16 pre-existing Sor records that this
+  // round moved into duo using source evidence; do not treat embedded 索尔 in
+  // unrelated composer names as Fernando Sor.
+  const sorNames = new Set([
+    'Sor, Fernando',
+    'Sor, Fernando (1778-1839)',
+    'Sor, Fernando ',
+    'Sor, Fernando, 1778-1839',
+    'SOR, Fernando.',
+    'Sor. Fernando',
+  ]);
   const sor = result.matches.filter(match => sorNames.has(match.item.composer_en));
   const other = result.matches.filter(match => !sorNames.has(match.item.composer_en));
   assert.ok(sor.length > 0 && other.length > 0, 'This catalog retains both genuine and embedded-name hits');

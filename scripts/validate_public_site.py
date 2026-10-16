@@ -318,8 +318,24 @@ def validate_payload(payload: object, *, registry: list[dict] | None = None) -> 
             mapping = work.get("topic_category_ids")
             if not isinstance(ids, list) or not ids or len(set(ids)) != len(ids) or set(ids) - topic_ids:
                 fail("invalid work shared topics")
-            if not isinstance(proof, dict) or set(proof) != set(ids) or any(value not in {"approved_source_category", "explicit_source_instrumentation", "file_crosscheck", "no_exact_instrumentation_evidence", "source_resource_type", "title_keyword", "archival_source"} for value in proof.values()):
+            if not isinstance(proof, dict) or set(proof) != set(ids) or any(value not in {"approved_source_category", "explicit_source_instrumentation", "file_crosscheck", "no_exact_instrumentation_evidence", "source_resource_type", "title_keyword", "archival_source", "reviewed_source_evidence", "reviewed_score_evidence", "reviewed_source_audit"} for value in proof.values()):
                 fail("invalid shared topic evidence")
+            if set(proof.values()) & {'reviewed_source_evidence', 'reviewed_score_evidence', 'reviewed_source_audit'}:
+                details = work.get('details', {})
+                if (not details.get('classification_note') or not details.get('reviewed_instrumentation')
+                        or details.get('classification_basis') not in {'谱面核对', '原始来源声明', '来源审查·仍待确认'}):
+                    fail('reviewed classification lacks its public evidence description')
+                if 'reviewed_source_audit' in proof.values() and (
+                        proof.get('unspecified') != 'reviewed_source_audit'
+                        or any(t != 'unspecified' and b == 'reviewed_source_audit' for t, b in proof.items())
+                        or details.get('classification_basis') != '来源审查·仍待确认'
+                        or any(k in details for k in ('declared_player_count', 'reviewed_player_count'))):
+                    fail('inconclusive source audit cannot establish instrumentation/counts')
+                for topic, count in {'solo': 1, 'duo': 2, 'trio': 3, 'quartet': 4}.items():
+                    if proof.get(topic) in {'reviewed_source_evidence', 'reviewed_score_evidence'}:
+                        key = 'reviewed_player_count' if proof[topic] == 'reviewed_score_evidence' else 'declared_player_count'
+                        if details.get(key) != str(count):
+                            fail('reviewed precise topic lacks its corresponding player count')
             if "file_crosscheck" in proof.values():
                 if (work.get("source_id") != "musescore"
                         or work.get("instrumentation_status") not in {"file_verified", "file_reviewed_uncertain"}

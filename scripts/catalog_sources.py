@@ -19,7 +19,11 @@ NEW_DETAIL_FIELDS = frozenset({"instrumentation_zh", "source_instrumentation", "
 # The public schema includes guarded file-review descriptions. Their availability
 # is source scoped; a historical adapter's same-named private field is unrelated.
 PUBLIC_METADATA = SOURCE_PUBLIC_METADATA | NEW_DETAIL_FIELDS
+from catalog_classification import (APPLIED_CLASSIFICATIONS, PUBLIC_FIELDS as CLASSIFICATION_FIELDS,
+                                    apply_classification_reviews, public_details)
+PUBLIC_METADATA |= CLASSIFICATION_FIELDS
 MUSESCORE_RESERVED_OWNERS = frozenset({"api", "download", "static", "score", "scores", "sheetmusic", "groups", "user", "users", "s", "editor"})
+MUSESCORE_SYNTHETIC_SOURCE_INSTRUMENTATION = "Guitar-related source declaration; file scope pending"
 _MUSESCORE_RECORD_PATH = re.compile(r"/(?:(?:user/[1-9][0-9]*)|(?P<owner>[A-Za-z0-9][A-Za-z0-9_.-]*))/scores/(?P<record>[1-9][0-9]*)")
 
 
@@ -92,6 +96,23 @@ def validate_record_source_url(value: str, source_id: str, native_id: str,
     return value
 
 
+def public_source_instrumentation(native: dict, current: str | None = None) -> str | None:
+    """Return the public source declaration, repairing one exact MuseScore placeholder.
+
+    ``current`` is the source-instrumentation value being projected. The native
+    metadata instrumentation is the default for independent verifier callers.
+    """
+    metadata = native.get("metadata", {})
+    value = current if current is not None else metadata.get("instrumentation")
+    if (not str(native.get("id", "")).startswith("musescore:")
+            or value != MUSESCORE_SYNTHETIC_SOURCE_INSTRUMENTATION):
+        return value
+    declarations = metadata.get("source_instruments", [])
+    names = [row["name"] for row in declarations
+             if isinstance(row, dict) and isinstance(row.get("name"), str) and row["name"].strip()]
+    return "；".join(names) if names else None
+
+
 def source_catalog(root: Path, source: dict) -> dict:
     relative = Path(source["catalog"])
     path = root / relative
@@ -106,7 +127,8 @@ def source_catalog(root: Path, source: dict) -> dict:
     from catalog_instrumentation import APPLIED_REVIEW_IDS, apply_instrumentation_review
     if APPLIED_REVIEW_IDS in payload:
         raise ValueError("native catalog cannot supply the controlled runtime review marker")
-    return apply_instrumentation_review(root, payload, catalog_bytes=source_bytes)
+    effective = apply_instrumentation_review(root, payload, catalog_bytes=source_bytes)
+    return apply_classification_reviews(root, effective, payload)
 
 
 def merge_sources(root: Path, data: dict) -> dict:
@@ -133,6 +155,7 @@ def merge_sources(root: Path, data: dict) -> dict:
             public_source["snapshots"] = {key: value for key, value in old_sources.items() if key != "imslp"}
         else:
             catalog = source_catalog(root, source)
+            classification_reviews = catalog.get(APPLIED_CLASSIFICATIONS, {})
             from catalog_instrumentation import APPLIED_REVIEW_IDS, REVIEW_STATUSES
             file_review_ids = set(catalog.get(APPLIED_REVIEW_IDS, [])) if source["id"] == "musescore" else set()
             snapshot = catalog.get("snapshot", {})
@@ -194,6 +217,19 @@ def merge_sources(root: Path, data: dict) -> dict:
                 detail_fields = PUBLIC_METADATA if file_review_applied else SOURCE_PUBLIC_METADATA
                 work["details"] = {key: str(metadata[key]) for key in detail_fields
                                    if key in metadata and isinstance(metadata[key], (str, int, float)) and str(metadata[key]).strip()}
+                if source["id"] == "musescore" and "source_instrumentation" in work["details"]:
+                    projected_declaration = public_source_instrumentation(
+                        raw, current=work["details"]["source_instrumentation"])
+                    if projected_declaration is None:
+                        work["details"].pop("source_instrumentation", None)
+                    else:
+                        work["details"]["source_instrumentation"] = projected_declaration
+                # These fields come only from the checked compiler input, never
+                # from a same-named field in an unreviewed native source record.
+                for key in CLASSIFICATION_FIELDS:
+                    work['details'].pop(key, None)
+                if identity in classification_reviews:
+                    work['details'].update(public_details(classification_reviews[identity]))
                 if source["id"] == "dga":
                     fields = metadata.get("source_fields", {})
                     raw_format = str(fields.get("format") or "").strip()

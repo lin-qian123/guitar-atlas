@@ -59983,6 +59983,130 @@
         "status": "retained",
         "basis": "exact_source_attribution_preservation",
         "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "?ukasz Komorowski": {
+        "original": "?ukasz Komorowski",
+        "zh": "?ukasz Komorowski",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Antonio Carlos Jobim": {
+        "original": "Antonio Carlos Jobim",
+        "zh": "安东尼奥·卡洛斯·若宾",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Jobim. Antonio Carlos",
+          "musicians_zh.json:classclef:Antonio Carlos Jobim",
+          "musicians_zh.json:classclef:Jobim, Antonio Carlos"
+        ]
+      },
+      "Anónimo Cancionero de Palacio S.XVI": {
+        "original": "Anónimo Cancionero de Palacio S.XVI",
+        "zh": "Anónimo Cancionero de Palacio S.XVI",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Beirut": {
+        "original": "Beirut",
+        "zh": "Beirut",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Carson Perkins": {
+        "original": "Carson Perkins",
+        "zh": "Carson Perkins",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Dave Brubeck": {
+        "original": "Dave Brubeck",
+        "zh": "戴夫·布鲁贝克",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Brubeck. Dave",
+          "musicians_zh.json:classclef:Dave Brubeck"
+        ]
+      },
+      "Discord: KirbyCult#7188": {
+        "original": "Discord: KirbyCult#7188",
+        "zh": "Discord: KirbyCult#7188",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Felicity Campbell": {
+        "original": "Felicity Campbell",
+        "zh": "Felicity Campbell",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "IJHolmes": {
+        "original": "IJHolmes",
+        "zh": "IJHolmes",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Jacob do Bandolim": {
+        "original": "Jacob do Bandolim",
+        "zh": "雅各布·杜·班多林",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:classclef:Jacob do Bandolim"
+        ]
+      },
+      "James Valcq": {
+        "original": "James Valcq",
+        "zh": "James Valcq",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Joshua Redman": {
+        "original": "Joshua Redman",
+        "zh": "Joshua Redman",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Manaka Kataoka": {
+        "original": "Manaka Kataoka",
+        "zh": "Manaka Kataoka",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Marshmello, Anne-Marie": {
+        "original": "Marshmello, Anne-Marie",
+        "zh": "Marshmello, Anne-Marie",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Randolf Wien": {
+        "original": "Randolf Wien",
+        "zh": "Randolf Wien",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "TheOneHong": {
+        "original": "TheOneHong",
+        "zh": "TheOneHong",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
       }
     }
   }

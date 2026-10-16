@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-09-28",
+  "reviewed_at": "2026-10-17",
   "entries": [
     {
       "category": "For guitar, 2 violins (arr)",
@@ -49,6 +49,16 @@
       "section": "*For Soprano Recorder, Guitar and Bass ''ad lib.'' (Mourey)",
       "imslp_url": "https://imslp.org/wiki/Violin_Sonata_in_D_minor_'La_Folia',_Op.5_No.12_(Corelli,_Arcangelo)",
       "reason": "来源小节明确包含额外低音乐器，不符合当前精确编制。"
+    },
+    {
+      "category": "For 3 guitars (arr)",
+      "work_id": "422329",
+      "filename": "PMLP422329-ByrdALL.pdf",
+      "section": "Work-level three-guitar score",
+      "imslp_url": "https://imslp.org/wiki/Triosammlung_aus_der_Renaissance_in_England_f%C3%BCr_3_Gitarren_(H%C3%B6ger,_Anton)",
+      "reason": "实际PDF为William Byrd《Fantasia à 3》的两把柔音号与低音长号总谱及分谱，未有吉他；仅排除此错配文件入口，原文件与来源记录保留。",
+      "pdf_sha256": "a30162d3266ff687db19e3e3cf45a70f8395db2ce2d967c5655a23613956bafe",
+      "pdf_size": 102767
     }
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "scope_id": "guitar-related-evidence-review-v1",
+  "scope": "已确认吉他声部或明确来源吉他声明的曲谱；器种、其他声部、人数与版本疑点逐条保留。",
+  "new_musescore_scope": "Frozen PDMX v9 acoustic-guitar selection plus individually reviewed guitar-related scores; unresolved additional roles and ensemble sizes remain explicit.",
+  "rules": [
+    "Native identity, source title, original attribution, licensing and format locators remain unchanged.",
+    "A broad admission requires an active, explicitly declared guitar role in the actual MXL, corroborating printed PDF evidence, and three verified record-bound formats.",
+    "Bare part counts, MIDI patches, the hosting website and generic instrument register names do not establish instrumentation or player counts.",
+    "A broad admission with unresolved roles, alternatives or collective desks receives guitar_unspecified, never a precise solo/duo/trio/quartet conclusion.",
+    "No guitar role established means no admission through this policy; clear other instrumentation remains a recorded review outcome.",
+    "Source declarations and file observations have separate evidence labels; this policy does not change acquisition permissions or frozen download scopes."
+  ]
+}

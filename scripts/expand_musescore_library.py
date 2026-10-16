@@ -35,6 +35,8 @@ CONTINUATION = BASE / 'continuation-baseline.zip'
 CONTINUATION_SCOPE = BASE / 'remaining-review-scope.json'
 DEEP_CONTINUATION = BASE / 'deep-continuation-baseline.zip'
 DEEP_SCOPE = BASE / 'deep-review-scope.json'
+BROAD_CONTINUATION = BASE / 'broad-continuation-baseline.zip'
+BROAD_SCOPE = BASE / 'broad-review-scope.json'
 FORMATS = {'PDF': ('pdf', 'pdf'), 'MUSICXML': ('mxl', 'mxl'), 'MIDI': ('mid', 'mid')}
 
 
@@ -52,7 +54,7 @@ def canonical(value):
 
 
 def active_baseline_path(root):
-    for relative in (DEEP_CONTINUATION, CONTINUATION):
+    for relative in (BROAD_CONTINUATION, DEEP_CONTINUATION, CONTINUATION):
         candidate = root / relative
         if candidate.exists() or candidate.is_symlink():
             return pdf_methods._safe_local(root, candidate)
@@ -95,7 +97,9 @@ def validate_continuation_archive(path):
             raise ValueError('incomplete continuation baseline')
         parents = {}
         for filename, guard in continuation.get('parent_baselines', {}).items():
-            if filename != CONTINUATION.name or filename == Path(path).name.removesuffix('.part'):
+            allowed_parents = {DEEP_CONTINUATION.name: {CONTINUATION.name},
+                               BROAD_CONTINUATION.name: {DEEP_CONTINUATION.name}}
+            if filename not in allowed_parents.get(Path(path).name.removesuffix('.part'), set()):
                 raise ValueError('unsafe parent continuation filename')
             parent = Path(path).parent / filename
             if parent.is_symlink() or not parent.is_file():
@@ -150,7 +154,7 @@ def check_continuation_state(root, value=None):
     current = load(root / relative)['entries']
     indexed = {row['id']: row for row in current}
     old_ids = {row['id'] for row in value['documents']['sources/musescore/catalog.json']['value']['works']}
-    if state.get('stage') == 'deep-pending-review':
+    if state.get('stage') in {'deep-pending-review', 'broad-pending-review'}:
         continuation_review_scope(root, [], {row['id'] for row in load(root / BASE / 'plan.json')['works']}, state=state)
         allowed = set(load(scope_path)['ids'])
         old_case_ids = {row['id'] for row in old_cases}
@@ -184,20 +188,22 @@ def continuation_review_scope(root, new_ids, planned_ids, *, state=None):
     return {'path': path.relative_to(root).as_posix(), 'sha256': sha(body), 'size': len(body), 'records': len(ids)}
 
 
-def capture_continuation(root, *, deep=False):
+def capture_continuation(root, *, deep=False, broad=False):
     """Freeze one current publication baseline before further semantic review."""
     from verify_musescore_expansion import (decode_offline, check_final_input_guards, SOURCE, REVIEW,
         PUBLIC, ALIASES, RANKING, APPEND_TRANSLATIONS, EXACT_CASE_PATH)
     from render_offline_site import offline_input_fingerprint
     root = Path(root).resolve()
-    destination = pdf_methods._safe_local(root, root / (DEEP_CONTINUATION if deep else CONTINUATION))
+    advanced = deep or broad
+    stage_scope = BROAD_SCOPE if broad else DEEP_SCOPE
+    destination = pdf_methods._safe_local(root, root / (BROAD_CONTINUATION if broad else DEEP_CONTINUATION if deep else CONTINUATION))
     if destination.exists():
         value = validate_continuation_archive(destination)
         return {'status': 'already_captured', 'records': len(value['documents'][SOURCE]['value']['works']),
                 'path': str(destination)}
     original = root / BASE / 'baseline.json.gz'
-    preceding = root / CONTINUATION if deep else original
-    if deep:
+    preceding = root / DEEP_CONTINUATION if broad else root / CONTINUATION if deep else original
+    if advanced:
         check_continuation_state(root, validate_continuation_archive(preceding))
     previous = _baseline_file(preceding, pdf_methods._stat_fingerprint(preceding))
     # Current catalogs and the offline wrapper replace these large old values.
@@ -207,7 +213,7 @@ def capture_continuation(root, *, deep=False):
              if key not in {'documents', 'translations', 'offline_snapshot', 'continuation'}}
     value['documents'] = dict(previous['documents'])
     value['translations'] = dict(previous['translations'])
-    original_count = (previous['continuation']['original_record_count'] if deep
+    original_count = (previous['continuation']['original_record_count'] if advanced
         else len(previous['documents'][SOURCE]['value']['works']))
     parent_evidence = dict(previous.get('continuation', {}).get('evidence', {}))
     del previous
@@ -239,9 +245,9 @@ def capture_continuation(root, *, deep=False):
         elif sha(body) != guard['sha256']:
             raise ValueError('protected translation changed before continuation: ' + relative)
     native = value['documents'][SOURCE]['value']
-    if deep:
-        scope_body = read(DEEP_SCOPE); deep_scope = json.loads(scope_body)
-        old_review_path = BASE / 'remaining-review.json.gz'
+    if advanced:
+        scope_body = read(stage_scope); deep_scope = json.loads(scope_body)
+        old_review_path = BASE / ('deep-review.json.gz' if broad else 'remaining-review.json.gz')
         old_review_body = read(old_review_path)
         prior_review = json.loads(gzip.decompress(old_review_body))
         pending = {identity for identity, row in prior_review['records'].items()
@@ -251,7 +257,7 @@ def capture_continuation(root, *, deep=False):
                 or any(not isinstance(identity, str) or not re.fullmatch(r'musescore:[1-9][0-9]*', identity) for identity in ids)
                 or len(ids) != len(set(ids)) or set(ids) != pending or not pending
                 or pending & {row['id'] for row in native['works']}
-                or deep_scope.get('prior_remaining_review_sha256') != sha(old_review_body)
+                or deep_scope.get('prior_' + ('deep' if broad else 'remaining') + '_review_sha256') != sha(old_review_body)
                 or deep_scope.get('prior_final_review_sha256') != sha(read(BASE / 'final-review.json'))):
             raise ValueError('deep review scope must equal the exact pending outcome identities')
     if (integration.get('output_catalog_sha256') != value['documents'][SOURCE]['sha256']
@@ -278,7 +284,7 @@ def capture_continuation(root, *, deep=False):
             state = pdf_methods._stat_fingerprint(path)
             guard = {'size': state[2], 'sha256': asset['sha256'], 'device': state[0], 'inode': state[1]}
             if (state[2] != asset['size'] or relative in previous_files and guard != previous_files[relative]
-                    or deep and sha(path.read_bytes()) != asset['sha256']):
+                    or advanced and sha(path.read_bytes()) != asset['sha256']):
                 raise ValueError('prior physical object changed before continuation: ' + relative)
             watched[relative] = state
             files[relative] = guard
@@ -291,8 +297,12 @@ def capture_continuation(root, *, deep=False):
         if path.exists():
             relative = str(BASE / name); body = read(relative)
             immutable[relative] = {'sha256': sha(body), 'size': len(body)}
-    if deep:
+    if advanced:
         for relative in (CONTINUATION_SCOPE, BASE / 'remaining-review.json.gz'):
+            body = read(relative)
+            immutable[str(relative)] = {'sha256': sha(body), 'size': len(body)}
+    if broad:
+        for relative in (DEEP_SCOPE, BASE / 'deep-review.json.gz'):
             body = read(relative)
             immutable[str(relative)] = {'sha256': sha(body), 'size': len(body)}
     evidence_paths = set()
@@ -312,15 +322,15 @@ def capture_continuation(root, *, deep=False):
         'captured_at': datetime.now(timezone.utc).isoformat(), 'original_baseline_sha256': sha(read(BASE / 'baseline.json.gz')),
         'prior_record_count': len(native['works']), 'original_record_count': original_count,
         'immutable_inputs': immutable, 'evidence': {}}
-    if deep:
-        body = read(CONTINUATION)
-        value['continuation'].update(stage='deep-pending-review', baseline_path=str(DEEP_CONTINUATION),
-            review_scope_path=str(DEEP_SCOPE), review_scope_guard={'sha256': sha(scope_body), 'size': len(scope_body)},
-            parent_baselines={CONTINUATION.name: {'sha256': sha(body), 'size': len(body)}},
+    if advanced:
+        body = read(preceding.relative_to(root))
+        value['continuation'].update(stage='broad-pending-review' if broad else 'deep-pending-review', baseline_path=str(destination.relative_to(root)),
+            review_scope_path=str(stage_scope), review_scope_guard={'sha256': sha(scope_body), 'size': len(scope_body)},
+            parent_baselines={preceding.name: {'sha256': sha(body), 'size': len(body)}},
             pending_records=len(pending))
         # The previous archive remains immutable. Reuse its unchanged evidence
         # through its checked parent guard instead of duplicating it in this ZIP.
-        inherited = {relative: {**parent_evidence[relative], 'parent_archive': CONTINUATION.name}
+        inherited = {relative: {**parent_evidence[relative], 'parent_archive': preceding.name}
             for relative in evidence_paths
             if relative in parent_evidence and sha(read(relative)) == parent_evidence[relative]['sha256']}
         inherited.pop(str(EXACT_CASE_PATH), None)
@@ -971,7 +981,7 @@ def append_catalog(old, additions, config, integration):
         raise ValueError('append requires nonempty unique new native identities')
     result['works'].extend(copy.deepcopy(additions))
     result['works'].sort(key=lambda work: int(work['id'].split(':', 1)[1]))
-    result['snapshot']['scope'] = config['scope']
+    result['snapshot']['scope'] = integration.get('classification_scope', config['scope'])
     result['snapshot']['record_count'] = len(result['works'])
     result['snapshot']['expansion'] = {
         'scope_version': config['scope_version'], 'configuration_sha256': canonical(config),
@@ -986,7 +996,7 @@ def append_catalog(old, additions, config, integration):
     summary = result.setdefault('summary', {})
     summary['records'] = len(result['works'])
     summary['source_records'] = len(result['works'])
-    summary['scope'] = config['scope']
+    summary['scope'] = integration.get('classification_scope', config['scope'])
     for label, field in [('PDF', 'verified_local_pdfs'), ('MUSICXML', 'verified_local_mxl'), ('MIDI', 'verified_local_midi')]:
         summary[field] = sum(any(a['format'] == label and a['status'] == 'verified'
                                   for a in w['assets']) for w in result['works'])
@@ -1121,6 +1131,11 @@ def commit(root):
             'initial_records': continuation['original_record_count'], 'inherited_records': len(old['works']),
             'earlier_added_records': len(old['works']) - continuation['original_record_count'],
             'ignored_regenerated_review_ids': sorted(set(all_projections) & old_ids), 'review_scope': review_scope}
+    if final.get('broad_review'):
+        policy = load(root / 'config/library_classification.json')
+        integration['classification_scope'] = policy['new_musescore_scope']
+        integration['broad_review'] = final['broad_review']
+        integration['boundaries'][1] = 'Individually verified guitar-related file scope; unresolved additional roles and ensemble sizes remain explicitly unclassified.'
     updated = append_catalog(old, additions, config, integration)
     original_overlay = baseline(root)['documents']['sources/musescore/instrumentation-review.json']['value']
     overlay_works = original_overlay['works'] + [projections[work['id']] for work in additions]
@@ -1174,7 +1189,7 @@ def commit(root):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('phase', choices=['verify-archives', 'recall', 'prepare', 'extract', 'commit',
-        'capture-continuation', 'capture-deep-continuation', 'verify-continuation'])
+        'capture-continuation', 'capture-deep-continuation', 'capture-broad-continuation', 'verify-continuation'])
     parser.add_argument('--root', type=Path, default=Path('.'))
     parser.add_argument('--selection', type=Path)
     parser.add_argument('--format', choices=FORMATS)
@@ -1189,6 +1204,8 @@ def main():
             result = capture_continuation(root)
         elif args.phase == 'capture-deep-continuation':
             result = capture_continuation(root, deep=True)
+        elif args.phase == 'capture-broad-continuation':
+            result = capture_continuation(root, broad=True)
         elif args.phase == 'verify-continuation':
             result = verify_continuation_baseline(root)
         elif args.phase == 'verify-archives':

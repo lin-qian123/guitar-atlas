@@ -411121,6 +411121,677 @@
       "display_original": "Ballade 35-Gais et jolis Guillaume de Machaut",
       "display_zh": "《Ballade 35-Gais et jolis Guillaume de Machaut》",
       "reference_entries": []
+    },
+    "musescore:146492": {
+      "original": "Piosenka jest dobra na wszystko",
+      "zh": "《Piosenka jest dobra na wszystko》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Piosenka jest dobra na wszystko",
+      "display_zh": "《Piosenka jest dobra na wszystko》",
+      "reference_entries": []
+    },
+    "musescore:182936": {
+      "original": "New York New York",
+      "zh": "《New York New York》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Sam Rahbari",
+      "display_original": "New York New York",
+      "display_zh": "《New York New York》",
+      "reference_entries": []
+    },
+    "musescore:311396": {
+      "original": "Concerto n.1 op.30 Allegro Maestoso di Mauro Giuliani",
+      "zh": "《Concerto n.1 op.30 Allegro Maestoso di Mauro Giuliani》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Concerto n.1 op.30 Allegro Maestoso di Mauro Giuliani",
+      "display_zh": "《Concerto n.1 op.30 Allegro Maestoso di Mauro Giuliani》",
+      "reference_entries": []
+    },
+    "musescore:336306": {
+      "original": "Inspiration",
+      "zh": "《Inspiration》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "IJHolmes",
+      "display_original": "Inspiration",
+      "display_zh": "《Inspiration》",
+      "reference_entries": []
+    },
+    "musescore:845326": {
+      "original": "evrybody needs somebody to love",
+      "zh": "《evrybody needs somebody to love》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "evrybody needs somebody to love",
+      "display_zh": "《evrybody needs somebody to love》",
+      "reference_entries": []
+    },
+    "musescore:879751": {
+      "original": "La Vicuñita",
+      "zh": "《La Vicuñita》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "La Vicuñita",
+      "display_zh": "《La Vicuñita》",
+      "reference_entries": []
+    },
+    "musescore:1033971": {
+      "original": "Little Wooden Turtle",
+      "zh": "《Little Wooden Turtle》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Carson Perkins",
+      "display_original": "Little Wooden Turtle",
+      "display_zh": "《Little Wooden Turtle》",
+      "reference_entries": []
+    },
+    "musescore:3455266": {
+      "original": "Guantanamera",
+      "zh": "《Guantanamera》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Guantanamera",
+      "display_zh": "《Guantanamera》",
+      "reference_entries": []
+    },
+    "musescore:4470576": {
+      "original": "I love God",
+      "zh": "《I love God》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "?ukasz Komorowski",
+      "display_original": "I love God",
+      "display_zh": "《I love God》",
+      "reference_entries": []
+    },
+    "musescore:4811905": {
+      "original": "Doce de Coco",
+      "zh": "《Doce de Coco》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Jacob do Bandolim",
+      "display_original": "Doce de Coco",
+      "display_zh": "《Doce de Coco》",
+      "reference_entries": []
+    },
+    "musescore:4837360": {
+      "original": "ã Gustav Holst - Planets ã 6. Uranus l The Magician",
+      "zh": "《【 Gustav Holst - Planets 】 6. Uranus l The Magician》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "【 Gustav Holst - Planets 】 6. Uranus l The Magician",
+      "display_zh": "《【 Gustav Holst - Planets 】 6. Uranus l The Magician》",
+      "reference_entries": []
+    },
+    "musescore:4988485": {
+      "original": "You've got a friend in me",
+      "zh": "《You've got a friend in me》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Joshua Redman",
+      "display_original": "You've got a friend in me",
+      "display_zh": "《You've got a friend in me》",
+      "reference_entries": []
+    },
+    "musescore:5049582": {
+      "original": "Undertale - Snowdin Town (original by Toby Fox)",
+      "zh": "《Undertale - Snowdin Town (original》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Toby Fox",
+      "display_original": "Undertale - Snowdin Town (original",
+      "display_zh": "《Undertale - Snowdin Town (original》",
+      "reference_entries": []
+    },
+    "musescore:5133451": {
+      "original": "å¤¢ãããªãã¦ãã©ããã",
+      "zh": "《夢をかなえてドラえもん》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "来源显示原题本身包含中文或多语文本；保留完整来源原题及真实编号，不凭中文字符认定已核规范中文题名。",
+      "original_composer": "TheOneHong",
+      "display_original": "夢をかなえてドラえもん",
+      "display_zh": "《夢をかなえてドラえもん》",
+      "reference_entries": []
+    },
+    "musescore:5245233": {
+      "original": "¡Ay linda amiga!",
+      "zh": "《¡Ay linda amiga!》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Anónimo Cancionero de Palacio S.XVI",
+      "display_original": "¡Ay linda amiga!",
+      "display_zh": "《¡Ay linda amiga!》",
+      "reference_entries": []
+    },
+    "musescore:5260873": {
+      "original": "Alle Jahre Wieder",
+      "zh": "《Alle Jahre Wieder》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Alle Jahre Wieder",
+      "display_zh": "《Alle Jahre Wieder》",
+      "reference_entries": []
+    },
+    "musescore:5305655": {
+      "original": "Friends - Marshmello feat. Annne-Mariee",
+      "zh": "《Friends - Marshmello feat. Annne-Mariee》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Marshmello, Anne-Marie",
+      "display_original": "Friends - Marshmello feat. Annne-Mariee",
+      "display_zh": "《Friends - Marshmello feat. Annne-Mariee》",
+      "reference_entries": []
+    },
+    "musescore:5547228": {
+      "original": "Ballade 38-Phyton le mervilleus serpent  Guillaume de Machaut",
+      "zh": "《Ballade 38-Phyton le mervilleus serpent Guillaume de Machaut》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Guillaume de Machaut",
+      "display_original": "Ballade 38-Phyton le mervilleus serpent Guillaume de Machaut",
+      "display_zh": "《Ballade 38-Phyton le mervilleus serpent Guillaume de Machaut》",
+      "reference_entries": []
+    },
+    "musescore:5558849": {
+      "original": "å¤ç¥­ããå¤¢è±ç« - midi",
+      "zh": "《夏祭り、夢花火 - midi》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "来源显示原题本身包含中文或多语文本；保留完整来源原题及真实编号，不凭中文字符认定已核规范中文题名。",
+      "original_composer": "",
+      "display_original": "夏祭り、夢花火 - midi",
+      "display_zh": "《夏祭り、夢花火 - midi》",
+      "reference_entries": []
+    },
+    "musescore:5600981": {
+      "original": "æã®èåãã¼ã ã»ã¯ã¼ã«ã(Fields of Time - Home World)",
+      "zh": "《時の草原ホーム・ワールド(Fields of Time - Home World)》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "来源显示原题本身包含中文或多语文本；保留完整来源原题及真实编号，不凭中文字符认定已核规范中文题名。",
+      "original_composer": "",
+      "display_original": "時の草原ホーム・ワールド(Fields of Time - Home World)",
+      "display_zh": "《時の草原ホーム・ワールド(Fields of Time - Home World)》",
+      "reference_entries": []
+    },
+    "musescore:5715846": {
+      "original": "Kimer, I klokker - Henrik Rung (1807-1871);also Joachim Neander",
+      "zh": "《Kimer, I klokker - Henrik Rung (1807-1871);also Joachim Neander》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Kimer, I klokker - Henrik Rung (1807-1871);also Joachim Neander",
+      "display_zh": "《Kimer, I klokker - Henrik Rung (1807-1871);also Joachim Neander》",
+      "reference_entries": []
+    },
+    "musescore:5715877": {
+      "original": "Yuletide Is Here Again",
+      "zh": "《Yuletide Is Here Again》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Yuletide Is Here Again",
+      "display_zh": "《Yuletide Is Here Again》",
+      "reference_entries": []
+    },
+    "musescore:5715893": {
+      "original": "Hajej, Nynej, Jezisku",
+      "zh": "《Hajej, Nynej, Jezisku》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Hajej, Nynej, Jezisku",
+      "display_zh": "《Hajej, Nynej, Jezisku》",
+      "reference_entries": []
+    },
+    "musescore:5728038": {
+      "original": "Silent Night, Holiest Night",
+      "zh": "《Silent Night, Holiest Night》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Silent Night, Holiest Night",
+      "display_zh": "《Silent Night, Holiest Night》",
+      "reference_entries": []
+    },
+    "musescore:5728256": {
+      "original": "Jesus Jesus Rest Your Head",
+      "zh": "《Jesus Jesus Rest Your Head》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Jesus Jesus Rest Your Head",
+      "display_zh": "《Jesus Jesus Rest Your Head》",
+      "reference_entries": []
+    },
+    "musescore:5729977": {
+      "original": "Jeg s? julemanden kysse mor - Tommy Connor",
+      "zh": "《Jeg s? julemanden kysse mor - Tommy Connor》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Jeg s? julemanden kysse mor - Tommy Connor",
+      "display_zh": "《Jeg s? julemanden kysse mor - Tommy Connor》",
+      "reference_entries": []
+    },
+    "musescore:5730195": {
+      "original": "Til julebal i nisseland - Sven Gyldmark",
+      "zh": "《Til julebal i nisseland - Sven Gyldmark》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Til julebal i nisseland - Sven Gyldmark",
+      "display_zh": "《Til julebal i nisseland - Sven Gyldmark》",
+      "reference_entries": []
+    },
+    "musescore:5744972": {
+      "original": "Karakuri-dokei to Koi no Hanashi – Wanderer ããããæè¨ã¨æã®è©±",
+      "zh": "《Karakuri-dokei to Koi no Hanashi – Wanderer からくり時計と恋の話》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "来源显示原题本身包含中文或多语文本；保留完整来源原题及真实编号，不凭中文字符认定已核规范中文题名。",
+      "original_composer": "",
+      "display_original": "Karakuri-dokei to Koi no Hanashi – Wanderer からくり時計と恋の話",
+      "display_zh": "《Karakuri-dokei to Koi no Hanashi – Wanderer からくり時計と恋の話》",
+      "reference_entries": []
+    },
+    "musescore:5761372": {
+      "original": "O we love the children's meeting - Barney Elliott Warren",
+      "zh": "《O we love the children's meeting - Barney Elliott Warren》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "O we love the children's meeting - Barney Elliott Warren",
+      "display_zh": "《O we love the children's meeting - Barney Elliott Warren》",
+      "reference_entries": []
+    },
+    "musescore:5783243": {
+      "original": "Softly the evening vespers - Daniel Otis Teasley",
+      "zh": "《Softly the evening vespers - Daniel Otis Teasley》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Softly the evening vespers - Daniel Otis Teasley",
+      "display_zh": "《Softly the evening vespers - Daniel Otis Teasley》",
+      "reference_entries": []
+    },
+    "musescore:5788721": {
+      "original": "O vos omnes - Hieronymus Praetorius",
+      "zh": "《O vos omnes - Hieronymus Praetorius》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "O vos omnes - Hieronymus Praetorius",
+      "display_zh": "《O vos omnes - Hieronymus Praetorius》",
+      "reference_entries": []
+    },
+    "musescore:5810131": {
+      "original": "Dia vort', el Dia sfer' - Albrecht Kronenberger",
+      "zh": "《Dia vort', el Dia sfer' - Albrecht Kronenberger》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Dia vort', el Dia sfer' - Albrecht Kronenberger",
+      "display_zh": "《Dia vort', el Dia sfer' - Albrecht Kronenberger》",
+      "reference_entries": []
+    },
+    "musescore:5812126": {
+      "original": "AÅ­du, paÅtistoj",
+      "zh": "《Aŭdu, paŝtistoj》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Aŭdu, paŝtistoj",
+      "display_zh": "《Aŭdu, paŝtistoj》",
+      "reference_entries": []
+    },
+    "musescore:5817440": {
+      "original": "Zwei Segel - Albrecht Kronenberger",
+      "zh": "《Zwei Segel - Albrecht Kronenberger》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Zwei Segel - Albrecht Kronenberger",
+      "display_zh": "《Zwei Segel - Albrecht Kronenberger》",
+      "reference_entries": []
+    },
+    "musescore:5833056": {
+      "original": "Jacquou Le Croquant",
+      "zh": "《Jacquou Le Croquant》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Jacquou Le Croquant",
+      "display_zh": "《Jacquou Le Croquant》",
+      "reference_entries": []
+    },
+    "musescore:5838718": {
+      "original": "KoÅu",
+      "zh": "《Koşu》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Yusuf Biberci",
+      "display_original": "Koşu",
+      "display_zh": "《Koşu》",
+      "reference_entries": []
+    },
+    "musescore:5844883": {
+      "original": "The Snugly Melody",
+      "zh": "《The Snugly Melody》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Randolf Wien",
+      "display_original": "The Snugly Melody",
+      "display_zh": "《The Snugly Melody》",
+      "reference_entries": []
+    },
+    "musescore:5857101": {
+      "original": "Detective Connan Main Theme",
+      "zh": "《Detective Connan Main Theme》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Detective Connan Main Theme",
+      "display_zh": "《Detective Connan Main Theme》",
+      "reference_entries": []
+    },
+    "musescore:5873118": {
+      "original": "Es schneit",
+      "zh": "《Es schneit》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Es schneit",
+      "display_zh": "《Es schneit》",
+      "reference_entries": []
+    },
+    "musescore:5875593": {
+      "original": "PMShow - Te Awa",
+      "zh": "《PMShow - Te Awa》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Felicity Campbell",
+      "display_original": "PMShow - Te Awa",
+      "display_zh": "《PMShow - Te Awa》",
+      "reference_entries": []
+    },
+    "musescore:5884794": {
+      "original": "Unsquare Dance - Dave Brubeck",
+      "zh": "《Unsquare Dance》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Dave Brubeck",
+      "display_original": "Unsquare Dance",
+      "display_zh": "《Unsquare Dance》",
+      "reference_entries": []
+    },
+    "musescore:5885372": {
+      "original": "Realm Overworld",
+      "zh": "《Realm Overworld》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Realm Overworld",
+      "display_zh": "《Realm Overworld》",
+      "reference_entries": []
+    },
+    "musescore:5885818": {
+      "original": "Fairy tail",
+      "zh": "《Fairy tail》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Fairy tail",
+      "display_zh": "《Fairy tail》",
+      "reference_entries": []
+    },
+    "musescore:5891176": {
+      "original": "Ring Around the Moon",
+      "zh": "《Ring Around the Moon》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "James Valcq",
+      "display_original": "Ring Around the Moon",
+      "display_zh": "《Ring Around the Moon》",
+      "reference_entries": []
+    },
+    "musescore:5904875": {
+      "original": "Rito Village - Breath of the Wild",
+      "zh": "《Rito Village - Breath of the Wild》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Manaka Kataoka",
+      "display_original": "Rito Village - Breath of the Wild",
+      "display_zh": "《Rito Village - Breath of the Wild》",
+      "reference_entries": []
+    },
+    "musescore:5918333": {
+      "original": "chega final",
+      "zh": "《chega final》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Antonio Carlos Jobim",
+      "display_original": "chega final",
+      "display_zh": "《chega final》",
+      "reference_entries": []
+    },
+    "musescore:5931085": {
+      "original": "Song OWO",
+      "zh": "《Song OWO》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Discord: KirbyCult#7188",
+      "display_original": "Song OWO",
+      "display_zh": "《Song OWO》",
+      "reference_entries": []
+    },
+    "musescore:5936160": {
+      "original": "æ³åãã©ã¬ã¹ãarranged by osamuraisan",
+      "zh": "《想像フォレストarranged by osamuraisan》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "来源显示原题本身包含中文或多语文本；保留完整来源原题及真实编号，不凭中文字符认定已核规范中文题名。",
+      "original_composer": "",
+      "display_original": "想像フォレストarranged by osamuraisan",
+      "display_zh": "《想像フォレストarranged by osamuraisan》",
+      "reference_entries": []
+    },
+    "musescore:5936165": {
+      "original": "My  soul , Your  beats! (ver1) [Fix]",
+      "zh": "《My soul , Your beats! (ver1) [Fix]》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "My soul , Your beats! (ver1) [Fix]",
+      "display_zh": "《My soul , Your beats! (ver1) [Fix]》",
+      "reference_entries": []
+    },
+    "musescore:5946862": {
+      "original": "A Shot in the Dark",
+      "zh": "《A Shot in the Dark》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Henry Mancini",
+      "display_original": "A Shot in the Dark",
+      "display_zh": "《A Shot in the Dark》",
+      "reference_entries": []
+    },
+    "musescore:5964836": {
+      "original": "musescore 1",
+      "zh": "《musescore 1》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "musescore 1",
+      "display_zh": "《musescore 1》",
+      "reference_entries": []
+    },
+    "musescore:5968322": {
+      "original": "BrownSusan Comp0",
+      "zh": "《BrownSusan Comp0》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "BrownSusan Comp0",
+      "display_zh": "《BrownSusan Comp0》",
+      "reference_entries": []
+    },
+    "musescore:5980693": {
+      "original": "Autumn Leaves Frank Sinatra ÙØªØ­ÙØ§Øª ÙØ§ÙØ± Ø§ÙØºÙØ±Ù",
+      "zh": "《Autumn Leaves Frank Sinatra وتحيات ماهر الغمرى》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Autumn Leaves Frank Sinatra وتحيات ماهر الغمرى",
+      "display_zh": "《Autumn Leaves Frank Sinatra وتحيات ماهر الغمرى》",
+      "reference_entries": []
+    },
+    "musescore:5981848": {
+      "original": "Godfather- ÙØ¹ ØªØ­ÙØ§Øª ÙØ§ÙØ± Ø§ÙØºÙØ±Ù",
+      "zh": "《Godfather- مع تحيات ماهر الغمرى》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Godfather- مع تحيات ماهر الغمرى",
+      "display_zh": "《Godfather- مع تحيات ماهر الغمرى》",
+      "reference_entries": []
+    },
+    "musescore:5983081": {
+      "original": "Marie comme un chat",
+      "zh": "《Marie comme un chat》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Marie comme un chat",
+      "display_zh": "《Marie comme un chat》",
+      "reference_entries": []
+    },
+    "musescore:5983390": {
+      "original": ",,,ÙÙØ© Ø§ÙØ±ÙÙØ§ÙØ³ÙØ© Ø§ÙØºÙØ§Ø¦ÙØ©, Feelings,,ÙØ¹ ØªØ­ÙØ§Øª ÙØ§ÙØ± Ø§ÙØºÙØ±Ù,",
+      "zh": "《,,,قمة الرومانسية الغنائية, Feelings,,مع تحيات ماهر الغمرى,》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": ",,,قمة الرومانسية الغنائية, Feelings,,مع تحيات ماهر الغمرى,",
+      "display_zh": "《,,,قمة الرومانسية الغنائية, Feelings,,مع تحيات ماهر الغمرى,》",
+      "reference_entries": []
+    },
+    "musescore:5985832": {
+      "original": "WhenIFallInLove ÙØ¹ ØªØ­ÙØ§Øª ÙØ§ÙØ± Ø§ÙØºÙØ±Ù",
+      "zh": "《WhenIFallInLove مع تحيات ماهر الغمرى》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "WhenIFallInLove مع تحيات ماهر الغمرى",
+      "display_zh": "《WhenIFallInLove مع تحيات ماهر الغمرى》",
+      "reference_entries": []
+    },
+    "musescore:6034976": {
+      "original": "Vagabond",
+      "zh": "《Vagabond》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Beirut",
+      "display_original": "Vagabond",
+      "display_zh": "《Vagabond》",
+      "reference_entries": []
+    },
+    "musescore:6099968": {
+      "original": "Astronomía",
+      "zh": "《Astronomía》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Astronomía",
+      "display_zh": "《Astronomía》",
+      "reference_entries": []
+    },
+    "musescore:6153971": {
+      "original": "10-Didn't my Lord deliver Daniel",
+      "zh": "《10-Didn't my Lord deliver Daniel》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "10-Didn't my Lord deliver Daniel",
+      "display_zh": "《10-Didn't my Lord deliver Daniel》",
+      "reference_entries": []
+    },
+    "musescore:6223963": {
+      "original": "Lit (Koe no Katachi)",
+      "zh": "《Lit (Koe no Katachi)》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Lit (Koe no Katachi)",
+      "display_zh": "《Lit (Koe no Katachi)》",
+      "reference_entries": []
     }
   }
 }
