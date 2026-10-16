@@ -185,3 +185,9 @@
 本轮新增来源PDF去重dry-run新鲜扫描6,505个对象，22组／44条路径全部已共享，0待替换、0失败，未执行apply。三格式分别按内容复用；未录取候选的有效对象仍是审读／待核证据，不因未进入正式目录而作为垃圾删除。
 
 最终独立保全已通过：原1,248条native／review、3,736个旧内容对象的新鲜摘要／大小／inode、全部旧译名条目、49,697条旧公开与离线记录及全部local_editions精确保留。当前3,846个格式守卫与34条新权威CSV绑定通过，39,271条本地链接安全有效、失败0。最终实际离线快照在生产codec／search／adapter的Node VM中覆盖1,282条记录、3,846个格式控件、2,564个安全下载名和1,282次分类限制，失败0；该项不冒称file协议浏览器UI实测。公开／离线共享字段、compact／canonical、别名与排名一致。
+
+内容提交为[`c713667e820fc53d763e078bb7a00292eb4efb5b`](https://github.com/lin-qian123/guitar-atlas/commit/c713667e820fc53d763e078bb7a00292eb4efb5b)，[Pages运行38877857580](https://github.com/lin-qian123/guitar-atlas/actions/runs/38877857580)对应精确head，测试、公开边界／译名／文本审计和部署全部成功。远端Python为2,809项通过、1项跳过（该次-q日志未给单项名称；本地2,810项全部通过），Node83项通过、0跳过。线上18个HTTP内容文件全部200，逐项大小及SHA-256等于本地冻结清单；`.nojekyll`单列控制文件。
+
+实际HTTPS页面确认全库49,731条、MuseScore范围1,282条／16个有成员共同分类，独奏726、二重奏75、三重奏13、四重奏22、吉他合奏7、弦乐48、室内乐189显示正确。“Gais et jolis”找到5545961，详情显示两吉他与中提琴、三人及Contratenor／Tenor原标注；“框鼓”找到5906960，并保留空置钢琴不计人的说明；“Rabeca”找到4999652，Rabeca、Viola Amarantina和吉他分别呈现，实际谱题及差异提示可见；“Drei Haselnüsse”找到4796528，六个角色、长笛攻击对应与原MIDI共享通道音色缺陷说明均可见；“秋叶”找到5344348，原题Autumn Leaves及Joseph Kosma同时保留。控制台无warn/error，公开谱件下载链接0；仅关闭本轮核验页，用户原页保留。
+
+随后仅同步本段与TODO的正式回执，公开网站树保持相同；最终文档ref、对应成功Pages、线上字节核对及输入守卫在私有规范回执`sources/musescore/verification/verification.json`原位接续。
