@@ -225,7 +225,8 @@ def test_real_three_format_review_binds_plan_scope_assets_and_native_projection(
     repo = Path(__file__).resolve().parents[1]
     methods = ["scripts/review_musescore_expansion_final.py", "scripts/review_musescore_expansion.py",
         "scripts/score_instrumentation.py", "scripts/score_pdf_evidence.py", "scripts/score_midi_crosscheck.py",
-        "scripts/review_musescore_instrumentation.py", "scripts/source_adapters/pdmx_formats.py", "scripts/catalog_instrumentation.py"]
+        "scripts/review_musescore_instrumentation.py", "scripts/source_adapters/pdmx_formats.py", "scripts/catalog_instrumentation.py",
+        "scripts/score_mxl_playback_correspondence.py"]
     for name in methods:
         destination = tmp_path / name
         destination.parent.mkdir(parents=True, exist_ok=True)

@@ -52,7 +52,7 @@ def test_final_semantic_inputs_methods_and_exact_case_bytes_are_independently_cu
     final, scope = final_guard_fixture(tmp_path, cases=cases)
     before = copy.deepcopy((final, scope))
     assert check_final_input_guards(tmp_path, final, scope) == {
-        "current_input_files": 6, "final_method_files": 8, "scope_method_files": 5,
+        "current_input_files": 6, "final_method_files": 9, "scope_method_files": 5,
         "exact_case_bytes_current": True}
     assert (final, scope) == before
 
@@ -466,6 +466,15 @@ def test_verifier_reads_the_single_zip_continuation_baseline_without_a_duplicate
         archive.writestr('baseline.json', json.dumps(value))
         archive.writestr('evidence/prior-final.json', '{"completed":true}')
     assert read_baseline(path) == value
+
+
+def test_verifier_refuses_a_stale_explicit_baseline_after_deep_stage_capture(tmp_path):
+    from expand_musescore_library import DEEP_CONTINUATION, CONTINUATION
+    from verify_musescore_expansion import verify
+    deep = tmp_path / DEEP_CONTINUATION
+    deep.parent.mkdir(parents=True); deep.write_bytes(b'active captured stage')
+    with pytest.raises(AuditFailure, match='latest published baseline'):
+        verify(tmp_path, tmp_path / CONTINUATION, precheck=True)
 
 
 @pytest.mark.parametrize('field', ['source_license', 'source_parts_names', 'source_uploader', 'source_title', 'pdmx_csv_transcription'])

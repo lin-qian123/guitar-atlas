@@ -373,6 +373,43 @@ source or adapter.
   Independent Contra Guitar roles count in the acoustic-guitar family while
   retaining their specific type; Mandola, Balalaika, Bagpipe and Tin Whistle
   remain distinct instruments with their native names and written roles.
+- The separately authorized deep review starts from the published 1,248-record
+  library and exactly the 549 pending IDs in `deep-review-scope.json`. Use
+  `capture-deep-continuation` and `verify-continuation` before editing published
+  inputs. `deep-continuation-baseline.zip` pins that publication, reuses its
+  checksum-pinned parent archive and preserves the original 759-record review
+  and acquisition journals. Never replay either older baseline over later
+  admissions. Further stages require a new current-publication baseline and
+  explicit stage guards.
+- Preserve deep-review proposals and full PDF-page evidence losslessly in the
+  single `deep-review.json.gz` receipt before deleting merged intermediates.
+  Keep proposal decisions distinct from current production scope/final results;
+  every unresolved record needs its actual remaining evidence gap.
+  A later exact follow-up may use `review_musescore_deep.py --refresh-outcomes
+  --supplement PATH`: retain the complete supplement, original byte/semantic
+  guards and all earlier proposal values. Bind each supplemental identity,
+  three-format asset and complete exact case to current production outcomes;
+  default verification must work after the temporary supplement is removed.
+  Do not replace an embedded supplement with different content.
+- Exact playback-defect cases may use `score_mxl_playback_correspondence.py`
+  only with a fresh guarded complete target attack match. Its bounded grammar
+  validates repeats/endings and tie chains, and permits extra attacks only
+  inside explicitly printed trill windows with matching pitches and onsets.
+  Unsupported notation, dangling ties or unmatched attacks fail closed. This
+  proves the stated attack correspondence, not durations, timbre or repaired
+  MIDI. Keep the original automatic conflict and visible playback limitation.
+- Exact acoustic-bass template reviews require complete source declarations,
+  actual PDF/MXL activity and the official instrument definition. A default
+  plucked orchestral-contrabass template does not globally resolve bare Bass,
+  bass-guitar/TAB conflicts or subsequent instrument changes. Rabeca and Viola
+  Amarantina retain distinct types and original names. Explicit string/brass
+  sections keep unknown player counts even after their instrument family is
+  resolved; one software part never establishes one section player.
+  Exact old-polyphony Tenor/Contratenor labels can denote written registers;
+  inspect the full source and current score-instrument declarations, PDF and
+  lyrics context before asserting a singer. Lyrics on a named instrument do
+  not change its identity. Potential nonoverlapping doubling is not an author
+  declaration or a confirmed eight-player ensemble.
 
 ## Public and offline editions
 

@@ -263,13 +263,44 @@ def apply_midi_instrument_name_corrections(case, work, mxl, classification, auto
         midi_sha256=midi_sha256, pdf_sha256=pdf_sha256, instrument_names=True)
 
 
-def apply_midi_channel_collision_review(case, work, mxl, classification, automatic, *, midi_sha256, pdf_sha256):
+def _fresh_attack_correspondences(case, mxl, *, mxl_path, midi_path, midi_sha256):
+    declarations = case.get("midi_attack_correspondence_review", [])
+    if not declarations:
+        if "midi_attack_correspondence_review" in case:
+            raise ValueError("empty MIDI attack correspondence review")
+        return {}
+    if not isinstance(declarations, list) or mxl_path is None or midi_path is None:
+        raise ValueError("MIDI attack correspondence requires actual guarded files")
+    from score_mxl_playback_correspondence import match_pitched_attacks
+    proofs = {}
+    for row in declarations:
+        if (not isinstance(row, dict) or set(row) != {"part_id", "track_index", "track_name", "proof_sha256"}
+                or not isinstance(row["part_id"], str) or row["part_id"] in proofs
+                or type(row["track_index"]) is not int or row["track_index"] < 0
+                or not isinstance(row["track_name"], str) or not row["track_name"].strip()
+                or not re.fullmatch(r"[0-9a-f]{64}", str(row["proof_sha256"]))):
+            raise ValueError("invalid exact MIDI attack correspondence declaration")
+        proof = match_pitched_attacks(mxl_path, midi_path, part_id=row["part_id"],
+            track_index=row["track_index"], track_name=row["track_name"])
+        digest = hashlib.sha256(json.dumps(proof, ensure_ascii=False, sort_keys=True,
+            separators=(",", ":"), allow_nan=False).encode()).hexdigest()
+        if (proof["mxl_sha256"] != mxl["file_sha256"] or proof["midi_sha256"] != midi_sha256
+                or proof["status"] != "complete" or proof["unmatched_attacks"] != 0
+                or digest != row["proof_sha256"]):
+            raise ValueError("fresh MIDI attack correspondence differs from exact reviewed proof")
+        proofs[row["part_id"]] = proof
+    return proofs
+
+
+def apply_midi_channel_collision_review(case, work, mxl, classification, automatic, *, midi_sha256, pdf_sha256,
+                                      mxl_path=None, midi_path=None):
     """Explain a guarded export defect without claiming repaired playback.
 
     Only complete, exact conflicting groups can be explained. A distinct named
     track must actually issue the program on the affected shared port/channel;
-    the target's total note-ons must equal its complete notation note count.
-    This does not compare note sequences or change any source MIDI bytes.
+    the target's total note-ons must equal its complete notation note count, or
+    a separately guarded fresh match must explain every attack through explicit
+    repeats, ties and printed trills. No source MIDI bytes are changed.
     """
     key = "midi_channel_collision_review"
     if case is None or key not in case:
@@ -284,7 +315,9 @@ def apply_midi_channel_collision_review(case, work, mxl, classification, automat
         return hashlib.sha256(json.dumps(group, ensure_ascii=False, sort_keys=True,
             separators=(",", ":"), allow_nan=False).encode()).hexdigest()
     if (not isinstance(decisions, list) or not decisions
-            or any(not isinstance(row, dict) or set(row) != {"part_id", "origin_part_id", "group_sha256"}
+            or any(not isinstance(row, dict) or set(row) not in (
+                       {"part_id", "origin_part_id", "group_sha256"},
+                       {"part_id", "origin_part_id", "group_sha256", "origin_track_names"})
                    or any(not isinstance(row.get(field), str) or not row[field] for field in ("part_id", "origin_part_id"))
                    or not re.fullmatch(r"[0-9a-f]{64}", str(row.get("group_sha256", ""))) for row in decisions)):
         raise ValueError("MIDI channel collision requires exact unique group decisions")
@@ -296,6 +329,10 @@ def apply_midi_channel_collision_review(case, work, mxl, classification, automat
     parts = {row["part_id"]: row for row in mxl["parts"]}
     roles = {row["part_id"]: row for row in classification["roles"]}
     groups = automatic["sounding_groups"]
+    attack_proofs = _fresh_attack_correspondences(case, mxl, mxl_path=mxl_path, midi_path=midi_path,
+        midi_sha256=midi_sha256)
+    if not set(attack_proofs) <= {row["part_id"] for row in decisions}:
+        raise ValueError("MIDI attack proof does not target a reviewed channel conflict")
     for group in conflicts:
         decision = targets[group_digest(group)]
         target, source = decision["part_id"], decision["origin_part_id"]
@@ -309,18 +346,37 @@ def apply_midi_channel_collision_review(case, work, mxl, classification, automat
                 or type(group.get("note_on_count")) is not int or group["note_on_count"] <= 0):
             raise ValueError("MIDI collision lacks one exact corresponding named role")
         target_groups = [row for row in groups if target in row.get("MXL_part_ids", [])]
+        count = parts[target].get("note_count")
+        if target in attack_proofs:
+            proof = attack_proofs[target]
+            if (proof["track_index"] != group.get("track")
+                    or group.get("track_names") != [proof["track_name"]]
+                    or any(row.get("track") != proof["track_index"] for row in target_groups)):
+                raise ValueError("MIDI attack proof does not cover the exact target track")
+            count = proof["midi_attacks_matched"]
         if (any(row.get("MXL_part_ids") != [target] for row in target_groups)
-                or sum(row["note_on_count"] for row in target_groups) != parts[target].get("note_count")):
+                or sum(row["note_on_count"] for row in target_groups) != count):
             raise ValueError("MIDI collision notation/target note counts differ")
         origins = group.get("program_origin_tracks", [])
         if len(origins) != 1:
             raise ValueError("MIDI collision requires one actual program origin")
         origin = origins[0]
         origin_groups = [row for row in groups if row.get("track") == origin.get("track")]
+        expected_origin_names = [parts[source]["name"]]
+        if "origin_track_names" in decision:
+            expected_origin_names = decision["origin_track_names"]
+            source_decision = case.get("part_decisions", {}).get(source, {})
+            if (target not in attack_proofs or not isinstance(expected_origin_names, list)
+                    or len(expected_origin_names) != 1 or not isinstance(expected_origin_names[0], str)
+                    or not expected_origin_names[0].strip() or source_decision.get("resolved") is not True
+                    or source_decision.get("kind") != roles[source]["kind"]):
+                raise ValueError("exact differing origin track name requires a resolved role and attack proof")
         if (origin.get("track") == group.get("track") or not origin_groups
                 or any(row.get("MXL_part_ids") != [source] for row in origin_groups)
                 or any(origin.get(field) != group.get(field) for field in ("port", "channel_1based", "program_0based"))
-                or not origin.get("track_names") or any(name.strip() != parts[source]["name"].strip() for name in origin["track_names"])):
+                or not origin.get("track_names")
+                or (origin.get("track_names") != expected_origin_names if "origin_track_names" in decision
+                    else any(name.strip() != parts[source]["name"].strip() for name in origin["track_names"]))):
             raise ValueError("MIDI collision program origin does not bind a distinct actual role")
     result = deepcopy(automatic)
     for row in result["sounding_groups"]:
@@ -331,6 +387,8 @@ def apply_midi_channel_collision_review(case, work, mxl, classification, automat
     result.update(status="explained_playback_export_defect", conflicts=[], automatic_review=deepcopy(automatic),
         review_basis="exact_native_PDF_MXL_MIDI_and_complete_conflict_groups", review_note=case["note"],
         review_references=deepcopy(case["basis"]), midi_sha256=midi_sha256, pdf_sha256=pdf_sha256)
+    if attack_proofs:
+        result["complete_target_attack_correspondences"] = attack_proofs
     return result
 
 
@@ -521,7 +579,8 @@ def _review_final_record(job):
         midi = read_sounding_midi(paths["MIDI"])
         playback = crosscheck(mxl, midi, ports=_mxl_ports(paths["MUSICXML"], mxl), source_instrumentation=work["metadata"]["instrumentation"])
         playback = apply_midi_channel_collision_review(case, work, mxl, actual_scope["classification"], playback,
-            midi_sha256=assets["MIDI"]["sha256"], pdf_sha256=assets["PDF"]["sha256"])
+            midi_sha256=assets["MIDI"]["sha256"], pdf_sha256=assets["PDF"]["sha256"],
+            mxl_path=paths["MUSICXML"], midi_path=paths["MIDI"])
         automatic_names = review_midi_name_correspondence(actual_scope["classification"], playback)
         names = apply_midi_part_name_corrections(case, work, mxl, actual_scope["classification"], automatic_names,
             midi_sha256=assets["MIDI"]["sha256"], pdf_sha256=assets["PDF"]["sha256"])
@@ -589,7 +648,7 @@ def review_final(root, *, workers=4):
     methods = ["scripts/review_musescore_expansion_final.py", "scripts/review_musescore_expansion.py",
                "scripts/score_instrumentation.py", "scripts/score_pdf_evidence.py", "scripts/score_midi_crosscheck.py",
                "scripts/review_musescore_instrumentation.py", "scripts/source_adapters/pdmx_formats.py",
-               "scripts/catalog_instrumentation.py"]
+               "scripts/catalog_instrumentation.py", "scripts/score_mxl_playback_correspondence.py"]
     method_guards = {name: _digest(root / name) for name in methods}
     identities = sorted(accepted_ids, key=lambda value: int(value.split(":")[1]))
     jobs = ((root, identity, works[identity], {label: values[label]["records"][identity] for label in FORMATS},

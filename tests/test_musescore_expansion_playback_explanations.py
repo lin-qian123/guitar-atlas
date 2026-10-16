@@ -65,6 +65,22 @@ def test_absent_review_never_waives_a_channel_conflict():
     assert apply(work, mxl, classification, playback, None) == playback
 
 
+@pytest.mark.parametrize("value", [[], None, "proof", [{"part_id": "P1", "track_index": 0,
+    "track_name": "Piano", "proof_sha256": "a" * 64}]])
+def test_attack_count_exception_requires_a_fresh_guarded_actual_file_match(value):
+    work, mxl, classification, playback, case = evidence()
+    case["midi_attack_correspondence_review"] = value
+    with pytest.raises(ValueError):
+        apply(work, mxl, classification, playback, case)
+
+
+def test_different_origin_name_never_qualifies_without_complete_attack_proof():
+    work, mxl, classification, playback, case = evidence()
+    case["midi_channel_collision_review"][0]["origin_track_names"] = ["Other Cello"]
+    with pytest.raises(ValueError):
+        apply(work, mxl, classification, playback, case)
+
+
 @pytest.mark.parametrize("mutation", ["native", "mxl", "pdf", "midi", "conflict", "count", "origin", "extra", "duplicate", "shared"])
 def test_collision_review_fails_closed_for_stale_unmatched_or_unrelated_evidence(mutation):
     work, mxl, classification, playback, case = evidence()

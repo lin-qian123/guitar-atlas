@@ -59868,6 +59868,121 @@
         "status": "retained",
         "basis": "exact_source_attribution_preservation",
         "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Cancion popular purepecha": {
+        "original": "Cancion popular purepecha",
+        "zh": "Cancion popular purepecha",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Guns N' Roses": {
+        "original": "Guns N' Roses",
+        "zh": "Guns N' Roses",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "H Martinet": {
+        "original": "H Martinet",
+        "zh": "H Martinet",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Jordan Jennings": {
+        "original": "Jordan Jennings",
+        "zh": "Jordan Jennings",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Joseph Kosma": {
+        "original": "Joseph Kosma",
+        "zh": "约瑟夫·科斯马",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "去除明确的末尾生卒年后，完整姓名各词与既有已核署名对应；仅复用译名，不建立人物或作品同一性。",
+        "reference_entries": [
+          "musicians_zh.json:guitarschool:Joseph Kosma"
+        ]
+      },
+      "KAREL SVOBODA PB": {
+        "original": "KAREL SVOBODA PB",
+        "zh": "KAREL SVOBODA PB",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Kaper & Washington": {
+        "original": "Kaper & Washington",
+        "zh": "Kaper & Washington",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "M. L. Martini": {
+        "original": "M. L. Martini",
+        "zh": "M. L. Martini",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Reed": {
+        "original": "Reed",
+        "zh": "Reed",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Ronald Villegas": {
+        "original": "Ronald Villegas",
+        "zh": "Ronald Villegas",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Stain Mavik": {
+        "original": "Stain Mavik",
+        "zh": "Stain Mavik",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "The Blart": {
+        "original": "The Blart",
+        "zh": "The Blart",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Transcrito Ricardo Costa - amador": {
+        "original": "Transcrito Ricardo Costa - amador",
+        "zh": "Transcrito Ricardo Costa - amador",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "Vincent Ward": {
+        "original": "Vincent Ward",
+        "zh": "Vincent Ward",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "chant traditionnel allemand": {
+        "original": "chant traditionnel allemand",
+        "zh": "chant traditionnel allemand",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
+      },
+      "shitson": {
+        "original": "shitson",
+        "zh": "shitson",
+        "status": "retained",
+        "basis": "exact_source_attribution_preservation",
+        "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
       }
     }
   }

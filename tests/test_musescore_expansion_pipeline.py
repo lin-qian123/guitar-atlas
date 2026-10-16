@@ -507,6 +507,136 @@ def test_continuation_scope_drift_during_asset_validation_is_rejected_before_pre
     assert not (base / 'catalog-prepared.json').exists() and not (base / 'review-prepared.json').exists()
 
 
+def deep_continuation_fixture(tmp_path, monkeypatch):
+    prior, native, overlay, pending = continuation_fixture(tmp_path, monkeypatch)
+    base = tmp_path / expansion.BASE
+    case_path = tmp_path / 'metadata/instrumentation/musescore_expansion_reviewed.json'
+    document(case_path, {'schema_version': 1, 'entries': [
+        {'id': native['works'][-1]['id'], 'decision': 'published'},
+        {'id': 'musescore:777', 'decision': 'historical excluded'}]})
+    refresh_commit_review_guards(tmp_path)
+    expansion.capture_continuation(tmp_path)
+    remaining = {'schema_version': 1, 'status': 'complete', 'records': {
+        native['works'][-1]['id']: {'outcome': {'status': 'accepted'}},
+        pending['id']: {'outcome': {'status': 'pending'}}}}
+    with gzip.open(base / 'remaining-review.json.gz', 'wt') as stream:
+        json.dump(remaining, stream)
+    document(tmp_path / expansion.DEEP_SCOPE, {'schema_version': 1, 'ids': [pending['id']],
+        'prior_remaining_review_sha256': expansion.sha((base / 'remaining-review.json.gz').read_bytes()),
+        'prior_final_review_sha256': expansion.sha((base / 'final-review.json').read_bytes())})
+    return prior, native, overlay, pending
+
+
+def test_deep_capture_freezes_latest_publication_and_reuses_parent_without_copying_evidence(tmp_path, monkeypatch):
+    _, native, overlay, _ = deep_continuation_fixture(tmp_path, monkeypatch)
+    base = tmp_path / expansion.BASE
+    parent = (tmp_path / expansion.CONTINUATION).read_bytes()
+    old_scope = (tmp_path / expansion.CONTINUATION_SCOPE).read_bytes()
+    result = expansion.capture_continuation(tmp_path, deep=True)
+    assert result['status'] == 'captured' and result['records'] == len(native['works'])
+    assert expansion.active_baseline_path(tmp_path) == tmp_path / expansion.DEEP_CONTINUATION
+    value = expansion.baseline(tmp_path)
+    assert value['documents']['sources/musescore/instrumentation-review.json']['value'] == overlay
+    state = value['continuation']
+    assert state['stage'] == 'deep-pending-review' and state['pending_records'] == 1
+    assert state['parent_baselines'][expansion.CONTINUATION.name]['sha256'] == expansion.sha(parent)
+    assert str(base / 'remaining-review.json.gz') not in state['evidence']
+    assert str(expansion.BASE / 'remaining-review.json.gz') in state['immutable_inputs']
+    assert (tmp_path / expansion.CONTINUATION).read_bytes() == parent
+    assert (tmp_path / expansion.CONTINUATION_SCOPE).read_bytes() == old_scope
+    assert expansion.capture_continuation(tmp_path, deep=True)['status'] == 'already_captured'
+    assert expansion.verify_continuation_baseline(tmp_path)['status'] == 'verified_unchanged_publication'
+
+
+@pytest.mark.parametrize('mutation', ['omit_pending', 'add_accepted', 'duplicate', 'remaining_guard', 'final_guard'])
+def test_deep_capture_requires_exact_historical_pending_scope(tmp_path, monkeypatch, mutation):
+    _, native, _, pending = deep_continuation_fixture(tmp_path, monkeypatch)
+    path = tmp_path / expansion.DEEP_SCOPE; scope = expansion.load(path)
+    if mutation == 'omit_pending': scope['ids'] = []
+    elif mutation == 'add_accepted': scope['ids'].append(native['works'][-1]['id'])
+    elif mutation == 'duplicate': scope['ids'].append(pending['id'])
+    elif mutation == 'remaining_guard': scope['prior_remaining_review_sha256'] = 'a' * 64
+    else: scope['prior_final_review_sha256'] = 'a' * 64
+    document(path, scope)
+    with pytest.raises(ValueError, match='exact pending outcome'):
+        expansion.capture_continuation(tmp_path, deep=True)
+    assert not (tmp_path / expansion.DEEP_CONTINUATION).exists()
+
+
+@pytest.mark.parametrize('mutation', ['parent', 'old_scope', 'old_remaining', 'deep_scope', 'historical_excluded_case'])
+def test_deep_continuation_rejects_historical_and_scope_drift(tmp_path, monkeypatch, mutation):
+    deep_continuation_fixture(tmp_path, monkeypatch)
+    expansion.capture_continuation(tmp_path, deep=True)
+    base = tmp_path / expansion.BASE
+    if mutation == 'parent':
+        with (tmp_path / expansion.CONTINUATION).open('ab') as stream: stream.write(b'changed')
+    elif mutation == 'old_scope': document(tmp_path / expansion.CONTINUATION_SCOPE, {'changed': True})
+    elif mutation == 'old_remaining': (base / 'remaining-review.json.gz').write_bytes(b'changed')
+    elif mutation == 'deep_scope': document(tmp_path / expansion.DEEP_SCOPE, {'changed': True})
+    else:
+        path = tmp_path / 'metadata/instrumentation/musescore_expansion_reviewed.json'
+        cases = expansion.load(path); cases['entries'][-1]['decision'] = 'changed'; document(path, cases)
+    with pytest.raises(ValueError): expansion.check_continuation_state(tmp_path)
+
+
+def test_deep_commit_inherits_every_published_review_and_binds_new_stage_scope(tmp_path, monkeypatch):
+    _, native, overlay, pending = deep_continuation_fixture(tmp_path, monkeypatch)
+    expansion.capture_continuation(tmp_path, deep=True)
+    base = tmp_path / expansion.BASE
+    final = expansion.load(base / 'final-review.json')
+    addition = copy.deepcopy(final['works'][0])
+    addition.update({key: pending[key] for key in ('id', 'title_en', 'composer_en', 'source_url')})
+    final['works'][0]['review']['summary'] = 'Regenerated old decision must never overwrite the current baseline.'
+    final['works'].append(addition); document(base / 'final-review.json', final)
+    refresh_commit_review_guards(tmp_path)
+    assert expansion.commit(tmp_path)['current_records'] == len(native['works']) + 1
+    now = expansion.load(tmp_path / 'sources/musescore/instrumentation-review.json')
+    assert now['works'][:len(overlay['works'])] == overlay['works']
+    ledger = expansion.load(base / 'integration.json')['continuation']
+    assert ledger['inherited_records'] == len(native['works'])
+    assert ledger['baseline_sha256'] == expansion.sha((tmp_path / expansion.DEEP_CONTINUATION).read_bytes())
+    assert ledger['review_scope']['path'] == str(expansion.DEEP_SCOPE)
+    assert expansion.commit(tmp_path)['added_records'] == 1
+
+
+def test_deep_capture_freshly_rejects_same_size_prior_object_corruption(tmp_path, monkeypatch):
+    _, native, _, _ = deep_continuation_fixture(tmp_path, monkeypatch)
+    asset = native['works'][0]['assets'][0]
+    path = tmp_path / asset['local_path']; body = path.read_bytes()
+    path.write_bytes(bytes([body[0] ^ 1]) + body[1:])
+    with pytest.raises(ValueError, match='physical object changed'):
+        expansion.capture_continuation(tmp_path, deep=True)
+    assert not (tmp_path / expansion.DEEP_CONTINUATION).exists()
+
+
+def test_deep_commit_rejects_parent_drift_during_file_checks_before_prepared_writes(tmp_path, monkeypatch):
+    _, native, _, pending = deep_continuation_fixture(tmp_path, monkeypatch)
+    expansion.capture_continuation(tmp_path, deep=True)
+    base = tmp_path / expansion.BASE
+    final = expansion.load(base / 'final-review.json')
+    addition = copy.deepcopy(final['works'][0])
+    addition.update({key: pending[key] for key in ('id', 'title_en', 'composer_en', 'source_url')})
+    final['works'].append(addition); document(base / 'final-review.json', final)
+    refresh_commit_review_guards(tmp_path)
+    changed = False
+    def mutate_parent(*args):
+        nonlocal changed
+        if not changed:
+            with (tmp_path / expansion.CONTINUATION).open('ab') as stream: stream.write(b'changed')
+            changed = True
+    monkeypatch.setattr(expansion, 'validate_asset', mutate_parent)
+    with pytest.raises(ValueError, match='inputs changed'):
+        expansion.commit(tmp_path)
+    assert expansion.load(tmp_path / 'sources/musescore/catalog.json') == native
+    assert not (base / 'catalog-prepared.json').exists()
+
+
+def test_deep_baseline_cannot_be_redirected_through_a_symlink(tmp_path):
+    path = tmp_path / expansion.DEEP_CONTINUATION; path.parent.mkdir(parents=True)
+    target = tmp_path / 'foreign.zip'; target.write_bytes(b'foreign'); path.symlink_to(target)
+    with pytest.raises(ValueError, match='symlinks'): expansion.active_baseline_path(tmp_path)
+
+
 def completed_scan_with_parse_limit():
     integrity = {'bytes': 1000, 'md5': 'a' * 32, 'sha256': 'b' * 64, 'stat': [1, 2, 1000, 3, 4]}
     return {'status': 'complete_with_parse_or_missing_boundaries', 'coverage_complete': False,

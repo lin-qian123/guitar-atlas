@@ -77,15 +77,15 @@ def test_current_assets_pass_full_structural_and_music_context_sweep():
     assert baseline['issue_count']==0
     assert sum(baseline['scope'].values())==28318
     # The initial 341 attributions remain; the first 296 additions contributed
-    # 120 names, and the following 28 records contributed seven more.
-    added={'musicians_zh.json':341+120+7,'categories_zh.json':1}
+    # 120 names, the next 28 records seven, and the deep 34 another 16 (the final supplement reuses a known name).
+    added={'musicians_zh.json':341+120+7+16,'categories_zh.json':1}
     for name,count in added.items():
         assert len(docs[name]['entries']['musescore'])==count
     result=audit_assets(ROOT,docs)
     assert result['issue_count']==0
     assert result['scope']=={name:count+added.get(name,0)
                              for name,count in baseline['scope'].items()}
-    assert sum(result['scope'].values())==28318+341+120+7+1
+    assert sum(result['scope'].values())==28318+341+120+7+16+1
     assert set(result['scope'])==ASSETS
 
 
@@ -223,11 +223,14 @@ def test_musescore_attribution_review_contexts_cover_every_guarded_entry():
         else:
             raise AssertionError(f'unresolved MuseScore attribution: {original}: {status}')
     # The first expansion added 17 supported names and 103 retained originals;
-    # the next 28 records add one supported full name and six retained originals.
+    # the next 28 add one supported full name and six retained originals;
+    # the deep 34 add Joseph Kosma and 15 retained complete source names.
     # Unsupported abbreviations and source responsibility text stay unchanged.
-    assert checked=={'supported_full_name':68+17+1,'supported_source_label':3,
-                     'retained_source_text':269+103+6,'absent_source_attribution':1}
-    assert sum(checked.values())==len(musicians)==341+120+7
+    assert checked=={'supported_full_name':68+17+1+1,'supported_source_label':3,
+                     'retained_source_text':269+103+6+15,'absent_source_attribution':1}
+    assert sum(checked.values())==len(musicians)==341+120+7+16
+    assert musicians['Joseph Kosma']['zh']=='约瑟夫·科斯马'
+    assert 'musicians_zh.json:guitarschool:Joseph Kosma' in musicians['Joseph Kosma']['reference_entries']
     gurlitt=musicians['Cornelius Gurlitt (1820 - 1901)']
     assert gurlitt['status']=='reference'
     assert gurlitt['zh']=='科尼利厄斯·古利特'

@@ -54,7 +54,13 @@ LABELS = {**FROZEN_LABELS,
     "contra_guitar": ("contra guitar", "Contra Guitar（吉他属拨弦乐器）", "plucked"),
     "balalaika": ("balalaika", "Balalaika（拨弦乐器）", "plucked"),
     "tin_whistle": ("tin whistle", "Tin Whistle（木管乐器）", "woodwinds"),
+    "string_section": ("string section", "弦乐组", "strings"),
+    "brass_section": ("brass section", "铜管组", "brass"),
+    "rabeca": ("rabeca", "Rabeca（弓弦乐器）", "strings"),
+    "viola_amarantina": ("viola amarantina", "Viola Amarantina（拨弦乐器）", "plucked"),
+    "frame_drum": ("frame drum", "框鼓", "percussion"),
 }
+COLLECTIVE_KINDS = {"string_section", "brass_section"}
 FALLBACK_EXCLUDED = {"voice", "electric_guitar", "bass_guitar", "synthesizer"}
 ACOUSTIC_GUITAR_KINDS = {"guitar", "contra_guitar"}
 NAME_ISSUES = {"part_instrument_name_conflict", "multiple_instrument_types_in_one_part", "unidentified_named_role"}
@@ -490,6 +496,8 @@ def classify_expansion_parts(parts, *, view_pairs=(), separate_tabs=(), part_dec
     retained = [role for role in result["roles"] if role["sounding"] and role["part_id"] not in omitted]
     counts = Counter(role["kind"] for role in retained)
     issues = [issue for issue in result["issues"] if issue not in {"scope_exception_in_actual_score", "no_acoustic_guitar_role_in_actual_score"}]
+    issues.extend(f"{role['part_id']}:collective_role_count_unknown"
+                  for role in retained if role["kind"] in COLLECTIVE_KINDS)
     role_index = {role["part_id"]: role for role in retained}
     for issue in list(issues):
         if issue.endswith(":unresolved_cross_part_TAB_view"):

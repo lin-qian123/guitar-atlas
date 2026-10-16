@@ -410744,6 +410744,383 @@
       "display_original": "Etude en Si mineur - Augustin Barrios (2)",
       "display_zh": "《B小调练习曲（2）》",
       "reference_entries": []
+    },
+    "musescore:2431021": {
+      "original": "0003 - Vibração Diurna (Diurnal Vibration)",
+      "zh": "《0003 - Vibração Diurna (Diurnal Vibration)》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "José Rogério Santana",
+      "display_original": "0003 - Vibração Diurna (Diurnal Vibration)",
+      "display_zh": "《0003 - Vibração Diurna (Diurnal Vibration)》",
+      "reference_entries": []
+    },
+    "musescore:2973866": {
+      "original": "Petit Papa Noël",
+      "zh": "《Petit Papa Noël》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "H Martinet",
+      "display_original": "Petit Papa Noël",
+      "display_zh": "《Petit Papa Noël》",
+      "reference_entries": []
+    },
+    "musescore:2973871": {
+      "original": "Mon beau sapin",
+      "zh": "《Mon beau sapin》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "chant traditionnel allemand",
+      "display_original": "Mon beau sapin",
+      "display_zh": "《Mon beau sapin》",
+      "reference_entries": []
+    },
+    "musescore:3308071": {
+      "original": "Sweet Child O' Mine",
+      "zh": "《Sweet Child O' Mine》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Guns N' Roses",
+      "display_original": "Sweet Child O' Mine",
+      "display_zh": "《Sweet Child O' Mine》",
+      "reference_entries": []
+    },
+    "musescore:4311241": {
+      "original": "AOR World Map (Sohon Desert)",
+      "zh": "《AOR World Map (Sohon Desert)》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Jordan Jennings",
+      "display_original": "AOR World Map (Sohon Desert)",
+      "display_zh": "《AOR World Map (Sohon Desert)》",
+      "reference_entries": []
+    },
+    "musescore:4443266": {
+      "original": "Angelo's Caprice",
+      "zh": "《Angelo's Caprice》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Stain Mavik",
+      "display_original": "Angelo's Caprice",
+      "display_zh": "《Angelo's Caprice》",
+      "reference_entries": []
+    },
+    "musescore:4796528": {
+      "original": "Drei Haselnüsse Für Aschenbrödel",
+      "zh": "《Drei Haselnüsse Für Aschenbrödel》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "KAREL SVOBODA PB",
+      "display_original": "Drei Haselnüsse Für Aschenbrödel",
+      "display_zh": "《Drei Haselnüsse Für Aschenbrödel》",
+      "reference_entries": []
+    },
+    "musescore:4818770": {
+      "original": "Ocarina of time- Gerudo valley",
+      "zh": "《Ocarina of time- Gerudo valley》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Ocarina of time- Gerudo valley",
+      "display_zh": "《Ocarina of time- Gerudo valley》",
+      "reference_entries": []
+    },
+    "musescore:4999652": {
+      "original": "Chula do Tamega",
+      "zh": "《Chula do Tamega》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Transcrito Ricardo Costa - amador",
+      "display_original": "Chula do Tamega",
+      "display_zh": "《Chula do Tamega》",
+      "reference_entries": []
+    },
+    "musescore:5310359": {
+      "original": "Corridors of time - Chrono Trigger",
+      "zh": "《Corridors of time - Chrono Trigger》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Vincent Ward",
+      "display_original": "Corridors of time - Chrono Trigger",
+      "display_zh": "《Corridors of time - Chrono Trigger》",
+      "reference_entries": []
+    },
+    "musescore:5344348": {
+      "original": "Autumn Leaves",
+      "zh": "《秋叶》",
+      "status": "reference",
+      "basis": "exact_actual_file_title_and_existing_same_composer_bilingual_repertoire_reference",
+      "reason": "实际PDF第一页明确为Autumn Leaves及Joseph Kosma；结合既有同作曲者Les Feuilles Mortes参考题名《秋叶》与既有Autumn Leaves显示题名核对，采用常用参考译名。仅复用题名译法，不合并跨站版本、署名或文件。",
+      "original_composer": "Joseph Kosma",
+      "display_original": "Autumn Leaves",
+      "display_zh": "《秋叶》",
+      "reference_entries": [
+        "guitarschool:3073",
+        "cglib:26881"
+      ]
+    },
+    "musescore:5369889": {
+      "original": "As the last leaf falls in summer",
+      "zh": "《As the last leaf falls in summer》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "shitson",
+      "display_original": "As the last leaf falls in summer",
+      "display_zh": "《As the last leaf falls in summer》",
+      "reference_entries": []
+    },
+    "musescore:5390336": {
+      "original": "Biyuya, corralito y después...",
+      "zh": "《Biyuya, corralito y después...》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "M. L. Martini",
+      "display_original": "Biyuya, corralito y después...",
+      "display_zh": "《Biyuya, corralito y después...》",
+      "reference_entries": []
+    },
+    "musescore:5826710": {
+      "original": "On Green Dolphin Street Basslines",
+      "zh": "《On Green Dolphin Street Basslines》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Kaper & Washington",
+      "display_original": "On Green Dolphin Street Basslines",
+      "display_zh": "《On Green Dolphin Street Basslines》",
+      "reference_entries": []
+    },
+    "musescore:5838165": {
+      "original": "You Don't Have To Say You Love Me - Guitar solo",
+      "zh": "《You Don't Have To Say You Love Me - Guitar solo》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "You Don't Have To Say You Love Me - Guitar solo",
+      "display_zh": "《You Don't Have To Say You Love Me - Guitar solo》",
+      "reference_entries": []
+    },
+    "musescore:5842828": {
+      "original": "Makes Me Proud",
+      "zh": "《Makes Me Proud》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Faith Ramsey",
+      "display_original": "Makes Me Proud",
+      "display_zh": "《Makes Me Proud》",
+      "reference_entries": []
+    },
+    "musescore:5872620": {
+      "original": "test 2",
+      "zh": "《test 2》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "The Blart",
+      "display_original": "test 2",
+      "display_zh": "《test 2》",
+      "reference_entries": []
+    },
+    "musescore:5906960": {
+      "original": "Prototype no 2",
+      "zh": "《Prototype no 2》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Prototype no 2",
+      "display_zh": "《Prototype no 2》",
+      "reference_entries": []
+    },
+    "musescore:5909282": {
+      "original": "El Médico (Abajeño)",
+      "zh": "《El Médico (Abajeño)》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "El Médico (Abajeño)",
+      "display_zh": "《El Médico (Abajeño)》",
+      "reference_entries": []
+    },
+    "musescore:5913172": {
+      "original": "Danza de los viejitos",
+      "zh": "《Danza de los viejitos》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Danza de los viejitos",
+      "display_zh": "《Danza de los viejitos》",
+      "reference_entries": []
+    },
+    "musescore:5920800": {
+      "original": "And The band Played Waltzing Matilda A",
+      "zh": "《And The band Played Waltzing Matilda A》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "And The band Played Waltzing Matilda A",
+      "display_zh": "《And The band Played Waltzing Matilda A》",
+      "reference_entries": []
+    },
+    "musescore:5924419": {
+      "original": "El de Ichan",
+      "zh": "《El de Ichan》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Cancion popular purepecha",
+      "display_original": "El de Ichan",
+      "display_zh": "《El de Ichan》",
+      "reference_entries": []
+    },
+    "musescore:5946211": {
+      "original": "Species",
+      "zh": "《Species》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Ronald Villegas",
+      "display_original": "Species",
+      "display_zh": "《Species》",
+      "reference_entries": []
+    },
+    "musescore:5955405": {
+      "original": "Scarborough Fair in New Orleans",
+      "zh": "《Scarborough Fair in New Orleans》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Scarborough Fair in New Orleans",
+      "display_zh": "《Scarborough Fair in New Orleans》",
+      "reference_entries": []
+    },
+    "musescore:5966800": {
+      "original": "Scarborough Fair 8-2-2020",
+      "zh": "《Scarborough Fair 8-2-2020》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Scarborough Fair 8-2-2020",
+      "display_zh": "《Scarborough Fair 8-2-2020》",
+      "reference_entries": []
+    },
+    "musescore:5968779": {
+      "original": "××¡××× ×× ××× ××¨ ×¤× ×××× ×",
+      "zh": "《בסולם לה מינור פנטטוני》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "בסולם לה מינור פנטטוני",
+      "display_zh": "《בסולם לה מינור פנטטוני》",
+      "reference_entries": []
+    },
+    "musescore:5976751": {
+      "original": "Ni Se Compra",
+      "zh": "《Ni Se Compra》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Ni Se Compra",
+      "display_zh": "《Ni Se Compra》",
+      "reference_entries": []
+    },
+    "musescore:5981841": {
+      "original": "Frank Sinatra - My Way ÙØ¹ ØªØ­ÙØ§Øª ÙØ§ÙØ± Ø§ÙØºÙØ±Ù,,,,Ø±Ø§Ø¦Ø¹Ø© Ø§ÙØ²ÙÙ Ø§ÙØ¬ÙÙÙ,,,ÙØ§ÙÙØ±Ø§Ø¯",
+      "zh": "《Frank Sinatra - My Way مع تحيات ماهر الغمرى,,,,رائعة الزمن الجميل,,,وانفراد》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Frank Sinatra - My Way مع تحيات ماهر الغمرى,,,,رائعة الزمن الجميل,,,وانفراد",
+      "display_zh": "《Frank Sinatra - My Way مع تحيات ماهر الغمرى,,,,رائعة الزمن الجميل,,,وانفراد》",
+      "reference_entries": []
+    },
+    "musescore:5984209": {
+      "original": "Maitetsu - ã­ãªãã»ã©ã¹ã",
+      "zh": "《Maitetsu - ロオド・ラスト》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Maitetsu - ロオド・ラスト",
+      "display_zh": "《Maitetsu - ロオド・ラスト》",
+      "reference_entries": []
+    },
+    "musescore:5985031": {
+      "original": "Spaghetti and Meatballs With Our Homemade Alfredo Sauce",
+      "zh": "《Spaghetti and Meatballs With Our Homemade Alfredo Sauce》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Reed",
+      "display_original": "Spaghetti and Meatballs With Our Homemade Alfredo Sauce",
+      "display_zh": "《Spaghetti and Meatballs With Our Homemade Alfredo Sauce》",
+      "reference_entries": []
+    },
+    "musescore:5985648": {
+      "original": "Ø§ÙÙØ±Ø§Ø¯_ÙØ±Ø§Ø¦Ø¹Ø©_Ø±ÙØ§Ø¦Ø¹_Ø¹Ø¨Ø¯_Ø§ÙØ­ÙÙÙ,,Ø§ÙÙØ§Ù ÙØ§ØªÙÙÙ ÙÙ Ø§ÙØ³Ø§Ù _ÙÙ ØªÙØ²ÙØ¹ Ø¬Ø¯ÙØ¯ Ø±Ø§Ø¦Ø¹_ÙØ§ÙØ±_Ø§ÙØºÙØ±Ù",
+      "zh": "《انفراد_يرائعة_روائع_عبد_الحليم,,اهواك واتمنى لو انساك _فى توزيع جديد رائع_ماهر_الغمرى》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "انفراد_يرائعة_روائع_عبد_الحليم,,اهواك واتمنى لو انساك _فى توزيع جديد رائع_ماهر_الغمرى",
+      "display_zh": "《انفراد_يرائعة_روائع_عبد_الحليم,,اهواك واتمنى لو انساك _فى توزيع جديد رائع_ماهر_الغمرى》",
+      "reference_entries": []
+    },
+    "musescore:6290631": {
+      "original": "kk bossa",
+      "zh": "《kk bossa》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "kk bossa",
+      "display_zh": "《kk bossa》",
+      "reference_entries": []
+    },
+    "musescore:6358230": {
+      "original": "Astronomia",
+      "zh": "《Astronomia》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "",
+      "display_original": "Astronomia",
+      "display_zh": "《Astronomia》",
+      "reference_entries": []
+    },
+    "musescore:5545961": {
+      "original": "Ballade 35-Gais et jolis  Guillaume de Machaut",
+      "zh": "《Ballade 35-Gais et jolis Guillaume de Machaut》",
+      "status": "retained",
+      "basis": "exact_native_primary_title_preservation",
+      "reason": "本条来源元数据未附可靠中文题名依据，完整曲题也不能由受限音乐词法覆盖；专名或题意未获确认，保留原题和真实编号。",
+      "original_composer": "Guillaume de Machaut",
+      "display_original": "Ballade 35-Gais et jolis Guillaume de Machaut",
+      "display_zh": "《Ballade 35-Gais et jolis Guillaume de Machaut》",
+      "reference_entries": []
     }
   }
 }

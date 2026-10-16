@@ -32,6 +32,18 @@ def test_contra_guitar_stays_a_distinct_written_type_and_counts_in_the_guitar_fa
     assert review["roles"][3]["kind"] == "contra_guitar"
 
 
+@pytest.mark.parametrize("kind,family", [("string_section", "strings"), ("brass_section", "brass")])
+def test_exact_collective_type_never_becomes_one_confirmed_player(kind, family):
+    parts = [part(), part("P2", name="Section", instrument="Section")]
+    result = classify_expansion_parts(parts, part_decisions={"P2": {"kind": kind, "resolved": True}})
+    assert result["topic_id"] == family
+    assert result["guitar_player_count"] is None and result["ensemble_player_count"] is None
+    assert result["status"] == "file_reviewed_uncertain"
+    assert "P2:collective_role_count_unknown" in result["issues"]
+    assert "演奏人数未定" in result["instrumentation_zh"]
+    assert "2×" not in result["instrumentation_zh"]
+
+
 def part(identity="P1", name="Guitar", instrument="Classical Guitar", program=24, **extra):
     return {"part_id": identity, "name": name, "score_instruments": [{"id": "i", "name": instrument}],
             "midi_instruments": [{"id": "i", "program_0based": program}], "used_instrument_ids": [],

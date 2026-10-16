@@ -47,7 +47,8 @@ SCOPE_METHOD_PATHS = frozenset({"scripts/review_musescore_expansion.py",
     "scripts/review_musescore_instrumentation.py", "scripts/score_instrumentation.py",
     "scripts/source_adapters/pdmx_formats.py", "scripts/catalog_instrumentation.py"})
 FINAL_METHOD_PATHS = SCOPE_METHOD_PATHS | {"scripts/review_musescore_expansion_final.py",
-    "scripts/score_pdf_evidence.py", "scripts/score_midi_crosscheck.py"}
+    "scripts/score_pdf_evidence.py", "scripts/score_midi_crosscheck.py",
+    "scripts/score_mxl_playback_correspondence.py"}
 EXACT_CASE_PATH = Path("metadata/instrumentation/musescore_expansion_reviewed.json")
 
 
@@ -471,8 +472,13 @@ def verify(root, baseline_path, *, precheck=False, full_report=None):
 
     root = Path(root).resolve()
     require(precheck or full_report is not None, "final verification requires the actual full-render receipt")
+    from expand_musescore_library import active_baseline_path, DEEP_CONTINUATION
+    if (root / DEEP_CONTINUATION).exists() or (root / DEEP_CONTINUATION).is_symlink():
+        require(Path(baseline_path).resolve() == active_baseline_path(root),
+                "a captured deep stage requires its latest published baseline, not the historical continuation")
     before = read_baseline(baseline_path)
-    from expand_musescore_library import check_continuation_state, continuation_review_scope, CONTINUATION, CONTINUATION_SCOPE
+    from expand_musescore_library import (check_continuation_state, continuation_review_scope,
+        continuation_paths, continuation_guard_paths)
     continuation = check_continuation_state(root, before)
     documents = before["documents"]
     native_bytes = (root / SOURCE).read_bytes()
@@ -485,7 +491,8 @@ def verify(root, baseline_path, *, precheck=False, full_report=None):
     guarded = {Path(baseline_path), root / SOURCE, root / REVIEW, root / BASE / "integration.json"} | final_guard_paths(root)
     stamps = {Path(path): _stat_fingerprint(path) for path in guarded}
     if continuation:
-        stamps[root / CONTINUATION_SCOPE] = _stat_fingerprint(root / CONTINUATION_SCOPE)
+        continuation_path, _ = continuation_paths(root, continuation)
+        stamps.update({path: _stat_fingerprint(path) for path in continuation_guard_paths(root, continuation)})
     case_present = (root / EXACT_CASE_PATH).exists() or (root / EXACT_CASE_PATH).is_symlink()
     scope_raw = (root / BASE / "scope-review.json").read_bytes()
     final_raw = (root / BASE / "final-review.json").read_bytes()
@@ -552,7 +559,7 @@ def verify(root, baseline_path, *, precheck=False, full_report=None):
             'completed final review includes identities outside the frozen candidate plan')
     if continuation:
         require(integration.get('continuation') == {
-            'baseline_sha256': sha256(root / CONTINUATION),
+            'baseline_sha256': sha256(continuation_path),
             'initial_records': continuation['original_record_count'], 'inherited_records': len(originals),
             'earlier_added_records': len(originals) - continuation['original_record_count'],
             'ignored_regenerated_review_ids': sorted(set(all_final_ids) & set(originals)),
@@ -620,6 +627,14 @@ def verify(root, baseline_path, *, precheck=False, full_report=None):
             "csv_native_records": scan_counts["csv_native_records"], "undeclared_mxl_records": expected_scan_scope["undeclared_mxl_records"],
             "parse_failures": scan_counts.get("parse_failures", 0), "missing_csv_members": scan_counts["csv_mxl_members_missing_archive"]},
         "completed_final_verification": not precheck}
+    if continuation:
+        result['continuation_preservation'] = {
+            'stage': continuation.get('stage', 'remaining-review'),
+            'inherited_records': len(originals), 'original_records': continuation['original_record_count'],
+            'baseline_path': continuation_path.relative_to(root).as_posix(),
+            'review_scope': continuation_review_scope(root, added, {work['id'] for work in plan['works']}),
+            'historical_parent_baselines': continuation.get('parent_baselines', {}),
+            'historical_case_entries_outside_new_scope_exact': continuation.get('stage') == 'deep-pending-review'}
     # Public/native parity is checked before a long full offline render as well.
     public = read_json(root / PUBLIC)
     validate_payload(public, registry=load_registry(root))
