@@ -245,4 +245,8 @@ Delcamp的2,893条逐条筛查包含2,890份PDF、40,662页全文，3条保留40
 
 新离线入口8,267,472B，相比基线增加178,584B（约2.21%），没有嵌入谱件字节。最新8,088,888B回退保留，另保留受历史显示刷新回执绑定的8,084,112B旧证明，不作为可随意删除的历史副本。项目内已审计清理89个文件、2,555,170逻辑字节，包括无损归并的两份提案、旧测试／样本日志、重复警告stderr及Python／pytest缓存。清理前后441项受保护文件的SHA-256完全一致，谱件和来源数据未删除。临时SSD检出在全部412项文件与最终暂存内容对应后删除；它的删除量单独记录，不并入上述项目内清理数字。原始来源、取得journal、两份实际谱面证据包、修正GZIP、基线及有效回退保留。
 
-远端发布尚待完成；精确提交、Pages运行和线上字节验收在本节及私有 `sources/source-expansion/verification.json` 原位接续。
+内容提交为[`cb281cf893dc6f2e0aa8c5d19fbfd2909ab41300`](https://github.com/lin-qian123/guitar-atlas/commit/cb281cf893dc6f2e0aa8c5d19fbfd2909ab41300)，本地HEAD、origin/main、实时远端ref及GitHub API提交／树一致。[Pages运行40417774758](https://github.com/lin-qian123/guitar-atlas/actions/runs/40417774758)对应精确head，测试、公开边界／译名／文本审计和部署全部成功。远端Python为2,973通过、1跳过、0失败，Node为83通过、0失败；本地2,974项均通过。线上18个HTTP内容文件逐一返回200且大小／SHA-256等于本地，含完整与压缩目录；`.nojekyll`的404作为控制探针单列。
+
+实际HTTPS页面确认50,498记录、2,337来源分类及22来源，五个新增来源均出现在同一来源索引。Maikstrings的Adelita可按共同二重奏检索，原作曲者、谱面2人、J.J.Olson编配说明及刻版权利分别可见；Carneirinho检索返回原题Carneirunho，并显示实际谱题与差异提示。统一二重奏搜索“索尔”54条，首批18条均为索尔署名，IMSLP／DGA共同呈现、作品34在前。控制台无warn/error，所查新卡片只有人类来源页链接。只关闭本轮临时核验页并停止自己的本地HTTP服务器，用户原页面保留。
+
+随后仅同步发布回执与项目状态说明，公共网站树保持`7317ab16edfd6a40e28fbec4c266b3dacde8b419`。最终文档ref、对应成功Pages及远端一致性证据在私有 `sources/source-expansion/verification.json` 原位更新；不重复下载字节完全相同的公开树。

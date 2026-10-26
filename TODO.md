@@ -2,7 +2,7 @@
 
 只记录当前接续事项；完成记录与统计见[发布记录](docs/research/publication.md)、[冻结接入](docs/research/2026-10-01-integration-log.md)、[题名审读](docs/research/title-review.md)和[设计](docs/research/presentation.md)。
 
-## 当前新增来源：本地验收完成，待远端发布确认
+## 当前新增来源：验收与发布完成
 
 - [x] 本轮新增5个来源、706条来源记录：CSUN 424、Yawnoc 5、Maikstrings 112、Derek Hasted 23、Guitar Classroom 142（135条乐谱、7条参考资料）。当前来源配置与本地目录为22个来源、50,498条记录（50,406条乐谱、92条参考资料）、2,337个原生分类、59,111条分类成员关系；公开导出已完成，当前另有710条有证据的记录关联；它与下述PDF资产关系是不同统计口径。
 - [x] PDF获取完成：CSUN 424份均已验证（首轮421成功、3失败；同一获准地址重试后3份成功），另外三份教学来源286份均验证通过。合计710条PDF关系、710个不同SHA-256内容、1,707,045,956字节；当前失败、缺失、待取得均为0。Yawnoc 9份PDF受robots限制，未请求PDF或尝试替代路径；5份LilyPond源文本只用于元数据核验。公开站仍仅提供来源页，个人离线获取许可与公开再分发权分别处理。
@@ -12,10 +12,13 @@
 - [x] 最终公开数据的独立干净树验收：2,974项Python、83项Node及公开边界／译名／文本审计全部通过；412个版本化文件，代码与数据SHA与测试快照一致。
 - [x] 完整离线重建与保全核验：原49,792条记录及旧文件映射精确保留，40,162条本地链接零失败；整库37,437条有效PDF、35,862份不同内容，既有缺口与7条排除保留。
 - [x] 清理已审计提案副本、旧测试／样本日志和Python／pytest缓存，保留来源、谱件、翻译、解析日志及有效发布证据；临时检出在412项文件与最终暂存树对应后清理。
-- [ ] 同步远端仓库与网页，确认精确head的Pages成功及18个HTTP内容文件大小／SHA一致。
+- [x] 内容cb281cf已同步仓库与网页；精确head的Pages运行40417774758成功，18个HTTP内容文件均为200且大小／SHA相同，实际HTTPS搜索与新来源详情通过。后续文档同步保持相同公共树，最终ref回执在规范私有验证文件中记录。
 - 接续证据：[选源研究](docs/research/2026-10-01-source-expansion.md)、[候选清单](docs/research/2026-10-01-source-candidates.json)；私有回执见最终`sources/source-expansion/verification.json`、`acquisition-summary.json`、`csun-acquisition-phases.json`、`new-pdf-evidence.json.gz`、`file-note-runtime-check.json`和`file-note-binding-corrections.json`。
 
 ## 来源与文件的未完成边界
+
+- [ ] CSUN的713条候选仍缺器种、版本或编制规模证据，逐项原因保留；新发现的另8个来源候选仍有许可、访问或资料类型边界，不能当作正式接入。
+- [ ] Yawnoc的9份PDF受robots限制；保留明确受限状态，不尝试替代下载路线。
 
 - [ ] 上游恢复后重试ClassClef的231个HTTP 404来源链接，保留原记录，不替换为其他版本。
 - [ ] IMSLP既有65条未完成分类记录等待版权／交互验证或旧版本恢复。其中纯吉他50条、混合15条（14个源文件），需按原清单续传；这是获取／旧版恢复边界，与下述528个已有文件的编制审查分开。
