@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 
 ROOT=Path(__file__).resolve().parents[1]
+SUPPLEMENT_SOURCES = {'csun', 'yawnoc', 'maikstrings', 'derekhasted', 'guitarclassroom'}
 sys.path.insert(0,str(ROOT/'scripts'))
 from apply_legacy_translation_review import ASSETS, DEFAULT_REVIEW, audit_assets, prepare_review
 from catalog_display import musescore_display_text
@@ -68,11 +69,12 @@ def test_review_preserves_every_original_and_identity():
 
 def test_current_assets_pass_full_structural_and_music_context_sweep():
     docs=current_assets()
-    # Keep the complete preceding 16-source audit as a separately closed scope;
-    # every added MuseScore row is also included in the final full sweep.
+    # Keep the preceding 16-source audit as a closed scope. Every MuseScore
+    # and new-source row also participates in the complete current sweep.
     preceding=copy.deepcopy(docs)
     for name in ['musicians_zh.json','categories_zh.json']:
-        del preceding[name]['entries']['musescore']
+        for source in {'musescore'} | SUPPLEMENT_SOURCES:
+            del preceding[name]['entries'][source]
     baseline=audit_assets(ROOT,preceding)
     assert baseline['issue_count']==0
     assert sum(baseline['scope'].values())==28318
@@ -82,11 +84,14 @@ def test_current_assets_pass_full_structural_and_music_context_sweep():
     added={'musicians_zh.json':341+120+7+16+16,'categories_zh.json':1}
     for name,count in added.items():
         assert len(docs[name]['entries']['musescore'])==count
+    supplement = {'musicians_zh.json': 224, 'categories_zh.json': 108}
+    for name, count in supplement.items():
+        assert sum(len(docs[name]['entries'][source]) for source in SUPPLEMENT_SOURCES) == count
     result=audit_assets(ROOT,docs)
     assert result['issue_count']==0
-    assert result['scope']=={name:count+added.get(name,0)
+    assert result['scope']=={name:count+added.get(name,0)+supplement.get(name,0)
                              for name,count in baseline['scope'].items()}
-    assert sum(result['scope'].values())==28318+341+120+7+16+16+1
+    assert sum(result['scope'].values())==28318+341+120+7+16+16+1+224+108
     assert set(result['scope'])==ASSETS
 
 
@@ -179,7 +184,7 @@ def test_same_exact_original_has_consistent_spelling_without_expanding_initials(
     supported_spellings=defaultdict(set)
     for source,rows in musicians.items():
         for original,row in rows.items():
-            if source!='musescore':
+            if source not in {'musescore'} | SUPPLEMENT_SOURCES:
                 # Preserve the original exact-spelling assertion for every old
                 # reference and retained row, without changing its evidence.
                 preceding_spellings[original].add(row['zh'])
@@ -187,7 +192,7 @@ def test_same_exact_original_has_consistent_spelling_without_expanding_initials(
                 supported_spellings[original].add(row['zh'])
     assert all(len(values)==1 for values in preceding_spellings.values())
     # A retained transcription is not a proposed conventional translation.
-    # Supported correspondences, including generic source labels, remain strict.
+    # Supported correspondences across all sources, including labels, remain strict.
     assert all(len(values)==1 for values in supported_spellings.values())
     assert musicians['mutopia']['D. Aguado']['zh']=='D.·阿瓜多'
     assert musicians['guitardownunder']['D. Aguado']['zh']=='D.·阿瓜多'

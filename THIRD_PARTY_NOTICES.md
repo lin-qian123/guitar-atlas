@@ -5,11 +5,14 @@ It is not affiliated with, sponsored by, or endorsed by the websites below.
 Source records retain their own identity and attribution, even when titles
 look alike or local files contain identical bytes.
 
-The following 17 sources match `config/sources.json`. Original source titles,
+The following 22 sources match `config/sources.json`. Original source titles,
 attributions and identifiers remain available alongside project-authored
 display translations and normalized catalog fields. The source observations
 below follow the frozen acquisition ledger and research receipts; they are not
 a new grant of rights or a source-wide copyright determination.
+
+Project-added reference translations and catalog normalization are descriptive
+metadata. They do not grant new rights to source scores, editions, or files.
 
 ## IMSLP / Petrucci Music Library
 
@@ -184,6 +187,52 @@ separate from this repository's software and documentation licenses.
 [LibreScore](https://github.com/LibreScore/app-librescore) is the search application
 that led to this source. Its MIT software license is independent of the dataset
 and third-party score rights; it does not supply a bundled score database.
+
+## CSUN · International Guitar Research Archive (IGRA)
+
+[CSUN's IGRA collection page](https://digital-library.csun.edu/IGRA-scores)
+and its [institutional CONTENTdm collection](https://digital-collections.csun.edu/digital/collection/IGRA-scores)
+provide the catalog and item records. The catalog preserves institutional
+identifiers and links to human-readable item pages. PDF acquisition was limited
+to records whose individual item metadata states “Public domain.” That
+per-item statement is not a blanket public-domain determination for IGRA or
+for every scan; no collection-wide scan or metadata redistribution license is
+asserted here.
+
+## yawnoc/guitar
+
+[The frozen guitar-score repository](https://github.com/yawnoc/guitar) states
+that the underlying compositions are public domain and separately marks its
+editions/arrangements CC0. These are distinct rights claims; the composition
+claim does not substitute for the edition's stated terms. The nine release PDF
+routes were blocked by robots before any PDF request, so no PDF files were
+acquired or mirrored. Release-tag and source-file metadata remain attributed
+to the repository.
+
+## Maikstrings Classical Guitar Sheet Music
+
+[Maikstrings' guitar sheet-music directory](https://maikstrings.com/sheet-music-guitar.html)
+credits original composers and Maikstrings' engraving/edition work. The source
+permits individual educational copies for private offline use. Its claim that
+the underlying compositions are public domain does not establish public
+redistribution rights for modern engravings; PDF republication permission has
+not been established. Composer and engraver/arranger credits remain distinct.
+
+## Derek Hasted
+
+[Derek Hasted's free ensemble directory](https://www.derek-hasted.co.uk/free/)
+offers free personal downloads. This supports individual personal offline use;
+the directory does not confirm public redistribution permission for the PDFs.
+The catalog links to the directory and does not republish score files.
+
+## The Guitar Classroom / Lou Warde
+
+The [Classical](https://www.theguitarclassroom.com/classical) and
+[Guitar Ensemble](https://www.theguitarclassroom.com/gtr-ensemble) directories
+are maintained by The Guitar Classroom / Lou Warde. Its terms permit individual
+download/printing and educational or concert performance, while prohibiting
+public reposting or distribution of the PDFs. Those uses do not authorize a
+public mirror or file redistribution by this project.
 
 ## Publication boundary
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Discover configured expansion directories and refresh the 34-source ledger."""
+"""Discover configured expansion directories and refresh the candidate ledger."""
 from __future__ import annotations
 import argparse
 import concurrent.futures
@@ -7,7 +7,8 @@ import json
 from pathlib import Path
 from source_adapters.additional import ADAPTERS, atomic_json, utcnow
 
-DELEGATED = {"mutopia", "boije", "guitarschool", "dga", "rism"}
+DELEGATED = {"mutopia", "boije", "guitarschool", "dga", "rism", "csun", "yawnoc",
+             "maikstrings", "derekhasted", "guitarclassroom"}
 RESTRICTED = {
     "freescores": "Terms 10.3 require prior written permission for substantial/repeated automated database use",
     "musescore": "Terms restrict external automated systems; approved metadata/API route remains unresolved",

@@ -165,6 +165,63 @@ source or adapter.
   those per-edition membership additions, not just changes from unspecified;
   string count is never performing-player count.
 
+### Institutional and author supplement
+
+- `scripts/discover_supplement_sources.py` resumes the separately scoped CSUN,
+  yawnoc, Maikstrings, Derek Hasted and Guitar Classroom adapters. Keep source
+  registration append-only. Their current source IDs, scope receipts, original
+  credit context and native locator maps remain distinct; a source directory is
+  an approved human fallback only when no dedicated record page exists.
+  Maikstrings, Derek Hasted and Guitar Classroom have no native record ID; use
+  `pdf:<SHA-256 of the exact original href UTF-8 bytes>` and keep the lossless
+  locator/identity map privately. Preserve case and encoding; an explicit bundle
+  uses its confirmed primary score href. Filename stems are not public IDs.
+- CSUN discovery pins the 1,145 native IDs from the documented CONTENTdm query;
+  that count is not the entire guitar collection. The query's five 100-byte
+  fields are discovery evidence, never complete native titles or attributions.
+  Use complete singleitem metadata for the current 424 admitted records and
+  retain all excluded/pending outcomes and initial proposals privately. Native
+  pointer zero is valid. Resolve the exact same-ID `/api/collection/.../download`
+  URI against the confirmed `/digital` frontend mount, preserving the raw URI;
+  an OCLC 404 redirect is not a score or an approved new asset host. Keep the
+  endpoint-correction ledger and original failed requests. Metadata and PDF
+  writers must stop before another pipeline uses the source's one-second clock.
+- Treat explicit teaching-site download permission as personal offline
+  acquisition, independently of public redistribution. Public pages contain no
+  score bytes. Yawnoc's CC0 edition licence does not override its release-file
+  robots prohibition; do not retry or switch routes after that denial. Keep its
+  source-code evidence separate from acquired PDF availability.
+- Group explicit Score/Parts/TAB bundles within one source edition; keep clearly
+  labelled different versions distinct. Reference books are not score records.
+  Source headings such as `3 Guitars` establish a declared count, whereas a
+  software staff, file count, flexible ensemble or collection of 24 solos does
+  not. A choral work title and a mixed vocal/instrumental series do not prove
+  singers in the current arrangement. Bare Bass and unspecified orchestra sizes
+  retain their actual uncertainty.
+- Keep parser, acquisition and normalization commentary in private provenance.
+  The source-scoped `project_source_public_notes` projection retains actual
+  credits and concise rights facts for Maikstrings and yawnoc without changing
+  native metadata or previously published source details.
+- Append translations with `append_source_translations.py`; do not replay the
+  historical global title review. Exact new-title decisions live in
+  `source_supplement_reviewed_zh.json`. Preserve every earlier entry. The private
+  `sources/source-expansion/baseline.zip` pins the previous publication;
+  `verify_source_supplement.py` checks old native inputs, translation decisions,
+  public fields, complete offline mappings and legacy category navigation after
+  a fresh full render.
+- `catalog_file_notes.py` applies only the exact cases in
+  `metadata/instrumentation/source_file_notes_reviewed.json`; retain complete
+  native/PDF/evidence-packet guards. Keep the original teaching PDF packet and
+  later CSUN visual sample separate. Source declarations, actual printed
+  alternatives and uncertain player counts must remain visible. Include both
+  private packets in the offline input fingerprint; changed evidence requires
+  a new full render.
+- Classification snapshot caching is per source and per identical guarded path.
+  Keep all per-record semantic/native checks and finish with fresh resolution
+  and full stat guards of every unique snapshot. A changed path, file or guard
+  must fail; cached filesystem work never establishes a different record's
+  instrumentation or identity.
+
 ## IMSLP adapter
 
 - Preserve each included IMSLP category name exactly as its directory name.

@@ -1,8 +1,35 @@
 # Guitar Atlas 新来源调研与扩展路线
 
-调研日期：2026-10-01（Asia/Shanghai）。状态：**候选调研完成，尚未接入新来源**。
+初始调研：2026-10-01；续调：2026-10-26（Asia/Shanghai）。本页保留初始选源依据，并接续新的来源与资料研究；当前正式数量见[README](../../README.md)，实际获取、限制和验收见[接入记录](2026-10-01-integration-log.md)。候选清单现包含47个来源候选，不能把候选数当成已接入来源数。
 
-## 结论与建议顺序
+## 2026-10-26：机构、作者与研究资料补充
+
+本轮新增调研13个候选，优先实施CSUN IGRA、yawnoc/guitar、Maikstrings、Derek Hasted及The Guitar Classroom五个来源。作者目录补充当代编配、吉他重奏及教学资料，机构馆藏补充历史版本；沿用统一搜索和共同分类，不另建互相隔离的网站书架。只采用事实性书目字段及来源回链，谱件的取得条件独立核对。
+
+| 来源 | 已核实的价值与范围 | 本轮处理与限制 |
+| --- | --- | --- |
+| [CSUN · IGRA](https://digital-library.csun.edu/IGRA-scores) | 官方馆藏含历史谱件和教材，也混有其他拨弦器乐；本轮固定`guitar`关键词的1,145个原生ID | 使用robots允许的官方CONTENTdm API，一秒共享请求间隔。批量查询字段可能截断，正式元数据改用完整单件记录；逐条核对权利、器种及版本，不把命中数当馆藏总量。 |
+| [yawnoc/guitar](https://github.com/yawnoc/guitar) | 五个带版本发布的LilyPond编配；固定tag commit可核对源题、作曲者和Staff标签 | README的原作公版声明与编配CC0分开记录，实际LICENSE逐tag核对。九个PDF资产的自动访问被robots禁止，保留来源页；源码文字已用于元数据证据，不声称取得原生MSCZ。Tetris的独立Bass标签保留未决说明。 |
+| [Maikstrings](https://maikstrings.com/sheet-music-guitar.html) | 112份吉他谱、142页、九个来源明确的作曲者分组 | 九组名字和数量逐项对照各曲署名，保留原始全名与日期。未由“Guitar”推独奏；按明确的个人／教学下载条款取得私有文件，现代刻谱的公开再分发权仍单独保留，不作公共镜像。 |
+| [Derek Hasted](https://www.derek-hasted.co.uk/free/) | 当前23个免费目录条目，含来源明确的二、三、四重奏和可变人数合奏 | 24是初次手工计数错误，已按23个唯一定位符纠正，不虚构缺项或上游漂移。人数来自原分节声明，灵活条目保持未知；保留作者编配权和源链接。 |
+| [The Guitar Classroom](https://www.theguitarclassroom.com/gtr-ensemble) | 吉他重奏、[Classical](https://www.theguitarclassroom.com/classical)目录、合集和教学参考 | 同一作品卡的总谱／分谱／TAB合并为多个资产，明确不同版本分别保存。下载、打印及演奏许可不等于允许重贴；商业录音条件单列。参考资料与乐谱分别统计。 |
+
+此外保留以下未正式接入的后续资料。公开访问、开放获取、可编辑源、允许数据库复用和允许谱件再发布分别记录，不用一个“免费”标签替代。
+
+| 候选／资料 | 值得保留的线索 | 尚未纳入的具体原因 |
+| --- | --- | --- |
+| [Jonty Dawson Music Scores](https://jonty-dawson.github.io/music-scores/) | 九份编订版、四份原创；有版本页、日期、页数和公开LilyPond库 | 未找到明确的版本再分发许可；公开源码不等于开放许可。 |
+| [gurgeh/gitarr](https://github.com/gurgeh/gitarr) | 四首作品及多个吉他编配变体，含Mutopia母稿 | 许可逐文件不同，需把母稿、后续编配和原作权利分开，不能按仓库整体推断。 |
+| [Editions eLuna / Stéphane Dupont](https://stephanedupont.com/editions/) | EL001–EL010目录，含独奏及入门二重奏 | 可免费读取PDF，但未核明独立的再发布条件。 |
+| [Duolenz](https://guitarduo.duolenz.com/free_scores.html) | 吉他二重奏选编线索 | HTTPS robots请求遇到证书主机名不匹配；没有绕过证书校验。 |
+| [Martin Lohse](https://martinlohse.com/robots.txt) | 当代作曲者资料线索 | 已观察到针对GPTBot的禁止规则，本轮未继续自动获取作品目录；需澄清适用的数据使用条件。 |
+| [BNE Digital](https://www.bne.es/es/catalogos/bne-digital)／[BNE开放数据条件](https://www.bne.es/es/aviso-legal) | 西班牙历史吉他与弗拉门戈教材；官方说明书目数据采用CC0 | BNE Digital入口本轮返回403，未续采或换路线。开放书目数据与各数字谱件权利仍需分开；[该教材记录](https://datos.bne.es/edicion/bipa0000181199.html)仅作后续线索。 |
+| [Soundboard Scholar](https://www.guitarfoundation.org/page/SBScholar)／[期刊网站](https://digitalcommons.du.edu/sbs/) | 同行评审、开放获取的吉他研究，覆盖音乐史、演奏实践、乐器与教学 | 适合未来作为参考资料而非乐谱；作者不能当作作曲者。须核对新旧平台、文章许可与书目复用条件，当前未收取文章PDF。 |
+| [John Griffiths Vihuela Database](https://www.vihuelagriffiths.com/vihuela/music/info) | 历史指法谱、原书与页码、人物和文献；可辅助认识早期吉他相关背景 | 维乌埃拉、声乐减缩谱和现代吉他版本分开；数据库再利用许可及真正吉他范围未核明，不批量当作吉他乐谱接入。 |
+
+实际采集范围、分谱归并、翻译、失败／阻断和新鲜文件验证接续于[接入记录](2026-10-01-integration-log.md)与[发布记录](publication.md)。本轮没有触碰现有商业平台的登录、结账或访问拒绝，也没有重跑旧MuseScore原生范围。
+
+## 2026-10-01初始结论与建议顺序（历史）
 
 建议把 Guitar Atlas 建成同时可检索作品、编曲、出版版本、馆藏和谱格式的来源图谱。近期优先评估 **Mutopia、Boije Collection、The Guitar School – Iceland**；以 **Digital Guitar Archive（DGA）和 RISM** 扩展馆藏发现与权威关系。Delcamp、CGLIB、独立编订者和出版社补充版本与教学资料；大型社区、商业平台与中文指弹站保留为合作或扩围候选。
 
@@ -16,7 +43,7 @@
 | ClassClef | 6,740 | 77 | 6,739 乐谱记录、1 参考资料 |
 | 合计 | 18,133 | 429 | 19,573 条分类关系；不是跨网站唯一乐曲数 |
 
-本地依据：`config/sources.json`、`public_site/data/catalog.json`、`scripts/catalog_sources.py`、`AGENTS.md`。现有注册表仍只有 IMSLP 和 ClassClef。本报告与同目录候选清单不属于批准的生产配置。
+本地依据：`config/sources.json`、`public_site/data/catalog.json`、`scripts/catalog_sources.py`、`AGENTS.md`。当时注册表只有 IMSLP 和 ClassClef。本报告与同目录候选清单不属于批准的生产配置。
 
 ## 1. 最值得优先评估的五个来源
 

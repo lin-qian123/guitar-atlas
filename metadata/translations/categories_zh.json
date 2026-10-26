@@ -15643,6 +15643,1081 @@
         "basis": "checked_source_category_terms",
         "reason": "仅翻译已接受目录的明确栏目文字，不由栏目名推断单条编制、许可或原作属性。"
       }
+    },
+    "yawnoc": {
+      "guitar": {
+        "original": "Guitar",
+        "zh": "吉他",
+        "status": "reference",
+        "basis": "checked_source_category_terms",
+        "reason": "翻译明确栏目文字；具体编制仍由独立来源或谱件证据建立。"
+      }
+    },
+    "maikstrings": {
+      "guitar": {
+        "original": "Classical Guitar",
+        "zh": "古典吉他",
+        "status": "reference",
+        "basis": "checked_source_category_terms",
+        "reason": "翻译明确栏目文字；具体编制仍由独立来源或谱件证据建立。"
+      }
+    },
+    "derekhasted": {
+      "flexible-guitar-ensemble": {
+        "original": "24 Guitars (source says flexible group size)",
+        "zh": "24把吉他（来源注明人数可调整）",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "原栏目标题含24且明确说明人数可变；照录这一栏目说明，不把24视为固定演奏人数或作品编制结论。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:derekhasted:flexible-guitar-ensemble"
+        ]
+      },
+      "four-guitars": {
+        "original": "4 Guitars",
+        "zh": "吉他四重奏",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "来源栏目原文标示四把吉他；栏目译名保留其源声明，不据此重分类具体谱件。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:derekhasted:four-guitars"
+        ]
+      },
+      "three-guitars": {
+        "original": "3 Guitars",
+        "zh": "吉他三重奏",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "来源栏目原文标示三把吉他；栏目译名保留其源声明，不据此重分类具体谱件。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:derekhasted:three-guitars"
+        ]
+      },
+      "two-guitars": {
+        "original": "2 Guitars",
+        "zh": "吉他二重奏",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "来源栏目原文标示两把吉他；栏目译名保留其源声明，不据此重分类具体谱件。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:derekhasted:two-guitars"
+        ]
+      }
+    },
+    "guitarclassroom": {
+      "classical-guitar": {
+        "original": "Classical",
+        "zh": "古典吉他",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "该来源的Classical目录位于吉他谱站点，页面所列资源属于吉他栏目；仅翻译目录用途，不推断具体乐器人数。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:guitarclassroom:classical-guitar"
+        ]
+      },
+      "guitar-ensemble": {
+        "original": "Guitar Ensemble",
+        "zh": "吉他合奏",
+        "status": "reference",
+        "basis": "checked_source_category_terms",
+        "reason": "翻译明确栏目文字；具体编制仍由独立来源或谱件证据建立。"
+      }
+    },
+    "csun": {
+      "series:86a17de4121b8969": {
+        "original": "Guitar Studies",
+        "zh": "吉他练习曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:86a17de4121b8969"
+        ]
+      },
+      "series:2c876fed3ab9ef11": {
+        "original": "Musical Gems Arranged As Solos For The Guitar",
+        "zh": "吉他独奏改编名曲集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:2c876fed3ab9ef11"
+        ]
+      },
+      "series:3b02dd3aa5d3581f": {
+        "original": "The Guitar A Collection Of Popular piueces Consisting Of Beautiful Melodies Operatic Airs Variations Polkas Schottisches Waltzes Galops Marches And Quicksteps Arranged For The Guitar By The Best Composers",
+        "zh": "《吉他》：名家为吉他改编的流行乐曲集（优美旋律、歌剧咏叹调、变奏曲及各类舞曲、进行曲与快步舞曲）",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据系列完整名称翻译曲目类型与吉他改编范围；保留来源原文拼写错误的原字段不变，只在中文显示中按上下文表达其明确的“pieces”含义。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:3b02dd3aa5d3581f"
+        ]
+      },
+      "series:50954b4dbbe640d9": {
+        "original": "Compositions And Arrangements For The Guitar First Series",
+        "zh": "吉他作品与改编曲（第一辑）",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。 复核后不把歧义的器名并列或Duets翻译成确定的混合器种／声乐人数，保留原题供查核。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:50954b4dbbe640d9"
+        ]
+      },
+      "series:00bcca0036129c65": {
+        "original": "Arling Shaeffer's Compositions Arrangements And Publications For The Guitar",
+        "zh": "Arling Shaeffer的吉他作品、改编曲与出版物",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:00bcca0036129c65"
+        ]
+      },
+      "series:0f053e9060e977a3": {
+        "original": "The Guitar A Collection Of Popular pieces Consisting Of Beautiful Melodies Operatic Airs Variations Polkas Schottisches Waltzes Galops Marches And Quicksteps Arranged For The Guitar By The Best Composers",
+        "zh": "《吉他》：名家为吉他改编的流行乐曲集（优美旋律、歌剧咏叹调、变奏曲及各类舞曲、进行曲与快步舞曲）",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据系列完整名称翻译曲目类型与吉他改编范围；保留来源原文拼写错误的原字段不变，只在中文显示中按上下文表达其明确的“pieces”含义。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:0f053e9060e977a3"
+        ]
+      },
+      "series:90068efb5d9378a0": {
+        "original": "Guitarist's Token A Collection Of Popular pieces Arranged For The Guitar",
+        "zh": "Guitarist's Token：吉他流行乐曲改编集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:90068efb5d9378a0"
+        ]
+      },
+      "series:785fea8149348de9": {
+        "original": "Jacobs' Amateur Series For Guitar",
+        "zh": "Jacobs吉他业余系列",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:785fea8149348de9"
+        ]
+      },
+      "series:ea6c0905e8b04f3f": {
+        "original": "The Popular Series Choice New Solos For Banjo Guitar And Mandolin",
+        "zh": "Popular Series精选：班卓琴、吉他与曼陀林新独奏曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:ea6c0905e8b04f3f"
+        ]
+      },
+      "series:fe7239652c755581": {
+        "original": "Selected Compositions For Two Mandolins And Guitar Guitar Solo's And Duets",
+        "zh": "两把曼陀林与吉他的精选作品、吉他独奏与二重奏",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:fe7239652c755581"
+        ]
+      },
+      "series:ece74438d6f1f3d0": {
+        "original": "A Choice Collection Of Guitar Music",
+        "zh": "精选吉他乐曲集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:ece74438d6f1f3d0"
+        ]
+      },
+      "series:544179afbc6a26d8": {
+        "original": "Select Solos For Guitar",
+        "zh": "吉他独奏曲精选",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:544179afbc6a26d8"
+        ]
+      },
+      "series:9ff99cf4e51f6bcf": {
+        "original": "Select Solos Arranged For The Guitar",
+        "zh": "吉他改编独奏曲精选",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:9ff99cf4e51f6bcf"
+        ]
+      },
+      "series:c6a3e30220d05813": {
+        "original": "Grand Concert Solos For The Guitar",
+        "zh": "吉他音乐会独奏曲集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:c6a3e30220d05813"
+        ]
+      },
+      "series:4d3e6347676909bb": {
+        "original": "Jacobs' Publications Grades Of Difficulty. A Very Easy. B Easy C Medium D Difficult E Very Difficult. pieces Marked Thus Are Arranged As Solos With 2nd Part Ad Lib. Guitar",
+        "zh": "Jacobs出版系列：难度等级A（很容易）、B（容易）、C（中等）、D（困难）、E（很困难）；标记作品编为吉他独奏，第二声部可选",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "按来源栏目完整保留A–E难度说明及“第二声部可选”含义；栏目文字不作为每首作品的独立声部/人数证据。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:4d3e6347676909bb"
+        ]
+      },
+      "series:c035aefa45a06ae8": {
+        "original": "Guitar Solos And Duets",
+        "zh": "吉他独奏与二重奏",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:c035aefa45a06ae8"
+        ]
+      },
+      "series:f0e8ed8fbde60ebb": {
+        "original": "The Excelsior Guitar Collection",
+        "zh": "The Excelsior吉他曲集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:f0e8ed8fbde60ebb"
+        ]
+      },
+      "series:2b30c74e29bd3d6d": {
+        "original": "Carrie V. Hayden Guitar Compositions",
+        "zh": "Carrie V. Hayden吉他作品",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:2b30c74e29bd3d6d"
+        ]
+      },
+      "series:cac1c8580255ab84": {
+        "original": "Six Easy Solos For The Guitar",
+        "zh": "吉他六首简易独奏曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:cac1c8580255ab84"
+        ]
+      },
+      "series:ccfb81c35be15244": {
+        "original": "Selected Guitar Solos",
+        "zh": "吉他独奏曲选",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:ccfb81c35be15244"
+        ]
+      },
+      "series:3848f05505a44aab": {
+        "original": "Compositions And Arrangements For Banjo Guitar And Mandolin",
+        "zh": "班卓琴、吉他与曼陀林作品及改编曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:3848f05505a44aab"
+        ]
+      },
+      "series:a41446c40352b118": {
+        "original": "Compositions And Arrangements For The Guitar In The Saxton System",
+        "zh": "Saxton体系下的吉他作品与改编曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:a41446c40352b118"
+        ]
+      },
+      "series:b4000ad5f051e19b": {
+        "original": "Guitar Solos",
+        "zh": "吉他独奏曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:b4000ad5f051e19b"
+        ]
+      },
+      "series:60bb24a0d60199a4": {
+        "original": "Select Compositions And Arrangements For Guitar, Banjo, And, Mandolin",
+        "zh": "吉他、班卓琴与曼陀林作品及改编曲精选",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:60bb24a0d60199a4"
+        ]
+      },
+      "series:8cb67177dcb6f72a": {
+        "original": "The Half Dollar Music Series",
+        "zh": "The Half Dollar Music Series",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "series:49e00dac7f8277a8": {
+        "original": "Favorite Compositions Of Justin Holland For The Guitar",
+        "zh": "Justin Holland的吉他精选作品",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:49e00dac7f8277a8"
+        ]
+      },
+      "series:f17700ec6a52f9fd": {
+        "original": "Arling Shaeffer's Guitar Solos",
+        "zh": "Arling Shaeffer的吉他独奏曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:f17700ec6a52f9fd"
+        ]
+      },
+      "series:b1301ffba145a107": {
+        "original": "Edition Odell Guitar Solos And Duets",
+        "zh": "Odell版吉他独奏与二重奏",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:b1301ffba145a107"
+        ]
+      },
+      "series:627782b358df57f0": {
+        "original": "Compositions And Arrangements For The Guitar",
+        "zh": "吉他作品与改编曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:627782b358df57f0"
+        ]
+      },
+      "series:fff9e1b7a502c8b0": {
+        "original": "To My Pupils. Happy Hours. A Collection Of Beautiful pieces For The Guitar",
+        "zh": "献给学生：《Happy Hours》吉他优美乐曲集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:fff9e1b7a502c8b0"
+        ]
+      },
+      "series:e71a6f6ec6d2b448": {
+        "original": "Comnpositions And Arrangements For The Guitar",
+        "zh": "吉他作品与改编曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:e71a6f6ec6d2b448"
+        ]
+      },
+      "series:370fec724494addc": {
+        "original": "Carl Fischer's Home Circle Music Series",
+        "zh": "Carl Fischer's Home Circle Music Series",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "series:e50494b22f798082": {
+        "original": "Selected Guitar Music By Various Composers Vocal And Instrumental",
+        "zh": "多位作曲家的吉他音乐精选（声乐与器乐）",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:e50494b22f798082"
+        ]
+      },
+      "series:1739a77a62b1d1c0": {
+        "original": "Jacobs Publications For Mandolin & Banjo Guitar",
+        "zh": "Jacobs器乐出版系列（Mandolin & Banjo Guitar）",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。 复核后不把歧义的器名并列或Duets翻译成确定的混合器种／声乐人数，保留原题供查核。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:1739a77a62b1d1c0"
+        ]
+      },
+      "series:a403a7037a725435": {
+        "original": "Bouquet Of Melodies Selections From Favorite Operas Arranged For The Guitar By Justin Holland",
+        "zh": "《旋律花束》：Justin Holland为吉他改编的歌剧选段",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:a403a7037a725435"
+        ]
+      },
+      "series:49ffbe606ef1fde8": {
+        "original": "Guitar Folio My Rocky Mountain Home",
+        "zh": "吉他曲集：My Rocky Mountain Home",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "“Guitar Folio”明确表示吉他曲集；具体曲集名“My Rocky Mountain Home”保留原文，不补造作品题名。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:49ffbe606ef1fde8"
+        ]
+      },
+      "series:cd273a651773ed7a": {
+        "original": "Easy Arrangements And Compositions For Guitar;",
+        "zh": "吉他简易改编曲与作品",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:cd273a651773ed7a"
+        ]
+      },
+      "series:23f2eb5933928364": {
+        "original": "Select Compositions For Guitar As Solo Or With Accompaniment Of Other Instruments",
+        "zh": "吉他作品精选：独奏或与其他乐器伴奏",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:23f2eb5933928364"
+        ]
+      },
+      "series:abafa0334ec374ae": {
+        "original": "W. L. Hayden Guitar Compositions Series",
+        "zh": "W. L. Hayden吉他作品系列",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:abafa0334ec374ae"
+        ]
+      },
+      "series:1e1c284944a14217": {
+        "original": "Transcriptions and Compositions For The Guitar",
+        "zh": "吉他移编与创作作品",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:1e1c284944a14217"
+        ]
+      },
+      "series:05a1b3542e4a9d42": {
+        "original": "Select Compositions For Guitar Mandolin And Banjo By Favorite Authors",
+        "zh": "名家吉他、曼陀林与班卓琴作品精选",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:05a1b3542e4a9d42"
+        ]
+      },
+      "series:59e7fc9230f3b0ad": {
+        "original": "Popular Solos For The Guitar",
+        "zh": "吉他流行独奏曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:59e7fc9230f3b0ad"
+        ]
+      },
+      "series:f8fc12084de04a2b": {
+        "original": "A Selection Of Waltzes Marches & Easy Pieces For The Guitar",
+        "zh": "吉他圆舞曲、进行曲与简易曲选集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:f8fc12084de04a2b"
+        ]
+      },
+      "series:8c9e2b0416664dd8": {
+        "original": "Rerpertorio de obras para guitar",
+        "zh": "吉他作品选集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。 复核后不把歧义的器名并列或Duets翻译成确定的混合器种／声乐人数，保留原题供查核。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:8c9e2b0416664dd8"
+        ]
+      },
+      "series:665b20e6604b54f8": {
+        "original": "Beauties For The Guitar",
+        "zh": "吉他佳作",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:665b20e6604b54f8"
+        ]
+      },
+      "series:6d7f52578c9a6241": {
+        "original": "Selected Compositions And Arrangements For The Guitar By Popular Authors",
+        "zh": "名家吉他作品与改编曲精选",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:6d7f52578c9a6241"
+        ]
+      },
+      "series:bf93a69a6fea2c8c": {
+        "original": "Choice Compositions For Guitar",
+        "zh": "吉他精选作品",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:bf93a69a6fea2c8c"
+        ]
+      },
+      "series:85a0411a266ddd57": {
+        "original": "The Musical Album A Choice Collection Of New Guitar Songs",
+        "zh": "《音乐专辑》：新吉他歌曲精选",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:85a0411a266ddd57"
+        ]
+      },
+      "series:a74ed0516555c454": {
+        "original": "Popular Music For The Guitar Instrumental",
+        "zh": "吉他器乐流行曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:a74ed0516555c454"
+        ]
+      },
+      "series:82e6e48644c56338": {
+        "original": "Selections For Guitar",
+        "zh": "吉他选曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:82e6e48644c56338"
+        ]
+      },
+      "series:c2a69bae1b157024": {
+        "original": "Progressive Music For The Guitar By Antonio Lopes",
+        "zh": "Antonio Lopes吉他进阶曲集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:c2a69bae1b157024"
+        ]
+      },
+      "series:82751a370e6dc4d6": {
+        "original": "20 Compositions And Arrangements For Guitar",
+        "zh": "20首吉他作品与改编曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:82751a370e6dc4d6"
+        ]
+      },
+      "series:b22920c0ddb37ba8": {
+        "original": "Musical Gems To Mr. Charles A. Gilberg.",
+        "zh": "献给Charles A. Gilberg的音乐珍品",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "原系列题名明确以“To Mr. Charles A. Gilberg”标注致赠对象；翻译通用题意并保留人名，不将其误作作曲者署名。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:b22920c0ddb37ba8"
+        ]
+      },
+      "series:03106565a3488266": {
+        "original": "Le Troubadour. A Collection Of Instrumental Guitar Music",
+        "zh": "Le Troubadour：吉他器乐曲集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:03106565a3488266"
+        ]
+      },
+      "series:be7803241ac1f8c6": {
+        "original": "Artistic Compositions And Arrangements For The Guitar",
+        "zh": "吉他艺术作品与改编曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:be7803241ac1f8c6"
+        ]
+      },
+      "series:b2d3145b3f019c0c": {
+        "original": "Select Solos For Guitar Suitable For Concerts Or Musicales",
+        "zh": "适用于音乐会或音乐聚会的吉他独奏曲精选",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:b2d3145b3f019c0c"
+        ]
+      },
+      "series:41c06abf4d834954": {
+        "original": "White's Popular Solos For Guitar",
+        "zh": "White's吉他流行独奏曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:41c06abf4d834954"
+        ]
+      },
+      "series:30485e3b4c97164b": {
+        "original": "Pastimes. Collection Of Vocal And Instrumental Music For The Guitar",
+        "zh": "《Pastimes》：吉他伴奏声乐与器乐曲集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:30485e3b4c97164b"
+        ]
+      },
+      "series:0a9b7e6739643af4": {
+        "original": "Selected Guitar Music By Various Composers Instrumental",
+        "zh": "多位作曲家的吉他器乐精选",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:0a9b7e6739643af4"
+        ]
+      },
+      "series:d18463a8639e35ff": {
+        "original": "Favorite Gems For The Mandolin And Guitar",
+        "zh": "曼陀林与吉他名曲精选",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:d18463a8639e35ff"
+        ]
+      },
+      "series:36f72e927f7ebd86": {
+        "original": "Favorite Compositions of Justin Holland for the Guitar",
+        "zh": "Justin Holland的吉他精选作品",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:36f72e927f7ebd86"
+        ]
+      },
+      "series:2a3b2ed8c63ca323": {
+        "original": "Select Guitar Recreations Good Solos For Good Players",
+        "zh": "吉他选曲：优秀演奏者的独奏曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:2a3b2ed8c63ca323"
+        ]
+      },
+      "series:5bc23531506270cd": {
+        "original": "Guitar Mandolin Banjo Compositions And Arrangements",
+        "zh": "吉他、曼陀林与班卓琴作品及改编曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:5bc23531506270cd"
+        ]
+      },
+      "series:e1c67e80678fc34f": {
+        "original": "Brainard & Cos. New & Popular Songs For Guitar",
+        "zh": "Brainard & Co.新作与流行吉他歌曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:e1c67e80678fc34f"
+        ]
+      },
+      "series:fffa32393b9fdb26": {
+        "original": "Popular And Standard Songs Arranged With Easy Guitar And Banjo Accompaniment",
+        "zh": "流行与经典歌曲：简易吉他和班卓琴伴奏改编",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:fffa32393b9fdb26"
+        ]
+      },
+      "series:91a88d53e1297faf": {
+        "original": "Compositions And Arrangements By C. De Janon For The Guitar",
+        "zh": "C. De Janon的吉他作品与改编曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:91a88d53e1297faf"
+        ]
+      },
+      "series:2baaed34c4b6f1dc": {
+        "original": "Bijou Album Of Songs And Duets With Guitar Accompaniment",
+        "zh": "《Bijou曲集》：歌曲与二重曲（吉他伴奏）",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。 复核后不把歧义的器名并列或Duets翻译成确定的混合器种／声乐人数，保留原题供查核。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:2baaed34c4b6f1dc"
+        ]
+      },
+      "series:c455ab8d2120fb2e": {
+        "original": "Easy Guitar Arrangements Of Favorite Old Songs And Melodies",
+        "zh": "经典歌曲与旋律的吉他简易改编",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:c455ab8d2120fb2e"
+        ]
+      },
+      "series:80c161ec3f13f8e0": {
+        "original": "Guitarist's Album A Collection Of Favorite Songs And Instrumental pieces Arranged For The Guitar",
+        "zh": "《吉他曲集》：精选歌曲与器乐作品（吉他改编）",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:80c161ec3f13f8e0"
+        ]
+      },
+      "series:bcc6e04e753c97d5": {
+        "original": "Series not specified",
+        "zh": "系列未注明",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "来源原始系列字段明确为“Series not specified”，直译为“系列未注明”；这表示目录字段缺省，不代表作品身份或编制未知的推断以外结论。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:bcc6e04e753c97d5"
+        ]
+      },
+      "series:21a0b04868713f42": {
+        "original": "Arrangements And Compositions For The Guitar",
+        "zh": "吉他改编曲与作品",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:21a0b04868713f42"
+        ]
+      },
+      "series:23c3bb2f45c09ee9": {
+        "original": "W. L. Hayden's Guitar Mandolin And Banjo Compositions And Arrangements",
+        "zh": "W. L. Hayden的吉他、曼陀林与班卓琴作品及改编曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:23c3bb2f45c09ee9"
+        ]
+      },
+      "series:8bae49591f4ea26e": {
+        "original": "Compositions For The Guitar",
+        "zh": "吉他作品",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:8bae49591f4ea26e"
+        ]
+      },
+      "series:20408336a68fe204": {
+        "original": "Edition Boehm Choice Compositions For The Guitar",
+        "zh": "Boehm版吉他精选作品",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:20408336a68fe204"
+        ]
+      },
+      "series:a7ee0db1e57ccebe": {
+        "original": "Second Series White's Popular Solos For Guitar",
+        "zh": "White's流行吉他独奏曲（第二辑）",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:a7ee0db1e57ccebe"
+        ]
+      },
+      "series:8214304badb71f55": {
+        "original": "The Favorite Ballads Of Wm. Vincent Wallace Arranged For The Spanish Guitar",
+        "zh": "Wm. Vincent Wallace抒情歌曲精选（西班牙吉他改编）",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:8214304badb71f55"
+        ]
+      },
+      "series:fd08c4f8cfbf3726": {
+        "original": "First Series. Happy Hours. A Choice Collection Of Guitar Music.",
+        "zh": "第一辑《Happy Hours》：吉他乐曲精选",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:fd08c4f8cfbf3726"
+        ]
+      },
+      "series:4c3fab925eae45fe": {
+        "original": "Solos For The Guitar",
+        "zh": "吉他独奏曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:4c3fab925eae45fe"
+        ]
+      },
+      "series:9af27ebf61ee101f": {
+        "original": "Peters' Collection Of Standard Guitar Songs",
+        "zh": "Peters标准吉他歌曲集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:9af27ebf61ee101f"
+        ]
+      },
+      "series:750a07557bf39112": {
+        "original": "The Operatic Album: A Selection Of Favorite Opera Melodies Arranged For The Guitar",
+        "zh": "《歌剧曲集》：吉他改编的歌剧旋律精选",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:750a07557bf39112"
+        ]
+      },
+      "series:ad2f4194b1ba2a3d": {
+        "original": "The Troubadour. A Collection Of Choice Melodies For The Guitar By Various Authors",
+        "zh": "The Troubadour：多位作者的吉他精选旋律集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:ad2f4194b1ba2a3d"
+        ]
+      },
+      "series:b275d4d47afb0e35": {
+        "original": "Catcomb's Celebrated Publications For Banjo Mandolin And Guitar",
+        "zh": "Catcomb著名的班卓琴、曼陀林与吉他出版系列",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:b275d4d47afb0e35"
+        ]
+      },
+      "series:6e412b7a721195a3": {
+        "original": "Charles J. Dorn. Guitar Compositions",
+        "zh": "Charles J. Dorn吉他作品",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:6e412b7a721195a3"
+        ]
+      },
+      "series:f780cb02284c9299": {
+        "original": "Ditson & Co.'s Collection Of Standard Guitar Songs",
+        "zh": "Ditson & Co.标准吉他歌曲集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:f780cb02284c9299"
+        ]
+      },
+      "series:398fce5c00ffd5ae": {
+        "original": "Selected Guitar Music",
+        "zh": "吉他乐曲选集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:398fce5c00ffd5ae"
+        ]
+      },
+      "series:9c313c2c95464414": {
+        "original": "Solos & Duets For The Guitar",
+        "zh": "吉他独奏与二重奏",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:9c313c2c95464414"
+        ]
+      },
+      "series:118377345f2eaa96": {
+        "original": "White's Popular Solos for Guitar",
+        "zh": "White's吉他流行独奏曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:118377345f2eaa96"
+        ]
+      },
+      "series:a7a64977d11c8283": {
+        "original": "C. De Janon. Compositions For The Guitar",
+        "zh": "C. De Janon的吉他作品",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:a7a64977d11c8283"
+        ]
+      },
+      "series:d10fe43d28d31db7": {
+        "original": "Guitar Music Especially Arranged For Beginners",
+        "zh": "专为初学者改编的吉他乐曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:d10fe43d28d31db7"
+        ]
+      },
+      "series:9adcece6b81ca7d0": {
+        "original": "Gems For The Guitar",
+        "zh": "吉他名曲精选",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:9adcece6b81ca7d0"
+        ]
+      },
+      "series:83f165073837df7a": {
+        "original": "A Collection Of New And Beautiful Solos For The Guitar",
+        "zh": "新作与优美吉他独奏曲集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:83f165073837df7a"
+        ]
+      },
+      "series:bf83bde801db6d7f": {
+        "original": "A Selection Of Beautiful Guitar Songs By Popular Authors",
+        "zh": "名家吉他歌曲精选",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:bf83bde801db6d7f"
+        ]
+      },
+      "series:7fe1760ff9c0eb4f": {
+        "original": "Guitar Solos and Duets",
+        "zh": "吉他独奏与二重奏",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:7fe1760ff9c0eb4f"
+        ]
+      },
+      "series:62be9b157c90b984": {
+        "original": "Louis Lemberg's Popular Instrumental Arrangements For The Guitar",
+        "zh": "Louis Lemberg的吉他流行器乐改编曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:62be9b157c90b984"
+        ]
+      },
+      "series:0b37d862d2e0eac6": {
+        "original": "Transcriptions And Compositions For The Guitar",
+        "zh": "吉他移编与创作作品",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:0b37d862d2e0eac6"
+        ]
+      },
+      "series:b244655ead4f76ef": {
+        "original": "Popular Solos Arranged For Guitar",
+        "zh": "吉他改编流行独奏曲",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:b244655ead4f76ef"
+        ]
+      },
+      "series:d046205342d996bb": {
+        "original": "Brilliant Compositions For The Guitar By Various Authors",
+        "zh": "多位作者的吉他佳作",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。 复核后不把歧义的器名并列或Duets翻译成确定的混合器种／声乐人数，保留原题供查核。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:d046205342d996bb"
+        ]
+      },
+      "series:d88c5b7e78f7aaa8": {
+        "original": "Easy Arrangements And Compositions For Guitar",
+        "zh": "吉他简易改编曲与作品",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:d88c5b7e78f7aaa8"
+        ]
+      },
+      "series:0bce00daac348080": {
+        "original": "Odds And Ends: Or Leaves From Hayden's Scrap Book A Collection Of Music",
+        "zh": "《杂集：或Hayden剪贴簿选页》乐曲集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:0bce00daac348080"
+        ]
+      },
+      "series:8fb209afd61bdfa9": {
+        "original": "Scraps From The Operas Arranged For Two Guitars",
+        "zh": "歌剧选段：两把吉他改编集",
+        "status": "reference",
+        "basis": "checked_exact_source_supplement_category",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "reference_entries": [
+          "metadata/translations/source_supplement_reviewed_zh.json:csun:series:8fb209afd61bdfa9"
+        ]
+      }
     }
   }
 }

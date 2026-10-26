@@ -1,0 +1,1404 @@
+{
+  "schema_version": 1,
+  "scope": "Exact source-guarded reference translations for new-source titles and native categories. No cross-source work, person, edition, or performing-player identity is inferred.",
+  "entries": {
+    "yawnoc:dowland-fantasia-7": {
+      "original": "Fantasia Number 7",
+      "original_composer": "John Dowland",
+      "display_original": "Fantasia Number 7",
+      "zh": "幻想曲第7号",
+      "reason": "按来源完整曲题核对常见题意或既有惯用中文名；原题和来源署名保留，仅为本版本的中文参考，不建立跨站作品身份。",
+      "evidence_url": "https://github.com/yawnoc/guitar/releases/tag/dowland-fantasia-7-v1.0.0"
+    },
+    "yawnoc:lagrima": {
+      "original": "Lágrima",
+      "original_composer": "Francisco Tárrega",
+      "display_original": "Lágrima",
+      "zh": "泪",
+      "reason": "按来源完整曲题核对常见题意或既有惯用中文名；原题和来源署名保留，仅为本版本的中文参考，不建立跨站作品身份。",
+      "evidence_url": "https://github.com/yawnoc/guitar/releases/tag/lagrima-v1.2.2"
+    },
+    "yawnoc:sor-c-major-35-13": {
+      "original": "Exercise 13 (in 24 Very Easy Exercises)",
+      "original_composer": "Fernando Sor",
+      "display_original": "Exercise 13 (in 24 Very Easy Exercises)",
+      "zh": "《24首极简练习曲》第13首",
+      "reason": "按来源完整曲题核对常见题意或既有惯用中文名；原题和来源署名保留，仅为本版本的中文参考，不建立跨站作品身份。",
+      "evidence_url": "https://github.com/yawnoc/guitar/releases/tag/sor-c-major-35-13-v1.1.1"
+    },
+    "maikstrings:pdf:07358e78014dcea28a97189569825695815f08e3e833a6b99c7d8470d3b23875": {
+      "original": "Etüde Nr. 16",
+      "original_composer": "Matteo Carcassi (1792–1853)",
+      "display_original": "Etüde Nr. 16",
+      "zh": "练习曲第16首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:0a60f0910ebfe594c123411eea75422fb197c0236b0f92fdbe0bd48ceb418a69": {
+      "original": "Recuerdos de la Alhambra",
+      "original_composer": "Francisco Tárrega (1852–1909)",
+      "display_original": "Recuerdos de la Alhambra",
+      "zh": "阿尔罕布拉宫的回忆",
+      "reason": "按来源完整曲题核对常见题意或既有惯用中文名；原题和来源署名保留，仅为本版本的中文参考，不建立跨站作品身份。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:0d446ba8a7b8a89fda05cf28e83a3a8a9e86c450ba0be467cf322b66b3489b24": {
+      "original": "Etüde Nr. 4",
+      "original_composer": "Dionisio Aguado (1784–1849)",
+      "display_original": "Etüde Nr. 4",
+      "zh": "练习曲第4首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:0e77ad281f3cdcb0b6ee78ecbbb55c7bccf6ff9fac78d56542c198e60fcd49dd": {
+      "original": "Etüde Nr. 5",
+      "original_composer": "Matteo Carcassi (1792–1853)",
+      "display_original": "Etüde Nr. 5",
+      "zh": "练习曲第5首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:0f15a8d64f21d89086050a2cf59b3443e7302f7121e9df85a87a1f66edb4c6a4": {
+      "original": "Lektion Nr. 12",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Lektion Nr. 12",
+      "zh": "第12课",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:0f8bf554eac36d70a8d2b3b3b24d3145dd4354c4957ccf6c2c358a53fe8c3872": {
+      "original": "Etüde Nr. 7",
+      "original_composer": "Matteo Carcassi (1792–1853)",
+      "display_original": "Etüde Nr. 7",
+      "zh": "练习曲第7首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:1206ad1dcf43c69cb72bf2b98e184e9c5d8eecbeecf08ecb78c3a92713900bb9": {
+      "original": "Etüde Nr. 3",
+      "original_composer": "Dionisio Aguado (1784–1849)",
+      "display_original": "Etüde Nr. 3",
+      "zh": "练习曲第3首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:122b8ca3d188e40dcc2215f68c47f1d25add1d1636842268b430a66e71e723ba": {
+      "original": "Stück Nr. 9",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Stück Nr. 9",
+      "zh": "乐曲第9首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:14b1632b60a8d3bd9bbf1710f0b59b2edfe4538102c18e2e25f0b149f50689db": {
+      "original": "Etüde Nr. 1",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Etüde Nr. 1",
+      "zh": "练习曲第1首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:1d7638c7981cb11b52dd03ecc79a16d896e0cb5f7dca08a26ebf8f3e89b5e761": {
+      "original": "Stück Nr. 8",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Stück Nr. 8",
+      "zh": "乐曲第8首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:25edbd9dca296c8580b3b0b45af9166c8170a602f3b86114c341e380534a6419": {
+      "original": "Lektion Nr. 10",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Lektion Nr. 10",
+      "zh": "第10课",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:26f1de83ae61b63792291e5894df835de5545563905be373681c37ac4cb3c6c1": {
+      "original": "Stück Nr. 4",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Stück Nr. 4",
+      "zh": "乐曲第4首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:278f6b44549db5456c922ed9e59b064bd7d63f3ccdb7fe37546f86d47688b165": {
+      "original": "Gitarrenschule, Stück Nr. 24",
+      "original_composer": "Napoléon Coste (1805–1883)",
+      "display_original": "Gitarrenschule, Stück Nr. 24",
+      "zh": "〈吉他教程〉第24曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:29c3ecce17598b829c57635e32af6ac8d11ed7ad82d24c4f8ff502a23f2dea51": {
+      "original": "Gitarrenschule, Stück Nr. 23",
+      "original_composer": "Napoléon Coste (1805–1883)",
+      "display_original": "Gitarrenschule, Stück Nr. 23",
+      "zh": "〈吉他教程〉第23曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:2ae21751ceaa1ff25f607e413fad987b89c9bc00d6b4a10f6a4f2eac85147438": {
+      "original": "Lektion Nr. 11",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Lektion Nr. 11",
+      "zh": "第11课",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:2e847868740d48c077a0d9b4bb04711d74ba55725b10ca60b355580faef23436": {
+      "original": "Etüde Nr. 8",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Etüde Nr. 8",
+      "zh": "练习曲第8首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:30b84f99114ede83fe260c9faea247edc9b51e61b401f17dd831408d3da2d01e": {
+      "original": "Gitarrenschule, Stück Nr. 17",
+      "original_composer": "Ferdinando Carulli (1770–1841)",
+      "display_original": "Gitarrenschule, Stück Nr. 17",
+      "zh": "〈吉他教程〉第17曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:35f57a74cf231ef56e757906348efd1567f0b887aff54ec423c11bf50d65de2d": {
+      "original": "Etüde Nr. 7",
+      "original_composer": "Dionisio Aguado (1784–1849)",
+      "display_original": "Etüde Nr. 7",
+      "zh": "练习曲第7首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:3ceffeed800bcdd08b85a569a3025fb54d0eb37c9c1a93aceee73cfabd811e43": {
+      "original": "Etüde Nr. 14",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Etüde Nr. 14",
+      "zh": "练习曲第14首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:3f6edba052e40b9b23945b01b6abc3e84e9ece369aff2ee1d938fd11d5a0d523": {
+      "original": "Stück Nr. 3",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Stück Nr. 3",
+      "zh": "乐曲第3首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:412615402709fe50eaf6acf5a1cea827c9c7cbce090bea6ce699697a3913bc07": {
+      "original": "Etüde Nr. 6",
+      "original_composer": "Dionisio Aguado (1784–1849)",
+      "display_original": "Etüde Nr. 6",
+      "zh": "练习曲第6首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:43427115dacef6a8908134f984d9187684fc4b946f3c5f9aa7030cb03c6a6b19": {
+      "original": "Gitarrenschule, Stück Nr. 6",
+      "original_composer": "Ferdinando Carulli (1770–1841)",
+      "display_original": "Gitarrenschule, Stück Nr. 6",
+      "zh": "〈吉他教程〉第6曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:43c16eb7bc91927a8ddc0c70e9966f3763182104e79dd738aff03cc17c4246f1": {
+      "original": "Etüde Nr. 13",
+      "original_composer": "Matteo Carcassi (1792–1853)",
+      "display_original": "Etüde Nr. 13",
+      "zh": "练习曲第13首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:488526495a481d7ce27887bf78b17d28bd3de8f48d1de5afce205b910781dee1": {
+      "original": "Lektion Nr. 1",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Lektion Nr. 1",
+      "zh": "第1课",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:4b0d6780eaa1209ec94711faeaa5a40e1c5e7950ba989c481cf283697a27dac9": {
+      "original": "Etüde Nr. 12",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Etüde Nr. 12",
+      "zh": "练习曲第12首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:5031bd1de33bd4c33474fd8794dc31d66152d3cdd817621f1c904daf2f9939db": {
+      "original": "Stück Nr. 1",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Stück Nr. 1",
+      "zh": "乐曲第1首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:53322f0bb88cc7bf3157b3f062f57345e28ebe7cf80bc76db23a9a5e3fe74a91": {
+      "original": "Lektion Nr. 4",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Lektion Nr. 4",
+      "zh": "第4课",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:5656f8fe90b51a411d63ec1ced138e722a1adff2c3b5c258db47d92e5b0187a4": {
+      "original": "Etüde Nr. 2",
+      "original_composer": "Dionisio Aguado (1784–1849)",
+      "display_original": "Etüde Nr. 2",
+      "zh": "练习曲第2首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:56966984ebcfa27528225d233dea90d3ceaea375907e6ba6508d9adbede38ca0": {
+      "original": "Lektion Nr. 3",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Lektion Nr. 3",
+      "zh": "第3课",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:58a44407a6a45b22b613fb7cecb0ca5eac7db1907b5e25727440020ff8e451c9": {
+      "original": "Etüde Nr. 1",
+      "original_composer": "Dionisio Aguado (1784–1849)",
+      "display_original": "Etüde Nr. 1",
+      "zh": "练习曲第1首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:5d19d5ae23155e5ef354cbfcb6171f37cd53a68cf13a660b2c26729f0a44a285": {
+      "original": "Stück Nr. 5",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Stück Nr. 5",
+      "zh": "乐曲第5首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:5e81199c91a844e4f53dabb90418f6b68289ad680094a9f75d4c13a42321b822": {
+      "original": "Gitarrenschule, Stück Nr. 16",
+      "original_composer": "Johann Kaspar Mertz (1806–1856)",
+      "display_original": "Gitarrenschule, Stück Nr. 16",
+      "zh": "〈吉他教程〉第16曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:636cf34ad2b5b50c0776027af189b13d9f6c4820042cdf0934165321c9457d9a": {
+      "original": "Stück Nr. 6",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Stück Nr. 6",
+      "zh": "乐曲第6首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:6dfb42cd027d675a88ec74c7d397a98b8840e764a0a72d71e9e40f26108509f7": {
+      "original": "Gitarrenschule, Stück Nr. 14",
+      "original_composer": "Johann Kaspar Mertz (1806–1856)",
+      "display_original": "Gitarrenschule, Stück Nr. 14",
+      "zh": "〈吉他教程〉第14曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:75a7235afe6c5a586b6eb345b35ccc3172aad97dac7cd6b5b213a6ade6ffb22a": {
+      "original": "Gitarrenschule, Stück Nr. 11",
+      "original_composer": "Ferdinando Carulli (1770–1841)",
+      "display_original": "Gitarrenschule, Stück Nr. 11",
+      "zh": "〈吉他教程〉第11曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:7c3990b55b53f778941648bd52abeec2b98bd6559b950f081228b1c93228e8dc": {
+      "original": "Etüde Nr. 10",
+      "original_composer": "Matteo Carcassi (1792–1853)",
+      "display_original": "Etüde Nr. 10",
+      "zh": "练习曲第10首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:82af914fcbd0e3966903b68a973fa264507a5f5780f9dfc32e617305fd3cec8f": {
+      "original": "Etüde Nr. 6",
+      "original_composer": "Matteo Carcassi (1792–1853)",
+      "display_original": "Etüde Nr. 6",
+      "zh": "练习曲第6首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:82c881cb0eb336352404b3747f6b2284aec464fba9535057ae0d57c1afbd86cf": {
+      "original": "Stück Nr. 10",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Stück Nr. 10",
+      "zh": "乐曲第10首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:87f0da0d8badf213533b50723cbd625393e6cbd3f46aa19ab6df0c9b8a656f81": {
+      "original": "Etüde Nr. 6",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Etüde Nr. 6",
+      "zh": "练习曲第6首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:8e803bfb4dd67c20ad8a189f9e57412e2acd826dfc5ed1e1da6c021ad81780d8": {
+      "original": "Etüde Nr. 15",
+      "original_composer": "Matteo Carcassi (1792–1853)",
+      "display_original": "Etüde Nr. 15",
+      "zh": "练习曲第15首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:8e9553300aa34643097e2a115b195858d4aa0794c93cbdc040d5b0b3192e4a2d": {
+      "original": "Gitarrenschule, Stück Nr. 4",
+      "original_composer": "Johann Kaspar Mertz (1806–1856)",
+      "display_original": "Gitarrenschule, Stück Nr. 4",
+      "zh": "〈吉他教程〉第4曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:8f0c5247228a1850e1245caae014fe70e0b202c742efe80c94e7cd57889a8a2d": {
+      "original": "Gitarrenschule, Stück Nr. 18",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Gitarrenschule, Stück Nr. 18",
+      "zh": "〈吉他教程〉第18曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:8f220f73eab4c6a6db771eec973d3c8cd9780aa811f15ff3b2c4704b1a00fb58": {
+      "original": "Gitarrenschule, Stück Nr. 2",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Gitarrenschule, Stück Nr. 2",
+      "zh": "〈吉他教程〉第2曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:912123887505be5192f8bf66213a5b7ec7d9f02527f53b057b00dd65933dc5fe": {
+      "original": "Gitarrenschule, Stück Nr. 20",
+      "original_composer": "Ferdinando Carulli (1770–1841)",
+      "display_original": "Gitarrenschule, Stück Nr. 20",
+      "zh": "〈吉他教程〉第20曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:940d4b193895e9ec677a509a9cc9811a96bfe2f4bf4d81c629c06680e7a897dc": {
+      "original": "Lektion Nr. 6",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Lektion Nr. 6",
+      "zh": "第6课",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:976b52947e7f1e8f1e728d7c924c968804716336a2c72ea8d53b0c3578ca0729": {
+      "original": "Lektion Nr. 13",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Lektion Nr. 13",
+      "zh": "第13课",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:980be244bdeac1cbae74506a805eedb4a527a2728404691348a14b063c251b68": {
+      "original": "Gitarrenschule, Stück Nr. 13",
+      "original_composer": "Ferdinando Carulli (1770–1841)",
+      "display_original": "Gitarrenschule, Stück Nr. 13",
+      "zh": "〈吉他教程〉第13曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:992c82497c0a20ac3d570cbf011fcb84a7663c87fc3f6a81a2d75400600075a4": {
+      "original": "Etüde Nr. 5",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Etüde Nr. 5",
+      "zh": "练习曲第5首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:9d87cc8cd6d4782479b1d1c1fcb2f26bd2b33bdb4b0f6b037616f1d83531f171": {
+      "original": "Etüde Nr. 11",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Etüde Nr. 11",
+      "zh": "练习曲第11首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:a274359cb884ec45650e439d14fffcaacbb8b150d38e8d6cbdef8f9dd1675c0e": {
+      "original": "Etüde Nr. 5",
+      "original_composer": "Dionisio Aguado (1784–1849)",
+      "display_original": "Etüde Nr. 5",
+      "zh": "练习曲第5首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:a4ef716c9c5ee70b514deaaf96f1df227b22fa9ba48e02b5482a83451d42808a": {
+      "original": "Etüde Nr. 10",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Etüde Nr. 10",
+      "zh": "练习曲第10首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:a5dd4924557925868d6e7b45bceda40925a866c286e1691d7bc953b550a09430": {
+      "original": "Lektion Nr. 5",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Lektion Nr. 5",
+      "zh": "第5课",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:a7f87e5c9bbdb13f8e1ea19d0ae3746807c68df56bbd52226a45d91fcb90c1d7": {
+      "original": "Stück Nr. 12",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Stück Nr. 12",
+      "zh": "乐曲第12首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:ac2eddc6ccc686629759fb414f4b70f2c9fc6ea0c80d41836e769630cc4335c0": {
+      "original": "Gitarrenschule, Stück Nr. 10",
+      "original_composer": "Napoléon Coste (1805–1883)",
+      "display_original": "Gitarrenschule, Stück Nr. 10",
+      "zh": "〈吉他教程〉第10曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:ae0556152fb71ec349184db1d0bbd55ccc1f2017e2c87d1c1945fa97cbfffb3a": {
+      "original": "Lektion Nr. 9",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Lektion Nr. 9",
+      "zh": "第9课",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:b7d6ccbfe4fac6697f8f8aa44d2043e750a67b7757c1b8edc26bfcb94b977bb6": {
+      "original": "Stück Nr. 11",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Stück Nr. 11",
+      "zh": "乐曲第11首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:bbdea8bba406cb3eb62392f3f784b05f57495ee1819e19096ded38a7fe4d114c": {
+      "original": "Adelita",
+      "original_composer": "Francisco Tárrega (1852–1909)",
+      "display_original": "Adelita",
+      "zh": "阿德利塔",
+      "reason": "按来源完整曲题核对常见题意或既有惯用中文名；原题和来源署名保留，仅为本版本的中文参考，不建立跨站作品身份。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:bc1d956961723e39f2a414a26596efc99c7c0ea11399dfbc726d8c6246b353b7": {
+      "original": "Gitarrenschule, Stück Nr. 12",
+      "original_composer": "Johann Kaspar Mertz (1806–1856)",
+      "display_original": "Gitarrenschule, Stück Nr. 12",
+      "zh": "〈吉他教程〉第12曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:bc2c42b0f9f0319fe8cb1c3cd00fa2743078470367fbe4cfdb4ba2f0d53af054": {
+      "original": "Stück Nr. 7",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Stück Nr. 7",
+      "zh": "乐曲第7首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:bc486f104ebde3c471da05a951ae880172bfc69062490a5d8da52bbe4d0872f0": {
+      "original": "Gitarrenschule, Stück Nr. 9",
+      "original_composer": "Johann Kaspar Mertz (1806–1856)",
+      "display_original": "Gitarrenschule, Stück Nr. 9",
+      "zh": "〈吉他教程〉第9曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:c6563e9e7b5c7e0b8528efc68b78a551f4142f020fec97fa27f7ce2f7b5a8a9c": {
+      "original": "Gitarrenschule, Stück Nr. 21",
+      "original_composer": "Johann Kaspar Mertz (1806–1856)",
+      "display_original": "Gitarrenschule, Stück Nr. 21",
+      "zh": "〈吉他教程〉第21曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:c75c22b3de44db48f20048661ba00e86b1f6d5dd7730c6aefc2b0451b4f1c87f": {
+      "original": "Etüde Nr. 13",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Etüde Nr. 13",
+      "zh": "练习曲第13首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:c8107bfbc66a2f1f508d73cbb061ce6bf5c21ad4c80d800f95872dcb4cbcbf16": {
+      "original": "Lektion Nr. 8",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Lektion Nr. 8",
+      "zh": "第8课",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:cf06801a759e2bb72c10b4c63f3af79f03e7f0744948c929717ceb336ad3502c": {
+      "original": "Stück Nr. 2",
+      "original_composer": "Mauro Giuliani (1781–1829)",
+      "display_original": "Stück Nr. 2",
+      "zh": "乐曲第2首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:df7d8821e87cb344f37ccad6eb4083458c6dd92a67c162803c75db9dbc7bebab": {
+      "original": "Etüde Nr. 9",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Etüde Nr. 9",
+      "zh": "练习曲第9首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:e18b3a46ba92f05cdfc412a9da04228c47cdacdce7d6694169a88f24625d3347": {
+      "original": "Etüde Nr. 14",
+      "original_composer": "Matteo Carcassi (1792–1853)",
+      "display_original": "Etüde Nr. 14",
+      "zh": "练习曲第14首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:e2ab044281650e509eff28e896af6c057f94834ae3013ac04103f52c136445f2": {
+      "original": "Etüde Nr. 11",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Etüde Nr. 11",
+      "zh": "练习曲第11首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:e3816e4af45eb1759ad118b5b20fb25f81194dcd16445e9e7f6a42cb926c5947": {
+      "original": "Gitarrenschule, Stück Nr. 3",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Gitarrenschule, Stück Nr. 3",
+      "zh": "〈吉他教程〉第3曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:e602f56424d0220f4eaf35190b3fb0052b1f324083c0891948a484e894d9a7bb": {
+      "original": "Gitarrenschule, Stück Nr. 22",
+      "original_composer": "Matteo Carcassi (1792–1853)",
+      "display_original": "Gitarrenschule, Stück Nr. 22",
+      "zh": "〈吉他教程〉第22曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:e8149e43148e130bc766dc34dfbaa825fa286e227312ad709a675ea644fcc840": {
+      "original": "Etüde Nr. 8",
+      "original_composer": "Dionisio Aguado (1784–1849)",
+      "display_original": "Etüde Nr. 8",
+      "zh": "练习曲第8首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:e8a067385f7b2292a565743eb773827f40e54236cccecf3d67272feaa3552425": {
+      "original": "Gitarrenschule, Stück Nr. 7",
+      "original_composer": "Johann Kaspar Mertz (1806–1856)",
+      "display_original": "Gitarrenschule, Stück Nr. 7",
+      "zh": "〈吉他教程〉第7曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:eb066e7f25fcd089f73724032f65c4c276643ef28aadbf163b73040b3b70cd6a": {
+      "original": "Etüde Nr. 8",
+      "original_composer": "Matteo Carcassi (1792–1853)",
+      "display_original": "Etüde Nr. 8",
+      "zh": "练习曲第8首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:eb519be0679f40f5f8d6a8a9bf69ca52749d7b14ab83fb11cf9b9ab37508b44b": {
+      "original": "Lektion Nr. 2",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Lektion Nr. 2",
+      "zh": "第2课",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:f0a78afdc70d0a054e76c60839cca572408f7d7a19eb15cd8c41d0e97dc75c4b": {
+      "original": "Etüde Nr. 7",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Etüde Nr. 7",
+      "zh": "练习曲第7首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:f0c39ef053829d4fd4813d8c7aa42832c99a28433f8b09e4ebe40c075eb5c3fa": {
+      "original": "Etüde Nr. 12",
+      "original_composer": "Matteo Carcassi (1792–1853)",
+      "display_original": "Etüde Nr. 12",
+      "zh": "练习曲第12首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:f579ecd0ec3399e03d521dd2fde2a25d07b4517982bc62ce17ae2790ac5e3616": {
+      "original": "Gitarrenschule, Stück Nr. 5",
+      "original_composer": "Johann Kaspar Mertz (1806–1856)",
+      "display_original": "Gitarrenschule, Stück Nr. 5",
+      "zh": "〈吉他教程〉第5曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:f5cb478979945ae606a8d8f0f46e3e4e3cc6b00b835a772739c6e98180cec9c6": {
+      "original": "Claro de Luna",
+      "original_composer": "Francisco Tárrega (1852–1909)",
+      "display_original": "Claro de Luna",
+      "zh": "月光",
+      "reason": "按来源完整曲题核对常见题意或既有惯用中文名；原题和来源署名保留，仅为本版本的中文参考，不建立跨站作品身份。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:f734a7639feaf389c836be55b1d015d14b074b05ac4bcabec7d117e99e19e534": {
+      "original": "Gitarrenschule, Stück Nr. 8",
+      "original_composer": "Ferdinando Carulli (1770–1841)",
+      "display_original": "Gitarrenschule, Stück Nr. 8",
+      "zh": "〈吉他教程〉第8曲",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:f76dc9e01b407dbfbd6d01e9adab647fbf2c2a2a810c9d9911cb6df05f9aeedb": {
+      "original": "Lektion Nr. 7",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Lektion Nr. 7",
+      "zh": "第7课",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:f854803a4df4c532af3d17fb60eb2de22804ddc83980e7abab0a7c00c0698059": {
+      "original": "Etüde Nr. 9",
+      "original_composer": "Matteo Carcassi (1792–1853)",
+      "display_original": "Etüde Nr. 9",
+      "zh": "练习曲第9首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:f8878285a03546fc72e9573a008083a0eec0abc80fe6cc9b6c41420fcd1e5189": {
+      "original": "Etüde Nr. 4",
+      "original_composer": "Fernando Sor (1778–1839)",
+      "display_original": "Etüde Nr. 4",
+      "zh": "练习曲第4首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "maikstrings:pdf:ff36cc063204f57d05d3be836c6cab8edb2a0a9a5b631f45bfb8ab07ac2b5dce": {
+      "original": "Etüde Nr. 11",
+      "original_composer": "Matteo Carcassi (1792–1853)",
+      "display_original": "Etüde Nr. 11",
+      "zh": "练习曲第11首",
+      "reason": "完整德文题名仅由已核音乐体裁/教程名称与明确编号组成，逐题按原编号译写；不补猜作品号或原始版本。",
+      "evidence_url": "https://maikstrings.com/sheet-music-guitar.html"
+    },
+    "derekhasted:pdf:6d1840db9c2792210a1968429e18810629f96a1561d0f84d22c1e1b88a83ed6a": {
+      "original": "Auld Lang Syne",
+      "original_composer": "",
+      "display_original": "Auld Lang Syne",
+      "zh": "友谊地久天长",
+      "reason": "按来源完整曲题核对常见题意或既有惯用中文名；原题和来源署名保留，仅为本版本的中文参考，不建立跨站作品身份。",
+      "evidence_url": "https://www.derek-hasted.co.uk/free/"
+    },
+    "derekhasted:pdf:8f4e682897abe8ffbe81181642c3c45fd9b5d962315eb91c518b2c17976f04f3": {
+      "original": "Away in a Manger",
+      "original_composer": "",
+      "display_original": "Away in a Manger",
+      "zh": "远在马槽里",
+      "reason": "按来源完整曲题核对常见题意或既有惯用中文名；原题和来源署名保留，仅为本版本的中文参考，不建立跨站作品身份。",
+      "evidence_url": "https://www.derek-hasted.co.uk/free/"
+    },
+    "derekhasted:pdf:ab273cf845fd5592fec8fcd332d50f06294c4fcaf6f654f9d4b1f063b6b1b55b": {
+      "original": "Hungarian Round",
+      "original_composer": "",
+      "display_original": "Hungarian Round",
+      "zh": "匈牙利轮唱曲",
+      "reason": "按来源完整曲题核对常见题意或既有惯用中文名；原题和来源署名保留，仅为本版本的中文参考，不建立跨站作品身份。",
+      "evidence_url": "https://www.derek-hasted.co.uk/free/"
+    },
+    "derekhasted:pdf:9ac7102e14ec943d23abfaaf204cd20b4188911e23b7c43c11e31dca4fbaeacb": {
+      "original": "English Country Garden",
+      "original_composer": "",
+      "display_original": "English Country Garden",
+      "zh": "英国乡间花园",
+      "reason": "按来源完整曲题核对常见题意或既有惯用中文名；原题和来源署名保留，仅为本版本的中文参考，不建立跨站作品身份。",
+      "evidence_url": "https://www.derek-hasted.co.uk/free/"
+    },
+    "derekhasted:pdf:88a99c25c2dfd9d8a6542f0c0f3230486f5d8e5a237894d3fc0624f5dd373319": {
+      "original": "O Little Town of Bethlehem",
+      "original_composer": "",
+      "display_original": "O Little Town of Bethlehem",
+      "zh": "小伯利恒",
+      "reason": "按来源完整曲题核对常见题意或既有惯用中文名；原题和来源署名保留，仅为本版本的中文参考，不建立跨站作品身份。",
+      "evidence_url": "https://www.derek-hasted.co.uk/free/"
+    },
+    "derekhasted:pdf:eef9eef2650e284958868f2df60620f1267b83f3ff47422286e3f05e8110059a": {
+      "original": "Once In Royal David's City",
+      "original_composer": "",
+      "display_original": "Once In Royal David's City",
+      "zh": "昔在大卫王城",
+      "reason": "按来源完整曲题核对常见题意或既有惯用中文名；原题和来源署名保留，仅为本版本的中文参考，不建立跨站作品身份。",
+      "evidence_url": "https://www.derek-hasted.co.uk/free/"
+    },
+    "derekhasted:pdf:5dd92e88193bfd2e765b5f7fa0630ff545b71660f869c046a88996b5f769f289": {
+      "original": "Sailor's Hornpipe",
+      "original_composer": "",
+      "display_original": "Sailor's Hornpipe",
+      "zh": "水手号笛舞曲",
+      "reason": "按来源完整曲题核对常见题意或既有惯用中文名；原题和来源署名保留，仅为本版本的中文参考，不建立跨站作品身份。",
+      "evidence_url": "https://www.derek-hasted.co.uk/free/"
+    },
+    "derekhasted:pdf:47c4ef5e243f7f2fc9646718e9e044e250d0d79136df673d4c26f325ee1043b7": {
+      "original": "Simple Gifts",
+      "original_composer": "",
+      "display_original": "Simple Gifts",
+      "zh": "简朴的礼物",
+      "reason": "按来源完整曲题核对常见题意或既有惯用中文名；原题和来源署名保留，仅为本版本的中文参考，不建立跨站作品身份。",
+      "evidence_url": "https://www.derek-hasted.co.uk/free/"
+    },
+    "csun:143": {
+      "original": "[Book of various compositions for guitar]",
+      "original_composer": "[Various]",
+      "display_original": "[Book of various compositions for guitar]",
+      "zh": "吉他作品选集",
+      "reason": "按馆方完整泛题译为吉他作品选集；中文主标题去除编目方括号，原始方括号及拟题形式完整保留在来源原题。未补猜曲集内的作品、作者或版本身份。",
+      "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/143"
+    },
+    "csun:1071": {
+      "original": "Freischutz",
+      "original_composer": "Weber, Carl Maria von, 1786-1826;",
+      "display_original": "Freischutz",
+      "zh": "魔弹射手选段",
+      "reason": "采用国家表演艺术中心卫武营官方节目档案对“WEBER - Der Freischütz”的中文题名“韦伯歌剧《魔弹射手》”作为惯用名参考。此CSUN记录的原题仅为Freischutz；官方来源系列明确为“Scraps From The Operas Arranged For Two Guitars”，原PDF标题页核验为Der Freischütz，因此中文显示限定为该吉他改编集中的选段，不表示与完整歌剧或其他版本同一。来源两吉他声明、谱页一把或两把选项及改编署名独立显示，不挪入标题。",
+      "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1071",
+      "evidence_urls": [
+        "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1071",
+        "https://collection.npac-ntch.org/detail/browse/a8e1bebba29cf6a9d019a868149b1982/"
+      ]
+    },
+    "guitarclassroom:pdf:dd8e92cd6f32c67d2009c1c738fe4d4062b75985f598c09f45d9e5458534c238": {
+      "original": "A Little Fuge [Trio] (Lou Warde)",
+      "original_composer": "Lou Warde",
+      "display_original": "A Little Fuge [Trio]",
+      "zh": "小赋格",
+      "reason": "按完整题意翻译小赋格；来源题中[Trio]为版本编制提示，Lou Warde为署名，均保留原题和独立字段，中文主标题不带编目括号与责任署名。不由三重奏字样推定实际演奏人数。",
+      "evidence_url": "https://www.theguitarclassroom.com/gtr-ensemble"
+    }
+  },
+  "category_entries": {
+    "csun": {
+      "series:86a17de4121b8969": {
+        "original": "Guitar Studies",
+        "zh": "吉他练习曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/181"
+      },
+      "series:2c876fed3ab9ef11": {
+        "original": "Musical Gems Arranged As Solos For The Guitar",
+        "zh": "吉他独奏改编名曲集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1081"
+      },
+      "series:3b02dd3aa5d3581f": {
+        "original": "The Guitar A Collection Of Popular piueces Consisting Of Beautiful Melodies Operatic Airs Variations Polkas Schottisches Waltzes Galops Marches And Quicksteps Arranged For The Guitar By The Best Composers",
+        "zh": "《吉他》：名家为吉他改编的流行乐曲集（优美旋律、歌剧咏叹调、变奏曲及各类舞曲、进行曲与快步舞曲）",
+        "reason": "依据系列完整名称翻译曲目类型与吉他改编范围；保留来源原文拼写错误的原字段不变，只在中文显示中按上下文表达其明确的“pieces”含义。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/972"
+      },
+      "series:50954b4dbbe640d9": {
+        "original": "Compositions And Arrangements For The Guitar First Series",
+        "zh": "吉他作品与改编曲（第一辑）",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。 复核后不把歧义的器名并列或Duets翻译成确定的混合器种／声乐人数，保留原题供查核。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/166"
+      },
+      "series:00bcca0036129c65": {
+        "original": "Arling Shaeffer's Compositions Arrangements And Publications For The Guitar",
+        "zh": "Arling Shaeffer的吉他作品、改编曲与出版物",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/15"
+      },
+      "series:0f053e9060e977a3": {
+        "original": "The Guitar A Collection Of Popular pieces Consisting Of Beautiful Melodies Operatic Airs Variations Polkas Schottisches Waltzes Galops Marches And Quicksteps Arranged For The Guitar By The Best Composers",
+        "zh": "《吉他》：名家为吉他改编的流行乐曲集（优美旋律、歌剧咏叹调、变奏曲及各类舞曲、进行曲与快步舞曲）",
+        "reason": "依据系列完整名称翻译曲目类型与吉他改编范围；保留来源原文拼写错误的原字段不变，只在中文显示中按上下文表达其明确的“pieces”含义。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/350"
+      },
+      "series:90068efb5d9378a0": {
+        "original": "Guitarist's Token A Collection Of Popular pieces Arranged For The Guitar",
+        "zh": "Guitarist's Token：吉他流行乐曲改编集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/447"
+      },
+      "series:785fea8149348de9": {
+        "original": "Jacobs' Amateur Series For Guitar",
+        "zh": "Jacobs吉他业余系列",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1027"
+      },
+      "series:ea6c0905e8b04f3f": {
+        "original": "The Popular Series Choice New Solos For Banjo Guitar And Mandolin",
+        "zh": "Popular Series精选：班卓琴、吉他与曼陀林新独奏曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1049"
+      },
+      "series:fe7239652c755581": {
+        "original": "Selected Compositions For Two Mandolins And Guitar Guitar Solo's And Duets",
+        "zh": "两把曼陀林与吉他的精选作品、吉他独奏与二重奏",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/514"
+      },
+      "series:ece74438d6f1f3d0": {
+        "original": "A Choice Collection Of Guitar Music",
+        "zh": "精选吉他乐曲集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/105"
+      },
+      "series:544179afbc6a26d8": {
+        "original": "Select Solos For Guitar",
+        "zh": "吉他独奏曲精选",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/518"
+      },
+      "series:9ff99cf4e51f6bcf": {
+        "original": "Select Solos Arranged For The Guitar",
+        "zh": "吉他改编独奏曲精选",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/0"
+      },
+      "series:c6a3e30220d05813": {
+        "original": "Grand Concert Solos For The Guitar",
+        "zh": "吉他音乐会独奏曲集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1113"
+      },
+      "series:4d3e6347676909bb": {
+        "original": "Jacobs' Publications Grades Of Difficulty. A Very Easy. B Easy C Medium D Difficult E Very Difficult. pieces Marked Thus Are Arranged As Solos With 2nd Part Ad Lib. Guitar",
+        "zh": "Jacobs出版系列：难度等级A（很容易）、B（容易）、C（中等）、D（困难）、E（很困难）；标记作品编为吉他独奏，第二声部可选",
+        "reason": "按来源栏目完整保留A–E难度说明及“第二声部可选”含义；栏目文字不作为每首作品的独立声部/人数证据。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1092"
+      },
+      "series:c035aefa45a06ae8": {
+        "original": "Guitar Solos And Duets",
+        "zh": "吉他独奏与二重奏",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/195"
+      },
+      "series:f0e8ed8fbde60ebb": {
+        "original": "The Excelsior Guitar Collection",
+        "zh": "The Excelsior吉他曲集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1034"
+      },
+      "series:2b30c74e29bd3d6d": {
+        "original": "Carrie V. Hayden Guitar Compositions",
+        "zh": "Carrie V. Hayden吉他作品",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/386"
+      },
+      "series:cac1c8580255ab84": {
+        "original": "Six Easy Solos For The Guitar",
+        "zh": "吉他六首简易独奏曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/387"
+      },
+      "series:ccfb81c35be15244": {
+        "original": "Selected Guitar Solos",
+        "zh": "吉他独奏曲选",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/576"
+      },
+      "series:3848f05505a44aab": {
+        "original": "Compositions And Arrangements For Banjo Guitar And Mandolin",
+        "zh": "班卓琴、吉他与曼陀林作品及改编曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/554"
+      },
+      "series:a41446c40352b118": {
+        "original": "Compositions And Arrangements For The Guitar In The Saxton System",
+        "zh": "Saxton体系下的吉他作品与改编曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/10"
+      },
+      "series:b4000ad5f051e19b": {
+        "original": "Guitar Solos",
+        "zh": "吉他独奏曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1011"
+      },
+      "series:60bb24a0d60199a4": {
+        "original": "Select Compositions And Arrangements For Guitar, Banjo, And, Mandolin",
+        "zh": "吉他、班卓琴与曼陀林作品及改编曲精选",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/198"
+      },
+      "series:49e00dac7f8277a8": {
+        "original": "Favorite Compositions Of Justin Holland For The Guitar",
+        "zh": "Justin Holland的吉他精选作品",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1053"
+      },
+      "series:f17700ec6a52f9fd": {
+        "original": "Arling Shaeffer's Guitar Solos",
+        "zh": "Arling Shaeffer的吉他独奏曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/306"
+      },
+      "series:b1301ffba145a107": {
+        "original": "Edition Odell Guitar Solos And Duets",
+        "zh": "Odell版吉他独奏与二重奏",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/498"
+      },
+      "series:627782b358df57f0": {
+        "original": "Compositions And Arrangements For The Guitar",
+        "zh": "吉他作品与改编曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1142"
+      },
+      "series:fff9e1b7a502c8b0": {
+        "original": "To My Pupils. Happy Hours. A Collection Of Beautiful pieces For The Guitar",
+        "zh": "献给学生：《Happy Hours》吉他优美乐曲集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/255"
+      },
+      "series:e71a6f6ec6d2b448": {
+        "original": "Comnpositions And Arrangements For The Guitar",
+        "zh": "吉他作品与改编曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/20"
+      },
+      "series:e50494b22f798082": {
+        "original": "Selected Guitar Music By Various Composers Vocal And Instrumental",
+        "zh": "多位作曲家的吉他音乐精选（声乐与器乐）",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/38"
+      },
+      "series:1739a77a62b1d1c0": {
+        "original": "Jacobs Publications For Mandolin & Banjo Guitar",
+        "zh": "Jacobs器乐出版系列（Mandolin & Banjo Guitar）",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。 复核后不把歧义的器名并列或Duets翻译成确定的混合器种／声乐人数，保留原题供查核。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/212"
+      },
+      "series:a403a7037a725435": {
+        "original": "Bouquet Of Melodies Selections From Favorite Operas Arranged For The Guitar By Justin Holland",
+        "zh": "《旋律花束》：Justin Holland为吉他改编的歌剧选段",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/191"
+      },
+      "series:cd273a651773ed7a": {
+        "original": "Easy Arrangements And Compositions For Guitar;",
+        "zh": "吉他简易改编曲与作品",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/599"
+      },
+      "series:23f2eb5933928364": {
+        "original": "Select Compositions For Guitar As Solo Or With Accompaniment Of Other Instruments",
+        "zh": "吉他作品精选：独奏或与其他乐器伴奏",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/29"
+      },
+      "series:abafa0334ec374ae": {
+        "original": "W. L. Hayden Guitar Compositions Series",
+        "zh": "W. L. Hayden吉他作品系列",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1074"
+      },
+      "series:1e1c284944a14217": {
+        "original": "Transcriptions and Compositions For The Guitar",
+        "zh": "吉他移编与创作作品",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/216"
+      },
+      "series:05a1b3542e4a9d42": {
+        "original": "Select Compositions For Guitar Mandolin And Banjo By Favorite Authors",
+        "zh": "名家吉他、曼陀林与班卓琴作品精选",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1133"
+      },
+      "series:59e7fc9230f3b0ad": {
+        "original": "Popular Solos For The Guitar",
+        "zh": "吉他流行独奏曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1001"
+      },
+      "series:f8fc12084de04a2b": {
+        "original": "A Selection Of Waltzes Marches & Easy Pieces For The Guitar",
+        "zh": "吉他圆舞曲、进行曲与简易曲选集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/188"
+      },
+      "series:8c9e2b0416664dd8": {
+        "original": "Rerpertorio de obras para guitar",
+        "zh": "吉他作品选集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。 复核后不把歧义的器名并列或Duets翻译成确定的混合器种／声乐人数，保留原题供查核。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/991"
+      },
+      "series:665b20e6604b54f8": {
+        "original": "Beauties For The Guitar",
+        "zh": "吉他佳作",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/419"
+      },
+      "series:6d7f52578c9a6241": {
+        "original": "Selected Compositions And Arrangements For The Guitar By Popular Authors",
+        "zh": "名家吉他作品与改编曲精选",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/127"
+      },
+      "series:bf93a69a6fea2c8c": {
+        "original": "Choice Compositions For Guitar",
+        "zh": "吉他精选作品",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1003"
+      },
+      "series:85a0411a266ddd57": {
+        "original": "The Musical Album A Choice Collection Of New Guitar Songs",
+        "zh": "《音乐专辑》：新吉他歌曲精选",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/229"
+      },
+      "series:a74ed0516555c454": {
+        "original": "Popular Music For The Guitar Instrumental",
+        "zh": "吉他器乐流行曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/233"
+      },
+      "series:82e6e48644c56338": {
+        "original": "Selections For Guitar",
+        "zh": "吉他选曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/614"
+      },
+      "series:c2a69bae1b157024": {
+        "original": "Progressive Music For The Guitar By Antonio Lopes",
+        "zh": "Antonio Lopes吉他进阶曲集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1004"
+      },
+      "series:82751a370e6dc4d6": {
+        "original": "20 Compositions And Arrangements For Guitar",
+        "zh": "20首吉他作品与改编曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1094"
+      },
+      "series:03106565a3488266": {
+        "original": "Le Troubadour. A Collection Of Instrumental Guitar Music",
+        "zh": "Le Troubadour：吉他器乐曲集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1078"
+      },
+      "series:be7803241ac1f8c6": {
+        "original": "Artistic Compositions And Arrangements For The Guitar",
+        "zh": "吉他艺术作品与改编曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1008"
+      },
+      "series:b2d3145b3f019c0c": {
+        "original": "Select Solos For Guitar Suitable For Concerts Or Musicales",
+        "zh": "适用于音乐会或音乐聚会的吉他独奏曲精选",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/626"
+      },
+      "series:41c06abf4d834954": {
+        "original": "White's Popular Solos For Guitar",
+        "zh": "White's吉他流行独奏曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1112"
+      },
+      "series:30485e3b4c97164b": {
+        "original": "Pastimes. Collection Of Vocal And Instrumental Music For The Guitar",
+        "zh": "《Pastimes》：吉他伴奏声乐与器乐曲集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1014"
+      },
+      "series:0a9b7e6739643af4": {
+        "original": "Selected Guitar Music By Various Composers Instrumental",
+        "zh": "多位作曲家的吉他器乐精选",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/61"
+      },
+      "series:d18463a8639e35ff": {
+        "original": "Favorite Gems For The Mandolin And Guitar",
+        "zh": "曼陀林与吉他名曲精选",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/833"
+      },
+      "series:36f72e927f7ebd86": {
+        "original": "Favorite Compositions of Justin Holland for the Guitar",
+        "zh": "Justin Holland的吉他精选作品",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1066"
+      },
+      "series:2a3b2ed8c63ca323": {
+        "original": "Select Guitar Recreations Good Solos For Good Players",
+        "zh": "吉他选曲：优秀演奏者的独奏曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/294"
+      },
+      "series:5bc23531506270cd": {
+        "original": "Guitar Mandolin Banjo Compositions And Arrangements",
+        "zh": "吉他、曼陀林与班卓琴作品及改编曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/641"
+      },
+      "series:e1c67e80678fc34f": {
+        "original": "Brainard & Cos. New & Popular Songs For Guitar",
+        "zh": "Brainard & Co.新作与流行吉他歌曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/68"
+      },
+      "series:fffa32393b9fdb26": {
+        "original": "Popular And Standard Songs Arranged With Easy Guitar And Banjo Accompaniment",
+        "zh": "流行与经典歌曲：简易吉他和班卓琴伴奏改编",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/258"
+      },
+      "series:91a88d53e1297faf": {
+        "original": "Compositions And Arrangements By C. De Janon For The Guitar",
+        "zh": "C. De Janon的吉他作品与改编曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1028"
+      },
+      "series:2baaed34c4b6f1dc": {
+        "original": "Bijou Album Of Songs And Duets With Guitar Accompaniment",
+        "zh": "《Bijou曲集》：歌曲与二重曲（吉他伴奏）",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。 复核后不把歧义的器名并列或Duets翻译成确定的混合器种／声乐人数，保留原题供查核。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/260"
+      },
+      "series:c455ab8d2120fb2e": {
+        "original": "Easy Guitar Arrangements Of Favorite Old Songs And Melodies",
+        "zh": "经典歌曲与旋律的吉他简易改编",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/452"
+      },
+      "series:80c161ec3f13f8e0": {
+        "original": "Guitarist's Album A Collection Of Favorite Songs And Instrumental pieces Arranged For The Guitar",
+        "zh": "《吉他曲集》：精选歌曲与器乐作品（吉他改编）",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1035"
+      },
+      "series:bcc6e04e753c97d5": {
+        "original": "Series not specified",
+        "zh": "系列未注明",
+        "reason": "来源原始系列字段明确为“Series not specified”，直译为“系列未注明”；这表示目录字段缺省，不代表作品身份或编制未知的推断以外结论。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1002"
+      },
+      "series:21a0b04868713f42": {
+        "original": "Arrangements And Compositions For The Guitar",
+        "zh": "吉他改编曲与作品",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/856"
+      },
+      "series:23c3bb2f45c09ee9": {
+        "original": "W. L. Hayden's Guitar Mandolin And Banjo Compositions And Arrangements",
+        "zh": "W. L. Hayden的吉他、曼陀林与班卓琴作品及改编曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1047"
+      },
+      "series:8bae49591f4ea26e": {
+        "original": "Compositions For The Guitar",
+        "zh": "吉他作品",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1052"
+      },
+      "series:20408336a68fe204": {
+        "original": "Edition Boehm Choice Compositions For The Guitar",
+        "zh": "Boehm版吉他精选作品",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1055"
+      },
+      "series:a7ee0db1e57ccebe": {
+        "original": "Second Series White's Popular Solos For Guitar",
+        "zh": "White's流行吉他独奏曲（第二辑）",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/476"
+      },
+      "series:8214304badb71f55": {
+        "original": "The Favorite Ballads Of Wm. Vincent Wallace Arranged For The Spanish Guitar",
+        "zh": "Wm. Vincent Wallace抒情歌曲精选（西班牙吉他改编）",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/478"
+      },
+      "series:fd08c4f8cfbf3726": {
+        "original": "First Series. Happy Hours. A Choice Collection Of Guitar Music.",
+        "zh": "第一辑《Happy Hours》：吉他乐曲精选",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/101"
+      },
+      "series:4c3fab925eae45fe": {
+        "original": "Solos For The Guitar",
+        "zh": "吉他独奏曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1083"
+      },
+      "series:9af27ebf61ee101f": {
+        "original": "Peters' Collection Of Standard Guitar Songs",
+        "zh": "Peters标准吉他歌曲集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/673"
+      },
+      "series:750a07557bf39112": {
+        "original": "The Operatic Album: A Selection Of Favorite Opera Melodies Arranged For The Guitar",
+        "zh": "《歌剧曲集》：吉他改编的歌剧旋律精选",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/102"
+      },
+      "series:ad2f4194b1ba2a3d": {
+        "original": "The Troubadour. A Collection Of Choice Melodies For The Guitar By Various Authors",
+        "zh": "The Troubadour：多位作者的吉他精选旋律集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/107"
+      },
+      "series:b275d4d47afb0e35": {
+        "original": "Catcomb's Celebrated Publications For Banjo Mandolin And Guitar",
+        "zh": "Catcomb著名的班卓琴、曼陀林与吉他出版系列",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/488"
+      },
+      "series:6e412b7a721195a3": {
+        "original": "Charles J. Dorn. Guitar Compositions",
+        "zh": "Charles J. Dorn吉他作品",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1070"
+      },
+      "series:f780cb02284c9299": {
+        "original": "Ditson & Co.'s Collection Of Standard Guitar Songs",
+        "zh": "Ditson & Co.标准吉他歌曲集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1072"
+      },
+      "series:398fce5c00ffd5ae": {
+        "original": "Selected Guitar Music",
+        "zh": "吉他乐曲选集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/893"
+      },
+      "series:9c313c2c95464414": {
+        "original": "Solos & Duets For The Guitar",
+        "zh": "吉他独奏与二重奏",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/321"
+      },
+      "series:118377345f2eaa96": {
+        "original": "White's Popular Solos for Guitar",
+        "zh": "White's吉他流行独奏曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/513"
+      },
+      "series:a7a64977d11c8283": {
+        "original": "C. De Janon. Compositions For The Guitar",
+        "zh": "C. De Janon的吉他作品",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1138"
+      },
+      "series:d10fe43d28d31db7": {
+        "original": "Guitar Music Especially Arranged For Beginners",
+        "zh": "专为初学者改编的吉他乐曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/135"
+      },
+      "series:9adcece6b81ca7d0": {
+        "original": "Gems For The Guitar",
+        "zh": "吉他名曲精选",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/516"
+      },
+      "series:83f165073837df7a": {
+        "original": "A Collection Of New And Beautiful Solos For The Guitar",
+        "zh": "新作与优美吉他独奏曲集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1099"
+      },
+      "series:bf83bde801db6d7f": {
+        "original": "A Selection Of Beautiful Guitar Songs By Popular Authors",
+        "zh": "名家吉他歌曲精选",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/718"
+      },
+      "series:7fe1760ff9c0eb4f": {
+        "original": "Guitar Solos and Duets",
+        "zh": "吉他独奏与二重奏",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1105"
+      },
+      "series:62be9b157c90b984": {
+        "original": "Louis Lemberg's Popular Instrumental Arrangements For The Guitar",
+        "zh": "Louis Lemberg的吉他流行器乐改编曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/357"
+      },
+      "series:0b37d862d2e0eac6": {
+        "original": "Transcriptions And Compositions For The Guitar",
+        "zh": "吉他移编与创作作品",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/365"
+      },
+      "series:b244655ead4f76ef": {
+        "original": "Popular Solos Arranged For Guitar",
+        "zh": "吉他改编流行独奏曲",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/767"
+      },
+      "series:d046205342d996bb": {
+        "original": "Brilliant Compositions For The Guitar By Various Authors",
+        "zh": "多位作者的吉他佳作",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。 复核后不把歧义的器名并列或Duets翻译成确定的混合器种／声乐人数，保留原题供查核。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/948"
+      },
+      "series:d88c5b7e78f7aaa8": {
+        "original": "Easy Arrangements And Compositions For Guitar",
+        "zh": "吉他简易改编曲与作品",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/373"
+      },
+      "series:0bce00daac348080": {
+        "original": "Odds And Ends: Or Leaves From Hayden's Scrap Book A Collection Of Music",
+        "zh": "《杂集：或Hayden剪贴簿选页》乐曲集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/543"
+      },
+      "series:8fb209afd61bdfa9": {
+        "original": "Scraps From The Operas Arranged For Two Guitars",
+        "zh": "歌剧选段：两把吉他改编集",
+        "reason": "依据来源给出的完整系列/栏目文字翻译；保留其中专名、人名和书系名。此项只翻译来源分类，不据合集或系列下记录数量推断演奏人数或改写作品编制。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1071"
+      },
+      "series:49ffbe606ef1fde8": {
+        "original": "Guitar Folio My Rocky Mountain Home",
+        "zh": "吉他曲集：My Rocky Mountain Home",
+        "reason": "“Guitar Folio”明确表示吉他曲集；具体曲集名“My Rocky Mountain Home”保留原文，不补造作品题名。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/597"
+      },
+      "series:b22920c0ddb37ba8": {
+        "original": "Musical Gems To Mr. Charles A. Gilberg.",
+        "zh": "献给Charles A. Gilberg的音乐珍品",
+        "reason": "原系列题名明确以“To Mr. Charles A. Gilberg”标注致赠对象；翻译通用题意并保留人名，不将其误作作曲者署名。",
+        "evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/50"
+      }
+    },
+    "derekhasted": {
+      "flexible-guitar-ensemble": {
+        "original": "24 Guitars (source says flexible group size)",
+        "zh": "24把吉他（来源注明人数可调整）",
+        "reason": "原栏目标题含24且明确说明人数可变；照录这一栏目说明，不把24视为固定演奏人数或作品编制结论。",
+        "evidence_url": "https://www.derek-hasted.co.uk/free/"
+      },
+      "four-guitars": {
+        "original": "4 Guitars",
+        "zh": "吉他四重奏",
+        "reason": "来源栏目原文标示四把吉他；栏目译名保留其源声明，不据此重分类具体谱件。",
+        "evidence_url": "https://www.derek-hasted.co.uk/free/"
+      },
+      "three-guitars": {
+        "original": "3 Guitars",
+        "zh": "吉他三重奏",
+        "reason": "来源栏目原文标示三把吉他；栏目译名保留其源声明，不据此重分类具体谱件。",
+        "evidence_url": "https://www.derek-hasted.co.uk/free/"
+      },
+      "two-guitars": {
+        "original": "2 Guitars",
+        "zh": "吉他二重奏",
+        "reason": "来源栏目原文标示两把吉他；栏目译名保留其源声明，不据此重分类具体谱件。",
+        "evidence_url": "https://www.derek-hasted.co.uk/free/"
+      }
+    },
+    "guitarclassroom": {
+      "classical-guitar": {
+        "original": "Classical",
+        "zh": "古典吉他",
+        "reason": "该来源的Classical目录位于吉他谱站点，页面所列资源属于吉他栏目；仅翻译目录用途，不推断具体乐器人数。",
+        "evidence_url": "https://www.theguitarclassroom.com/classical"
+      }
+    }
+  }
+}

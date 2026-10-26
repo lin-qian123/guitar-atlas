@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "scope": "Four exact prior score-file observations and two bounded CSUN page reviews; not a source-wide instrumentation audit.",
+  "entries": {
+    "guitarclassroom:pdf:d929010899e2291f34810fc4fe6f7af4e65aa0a3f527b01ae885090b4fd6c7e5": {
+      "native_record_sha256": "7af8202a48366166d7100881f75a84e6dab7ba9e9db6f10ab2f93a501c0955bb",
+      "native_identity": {
+        "id": "guitarclassroom:pdf:d929010899e2291f34810fc4fe6f7af4e65aa0a3f527b01ae885090b4fd6c7e5",
+        "title_en": "Study No. 19, op. 60 (Carulli)",
+        "composer_en": "Carulli",
+        "instrumentation": "guitar"
+      },
+      "asset": {
+        "local_path": "sources/guitarclassroom/objects/e5f12ca0b6e25bbbe9d5d5d8c623b8e13dab0a311a2d50478785a63bb89cc68c.pdf",
+        "sha256": "e5f12ca0b6e25bbbe9d5d5d8c623b8e13dab0a311a2d50478785a63bb89cc68c",
+        "size": 56925,
+        "format": "PDF",
+        "status": "verified"
+      },
+      "evidence": {
+        "packet": "sources/source-expansion/new-pdf-evidence.json.gz",
+        "packet_sha256": "e5de29a82966aa5e342b9de52f1a9533bf6a3bdbeaf289bce39bcd8837d030d5",
+        "page": 1,
+        "actual_pages": 1,
+        "printed_excerpt": "Study No. 19 / Fernando Sor / Op. 60",
+        "manual_review": "Rendered page 1. Material source/catalog mismatch: catalog title is “Study No. 19, op. 60 (Carulli)” and composer_en is “Carulli”; PDF prints “Study No. 19 / Fernando Sor / Op. 60”. Native metadata also has source section “Two Pieces by Francisco Tárrega” and a contributor line “Fernando Sor - Study No. 19, Op. 60”, so the attributions conflict. Do not resolve by editing this evidence; native source identity remains locator-based.",
+        "packet_size": 927520
+      },
+      "public": {
+        "description_note": "谱页印有 Fernando Sor、Study No. 19、Op. 60，与源目录 Carulli 署名冲突；源记录身份与原署名保留，需留意版本归属。",
+        "title_aliases": [
+          "Fernando Sor",
+          "费尔南多·索尔"
+        ],
+        "file_title": "Study No. 19",
+        "file_identity_note": "谱页署名 Fernando Sor，源目录署名 Carulli；此谱页归属与源目录条目存在冲突。"
+      }
+    },
+    "guitarclassroom:pdf:798e2fd5bd8ee3e7d8414fd8e0497b34a5a21a6a9d18b8fe71bc87cbf7150aac": {
+      "native_record_sha256": "632081fce4d5c3bd55e97ca3352ac0f5c90afa404897b7386e2f20b1be0dc3a3",
+      "native_identity": {
+        "id": "guitarclassroom:pdf:798e2fd5bd8ee3e7d8414fd8e0497b34a5a21a6a9d18b8fe71bc87cbf7150aac",
+        "title_en": "Carneirunho",
+        "composer_en": "",
+        "instrumentation": "guitar ensemble"
+      },
+      "asset": {
+        "local_path": "sources/guitarclassroom/objects/ffbfc085355cd5ce3f566b1fd4a9e783a66f67117e3008971aed07f879a7aae7.pdf",
+        "sha256": "ffbfc085355cd5ce3f566b1fd4a9e783a66f67117e3008971aed07f879a7aae7",
+        "size": 46536,
+        "format": "PDF",
+        "status": "verified"
+      },
+      "evidence": {
+        "packet": "sources/source-expansion/new-pdf-evidence.json.gz",
+        "packet_sha256": "e5de29a82966aa5e342b9de52f1a9533bf6a3bdbeaf289bce39bcd8837d030d5",
+        "page": 1,
+        "actual_pages": 1,
+        "printed_excerpt": "Carneirinho / Hector Ayala / Guitar 1 / Guitar 2",
+        "manual_review": "Rendered page 1. Source/catalog title and filename spell “Carneirunho”; printed score title is “Carneirinho” with subtitle “(Portuguese: Lamb)”. PDF prints “Hector Ayala” without explicit role; source composer is blank. Score explicitly labels “Guitar 1” and “Guitar 2”; this is direct printed-part evidence for two written roles, not an inference from staff/file counts. Source section “South American Duets & Trios” does not itself specify this record’s count.",
+        "packet_size": 927520
+      },
+      "public": {
+        "description_note": "谱页题名拼作 Carneirinho，并印 Hector Ayala；源目录题名 Carneirunho 保留。谱面标有 Guitar 1、Guitar 2，但此处不据谱表标签推定演奏人数。",
+        "title_aliases": [
+          "Carneirinho",
+          "Hector Ayala"
+        ],
+        "file_title": "Carneirinho",
+        "file_identity_note": "谱页题名为 Carneirinho，源目录题名为 Carneirunho；保留两种原文拼法。"
+      }
+    },
+    "maikstrings:pdf:bbdea8bba406cb3eb62392f3f784b05f57495ee1819e19096ded38a7fe4d114c": {
+      "native_record_sha256": "cfcf6485b0f25ee91bee635fe50e8dc8ae48308f9a17ddd7a1a37aa4fa1cd7c3",
+      "native_identity": {
+        "id": "maikstrings:pdf:bbdea8bba406cb3eb62392f3f784b05f57495ee1819e19096ded38a7fe4d114c",
+        "title_en": "Adelita",
+        "composer_en": "Francisco Tárrega (1852–1909)",
+        "instrumentation": "Guitar"
+      },
+      "asset": {
+        "local_path": "sources/maikstrings/objects/e070cedc7c0ca04ab607d70540c8acb647657b63358acb80780f18615b100ccd.pdf",
+        "sha256": "e070cedc7c0ca04ab607d70540c8acb647657b63358acb80780f18615b100ccd",
+        "size": 103186,
+        "format": "PDF",
+        "status": "verified"
+      },
+      "evidence": {
+        "packet": "sources/source-expansion/new-pdf-evidence.json.gz",
+        "packet_sha256": "e5de29a82966aa5e342b9de52f1a9533bf6a3bdbeaf289bce39bcd8837d030d5",
+        "page": 1,
+        "actual_pages": 1,
+        "printed_excerpt": "Mazurka für zwei Gitarren / Guitar I / Guitar II / Arr: J. J. Olson",
+        "manual_review": "Rendered page 1. Printed title and composer agree with source record. PDF explicitly prints “Mazurka für zwei Gitarren”, “Guitar I”, “Guitar II”, and “Arr.: J. J. Olson”; source instrumentation is only “Guitar” with unknown count and arranger is blank. This is file-level duo/arranger evidence, not a source-declared count.",
+        "packet_size": 927520
+      },
+      "public": {
+        "description_note": "谱页明确标注 “Mazurka für zwei Gitarren” 及 “Arr: J. J. Olson”；据谱面记为双吉他编曲，源目录未注明人数，原作曲者与编曲者字段均保留。",
+        "title_aliases": [
+          "Mazurka für zwei Gitarren"
+        ],
+        "instrumentation": "2 guitars"
+      }
+    },
+    "maikstrings:pdf:0a60f0910ebfe594c123411eea75422fb197c0236b0f92fdbe0bd48ceb418a69": {
+      "native_record_sha256": "5e2474d7ba468af04156b8f5f6ef57107cd1e7f433f5d1306366ec0c06e7d698",
+      "native_identity": {
+        "id": "maikstrings:pdf:0a60f0910ebfe594c123411eea75422fb197c0236b0f92fdbe0bd48ceb418a69",
+        "title_en": "Recuerdos de la Alhambra",
+        "composer_en": "Francisco Tárrega (1852–1909)",
+        "instrumentation": "Guitar"
+      },
+      "asset": {
+        "local_path": "sources/maikstrings/objects/fd5bb12468af3a614e1fde5cb8b7d726e39046294af7921b899b38d3383a765e.pdf",
+        "sha256": "fd5bb12468af3a614e1fde5cb8b7d726e39046294af7921b899b38d3383a765e",
+        "size": 92828,
+        "format": "PDF",
+        "status": "verified"
+      },
+      "evidence": {
+        "packet": "sources/source-expansion/new-pdf-evidence.json.gz",
+        "packet_sha256": "e5de29a82966aa5e342b9de52f1a9533bf6a3bdbeaf289bce39bcd8837d030d5",
+        "page": 1,
+        "actual_pages": 2,
+        "printed_excerpt": "Recuerdos de la Alhambra / Francisco Tarrega / arrg. Ł. Slawianowska, M. Prywata",
+        "manual_review": "Rendered page 1. Printed title and Francisco Tarrega credit agree with source record (score omits accent in Tarrega). PDF also prints “arrg. Ł. Slawianowska, M. Prywata”, not recorded in source arranger metadata. Two-staff engraving alone does not establish performer count.",
+        "packet_size": 927520
+      },
+      "public": {
+        "description_note": "谱页印有编配署名 “arrg. Ł. Slawianowska, M. Prywata”；源目录 composer/arranger 字段保留原值。",
+        "title_aliases": [
+          "Ł. Slawianowska",
+          "M. Prywata"
+        ]
+      }
+    },
+    "csun:1071": {
+      "native_record_sha256": "f8e886ae6ca80bd3bf23172b49e1896fd25775b76cd402ce24921e87a2270118",
+      "native_identity": {
+        "id": "csun:1071",
+        "title_en": "Freischutz",
+        "composer_en": "Weber, Carl Maria von, 1786-1826;",
+        "instrumentation": "2 guitars"
+      },
+      "asset": {
+        "local_path": "sources/csun/objects/ae1783c7171c89fca759a1c80e46fffdacbd754c3efb473dd3896edd571f9707.pdf",
+        "sha256": "ae1783c7171c89fca759a1c80e46fffdacbd754c3efb473dd3896edd571f9707",
+        "size": 4555066,
+        "format": "PDF",
+        "status": "verified"
+      },
+      "evidence": {
+        "packet": "sources/source-expansion/csun-score-samples.json",
+      "packet_sha256": "25725ce856699b69d9751432ea7090e652e58f38fd4aa6600b71e8c1814ae94e",
+      "packet_size": 12918,
+        "page": 2,
+        "actual_pages": 8,
+        "printed_excerpt": "Der Freischütz / for one or two guitars / Guitar Primo"
+      },
+      "public": {
+        "description_note": "谱页将《Der Freischütz》标注为 “for one or two guitars”，并标有 “Guitar Primo”；原来源系列声明为两把吉他。此谱页保留一把或两把吉他的选项，不据此固定演奏人数。",
+        "title_aliases": [
+          "Der Freischütz"
+        ],
+        "file_title": "Der Freischütz",
+        "file_identity_note": "谱页题名含变音符号；源目录题名保留为 Freischutz。",
+        "instrumentation": "one or two guitars"
+      }
+    },
+    "csun:1024": {
+      "native_record_sha256": "35c7362a2ae4c5f38e1c46f741df5120c74555ecd1d0ed40063415bbc84f0024",
+      "native_identity": {
+        "id": "csun:1024",
+        "title_en": "Royal collection vocal guitar music",
+        "composer_en": "[Various]",
+        "instrumentation": "guitar"
+      },
+      "asset": {
+        "local_path": "sources/csun/objects/1049bb506384c4d1c1f2b317c55fb073f2fec5731215ac32be5679ff2ad877ff.pdf",
+        "sha256": "1049bb506384c4d1c1f2b317c55fb073f2fec5731215ac32be5679ff2ad877ff",
+        "size": 19071259,
+        "format": "PDF",
+        "status": "verified"
+      },
+      "evidence": {
+        "packet": "sources/source-expansion/csun-score-samples.json",
+        "packet_sha256": "25725ce856699b69d9751432ea7090e652e58f38fd4aa6600b71e8c1814ae94e",
+        "packet_size": 12918,
+        "page": 10,
+        "actual_pages": 84,
+        "printed_excerpt": "CHORUS / Soprano / Alto / Tenor / Bass / Guitar / I’ll remember you in my prayers"
+      },
+      "public": {
+        "description_note": "第10页可见带歌词的合唱声部（Soprano、Alto、Tenor、Bass）及独立吉他伴奏声部，证实本合集含声乐与吉他内容；未逐页核实其他曲目，也不据此推定演奏人数。来源目录的 Guitar 字段原样保留。",
+        "title_aliases": [
+          "Royal Collection of Vocal Guitar Music"
+        ]
+      }
+    }
+  }
+}

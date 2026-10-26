@@ -21,6 +21,7 @@ NEW_DETAIL_FIELDS = frozenset({"instrumentation_zh", "source_instrumentation", "
 PUBLIC_METADATA = SOURCE_PUBLIC_METADATA | NEW_DETAIL_FIELDS
 from catalog_classification import (APPLIED_CLASSIFICATIONS, PUBLIC_FIELDS as CLASSIFICATION_FIELDS,
                                     apply_classification_reviews, public_details)
+from catalog_file_notes import APPLIED_FILE_NOTE_IDS, APPLIED_FILE_CLASSIFICATIONS, apply_file_notes
 PUBLIC_METADATA |= CLASSIFICATION_FIELDS
 MUSESCORE_RESERVED_OWNERS = frozenset({"api", "download", "static", "score", "scores", "sheetmusic", "groups", "user", "users", "s", "editor"})
 MUSESCORE_SYNTHETIC_SOURCE_INSTRUMENTATION = "Guitar-related source declaration; file scope pending"
@@ -113,6 +114,57 @@ def public_source_instrumentation(native: dict, current: str | None = None) -> s
     return "；".join(names) if names else None
 
 
+def project_source_public_notes(source_id: str, native: dict, details: dict) -> dict:
+    """Project source-specific editorial notes into reader-facing details.
+
+    Native catalogs retain their complete provenance and audit language. This
+    helper only adjusts the public copy for the two newly reviewed sources
+    whose notes otherwise expose parser or acquisition workflow commentary.
+    """
+    result = dict(details)
+    metadata = native.get("metadata", {})
+    if source_id == "maikstrings":
+        # The composer is already preserved verbatim as composer_en. This note
+        # explains how an HTML class and filters were interpreted, rather than
+        # supplying an additional reader-facing credit.
+        result.pop("source_attribution_note", None)
+        engraver = metadata.get("engraver_credit")
+        contributors = metadata.get("contributors")
+        if (isinstance(engraver, str) and "maikstrings" in engraver.casefold()
+                and isinstance(contributors, str) and "maikstrings" in contributors.casefold()
+                and "engraving" in contributors.casefold()):
+            result["contributors"] = "Maikstrings (engraving)"
+        rights_note = metadata.get("license_note", "")
+        required_rights_facts = (
+            "free individual download", "printing", "teaching use", "group copies",
+            "all rights reserved", "public digital redistribution",
+        )
+        if rights_note and all(term in rights_note.casefold() for term in required_rights_facts):
+            result["license_note"] = (
+                "来源目录将曲目标注为 Public Domain；此标注不确认现代刻版的权利。"
+                "来源页面允许个人下载、打印、教学及群体复印，并另标“All rights reserved”。"
+                "公开数字再分发授权未获确认。"
+            )
+        elif rights_note:
+            raise ValueError("unreviewed Maikstrings public license note")
+    elif source_id == "yawnoc":
+        # These fields describe crawl decisions and parser/attribution
+        # normalization; the linked source page and the projected composer,
+        # arranger, and editor fields remain available to readers.
+        result.pop("availability", None)
+        result.pop("source_attribution_note", None)
+        rights_note = metadata.get("license_note", "")
+        if rights_note:
+            lower = rights_note.casefold()
+            if "public domain" not in lower or "cc0" not in lower or "composition lineage" not in lower:
+                raise ValueError("unreviewed yawnoc public license note")
+            result["license_note"] = (
+                "仓库声明原作属公有领域，作者的编辑／改编采用 CC0；对应版本的 LICENSE 文件标为 CC0 1.0。"
+                "原作权利状态仅据仓库声明。"
+            )
+    return result
+
+
 def source_catalog(root: Path, source: dict) -> dict:
     relative = Path(source["catalog"])
     path = root / relative
@@ -125,10 +177,11 @@ def source_catalog(root: Path, source: dict) -> dict:
     if not isinstance(payload.get("categories"), list) or not isinstance(payload.get("works"), list):
         raise ValueError("normalized catalog requires categories and works")
     from catalog_instrumentation import APPLIED_REVIEW_IDS, apply_instrumentation_review
-    if APPLIED_REVIEW_IDS in payload:
+    if any(key in payload for key in (APPLIED_REVIEW_IDS, APPLIED_FILE_NOTE_IDS, APPLIED_FILE_CLASSIFICATIONS)):
         raise ValueError("native catalog cannot supply the controlled runtime review marker")
     effective = apply_instrumentation_review(root, payload, catalog_bytes=source_bytes)
-    return apply_classification_reviews(root, effective, payload)
+    effective = apply_classification_reviews(root, effective, payload)
+    return apply_file_notes(root, effective, payload)
 
 
 def merge_sources(root: Path, data: dict) -> dict:
@@ -156,6 +209,8 @@ def merge_sources(root: Path, data: dict) -> dict:
         else:
             catalog = source_catalog(root, source)
             classification_reviews = catalog.get(APPLIED_CLASSIFICATIONS, {})
+            file_note_ids = set(catalog.get(APPLIED_FILE_NOTE_IDS, []))
+            file_note_classifications = catalog.get(APPLIED_FILE_CLASSIFICATIONS, {})
             from catalog_instrumentation import APPLIED_REVIEW_IDS, REVIEW_STATUSES
             file_review_ids = set(catalog.get(APPLIED_REVIEW_IDS, [])) if source["id"] == "musescore" else set()
             snapshot = catalog.get("snapshot", {})
@@ -215,6 +270,8 @@ def merge_sources(root: Path, data: dict) -> dict:
                     and raw.get("instrumentation_status") in REVIEW_STATUSES
                     and metadata.get("file_instrumentation_basis") == "file_crosscheck")
                 detail_fields = PUBLIC_METADATA if file_review_applied else SOURCE_PUBLIC_METADATA
+                if identity in file_note_ids:
+                    detail_fields = detail_fields | {"file_title", "file_identity_note", "source_instrumentation"}
                 work["details"] = {key: str(metadata[key]) for key in detail_fields
                                    if key in metadata and isinstance(metadata[key], (str, int, float)) and str(metadata[key]).strip()}
                 if source["id"] == "musescore" and "source_instrumentation" in work["details"]:
@@ -230,6 +287,8 @@ def merge_sources(root: Path, data: dict) -> dict:
                     work['details'].pop(key, None)
                 if identity in classification_reviews:
                     work['details'].update(public_details(classification_reviews[identity]))
+                if identity in file_note_classifications:
+                    work['details'].update(public_details(file_note_classifications[identity]))
                 if source["id"] == "dga":
                     fields = metadata.get("source_fields", {})
                     raw_format = str(fields.get("format") or "").strip()
@@ -262,6 +321,7 @@ def merge_sources(root: Path, data: dict) -> dict:
                 # The catalog site's editor is not necessarily an edition's editor.
                 if source["id"] in {"delcamp", "werner"} and not metadata.get("editor_evidence"):
                     work["details"].pop("editor", None)
+                work["details"] = project_source_public_notes(source["id"], raw, work["details"])
                 # Project a closed list of public fields; no assets, hashes or paths.
                 data["works"].append(work)
                 for key in category_ids:

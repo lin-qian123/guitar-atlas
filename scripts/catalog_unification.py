@@ -20,7 +20,7 @@ TOPICS = [
     ("other_instrumentation", "其他编制", "Other instrumentation"),
 ]
 FORM_PATTERN = re.compile(r"\b(etude[s]?|étude[s]?|stud(?:y|ies)|method|méthode|schule|exercise[s]?|exercice[s]?|leçon[s]?|lesson[s]?)\b", re.I)
-ARCHIVES = {"boije", "rism", "dga", "loc", "gallica", "rischel", "riam_hudleston"}
+ARCHIVES = {"boije", "rism", "dga", "loc", "gallica", "rischel", "riam_hudleston", "csun"}
 
 
 def instrumentation_topic(text: str) -> str | None:
@@ -28,6 +28,10 @@ def instrumentation_topic(text: str) -> str | None:
     value = re.sub(r"\s+", " ", text.casefold()).strip()
     if value in {"guitar", "classical guitar", "guit"}:
         return "guitar_unspecified"
+    if value == "guitar and strings":
+        # An explicit collective family declaration establishes a shared topic,
+        # without converting a string section or an instrument choice to players.
+        return "strings"
     if re.fullmatch(r'for [1-9][0-9]*[ -]string guitar(?: \(arr\))?', value):
         return 'solo'
     if match := re.fullmatch(r"guit\s*\(([1-9][0-9]*)\)", value):
@@ -79,12 +83,14 @@ def unify_catalog(root: Path, data: dict, registry: list[dict]) -> None:
     from catalog_sources import source_catalog
     from catalog_instrumentation import APPLIED_REVIEW_IDS
     from catalog_classification import APPLIED_CLASSIFICATIONS, require_classification_coverage
-    private, file_reviewed, classifications = {}, set(), {}
+    from catalog_file_notes import APPLIED_FILE_CLASSIFICATIONS
+    private, file_reviewed, classifications, file_note_classifications = {}, set(), {}, {}
     for source in registry:
         if source.get("catalog"):
             payload = source_catalog(root, source)
             private.update((work["id"], work) for work in payload["works"])
             classifications.update(payload.get(APPLIED_CLASSIFICATIONS, {}))
+            file_note_classifications.update(payload.get(APPLIED_FILE_CLASSIFICATIONS, {}))
             if source["id"] == "musescore":
                 # Only this successfully checked scope has a file review. An
                 # appended native record cannot inherit another record's proof.
@@ -129,6 +135,10 @@ def unify_catalog(root: Path, data: dict, registry: list[dict]) -> None:
             basis["unspecified"] = "no_exact_instrumentation_evidence"
         if work['id'] in classifications:
             decision = classifications[work['id']]
+            topics, basis = {decision['topic_id']}, {decision['topic_id']: decision['basis']}
+            topic_memberships = {}
+        elif work['id'] in file_note_classifications:
+            decision = file_note_classifications[work['id']]
             topics, basis = {decision['topic_id']}, {decision['topic_id']: decision['basis']}
             topic_memberships = {}
         if work.get("resource_type") == "reference":

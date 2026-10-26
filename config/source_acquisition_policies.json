@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-15",
-  "candidate_count": 34,
+  "updated_at": "2026-10-27",
+  "candidate_count": 47,
   "purpose": "Per-source metadata/discovery/file-acquisition policy ledger; not a production source registry",
   "public_export": "Source pages and factual metadata only; never score files, assets, checkout links, local paths or hashes",
   "states": {
-    "implemented": 4,
-    "metadata_only": 11,
-    "blocked": 3,
-    "requires_permission": 15,
+    "implemented": 8,
+    "metadata_only": 12,
+    "blocked": 4,
+    "requires_permission": 22,
     "unavailable": 1
   },
   "sources": [
@@ -1443,6 +1443,410 @@
         "final_url": "https://www.ccguitar.cn/album/1541217.htm",
         "error": null
       }
+    },
+    {
+      "source_id": "csun",
+      "name": "CSUN · International Guitar Research Archives",
+      "checked_at": "2026-10-27",
+      "status": "implemented",
+      "registered": true,
+      "scope": "Frozen official IGRA-scores guitar-keyword candidate IDs; metadata decisions use complete item JSON and source-field guitar relevance, with exact item-level Public domain required for pending PDF assets. Guitar player count remains unspecified unless explicitly declared.",
+      "directory_url": "https://digital-library.csun.edu/IGRA-scores",
+      "metadata_policy": "source-attributed factual navigation; full rights and scope remain record-specific",
+      "file_policy": "Private offline acquisition under exact per-record/source permission only; public export has no PDF or file endpoints. Robots denial remains a separate terminal boundary.",
+      "research_rights_observation": "Collection statement is not enough; retain each complete item rights note. Documented API is robots-allowed with one-second clock. Batch-query fields can be truncated.",
+      "evidence_urls": [
+        "https://digital-library.csun.edu/IGRA-scores",
+        "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1144"
+      ],
+      "reason": "Collection statement is not enough; retain each complete item rights note. Documented API is robots-allowed with one-second clock. Batch-query fields can be truncated.",
+      "catalog": "sources/csun/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-26T14:52:51.859444+00:00",
+        "completed_at": "2026-10-26T14:52:51.859444+00:00",
+        "discovery_complete": true,
+        "listing_complete": true,
+        "detail_complete": true,
+        "page_count": 2,
+        "listing_page_count": 2,
+        "detail_page_count": 1145,
+        "item_metadata_record_count": 1145,
+        "full_item_metadata_record_count": 1145,
+        "full_item_metadata_complete": true,
+        "selected_dmquery_fields_per_response_max": 5,
+        "selected_dmquery_field_value_limit_bytes": 100,
+        "scope_version": "2026-10-26.3",
+        "candidate_query_scope_version": "2026-10-26.2",
+        "schema_version": 1,
+        "scope": "Frozen official IGRA-scores guitar-keyword candidate IDs; metadata decisions use complete item JSON and source-field guitar relevance, with exact item-level Public domain required for pending PDF assets. Guitar player count remains unspecified unless explicitly declared.",
+        "keyword": "guitar",
+        "upstream_total_results": 1145,
+        "coverage_boundary": "This is a keyword candidate scope, not all CSUN or IGRA holdings.",
+        "instrumentation_review_complete": false,
+        "source_metadata_scope_review_complete": true,
+        "score_file_instrumentation_verified": false,
+        "fresh_file_integrity_verification": false,
+        "metadata_license": "Record metadata is factual attribution and source navigation; no blanket database reuse license asserted."
+      },
+      "source_record_count": 424,
+      "category_count": 100,
+      "category_membership_count": 424,
+      "asset_status_counts": {
+        "verified": 424
+      },
+      "verified_pdf_manifest_count": 424,
+      "discovery_complete": true,
+      "discovery_command": "python scripts/discover_supplement_sources.py --source csun"
+    },
+    {
+      "source_id": "yawnoc",
+      "name": "yawnoc/guitar",
+      "checked_at": "2026-10-27",
+      "status": "metadata_only",
+      "registered": true,
+      "scope": "Release API enumerated with per_page=100 until a page returned fewer than 100 items; current README release index matched all returned non-draft/non-prerelease releases, and each tag's LilyPond source, README, and LICENSE were read at its immutable commit through GitHub contents API. No PDF was fetched.",
+      "directory_url": "https://github.com/yawnoc/guitar",
+      "metadata_policy": "source-attributed factual navigation; full rights and scope remain record-specific",
+      "file_policy": "Private offline acquisition under exact per-record/source permission only; public export has no PDF or file endpoints. Robots denial remains a separate terminal boundary.",
+      "research_rights_observation": "Repository states PD compositions and CC0 edits/arrangements; confirm exact README/LICENSE and each release/source header separately.",
+      "evidence_urls": [
+        "https://github.com/yawnoc/guitar"
+      ],
+      "reason": "Repository states PD compositions and CC0 edits/arrangements; confirm exact README/LICENSE and each release/source header separately.",
+      "catalog": "sources/yawnoc/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-26T14:53:56.386521+00:00",
+        "completed_at": "2026-10-26T15:17:32.088858+00:00",
+        "discovery_complete": true,
+        "scope": "Release API enumerated with per_page=100 until a page returned fewer than 100 items; current README release index matched all returned non-draft/non-prerelease releases, and each tag's LilyPond source, README, and LICENSE were read at its immutable commit through GitHub contents API. No PDF was fetched.",
+        "repository": "https://github.com/yawnoc/guitar",
+        "repository_id": 327256648,
+        "default_branch": "master",
+        "head_commit": "fe48dbba46be760fab453b3a72ef35746f20ea48",
+        "published_release_count": 5,
+        "source_score_count": 5,
+        "release_api_per_page": 100,
+        "release_api_page_count": 1,
+        "release_api_total_returned": 5,
+        "release_api_complete_by_page_limit": true,
+        "readme_release_index_tags": [
+          "dowland-fantasia-7-v1.0.0",
+          "el-vito-v1.1.3",
+          "lagrima-v1.2.2",
+          "sor-c-major-35-13-v1.1.1",
+          "tetris-quartet-v1.3.1"
+        ],
+        "unrepresented_score_directories": [],
+        "pdf_downloads_attempted": false,
+        "source_files_downloaded": true,
+        "lilypond_bodies_read_for_metadata": true,
+        "lilypond_source_assets_acquired": false,
+        "fresh_file_integrity_verification": false,
+        "fresh_instrumentation_verification": false
+      },
+      "source_record_count": 5,
+      "category_count": 1,
+      "category_membership_count": 5,
+      "asset_status_counts": {
+        "restricted": 9
+      },
+      "verified_pdf_manifest_count": 0,
+      "discovery_complete": true,
+      "discovery_command": "python scripts/discover_supplement_sources.py --source yawnoc"
+    },
+    {
+      "source_id": "maikstrings",
+      "name": "Maikstrings Classical Guitar Sheet Music",
+      "checked_at": "2026-10-27",
+      "status": "implemented",
+      "registered": true,
+      "scope": "All 112 entries on the official Classical Guitar Sheet Music directory. The source permits individual educational acquisition for private offline use; public redistribution of the PDFs is not established. No PDF was requested by discovery.",
+      "directory_url": "https://maikstrings.com/sheet-music-guitar.html",
+      "metadata_policy": "source-attributed factual navigation; full rights and scope remain record-specific",
+      "file_policy": "Private offline acquisition under exact per-record/source permission only; public export has no PDF or file endpoints. Robots denial remains a separate terminal boundary.",
+      "research_rights_observation": "Source claims compositions public domain and permits personal/teaching copies; modern engraving public redistribution is not established.",
+      "evidence_urls": [
+        "https://maikstrings.com/sheet-music-guitar.html"
+      ],
+      "reason": "Source claims compositions public domain and permits personal/teaching copies; modern engraving public redistribution is not established.",
+      "catalog": "sources/maikstrings/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-26T14:54:39.989988+00:00",
+        "completed_at": "2026-10-26T15:25:47.004434+00:00",
+        "discovery_complete": true,
+        "scope": "All 112 entries on the official Classical Guitar Sheet Music directory. The source permits individual educational acquisition for private offline use; public redistribution of the PDFs is not established. No PDF was requested by discovery.",
+        "directory_url": "https://maikstrings.com/sheet-music-guitar.html",
+        "directory_sha256": "2ebdb85d89093e96d71c0444846df90fe8803dd874f00916fd409a3fd7833c1e",
+        "directory_fetched_at": "2026-10-26T15:01:07.244529+00:00",
+        "directory_last_modified": "Fri, 02 Oct 2026 10:49:28 GMT",
+        "directory_etag": "\"6abf8c38-20f15\"",
+        "source_record_count": 112,
+        "instrumentation_scope": "guitar family only; no solo/player-count inference",
+        "pdf_downloads_attempted": false,
+        "pdf_downloads_permitted": true,
+        "fresh_file_integrity_verification": false,
+        "fresh_instrumentation_verification": false,
+        "private_file_cache_permitted": true,
+        "public_redistribution_license_established": false
+      },
+      "source_record_count": 112,
+      "category_count": 1,
+      "category_membership_count": 112,
+      "asset_status_counts": {
+        "verified": 112
+      },
+      "verified_pdf_manifest_count": 112,
+      "discovery_complete": true,
+      "discovery_command": "python scripts/discover_supplement_sources.py --source maikstrings"
+    },
+    {
+      "source_id": "derekhasted",
+      "name": "Derek Hasted",
+      "checked_at": "2026-10-27",
+      "status": "implemented",
+      "registered": true,
+      "scope": "Discovery phase: metadata only for all distinct PDF filename locators on the official free guitar ensemble directory; source headings give 2/3/4 guitars except the explicitly flexible 24-Guitars item. The source offers free personal downloads, which may be acquired separately for private offline use; public PDF redistribution permission is not confirmed.",
+      "directory_url": "https://www.derek-hasted.co.uk/free/",
+      "metadata_policy": "source-attributed factual navigation; full rights and scope remain record-specific",
+      "file_policy": "Private offline acquisition under exact per-record/source permission only; public export has no PDF or file endpoints. Robots denial remains a separate terminal boundary.",
+      "research_rights_observation": "Free download statement does not grant public republication of arrangements. Index factual titles and original source links.",
+      "evidence_urls": [
+        "https://www.derek-hasted.co.uk/free/"
+      ],
+      "reason": "Free download statement does not grant public republication of arrangements. Index factual titles and original source links.",
+      "catalog": "sources/derekhasted/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-26T14:58:18.076363+00:00",
+        "completed_at": "2026-10-26T15:16:46.620143+00:00",
+        "discovery_complete": true,
+        "page_count": 1,
+        "scope": "Discovery phase: metadata only for all distinct PDF filename locators on the official free guitar ensemble directory; source headings give 2/3/4 guitars except the explicitly flexible 24-Guitars item. The source offers free personal downloads, which may be acquired separately for private offline use; public PDF redistribution permission is not confirmed.",
+        "metadata_only": true,
+        "fresh_file_integrity_verification": false,
+        "fresh_instrumentation_verification": false,
+        "scope_version": "2026-10-26.3",
+        "parser_version": "teaching-adapters-1.2.0",
+        "source_link_first": true,
+        "source_link_count": 23,
+        "unique_native_locator_count": 23,
+        "scope_correction": {
+          "earlier_manual_estimate": 24,
+          "current_distinct_pdf_locator_count": 23,
+          "reason": "The earlier 24 count was a manual estimate; current source HTML contains 23 unique PDF links. No missing item is inferred."
+        },
+        "metadata_only_phase": "discovery_only",
+        "file_acquisition_scope": "personal_offline_only",
+        "public_pdf_redistribution": "not_confirmed",
+        "listing_page_count": 1,
+        "page_count_method": "Count only exact configured directory URLs in cached discovery_state.requests with HTTP 200; auxiliary URLs and non-200 responses are excluded."
+      },
+      "source_record_count": 23,
+      "category_count": 4,
+      "category_membership_count": 23,
+      "asset_status_counts": {
+        "verified": 23
+      },
+      "verified_pdf_manifest_count": 23,
+      "discovery_complete": true,
+      "discovery_command": "python scripts/discover_supplement_sources.py --source derekhasted"
+    },
+    {
+      "source_id": "guitarclassroom",
+      "name": "The Guitar Classroom / Lou Warde",
+      "checked_at": "2026-10-27",
+      "status": "implemented",
+      "registered": true,
+      "scope": "Discovery phase: metadata only for current Classical and Guitar Ensemble directory links; native score locators define record identities, with role-labelled score/part/TAB PDFs grouped as assets of one work edition. Explicit guitar-plus-strings works are retained with unknown player counts. The policy PDF is excluded. Separate personal/educational offline download and printing are permitted; public reposting or distribution is prohibited.",
+      "directory_url": "https://www.theguitarclassroom.com/gtr-ensemble",
+      "metadata_policy": "source-attributed factual navigation; full rights and scope remain record-specific",
+      "file_policy": "Private offline acquisition under exact per-record/source permission only; public export has no PDF or file endpoints. Robots denial remains a separate terminal boundary.",
+      "research_rights_observation": "Download/print/performance allowed, reposting/distribution prohibited; retain authorship and separate educational references.",
+      "evidence_urls": [
+        "https://www.theguitarclassroom.com/gtr-ensemble",
+        "https://www.theguitarclassroom.com/classical"
+      ],
+      "reason": "Download/print/performance allowed, reposting/distribution prohibited; retain authorship and separate educational references.",
+      "catalog": "sources/guitarclassroom/catalog.json",
+      "snapshot": {
+        "frozen_at": "2026-10-26T14:54:11.328482+00:00",
+        "completed_at": "2026-10-26T15:16:49.270492+00:00",
+        "discovery_complete": true,
+        "page_count": 2,
+        "scope": "Discovery phase: metadata only for current Classical and Guitar Ensemble directory links; native score locators define record identities, with role-labelled score/part/TAB PDFs grouped as assets of one work edition. Explicit guitar-plus-strings works are retained with unknown player counts. The policy PDF is excluded. Separate personal/educational offline download and printing are permitted; public reposting or distribution is prohibited.",
+        "metadata_only": true,
+        "fresh_file_integrity_verification": false,
+        "fresh_instrumentation_verification": false,
+        "scope_version": "2026-10-26.3",
+        "parser_version": "teaching-adapters-1.2.0",
+        "source_link_first": true,
+        "directories": {
+          "classical": {
+            "directory_url": "https://www.theguitarclassroom.com/classical",
+            "http_status": 200,
+            "raw_pdf_link_count": 67,
+            "accepted_occurrence_count": 67,
+            "excluded_occurrence_count": 0
+          },
+          "guitar_ensemble": {
+            "directory_url": "https://www.theguitarclassroom.com/gtr-ensemble",
+            "http_status": 200,
+            "raw_pdf_link_count": 85,
+            "accepted_occurrence_count": 84,
+            "excluded_occurrence_count": 1
+          }
+        },
+        "source_link_count": 152,
+        "unique_native_locator_count": 152,
+        "excluded_reason_counts": {
+          "non_score_policy_reference": 1
+        },
+        "metadata_only_phase": "discovery_only",
+        "file_acquisition_scope": "personal_offline_only",
+        "public_pdf_redistribution": "prohibited_by_source",
+        "listing_page_count": 2,
+        "page_count_method": "Count only exact configured directory URLs in cached discovery_state.requests with HTTP 200; auxiliary URLs and non-200 responses are excluded."
+      },
+      "source_record_count": 142,
+      "category_count": 2,
+      "category_membership_count": 142,
+      "asset_status_counts": {
+        "verified": 151
+      },
+      "verified_pdf_manifest_count": 151,
+      "discovery_complete": true,
+      "discovery_command": "python scripts/discover_supplement_sources.py --source guitarclassroom"
+    },
+    {
+      "source_id": "jontydawson",
+      "name": "Jonty Dawson Music Scores",
+      "checked_at": "2026-10-26",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "Research candidate; not a source-wide or file-availability claim",
+      "directory_url": "https://jonty-dawson.github.io/music-scores/",
+      "metadata_policy": "source-attributed factual navigation; full rights and scope remain record-specific",
+      "file_policy": "Public PDF/LilyPond access without repository LICENSE is not a grant to redistribute the editions.",
+      "research_rights_observation": "Public PDF/LilyPond access without repository LICENSE is not a grant to redistribute the editions.",
+      "evidence_urls": [
+        "https://jonty-dawson.github.io/music-scores/",
+        "https://jonty-dawson.github.io/music-scores/editions/bach-js-bwv998-prelude-fugue-allegro-guitar"
+      ],
+      "reason": "Public PDF/LilyPond access without repository LICENSE is not a grant to redistribute the editions."
+    },
+    {
+      "source_id": "gurgeh_gitarr",
+      "name": "gurgeh/gitarr",
+      "checked_at": "2026-10-26",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "Research candidate; not a source-wide or file-availability claim",
+      "directory_url": "https://github.com/gurgeh/gitarr",
+      "metadata_policy": "source-attributed factual navigation; full rights and scope remain record-specific",
+      "file_policy": "No single repository license; source files have different Mutopia/arrangement conditions, requiring per-file review.",
+      "research_rights_observation": "No single repository license; source files have different Mutopia/arrangement conditions, requiring per-file review.",
+      "evidence_urls": [
+        "https://github.com/gurgeh/gitarr"
+      ],
+      "reason": "No single repository license; source files have different Mutopia/arrangement conditions, requiring per-file review."
+    },
+    {
+      "source_id": "eluna_dupont",
+      "name": "Stéphane Dupont / Editions eLuna",
+      "checked_at": "2026-10-26",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "Research candidate; not a source-wide or file-availability claim",
+      "directory_url": "https://stephanedupont.com/editions/",
+      "metadata_policy": "source-attributed factual navigation; full rights and scope remain record-specific",
+      "file_policy": "Freely visible PDFs but no explicit third-party republication authorization verified.",
+      "research_rights_observation": "Freely visible PDFs but no explicit third-party republication authorization verified.",
+      "evidence_urls": [
+        "https://stephanedupont.com/editions/"
+      ],
+      "reason": "Freely visible PDFs but no explicit third-party republication authorization verified."
+    },
+    {
+      "source_id": "duolenz",
+      "name": "Duolenz",
+      "checked_at": "2026-10-26",
+      "status": "blocked",
+      "registered": false,
+      "scope": "Research candidate; not a source-wide or file-availability claim",
+      "directory_url": "https://guitarduo.duolenz.com/free_scores.html",
+      "metadata_policy": "source-attributed factual navigation; full rights and scope remain record-specific",
+      "file_policy": "Robots access encountered TLS hostname mismatch; certificate checks were not bypassed.",
+      "research_rights_observation": "Robots access encountered TLS hostname mismatch; certificate checks were not bypassed.",
+      "evidence_urls": [
+        "https://guitarduo.duolenz.com/free_scores.html"
+      ],
+      "reason": "Robots access encountered TLS hostname mismatch; certificate checks were not bypassed."
+    },
+    {
+      "source_id": "martinlohse",
+      "name": "Martin Lohse",
+      "checked_at": "2026-10-26",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "Research candidate; not a source-wide or file-availability claim",
+      "directory_url": "https://martinlohse.com/",
+      "metadata_policy": "source-attributed factual navigation; full rights and scope remain record-specific",
+      "file_policy": "Research observed a GPTBot disallow; no automated corpus acquisition undertaken. Exact intended-agent and reuse policy need clarification.",
+      "research_rights_observation": "Research observed a GPTBot disallow; no automated corpus acquisition undertaken. Exact intended-agent and reuse policy need clarification.",
+      "evidence_urls": [
+        "https://martinlohse.com/"
+      ],
+      "reason": "Research observed a GPTBot disallow; no automated corpus acquisition undertaken. Exact intended-agent and reuse policy need clarification."
+    },
+    {
+      "source_id": "bne",
+      "name": "Biblioteca Nacional de España / BNE Digital",
+      "checked_at": "2026-10-26",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "Research candidate; not a source-wide or file-availability claim",
+      "directory_url": "https://www.bne.es/es/catalogos/bne-digital",
+      "metadata_policy": "source-attributed factual navigation; full rights and scope remain record-specific",
+      "file_policy": "Official legal page states catalog data CC0; image/score rights remain item-specific. Live BNE Digital entry returned403, so no automated follow-up or file acquisition.",
+      "research_rights_observation": "Official legal page states catalog data CC0; image/score rights remain item-specific. Live BNE Digital entry returned403, so no automated follow-up or file acquisition.",
+      "evidence_urls": [
+        "https://www.bne.es/es/catalogos/bne-digital",
+        "https://datos.bne.es/edicion/bipa0000181199.html"
+      ],
+      "reason": "Official legal page states catalog data CC0; image/score rights remain item-specific. Live BNE Digital entry returned403, so no automated follow-up or file acquisition."
+    },
+    {
+      "source_id": "soundboardscholar",
+      "name": "Soundboard Scholar",
+      "checked_at": "2026-10-26",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "Research candidate; not a source-wide or file-availability claim",
+      "directory_url": "https://digitalcommons.du.edu/sbs/",
+      "metadata_policy": "source-attributed factual navigation; full rights and scope remain record-specific",
+      "file_policy": "Peer-reviewed open-access guitar studies; article reproduction rights and current platform policy require separate checks. Source author is not a score composer.",
+      "research_rights_observation": "Peer-reviewed open-access guitar studies; article reproduction rights and current platform policy require separate checks. Source author is not a score composer.",
+      "evidence_urls": [
+        "https://digitalcommons.du.edu/sbs/",
+        "https://www.guitarfoundation.org/page/SBScholar"
+      ],
+      "reason": "Peer-reviewed open-access guitar studies; article reproduction rights and current platform policy require separate checks. Source author is not a score composer."
+    },
+    {
+      "source_id": "vihuelagriffiths",
+      "name": "John Griffiths Vihuela Database",
+      "checked_at": "2026-10-26",
+      "status": "requires_permission",
+      "registered": false,
+      "scope": "Research candidate; not a source-wide or file-availability claim",
+      "directory_url": "https://www.vihuelagriffiths.com/",
+      "metadata_policy": "source-attributed factual navigation; full rights and scope remain record-specific",
+      "file_policy": "Historical vihuela research is valuable context, but not every vihuela or vocal intabulation is an accepted guitar score; database reuse license remains unverified.",
+      "research_rights_observation": "Historical vihuela research is valuable context, but not every vihuela or vocal intabulation is an accepted guitar score; database reuse license remains unverified.",
+      "evidence_urls": [
+        "https://www.vihuelagriffiths.com/",
+        "https://www.vihuelagriffiths.com/vihuela/music/info"
+      ],
+      "reason": "Historical vihuela research is valuable context, but not every vihuela or vocal intabulation is an accepted guitar score; database reuse license remains unverified."
     }
   ]
 }

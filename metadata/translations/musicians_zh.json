@@ -60108,6 +60108,1962 @@
         "basis": "exact_source_attribution_preservation",
         "reason": "本条来源元数据未附可靠中文姓名依据；缩写、昵称、单独姓氏或含责任说明的署名不能扩展为另一完整姓名，保留原文。"
       }
+    },
+    "yawnoc": {
+      "Fernando Sor": {
+        "original": "Fernando Sor",
+        "zh": "费尔南多·索尔",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:classclef:Fernando Sor",
+          "musicians_zh.json:delcamp:Fernando Sor",
+          "musicians_zh.json:guitardownunder:Fernando Sor",
+          "musicians_zh.json:guitarschool:Fernando Sor",
+          "musicians_zh.json:werner:Fernando Sor"
+        ]
+      },
+      "Francisco Tárrega": {
+        "original": "Francisco Tárrega",
+        "zh": "弗朗西斯科·塔雷加",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:cantorion:Francisco Tárrega",
+          "musicians_zh.json:delcamp:Francisco Tárrega"
+        ]
+      },
+      "John Dowland": {
+        "original": "John Dowland",
+        "zh": "约翰·道兰德",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:classclef:John Dowland",
+          "musicians_zh.json:delcamp:John Dowland",
+          "musicians_zh.json:guitardownunder:John Dowland"
+        ]
+      },
+      "Russian Traditional": {
+        "original": "Russian Traditional",
+        "zh": "俄罗斯传统音乐",
+        "status": "reference",
+        "basis": "exact_source_attribution_label",
+        "reason": "翻译来源署名标签，不推断具体作者。"
+      },
+      "Spanish Traditional": {
+        "original": "Spanish Traditional",
+        "zh": "西班牙传统音乐",
+        "status": "reference",
+        "basis": "exact_source_attribution_label",
+        "reason": "翻译来源署名标签，不推断具体作者。"
+      }
+    },
+    "maikstrings": {
+      "Dionisio Aguado (1784–1849)": {
+        "original": "Dionisio Aguado (1784–1849)",
+        "zh": "迪奥尼西奥·阿瓜多",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Aguado. Dionisio",
+          "musicians_zh.json:classclef:Dionisio Aguado",
+          "musicians_zh.json:delcamp:Aguado, Dionisio",
+          "musicians_zh.json:delcamp:Dionisio Aguado",
+          "musicians_zh.json:dga:AGUADO, Dionisio.",
+          "musicians_zh.json:dga:Aguado, Dionisio",
+          "musicians_zh.json:dga:Aguado, Dionisio ",
+          "musicians_zh.json:dga:Aguado, Dionisio.",
+          "musicians_zh.json:guitardownunder:Dionisio Aguado",
+          "musicians_zh.json:guitarschool:Dionisio Aguado",
+          "musicians_zh.json:imslp:Aguado, Dionisio"
+        ]
+      },
+      "Felix Horetzky (1796–1870)": {
+        "original": "Felix Horetzky (1796–1870)",
+        "zh": "菲利克斯·霍雷茨基",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Horetzky. Felix",
+          "musicians_zh.json:classclef:Felix Horetzky",
+          "musicians_zh.json:classclef:Horetzky, Felix",
+          "musicians_zh.json:delcamp:Felix Horetzky",
+          "musicians_zh.json:dga:Horetzky, Felix",
+          "musicians_zh.json:dga:Horetzky, Felix    ",
+          "musicians_zh.json:imslp:Horetzky, Felix"
+        ]
+      },
+      "Ferdinando Carulli (1770–1841)": {
+        "original": "Ferdinando Carulli (1770–1841)",
+        "zh": "费迪南多·卡鲁利",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Carulli. Ferdinando",
+          "musicians_zh.json:classclef:Ferdinando Carulli",
+          "musicians_zh.json:delcamp:Ferdinando Carulli",
+          "musicians_zh.json:dga:CARULLI, Ferdinando",
+          "musicians_zh.json:dga:Carulli, Ferdinando",
+          "musicians_zh.json:dga:Carulli, Ferdinando ",
+          "musicians_zh.json:dga:Carulli, Ferdinando    ",
+          "musicians_zh.json:dga:Carulli, Ferdinando (1770-1841)",
+          "musicians_zh.json:dga:Carulli, Ferdinando, 1770-1841",
+          "musicians_zh.json:dga:Carulli, Ferdinando, 1770-1841. ",
+          "musicians_zh.json:dga:Ferdinando Carulli",
+          "musicians_zh.json:freeguitarmusic:Ferdinando Carulli",
+          "musicians_zh.json:guitarschool:Ferdinando Carulli",
+          "musicians_zh.json:imslp:Carulli, Ferdinando",
+          "musicians_zh.json:rism:Carulli, Ferdinando (1770-1841)"
+        ]
+      },
+      "Fernando Sor (1778–1839)": {
+        "original": "Fernando Sor (1778–1839)",
+        "zh": "费尔南多·索尔",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "composer_overrides_reviewed_zh.json:Sor, Fernando",
+          "musicians_zh.json:cglib:Sor. Fernando",
+          "musicians_zh.json:classclef:Fernando Sor",
+          "musicians_zh.json:delcamp:Fernando Sor",
+          "musicians_zh.json:delcamp:Sor, Fernando",
+          "musicians_zh.json:dga:SOR, Fernando",
+          "musicians_zh.json:dga:SOR, Fernando.",
+          "musicians_zh.json:dga:Sor, Fernando",
+          "musicians_zh.json:dga:Sor, Fernando ",
+          "musicians_zh.json:dga:Sor, Fernando    ",
+          "musicians_zh.json:dga:Sor, Fernando, 1778-1839",
+          "musicians_zh.json:dga:Sor, Fernando, 1778-1839. ",
+          "musicians_zh.json:guitardownunder:Fernando Sor",
+          "musicians_zh.json:guitarschool:Fernando Sor",
+          "musicians_zh.json:imslp:Sor, Fernando",
+          "musicians_zh.json:rism:Sor, Fernando (1778-1839)",
+          "musicians_zh.json:werner:Fernando Sor"
+        ]
+      },
+      "Francisco Tárrega (1852–1909)": {
+        "original": "Francisco Tárrega (1852–1909)",
+        "zh": "弗朗西斯科·塔雷加",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cantorion:Francisco Tárrega",
+          "musicians_zh.json:cglib:Tarrega. Francisco",
+          "musicians_zh.json:classclef:Francisco Tarrega",
+          "musicians_zh.json:delcamp:Francisco Tárrega",
+          "musicians_zh.json:dga:Tarrega, Francisco",
+          "musicians_zh.json:dga:Tarrega, Francisco.",
+          "musicians_zh.json:dga:Tárrega, Francisco",
+          "musicians_zh.json:dga:Tárrega, Francisco ",
+          "musicians_zh.json:dga:Tárrega, Francisco    ",
+          "musicians_zh.json:dga:Tárrega, Francisco, 1852-1909",
+          "musicians_zh.json:guitardownunder:Francisco Tarrega",
+          "musicians_zh.json:guitarschool:Francisco Tarrega",
+          "musicians_zh.json:imslp:Tárrega, Francisco"
+        ]
+      },
+      "Johann Kaspar Mertz (1806–1856)": {
+        "original": "Johann Kaspar Mertz (1806–1856)",
+        "zh": "约翰·卡斯帕·默茨",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Mertz. Johann Kaspar",
+          "musicians_zh.json:classclef:Johann Kaspar Mertz",
+          "musicians_zh.json:delcamp:Johann Kaspar Mertz",
+          "musicians_zh.json:delcamp:Mertz, Johann Kaspar",
+          "musicians_zh.json:dga:MERTZ, Johann Kaspar.",
+          "musicians_zh.json:dga:Mertz, Johann Kaspar",
+          "musicians_zh.json:dga:Mertz, Johann Kaspar ",
+          "musicians_zh.json:dga:Mertz, Johann Kaspar, 1806-1856",
+          "musicians_zh.json:imslp:Mertz, Johann Kaspar",
+          "musicians_zh.json:rism:Mertz, Johann Kaspar (1806-1856)"
+        ]
+      },
+      "Matteo Carcassi (1792–1853)": {
+        "original": "Matteo Carcassi (1792–1853)",
+        "zh": "马泰奥·卡尔卡西",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Carcassi. Matteo",
+          "musicians_zh.json:classclef:Matteo Carcassi",
+          "musicians_zh.json:delcamp:Carcassi, Matteo",
+          "musicians_zh.json:delcamp:Matteo Carcassi",
+          "musicians_zh.json:dga:CARCASSI, Matteo",
+          "musicians_zh.json:dga:Carcassi, Matteo",
+          "musicians_zh.json:dga:Carcassi, Matteo    ",
+          "musicians_zh.json:dga:Carcassi, Matteo, 1792-1853",
+          "musicians_zh.json:freeguitarmusic:Matteo Carcassi",
+          "musicians_zh.json:guitardownunder:Matteo Carcassi",
+          "musicians_zh.json:guitarschool:Matteo Carcassi",
+          "musicians_zh.json:imslp:Carcassi, Matteo",
+          "musicians_zh.json:rism:Carcassi, Matteo (1792-1853)"
+        ]
+      },
+      "Mauro Giuliani (1781–1829)": {
+        "original": "Mauro Giuliani (1781–1829)",
+        "zh": "毛罗·朱利亚尼",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Giuliani. Mauro",
+          "musicians_zh.json:classclef:Mauro Giuliani",
+          "musicians_zh.json:classicalguitarorg:Mauro Giuliani",
+          "musicians_zh.json:delcamp:Giuliani, Mauro",
+          "musicians_zh.json:delcamp:Mauro Giuliani",
+          "musicians_zh.json:delcamp:Mauro Giuliani,",
+          "musicians_zh.json:dga:GIULIANI, Mauro.",
+          "musicians_zh.json:dga:Giuliani, Mauro",
+          "musicians_zh.json:dga:Giuliani, Mauro    ",
+          "musicians_zh.json:dga:Giuliani, Mauro, 1781-1829",
+          "musicians_zh.json:dga:Giuliani, Mauro, 1781-1829. ",
+          "musicians_zh.json:dga:Mauro Giuliani",
+          "musicians_zh.json:freeguitarmusic:Mauro Giuliani",
+          "musicians_zh.json:guitarschool:Mauro Giuliani",
+          "musicians_zh.json:imslp:Giuliani, Mauro",
+          "musicians_zh.json:rism:Giuliani, Mauro (1781-1829)",
+          "musicians_zh.json:werner:Mauro Giuliani"
+        ]
+      },
+      "Napoléon Coste (1805–1883)": {
+        "original": "Napoléon Coste (1805–1883)",
+        "zh": "拿破仑·科斯特",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Coste. Napoleon",
+          "musicians_zh.json:classclef:Napoleon Coste",
+          "musicians_zh.json:delcamp:Coste, Napoléon",
+          "musicians_zh.json:delcamp:Napoléon Coste",
+          "musicians_zh.json:dga:COSTE, Napoleon",
+          "musicians_zh.json:dga:Coste, Napoleon",
+          "musicians_zh.json:dga:Coste, Napoleon    ",
+          "musicians_zh.json:dga:Coste, Napoléon",
+          "musicians_zh.json:dga:Coste, Napoléon, 1805-1883",
+          "musicians_zh.json:guitarschool:Napoléon Coste",
+          "musicians_zh.json:imslp:Coste, Napoléon",
+          "musicians_zh.json:rism:Coste, Napoléon (1805-1883)"
+        ]
+      }
+    },
+    "derekhasted": {
+      "": {
+        "original": "",
+        "zh": "",
+        "status": "not_applicable",
+        "basis": "absent_source_attribution",
+        "reason": "来源未提供作曲者署名；不从编者、上传者或书名补猜。"
+      },
+      "John Dowland": {
+        "original": "John Dowland",
+        "zh": "约翰·道兰德",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:classclef:John Dowland",
+          "musicians_zh.json:delcamp:John Dowland",
+          "musicians_zh.json:guitardownunder:John Dowland"
+        ]
+      }
+    },
+    "guitarclassroom": {
+      "": {
+        "original": "",
+        "zh": "",
+        "status": "not_applicable",
+        "basis": "absent_source_attribution",
+        "reason": "来源未提供作曲者署名；不从编者、上传者或书名补猜。"
+      },
+      "A. Barrios": {
+        "original": "A. Barrios",
+        "zh": "A. Barrios",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Aguado": {
+        "original": "Aguado",
+        "zh": "Aguado",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Albéniz": {
+        "original": "Albéniz",
+        "zh": "Albéniz",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Beethoven": {
+        "original": "Beethoven",
+        "zh": "贝多芬",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:werner:Beethoven"
+        ]
+      },
+      "Bizet": {
+        "original": "Bizet",
+        "zh": "Bizet",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Carcassi": {
+        "original": "Carcassi",
+        "zh": "卡尔卡西",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:werner:Carcassi"
+        ]
+      },
+      "Carulli": {
+        "original": "Carulli",
+        "zh": "卡鲁利",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:werner:Carulli"
+        ]
+      },
+      "Enrique Granados": {
+        "original": "Enrique Granados",
+        "zh": "恩里克·格拉纳多斯",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:classclef:Enrique Granados",
+          "musicians_zh.json:delcamp:Enrique Granados",
+          "musicians_zh.json:guitarschool:Enrique Granados",
+          "musicians_zh.json:mutopia:Enrique Granados"
+        ]
+      },
+      "F. Schubert": {
+        "original": "F. Schubert",
+        "zh": "F. Schubert",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Fernando Sor": {
+        "original": "Fernando Sor",
+        "zh": "费尔南多·索尔",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:classclef:Fernando Sor",
+          "musicians_zh.json:delcamp:Fernando Sor",
+          "musicians_zh.json:guitardownunder:Fernando Sor",
+          "musicians_zh.json:guitarschool:Fernando Sor",
+          "musicians_zh.json:werner:Fernando Sor"
+        ]
+      },
+      "Galilei": {
+        "original": "Galilei",
+        "zh": "Galilei",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Giuliani": {
+        "original": "Giuliani",
+        "zh": "朱利亚尼",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:werner:Giuliani"
+        ]
+      },
+      "Grieg": {
+        "original": "Grieg",
+        "zh": "Grieg",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "J.S. BACH": {
+        "original": "J.S. BACH",
+        "zh": "J.S. BACH",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "J.S. Bach": {
+        "original": "J.S. Bach",
+        "zh": "约翰·塞巴斯蒂安·巴赫",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:guitardownunder:J.S. Bach",
+          "musicians_zh.json:guitarschool:J.S. Bach"
+        ]
+      },
+      "Jean Baptiste Loeillet": {
+        "original": "Jean Baptiste Loeillet",
+        "zh": "让·巴蒂斯特·勒耶",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Loeillet, Jean Baptiste"
+        ]
+      },
+      "Lou Warde": {
+        "original": "Lou Warde",
+        "zh": "Lou Warde",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "M. Williams": {
+        "original": "M. Williams",
+        "zh": "M. Williams",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Oshio": {
+        "original": "Oshio",
+        "zh": "Oshio",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Pernambuco": {
+        "original": "Pernambuco",
+        "zh": "Pernambuco",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Pujol": {
+        "original": "Pujol",
+        "zh": "Pujol",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "SATIE": {
+        "original": "SATIE",
+        "zh": "SATIE",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Saint-Saens": {
+        "original": "Saint-Saens",
+        "zh": "Saint-Saens",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Satie": {
+        "original": "Satie",
+        "zh": "萨蒂",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:werner:Satie"
+        ]
+      },
+      "Sibelius": {
+        "original": "Sibelius",
+        "zh": "Sibelius",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Sor": {
+        "original": "Sor",
+        "zh": "Sor",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Tárrega": {
+        "original": "Tárrega",
+        "zh": "Tárrega",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Villa Lobos": {
+        "original": "Villa Lobos",
+        "zh": "Villa Lobos",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Villa-Lobos": {
+        "original": "Villa-Lobos",
+        "zh": "Villa-Lobos",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Warde": {
+        "original": "Warde",
+        "zh": "Warde",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      }
+    },
+    "csun": {
+      "": {
+        "original": "",
+        "zh": "",
+        "status": "not_applicable",
+        "basis": "absent_source_attribution",
+        "reason": "来源未提供作曲者署名；不从编者、上传者或书名补猜。"
+      },
+      "Abt, Franz, 1819-1885": {
+        "original": "Abt, Franz, 1819-1885",
+        "zh": "阿伯特·弗朗茨",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Abt, Franz, 1819-1885"
+        ]
+      },
+      "Agnew, J. E.": {
+        "original": "Agnew, J. E.",
+        "zh": "Agnew, J. E.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Aide, Hamilton, 1830-?": {
+        "original": "Aide, Hamilton, 1830-?",
+        "zh": "Aide, Hamilton, 1830-?",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Almagra, A. Lopez": {
+        "original": "Almagra, A. Lopez",
+        "zh": "Almagra, A. Lopez",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Arditi, Luigi, 1822-1903": {
+        "original": "Arditi, Luigi, 1822-1903",
+        "zh": "路易吉·阿尔迪蒂",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Arditi. Luigi",
+          "musicians_zh.json:dga:Arditi, Luigi",
+          "musicians_zh.json:imslp:Arditi, Luigi"
+        ]
+      },
+      "Arévalo, Miguel S.": {
+        "original": "Arévalo, Miguel S.",
+        "zh": "Arévalo, Miguel S.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Auber, D. F. E. (Daniel François Esprit), 1782-1871": {
+        "original": "Auber, D. F. E. (Daniel François Esprit), 1782-1871",
+        "zh": "Auber, D. F. E. (Daniel François Esprit), 1782-1871",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Bachmann, G. (Georges), d. 1894": {
+        "original": "Bachmann, G. (Georges), d. 1894",
+        "zh": "Bachmann, G. (Georges), d. 1894",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Baines, William, 1899-1922": {
+        "original": "Baines, William, 1899-1922",
+        "zh": "Baines, William, 1899-1922",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Balfe, M. W. (Michael William), 1808-1870": {
+        "original": "Balfe, M. W. (Michael William), 1808-1870",
+        "zh": "Balfe, M. W. (Michael William), 1808-1870",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Barker, George, 1812-1876": {
+        "original": "Barker, George, 1812-1876",
+        "zh": "Barker, George, 1812-1876",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Bartcher, Hugo": {
+        "original": "Bartcher, Hugo",
+        "zh": "Bartcher, Hugo",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Bateman, William O.": {
+        "original": "Bateman, William O.",
+        "zh": "威廉·O.·贝特曼",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Bateman, William O.",
+          "musicians_zh.json:imslp:Bateman, William O."
+        ]
+      },
+      "Bayly, Thomas Haynes, 1797-1839": {
+        "original": "Bayly, Thomas Haynes, 1797-1839",
+        "zh": "Bayly, Thomas Haynes, 1797-1839",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Bedford, William K.": {
+        "original": "Bedford, William K.",
+        "zh": "Bedford, William K.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Beethoven, Ludwig van, 1770-1827": {
+        "original": "Beethoven, Ludwig van, 1770-1827",
+        "zh": "路德维希·范·贝多芬",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Beethoven, Ludwig van, 1770-1827"
+        ]
+      },
+      "Bell, M. W.": {
+        "original": "Bell, M. W.",
+        "zh": "Bell, M. W.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Bellini, Vincenzo, 1801-1835": {
+        "original": "Bellini, Vincenzo, 1801-1835",
+        "zh": "文琴佐·贝利尼",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Bellini, Vincenzo",
+          "musicians_zh.json:imslp:Bellini, Vincenzo"
+        ]
+      },
+      "Bemis, George W., b. 1848": {
+        "original": "Bemis, George W., b. 1848",
+        "zh": "Bemis, George W., b. 1848",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Bickford, Zarh Myron": {
+        "original": "Bickford, Zarh Myron",
+        "zh": "Bickford, Zarh Myron",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Bischoff, Heinz, 1898-1963": {
+        "original": "Bischoff, Heinz, 1898-1963",
+        "zh": "Bischoff, Heinz, 1898-1963",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Bischoff, Wilhelm F.": {
+        "original": "Bischoff, Wilhelm F.",
+        "zh": "Bischoff, Wilhelm F.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Bischoff, Wilhelm Friedrich": {
+        "original": "Bischoff, Wilhelm Friedrich",
+        "zh": "Bischoff, Wilhelm Friedrich",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Bishop, Henry R. (Henry Rowley), Sir, 1786-1855; Payne, John Howard, 1791-1852": {
+        "original": "Bishop, Henry R. (Henry Rowley), Sir, 1786-1855; Payne, John Howard, 1791-1852",
+        "zh": "Bishop, Henry R. (Henry Rowley), Sir, 1786-1855; Payne, John Howard, 1791-1852",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Bizet, Georges, 1838-1875": {
+        "original": "Bizet, Georges, 1838-1875",
+        "zh": "乔治·比才",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Bizet, Georges, 1838-1875"
+        ]
+      },
+      "Bland, James A. (James Allen), 1854-1911": {
+        "original": "Bland, James A. (James Allen), 1854-1911",
+        "zh": "Bland, James A. (James Allen), 1854-1911",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Blumenthal, Jacob, 1829-1908": {
+        "original": "Blumenthal, Jacob, 1829-1908",
+        "zh": "Blumenthal, Jacob, 1829-1908",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Boehm, Walter A.": {
+        "original": "Boehm, Walter A.",
+        "zh": "Boehm, Walter A.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Bohm, Carl, 1844-1920": {
+        "original": "Bohm, Carl, 1844-1920",
+        "zh": "Bohm, Carl, 1844-1920",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Bone, Frank": {
+        "original": "Bone, Frank",
+        "zh": "Bone, Frank",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Boott, Francis, 1813-1904": {
+        "original": "Boott, Francis, 1813-1904",
+        "zh": "Boott, Francis, 1813-1904",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Brachet, Ph. Louis": {
+        "original": "Brachet, Ph. Louis",
+        "zh": "Brachet, Ph. Louis",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Braga, Gaetano, 1829-1907": {
+        "original": "Braga, Gaetano, 1829-1907",
+        "zh": "加埃塔诺·布拉加",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Braga. Gaetano",
+          "musicians_zh.json:dga:Braga, Gaetano",
+          "musicians_zh.json:imslp:Braga, Gaetano"
+        ]
+      },
+      "Brockmeyer, A. C.": {
+        "original": "Brockmeyer, A. C.",
+        "zh": "Brockmeyer, A. C.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Bucalossi, P.": {
+        "original": "Bucalossi, P.",
+        "zh": "Bucalossi, P.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Burke, Walter": {
+        "original": "Burke, Walter",
+        "zh": "沃尔特·伯克",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Burke, Walter"
+        ]
+      },
+      "Carcassi, Matteo, 1792-1853": {
+        "original": "Carcassi, Matteo, 1792-1853",
+        "zh": "马泰奥·卡尔卡西",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Carcassi, Matteo, 1792-1853"
+        ]
+      },
+      "Carpenter, Richard": {
+        "original": "Carpenter, Richard",
+        "zh": "Carpenter, Richard",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Chambers, William Paris, 1854-1913": {
+        "original": "Chambers, William Paris, 1854-1913",
+        "zh": "Chambers, William Paris, 1854-1913",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Chenet, Alfred, b. 1854": {
+        "original": "Chenet, Alfred, b. 1854",
+        "zh": "Chenet, Alfred, b. 1854",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Chopin, Frédéric, 1810-1849": {
+        "original": "Chopin, Frédéric, 1810-1849",
+        "zh": "弗雷德里克·肖邦",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Chopin, Frédéric, 1810-1849"
+        ]
+      },
+      "Claribel, 1830-1869": {
+        "original": "Claribel, 1830-1869",
+        "zh": "Claribel, 1830-1869",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Cobb, Myra Marie": {
+        "original": "Cobb, Myra Marie",
+        "zh": "Cobb, Myra Marie",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Crouch, F. Nicholls": {
+        "original": "Crouch, F. Nicholls",
+        "zh": "Crouch, F. Nicholls",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Czibulka, Alphons, 1842-1894": {
+        "original": "Czibulka, Alphons, 1842-1894",
+        "zh": "阿尔丰斯·齐布尔卡",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Czibulka, Alphons",
+          "musicians_zh.json:rism:Czibulka, Alphons (1842-1894)"
+        ]
+      },
+      "Dabney, Wendell Phillips, 1865-1952": {
+        "original": "Dabney, Wendell Phillips, 1865-1952",
+        "zh": "Dabney, Wendell Phillips, 1865-1952",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Danks, H. P. (Hart Pease), 1834-1903": {
+        "original": "Danks, H. P. (Hart Pease), 1834-1903",
+        "zh": "Danks, H. P. (Hart Pease), 1834-1903",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Day, Edward R.": {
+        "original": "Day, Edward R.",
+        "zh": "Day, Edward R.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "De Janon, Charles": {
+        "original": "De Janon, Charles",
+        "zh": "查尔斯·雅农",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:De Janon, Charles"
+        ]
+      },
+      "Delibes, Léo, 1836-1891": {
+        "original": "Delibes, Léo, 1836-1891",
+        "zh": "莱奥·德利布",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Delibes, Léo, 1836-1891"
+        ]
+      },
+      "Donizetti, Gaetano, 1797-1848": {
+        "original": "Donizetti, Gaetano, 1797-1848",
+        "zh": "加埃塔诺·多尼采蒂",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Donizetti, Gaetano, 1797-1848"
+        ]
+      },
+      "Dorn, Charles James, 1839-1909": {
+        "original": "Dorn, Charles James, 1839-1909",
+        "zh": "查尔斯·詹姆斯·多恩",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Dorn. Charles James",
+          "musicians_zh.json:delcamp:Charles James Dorn",
+          "musicians_zh.json:imslp:Dorn, Charles James"
+        ]
+      },
+      "Duvernoy, Jean Baptiste, 1802-1880": {
+        "original": "Duvernoy, Jean Baptiste, 1802-1880",
+        "zh": "让-巴蒂斯特·杜韦尔努瓦",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Duvernoy. Jean Baptiste",
+          "musicians_zh.json:imslp:Duvernoy, Jean-Baptiste"
+        ]
+      },
+      "Eaton, Franklin": {
+        "original": "Eaton, Franklin",
+        "zh": "Eaton, Franklin",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Emmett, Daniel Decatur, 1815-1904": {
+        "original": "Emmett, Daniel Decatur, 1815-1904",
+        "zh": "Emmett, Daniel Decatur, 1815-1904",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Eno, Paul, 1869-1924": {
+        "original": "Eno, Paul, 1869-1924",
+        "zh": "Eno, Paul, 1869-1924",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Faust, Carl, 1825-1892": {
+        "original": "Faust, Carl, 1825-1892",
+        "zh": "Faust, Carl, 1825-1892",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Fierlein, P. F.": {
+        "original": "Fierlein, P. F.",
+        "zh": "Fierlein, P. F.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Flint, James": {
+        "original": "Flint, James",
+        "zh": "Flint, James",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Flotow, Friedrich von, 1812-1883": {
+        "original": "Flotow, Friedrich von, 1812-1883",
+        "zh": "弗里德里希·冯·弗洛托",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Flotow, Friedrich von"
+        ]
+      },
+      "Foden, Wm. (William), 1860-1947": {
+        "original": "Foden, Wm. (William), 1860-1947",
+        "zh": "Foden, Wm. (William), 1860-1947",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Ford, Charles": {
+        "original": "Ford, Charles",
+        "zh": "Ford, Charles",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Foster, Stephen Collins, 1826-1864": {
+        "original": "Foster, Stephen Collins, 1826-1864",
+        "zh": "Foster, Stephen Collins, 1826-1864",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Frey, E. H.": {
+        "original": "Frey, E. H.",
+        "zh": "E.H.·弗雷",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Frey, E. H."
+        ]
+      },
+      "Gillet, Ernest, 1856-1940": {
+        "original": "Gillet, Ernest, 1856-1940",
+        "zh": "Gillet, Ernest, 1856-1940",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Giuliani, Mauro, 1781-1829": {
+        "original": "Giuliani, Mauro, 1781-1829",
+        "zh": "毛罗·朱利亚尼，1781-1829",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Giuliani, Mauro, 1781-1829"
+        ]
+      },
+      "Gottschalk, Louis Moreau, 1829-1869": {
+        "original": "Gottschalk, Louis Moreau, 1829-1869",
+        "zh": "路易斯·莫罗·戈特沙克",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Gottschalk, Louis Moreau"
+        ]
+      },
+      "Gounod, Charles, 1818-1893": {
+        "original": "Gounod, Charles, 1818-1893",
+        "zh": "夏尔·古诺",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:classclef:Charles Gounod",
+          "musicians_zh.json:classclef:Gounod, Charles",
+          "musicians_zh.json:dga:Gounod, Charles",
+          "musicians_zh.json:imslp:Gounod, Charles"
+        ]
+      },
+      "Guckert, E. N.": {
+        "original": "Guckert, E. N.",
+        "zh": "Guckert, E. N.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Gutman, Frederick O., c.1860-?": {
+        "original": "Gutman, Frederick O., c.1860-?",
+        "zh": "Gutman, Frederick O., c.1860-?",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Haight, Leora": {
+        "original": "Haight, Leora",
+        "zh": "Haight, Leora",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Halévy, F., 1799-1862": {
+        "original": "Halévy, F., 1799-1862",
+        "zh": "Halévy, F., 1799-1862",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Handel, George Frideric, 1685-1759": {
+        "original": "Handel, George Frideric, 1685-1759",
+        "zh": "格奥尔格·弗里德里希·亨德尔",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Handel, George Frideric, 1685-1759"
+        ]
+      },
+      "Hauser, Miska, 1822-1887": {
+        "original": "Hauser, Miska, 1822-1887",
+        "zh": "Hauser, Miska, 1822-1887",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Hayden, Carrie V.": {
+        "original": "Hayden, Carrie V.",
+        "zh": "Hayden, Carrie V.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Hayden, W. L. (Winslow L.)": {
+        "original": "Hayden, W. L. (Winslow L.)",
+        "zh": "Hayden, W. L. (Winslow L.)",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Haydn, Joseph, 1732-1809": {
+        "original": "Haydn, Joseph, 1732-1809",
+        "zh": "约瑟夫·海顿",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Haydn, Joseph, 1732-1809"
+        ]
+      },
+      "Hays, William Shakespeare, 1837-1907": {
+        "original": "Hays, William Shakespeare, 1837-1907",
+        "zh": "Hays, William Shakespeare, 1837-1907",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Henlein, Charles": {
+        "original": "Henlein, Charles",
+        "zh": "Henlein, Charles",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Henning, James E.": {
+        "original": "Henning, James E.",
+        "zh": "Henning, James E.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Hewitt, W.": {
+        "original": "Hewitt, W.",
+        "zh": "Hewitt, W.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Holland, Justin, 1819-1887": {
+        "original": "Holland, Justin, 1819-1887",
+        "zh": "贾斯汀·霍兰德",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Holland. Justin",
+          "musicians_zh.json:classclef:Justin Holland",
+          "musicians_zh.json:dga:HOLLAND, Justin",
+          "musicians_zh.json:dga:Holland, Justin",
+          "musicians_zh.json:imslp:Holland, Justin"
+        ]
+      },
+      "Hyde, Robert": {
+        "original": "Hyde, Robert",
+        "zh": "Hyde, Robert",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Ince, T. Herbert": {
+        "original": "Ince, T. Herbert",
+        "zh": "Ince, T. Herbert",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Jacobs, Walter, 1868-?": {
+        "original": "Jacobs, Walter, 1868-?",
+        "zh": "Jacobs, Walter, 1868-?",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Jakobowski, Edward, 1838-?": {
+        "original": "Jakobowski, Edward, 1838-?",
+        "zh": "爱德华·雅科博夫斯基",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Jakobowski, Edward"
+        ]
+      },
+      "Janon, Charles de, 1834-1911": {
+        "original": "Janon, Charles de, 1834-1911",
+        "zh": "查尔斯·雅农",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Janon. Charles de",
+          "musicians_zh.json:delcamp:Charles de Janon",
+          "musicians_zh.json:dga:De Janon, Charles",
+          "musicians_zh.json:dga:Janon, Charles de",
+          "musicians_zh.json:imslp:Janon, Charles de"
+        ]
+      },
+      "Jansen, Carl W. F.": {
+        "original": "Jansen, Carl W. F.",
+        "zh": "Jansen, Carl W. F.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Kinkel, Charles": {
+        "original": "Kinkel, Charles",
+        "zh": "Kinkel, Charles",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Kitchener, William J., 1861-c.1920": {
+        "original": "Kitchener, William J., 1861-c.1920",
+        "zh": "Kitchener, William J., 1861-c.1920",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Knoop": {
+        "original": "Knoop",
+        "zh": "Knoop",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Kottaun, Celian": {
+        "original": "Kottaun, Celian",
+        "zh": "塞利安·科唐",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Kottaun, Celian"
+        ]
+      },
+      "Kraft, O. R.": {
+        "original": "Kraft, O. R.",
+        "zh": "Kraft, O. R.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Krug": {
+        "original": "Krug",
+        "zh": "Krug",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Lagatree, Sidney N.": {
+        "original": "Lagatree, Sidney N.",
+        "zh": "Lagatree, Sidney N.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Lake, J. W.; Cherry, J. W. (John William), 1824-1889": {
+        "original": "Lake, J. W.; Cherry, J. W. (John William), 1824-1889",
+        "zh": "Lake, J. W.; Cherry, J. W. (John William), 1824-1889",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Lange, Gustav, 1830-1889": {
+        "original": "Lange, Gustav, 1830-1889",
+        "zh": "古斯塔夫·朗",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Lange. Gustav",
+          "musicians_zh.json:imslp:Lange, Gustav"
+        ]
+      },
+      "Lano, C. S. de": {
+        "original": "Lano, C. S. de",
+        "zh": "Lano, C. S. de",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Lemberg, Louis": {
+        "original": "Lemberg, Louis",
+        "zh": "Lemberg, Louis",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Lenschow, C.": {
+        "original": "Lenschow, C.",
+        "zh": "Lenschow, C.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Leybach, Ignace, 1817-1891": {
+        "original": "Leybach, Ignace, 1817-1891",
+        "zh": "Leybach, Ignace, 1817-1891",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Lindsey, George Curtis, 1855-1943": {
+        "original": "Lindsey, George Curtis, 1855-1943",
+        "zh": "Lindsey, George Curtis, 1855-1943",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Lopes, Antonio": {
+        "original": "Lopes, Antonio",
+        "zh": "Lopes, Antonio",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Loretz, J.": {
+        "original": "Loretz, J.",
+        "zh": "Loretz, J.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Luigi, Amelie": {
+        "original": "Luigi, Amelie",
+        "zh": "Luigi, Amelie",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Lutz, Wilhelm Meyer, 1822-1903": {
+        "original": "Lutz, Wilhelm Meyer, 1822-1903",
+        "zh": "Lutz, Wilhelm Meyer, 1822-1903",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Löschhorn, Albert, 1819-1905": {
+        "original": "Löschhorn, Albert, 1819-1905",
+        "zh": "Löschhorn, Albert, 1819-1905",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Martin": {
+        "original": "Martin",
+        "zh": "Martin",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Mascagni, Pietro, 1863-1945": {
+        "original": "Mascagni, Pietro, 1863-1945",
+        "zh": "彼得罗·马斯卡尼",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Mascagni. Pietro",
+          "musicians_zh.json:classclef:Pietro Mascagni",
+          "musicians_zh.json:imslp:Mascagni, Pietro"
+        ]
+      },
+      "Mendelssohn-Bartholdy, Felix, 1809-1847": {
+        "original": "Mendelssohn-Bartholdy, Felix, 1809-1847",
+        "zh": "Mendelssohn-Bartholdy, Felix, 1809-1847",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Meyer, Fred C.": {
+        "original": "Meyer, Fred C.",
+        "zh": "Meyer, Fred C.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Molloy, James Lyman, 1837-1909": {
+        "original": "Molloy, James Lyman, 1837-1909",
+        "zh": "Molloy, James Lyman, 1837-1909",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Moore, Thomas, 1779-1852": {
+        "original": "Moore, Thomas, 1779-1852",
+        "zh": "Moore, Thomas, 1779-1852",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Moore, Thomas, 1779-1852; Stevenson, John Andrew, 1761-1833": {
+        "original": "Moore, Thomas, 1779-1852; Stevenson, John Andrew, 1761-1833",
+        "zh": "Moore, Thomas, 1779-1852; Stevenson, John Andrew, 1761-1833",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Morris, William, 1834-1896": {
+        "original": "Morris, William, 1834-1896",
+        "zh": "Morris, William, 1834-1896",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Moszkowski, Moritz, 1854-1925": {
+        "original": "Moszkowski, Moritz, 1854-1925",
+        "zh": "莫里茨·莫什科夫斯基",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Moszkowski, Moritz, 1854-1925"
+        ]
+      },
+      "Mozart, Wolfgang Amadeus, 1756-1791": {
+        "original": "Mozart, Wolfgang Amadeus, 1756-1791",
+        "zh": "沃尔夫冈·阿马德乌斯·莫扎特",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Mozart, Wolfgang Amadeus, 1756-1791"
+        ]
+      },
+      "Mozzani, Luigi, 1869-1943": {
+        "original": "Mozzani, Luigi, 1869-1943",
+        "zh": "路易吉·莫扎尼",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Mozzani. Luigi",
+          "musicians_zh.json:classclef:Luigi Mozzani",
+          "musicians_zh.json:delcamp:Luigi Mozzani",
+          "musicians_zh.json:dga:Mozzani, Luigi",
+          "musicians_zh.json:dga:Mozzani, Luigi ",
+          "musicians_zh.json:dga:Mozzani, Luigi    ",
+          "musicians_zh.json:dga:Mozzani, Luigi.",
+          "musicians_zh.json:imslp:Mozzani, Luigi"
+        ]
+      },
+      "Odell, Herbert Forrest, 1872-1926": {
+        "original": "Odell, Herbert Forrest, 1872-1926",
+        "zh": "赫伯特·福雷斯特·奥德尔",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Odell. Herbert Forrest",
+          "musicians_zh.json:imslp:Odell, Herbert Forrest"
+        ]
+      },
+      "Olcott-Bickford, Vahdah, 1885-1980": {
+        "original": "Olcott-Bickford, Vahdah, 1885-1980",
+        "zh": "Olcott-Bickford, Vahdah, 1885-1980",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Pearson, Nellie E.": {
+        "original": "Pearson, Nellie E.",
+        "zh": "Pearson, Nellie E.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Persley, George W., 1840-1894": {
+        "original": "Persley, George W., 1840-1894",
+        "zh": "Persley, George W., 1840-1894",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Pettine, Giuseppe, 1876-1966": {
+        "original": "Pettine, Giuseppe, 1876-1966",
+        "zh": "Pettine, Giuseppe, 1876-1966",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Pirani, Eugenio, 1852-1939": {
+        "original": "Pirani, Eugenio, 1852-1939",
+        "zh": "Pirani, Eugenio, 1852-1939",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Plante, A. H.": {
+        "original": "Plante, A. H.",
+        "zh": "Plante, A. H.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Pratt-Fulmer, Charles E., 1841-1902": {
+        "original": "Pratt-Fulmer, Charles E., 1841-1902",
+        "zh": "Pratt-Fulmer, Charles E., 1841-1902",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Rawson, La Q.": {
+        "original": "Rawson, La Q.",
+        "zh": "Rawson, La Q.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Rice, Edward Everett, 1848-1924": {
+        "original": "Rice, Edward Everett, 1848-1924",
+        "zh": "Rice, Edward Everett, 1848-1924",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Rimbault, Edward F. (Edward Francis), 1816-1876": {
+        "original": "Rimbault, Edward F. (Edward Francis), 1816-1876",
+        "zh": "Rimbault, Edward F. (Edward Francis), 1816-1876",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Rodgers, Wm T.": {
+        "original": "Rodgers, Wm T.",
+        "zh": "Rodgers, Wm T.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Romero, Luis Toribio, 1854-1893": {
+        "original": "Romero, Luis Toribio, 1854-1893",
+        "zh": "路易斯·托里比奥·罗梅罗",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Romero. Luis Toribio",
+          "musicians_zh.json:imslp:Romero, Luis Toribio"
+        ]
+      },
+      "Rossini, Gioacchino Antonio, 1792-1868": {
+        "original": "Rossini, Gioacchino Antonio, 1792-1868",
+        "zh": "Rossini, Gioacchino Antonio, 1792-1868",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Rubinstein, Anton, 1829-1894": {
+        "original": "Rubinstein, Anton, 1829-1894",
+        "zh": "安东·鲁宾斯坦",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Rubinstein. Anton",
+          "musicians_zh.json:dga:Rubinstein, Anton ",
+          "musicians_zh.json:imslp:Rubinstein, Anton"
+        ]
+      },
+      "Russell, George Alexander, 1880-?": {
+        "original": "Russell, George Alexander, 1880-?",
+        "zh": "Russell, George Alexander, 1880-?",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Sancho, José": {
+        "original": "Sancho, José",
+        "zh": "Sancho, José",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Santisteban, G. C.": {
+        "original": "Santisteban, G. C.",
+        "zh": "G.C.·桑蒂斯特班",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Santisteban, G. C."
+        ]
+      },
+      "Schettler, Cornelius Daniel, 1874-1931": {
+        "original": "Schettler, Cornelius Daniel, 1874-1931",
+        "zh": "Schettler, Cornelius Daniel, 1874-1931",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Schubert, Franz, 1797-1828": {
+        "original": "Schubert, Franz, 1797-1828",
+        "zh": "弗朗茨·舒伯特",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Schubert, Franz, 1797-1828"
+        ]
+      },
+      "Schultz, Ch.": {
+        "original": "Schultz, Ch.",
+        "zh": "Schultz, Ch.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Schumann, Robert, 1810-1856": {
+        "original": "Schumann, Robert, 1810-1856",
+        "zh": "罗伯特·舒曼",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Schumann, Robert, 1810-1856"
+        ]
+      },
+      "Seamon, R. L.": {
+        "original": "Seamon, R. L.",
+        "zh": "R.L.·西蒙",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Seamon, R. L."
+        ]
+      },
+      "Shaeffer Gelling, Arling, 1859-c.1934": {
+        "original": "Shaeffer Gelling, Arling, 1859-c.1934",
+        "zh": "Shaeffer Gelling, Arling, 1859-c.1934",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Shand, Ernest, 1868-1924": {
+        "original": "Shand, Ernest, 1868-1924",
+        "zh": "欧内斯特·尚德",
+        "status": "reference",
+        "basis": "existing_exact_source_name_reference",
+        "reason": "原始署名字符串与已有已核参考完全一致；只复用中文显示文字，不推断跨站人物身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:Shand, Ernest, 1868-1924"
+        ]
+      },
+      "Shattuck, Burt E., c.1850": {
+        "original": "Shattuck, Burt E., c.1850",
+        "zh": "Shattuck, Burt E., c.1850",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Shibley, Charles R.": {
+        "original": "Shibley, Charles R.",
+        "zh": "Shibley, Charles R.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Simonetti, Achille, 1857-1928": {
+        "original": "Simonetti, Achille, 1857-1928",
+        "zh": "Simonetti, Achille, 1857-1928",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Spatz, J. H.": {
+        "original": "Spatz, J. H.",
+        "zh": "Spatz, J. H.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Strauss, Johann Jr., 1825-1899": {
+        "original": "Strauss, Johann Jr., 1825-1899",
+        "zh": "小约翰·施特劳斯",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Strauss Jr., Johann"
+        ]
+      },
+      "Thomas, Ambroise Charles Louis, 1811-1896": {
+        "original": "Thomas, Ambroise Charles Louis, 1811-1896",
+        "zh": "Thomas, Ambroise Charles Louis, 1811-1896",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Thomas, John Rogers, 1829-1896": {
+        "original": "Thomas, John Rogers, 1829-1896",
+        "zh": "托马斯·约翰·罗杰斯",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Thomas, John Rogers"
+        ]
+      },
+      "Thomé, Francis, 1850-1909": {
+        "original": "Thomé, Francis, 1850-1909",
+        "zh": "弗朗西斯·托梅",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Thomé, Francis"
+        ]
+      },
+      "Tosti, F. Paolo (Francesco Paolo), 1846-1916": {
+        "original": "Tosti, F. Paolo (Francesco Paolo), 1846-1916",
+        "zh": "Tosti, F. Paolo (Francesco Paolo), 1846-1916",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Trotère, H. (Henry), 1855-1912": {
+        "original": "Trotère, H. (Henry), 1855-1912",
+        "zh": "Trotère, H. (Henry), 1855-1912",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Tucker, Henry, c.1826-1882": {
+        "original": "Tucker, Henry, c.1826-1882",
+        "zh": "Tucker, Henry, c.1826-1882",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Turner, T. Orrin, E. W.": {
+        "original": "Turner, T. Orrin, E. W.",
+        "zh": "Turner, T. Orrin, E. W.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Unknown": {
+        "original": "Unknown",
+        "zh": "Unknown",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Verdi, Giuseppe, 1813-1901": {
+        "original": "Verdi, Giuseppe, 1813-1901",
+        "zh": "朱塞佩·威尔第",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Verdi. Giuseppe",
+          "musicians_zh.json:classclef:Giuseppe Verdi",
+          "musicians_zh.json:dga:VERDI, Giuseppe.",
+          "musicians_zh.json:dga:Verdi, Giuseppe",
+          "musicians_zh.json:imslp:Verdi, Giuseppe"
+        ]
+      },
+      "Vieuxtemps, Henri, 1820-1881": {
+        "original": "Vieuxtemps, Henri, 1820-1881",
+        "zh": "亨利·维厄当",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Vieuxtemps, Henri"
+        ]
+      },
+      "Vogt, Jean, 1823-1888": {
+        "original": "Vogt, Jean, 1823-1888",
+        "zh": "Vogt, Jean, 1823-1888",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Wagner, Richard (Wilhelm), 1813-1883": {
+        "original": "Wagner, Richard (Wilhelm), 1813-1883",
+        "zh": "Wagner, Richard (Wilhelm), 1813-1883",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Waldteufel, Emile, 1837-1915": {
+        "original": "Waldteufel, Emile, 1837-1915",
+        "zh": "埃米尔·瓦尔特费尔",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Waldteufel, Emile"
+        ]
+      },
+      "Wallace, William Vincent, 1812-1865": {
+        "original": "Wallace, William Vincent, 1812-1865",
+        "zh": "威廉·文森特·华莱士",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:dga:WALLACE, William Vincent",
+          "musicians_zh.json:imslp:Wallace, William Vincent"
+        ]
+      },
+      "Weber, Carl Maria von, 1786-1826;": {
+        "original": "Weber, Carl Maria von, 1786-1826;",
+        "zh": "Weber, Carl Maria von, 1786-1826;",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Webster, Joseph Philbrick, 1819-1875": {
+        "original": "Webster, Joseph Philbrick, 1819-1875",
+        "zh": "约瑟夫·菲尔布里克·韦伯斯特",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:imslp:Webster, Joseph Philbrick"
+        ]
+      },
+      "Weidt, A. J., 1866-1945; Day, Edward R.": {
+        "original": "Weidt, A. J., 1866-1945; Day, Edward R.",
+        "zh": "Weidt, A. J., 1866-1945; Day, Edward R.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Weiland, Francis": {
+        "original": "Weiland, Francis",
+        "zh": "Weiland, Francis",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Wellings, Milton": {
+        "original": "Wellings, Milton",
+        "zh": "Wellings, Milton",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Westendorf, Thomas Paine, 1848-1923": {
+        "original": "Westendorf, Thomas Paine, 1848-1923",
+        "zh": "Westendorf, Thomas Paine, 1848-1923",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Wiebking, John P.": {
+        "original": "Wiebking, John P.",
+        "zh": "Wiebking, John P.",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Wilson, Grenville Dean, 1833-1897": {
+        "original": "Wilson, Grenville Dean, 1833-1897",
+        "zh": "Wilson, Grenville Dean, 1833-1897",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Worrall, Henry": {
+        "original": "Worrall, Henry",
+        "zh": "Worrall, Henry",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Wrighton, W. T. (William Thomas), 1816-1880": {
+        "original": "Wrighton, W. T. (William Thomas), 1816-1880",
+        "zh": "Wrighton, W. T. (William Thomas), 1816-1880",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "Yradier, Sebastián, 1809-1865": {
+        "original": "Yradier, Sebastián, 1809-1865",
+        "zh": "塞巴斯蒂安·伊拉迪尔",
+        "status": "reference",
+        "basis": "existing_checked_full_name_reference",
+        "reason": "完整姓名与已有已核参考一致；仅复用中文姓名，不建立跨站人物或版本身份。",
+        "reference_entries": [
+          "musicians_zh.json:cglib:Yradier. Sebastián",
+          "musicians_zh.json:dga:Yradier, Sebastián",
+          "musicians_zh.json:imslp:Yradier, Sebastián"
+        ]
+      },
+      "[Anonymous]": {
+        "original": "[Anonymous]",
+        "zh": "[Anonymous]",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "[Traditional]": {
+        "original": "[Traditional]",
+        "zh": "[Traditional]",
+        "status": "retained",
+        "basis": "exact_new_source_text_preservation",
+        "reason": "未取得能确认该完整来源文字的可靠中文对应；保留原文及真实编号供统一检索，不补猜人名或专名。"
+      },
+      "[Various]": {
+        "original": "[Various]",
+        "zh": "多位作曲家",
+        "status": "reference",
+        "basis": "exact_source_attribution_label",
+        "reason": "翻译来源署名标签，不推断具体作者。"
+      }
     }
   }
 }

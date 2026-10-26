@@ -11,7 +11,7 @@
 
 <p align="center">
   <img alt="Python 3.12+" src="https://img.shields.io/badge/Python-3.12%2B-17283b?style=flat-square">
-  <img alt="17 catalog sources" src="https://img.shields.io/badge/sources-17-bd452f?style=flat-square">
+  <img alt="22 catalog sources" src="https://img.shields.io/badge/sources-22-bd452f?style=flat-square">
   <img alt="Public site excludes score files" src="https://img.shields.io/badge/public_site-score_files_excluded-a67542?style=flat-square">
   <img alt="License MIT and CC BY-SA 4.0" src="https://img.shields.io/badge/license-MIT_%2B_CC_BY--SA_4.0-17283b?style=flat-square">
 </p>
@@ -22,11 +22,15 @@
 
 ## 当前范围与进展
 
-冻结目录包含 **17个来源、49,792条来源记录**（49,707条乐谱、85条参考资料）、2,229个原分类、58,405条分类成员关系及18个共同分类。记录可代表作品、版本、合集或馆藏，不能当作跨站唯一乐曲数；Cantorion分页等范围缺口保留。
+当前来源配置与本地来源目录包含 **22个来源、50,498条来源记录**（50,406条乐谱、92条参考资料）、2,337个原生分类及59,111条分类成员关系。记录可代表作品、版本、合集或馆藏，不能当作跨站唯一乐曲数；Cantorion分页等范围缺口保留。当前公开导出已包含这22个来源、50,498条记录、2,337个分类、59,111条分类成员关系和710条有证据的记录关联；完整离线重建、保全核验和全部审计已通过，40,162条本地链接零失败；已审计中间文件的清理完成；远端同步待最终回执确认。
 
-全库题名都有精确原文守卫的处理决定：47,495条采用参考译法或有据惯用名，2,297条有理由保留原名，0条机器题名草稿或漏译。完整原题和署名始终保留，参考译名不等于唯一权威中文定名。
+此前冻结的17来源范围中，47,495条题名采用参考译法或有据惯用名，2,297条有理由保留原名；这些历史统计不含本轮新增来源。新增来源已有独立的精确原题守卫与译名决定，完整原题和署名始终保留，参考译名不等于唯一权威中文定名。
 
-本轮逐条审查35,802条原未细分记录及296条MuseScore候选，宽泛确认有证据的吉他相关性、独奏／重奏或混合器乐家族；来源声明与谱面核对分开显示。全库“编制尚未核明”为15,235条，另有16,885条“吉他相关·编制未细分”，后者已确认相关性、仍保留角色、器种选项或人数疑点；两类分别列示。Delcamp的2,890份可用PDF共40,662页完成全文筛查；IMSLP原528份文件级疑点及301份扫描谱OCR均有结果和边界。误挂的Byrd铜管谱仅移除吉他文件链接，原件保留。完整方法与逐源统计见[统一核验日志](docs/research/2026-10-01-integration-log.md#全库宽泛编制核验2026-10-17)。
+此前冻结范围逐条审查了35,802条原未细分记录及296条MuseScore候选，宽泛确认有证据的吉他相关性、独奏／重奏或混合器乐家族；来源声明与谱面核对分开显示。该次历史审查记录“编制尚未核明”15,235条、“吉他相关·编制未细分”16,885条。加入本轮新来源后的当前topic计数分别为15,236条和17,362条；这是新增来源后的现值，不改写历史审查统计。Delcamp的2,890份可用PDF共40,662页完成全文筛查；IMSLP原528份文件级疑点及301份扫描谱OCR均有结果和边界。误挂的Byrd铜管谱仅移除吉他文件链接，原件保留。完整方法与逐源统计见[统一核验日志](docs/research/2026-10-01-integration-log.md#全库宽泛编制核验2026-10-17)。
+
+本轮新增5个来源、706条记录：CSUN 424、Yawnoc 5、Maikstrings 112、Derek Hasted 23、Guitar Classroom 142（135条乐谱、7条参考资料）。PDF获取已停止：CSUN 424份全部验证通过（首轮421份成功、3份失败；在同一获准地址重试后3份成功），另外三份教学来源共286份验证通过。新来源合计710条PDF关系、710个不同SHA-256内容，共1,707,045,956字节；当前失败、缺失、待取得均为0。Yawnoc的9份PDF虽标明CC0，但GitHub release下载路由被robots拒绝，未发起PDF请求，也未换路；5份LilyPond源文本只用于元数据核验。来源元数据、个人离线获取许可与公开再分发许可分别记录；公开站仍只提供来源页，不放乐谱文件。
+
+新增来源译名审读已完成：96条人工题名参考译名、103条人工分类译名，108个新原生分类逐项审查；新来源题名、音乐家和分类草稿已刷新，原17来源已发布决定保持不变。CSUN的1,145个候选原生ID均完成完整metadata核验，其中424收录、8排除、713待证。6条谱面文件差异说明均有精确guard：原4条、CSUN 1071条谱页提供一把或两把吉他的选项但人数未定、CSUN 1024第10页可见合唱与吉他而其他曲目编制及人数未核。候选研究清单现有47项，含13项新增补查。新增来源PDF去重已处理7,215个对象；10组、20条路径共44,365,593B已共享，最终dry-run为`already_shared=32`、`would_link=0`、`failed=0`。ClassClef已共享169项，原有2项安全拒绝保留不变。公开导出已完成；完整离线重建、保全核验和全部审计已通过，40,162条本地链接零失败；已审计中间文件的清理完成；远端同步待最终回执确认。研究见[选源研究](docs/research/2026-10-01-source-expansion.md)、[候选清单](docs/research/2026-10-01-source-candidates.json)；本轮私有规范回执为`sources/source-expansion/verification.json`，相关证据还包括`acquisition-summary.json`、`csun-acquisition-phases.json`、`new-pdf-evidence.json.gz`、`file-note-runtime-check.json`和`file-note-binding-corrections.json`。
 
 MuseScore的原924条是历史筛选子集。检查PDMX v9全部254,077条元数据及254,035份已声明MXL后，当前正式纳入**1,343条来源记录**，统一分类、搜索和离线PDF／MXL／MIDI入口。1,641追加候选累计419接纳、1,008排除、214保留具体疑点；原已发布记录及旧review值继承。最新61条复用已验证文件，没有新增下载；明确的吉他择一版本可进入“吉他相关·编制未细分”，不推算同时演奏人数。42条未声明格式和3份结构异常仍保留边界；这不是实时MuseScore全库，也没有原生MSCZ。
 
@@ -37,6 +41,8 @@ MuseScore的原924条是历史筛选子集。检查PDMX v9全部254,077条元数
 | MIDI | 1,343 | 0／0／0 | 1,335 | 12,119,419B |
 
 三格式合计4,029条关系、4,021份不同内容／135,678,421B；重复MIDI只复用存储，不合并作品或版本。MuseScore的1,190条原编制明确结论保留，153条保留具体限制；标准谱／TAB、空置模板和辅助层不直接计人。缺失597条来源作曲署名与编制疑点分别处理，不猜作者。
+
+最终代码与公开数据已通过独立干净检出的2,974项Python测试、83项Node测试及公开边界／译名／文本审计。压缩目录6,122,972B，比原版增加约1.98%；10项实际引用静态资产284,265B保持原字节。
 
 页面保留圆角收藏目录、自托管拉丁字体、系统中文字体及模型插图。首批显示18条，全文与模糊索引按需建立；本轮未增加前端依赖或插图，完整审读账本留在私有压缩回执，浏览器继续使用去重压缩目录，乐谱字节不嵌入HTML。完整离线核验、性能与远端部署证据见[发布记录](docs/research/publication.md)，待补证据集中在[TODO](TODO.md)。
 
@@ -103,10 +109,13 @@ python scripts/audit_catalog_text.py
 python scripts/discover_open_sources.py --help
 python scripts/discover_archive_sources.py --help
 python scripts/discover_additional_sources.py --help
+python scripts/discover_supplement_sources.py --help  # CSUN及本轮4个作者／教学来源
 python scripts/build_classclef_library.py --root . discover
 python scripts/build_classclef_library.py --root . download
 python scripts/build_classclef_library.py --root . verify
 ```
+
+本轮补充入口支持按来源续传发现；重新发现会保留相同文件的获取回执，但不是扩大冻结范围或改写已发布记录的许可。新题名以 `append_source_translations.py --source 来源ID --apply` 追加；文件获取使用已获准的 `acquire_source_assets.py`，遇访问拒绝保留状态。完整导出与离线重建后，用 `verify_source_supplement.py --source 来源ID --full-render-report 回执路径` 对照单一发布基线核验旧记录、原译名、本地文件入口及新记录。完整私有快照与证据包是这些本地生产命令的输入；干净仓库仅运行公开目录与自包含测试。
 
 MuseScore使用已许可的PDMX v9出版入口。下列初次元数据、PDF和MXL／MIDI获取命令仅适用于原924条历史范围；追加后均受防覆盖护栏限制，当前补充使用“全库复查与追加”路线。题名整理只追加新的精确决定，保留旧条目：
 

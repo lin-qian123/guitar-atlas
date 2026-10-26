@@ -17,7 +17,7 @@
     "category_membership_count": 19573,
     "evidence": "Local existing public catalog read; no upstream refresh or PDF revalidation"
   },
-  "candidate_count": 34,
+  "candidate_count": 47,
   "candidates": [
     {
       "candidate_id": "mutopia",
@@ -553,6 +553,240 @@
       "automated_acquisition_evidence": "batch_permission_unknown",
       "evidence_level": "official_index_only_partial_timeout",
       "stated_or_observed_count": null
+    },
+    {
+      "candidate_id": "csun",
+      "name": "CSUN · International Guitar Research Archives",
+      "integration_status": "registered_metadata",
+      "suggested_route": "institutional_metadata_and_PD_subset",
+      "directory_url": "https://digital-library.csun.edu/IGRA-scores",
+      "sample_or_evidence_url": "https://digital-collections.csun.edu/digital/collection/IGRA-scores/id/1144",
+      "identity_observation": "Collection alias plus native numeric CONTENTdm item pointer, including zero.",
+      "rights_observation": "Collection statement is not enough; retain each complete item rights note. Documented API is robots-allowed with one-second clock. Batch-query fields can be truncated.",
+      "automated_acquisition_evidence": "official_contentdm_api",
+      "evidence_level": "official_page_and_API_observation",
+      "checked_on": "2026-10-26",
+      "stated_or_observed_count": {
+        "value": 1145,
+        "unit": "frozen_guitar_keyword_candidates",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "yawnoc",
+      "name": "yawnoc/guitar",
+      "integration_status": "registered_metadata",
+      "suggested_route": "CC0_editions",
+      "directory_url": "https://github.com/yawnoc/guitar",
+      "sample_or_evidence_url": "https://github.com/yawnoc/guitar",
+      "identity_observation": "Exact native score directory, release tag and pinned Git commit; no title merge.",
+      "rights_observation": "Repository states PD compositions and CC0 edits/arrangements; confirm exact README/LICENSE and each release/source header separately.",
+      "automated_acquisition_evidence": "official_repository",
+      "evidence_level": "official_page_read",
+      "checked_on": "2026-10-26",
+      "stated_or_observed_count": {
+        "value": 5,
+        "unit": "published_score_folders",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "maikstrings",
+      "name": "Maikstrings Classical Guitar Sheet Music",
+      "integration_status": "registered_metadata",
+      "suggested_route": "source_linked_metadata",
+      "directory_url": "https://maikstrings.com/sheet-music-guitar.html",
+      "sample_or_evidence_url": "https://maikstrings.com/sheet-music-guitar.html",
+      "identity_observation": "No record ID: deterministic digest of exact native file locator, kept privately.",
+      "rights_observation": "Source claims compositions public domain and permits personal/teaching copies; modern engraving public redistribution is not established.",
+      "automated_acquisition_evidence": "public_directory_only",
+      "evidence_level": "official_page_read",
+      "checked_on": "2026-10-26",
+      "stated_or_observed_count": {
+        "value": 112,
+        "unit": "directory_PDF_entries",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "derekhasted",
+      "name": "Derek Hasted",
+      "integration_status": "registered_metadata",
+      "suggested_route": "source_linked_metadata",
+      "directory_url": "https://www.derek-hasted.co.uk/free/",
+      "sample_or_evidence_url": "https://www.derek-hasted.co.uk/free/",
+      "identity_observation": "Source directory plus exact file locator; bundles and native labels remain distinct.",
+      "rights_observation": "Free download statement does not grant public republication of arrangements. Index factual titles and original source links.",
+      "automated_acquisition_evidence": "public_directory_only",
+      "evidence_level": "official_page_read",
+      "checked_on": "2026-10-26",
+      "stated_or_observed_count": {
+        "value": 23,
+        "unit": "unique_free_directory_PDF_locators",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "guitarclassroom",
+      "name": "The Guitar Classroom / Lou Warde",
+      "integration_status": "registered_metadata",
+      "suggested_route": "source_linked_metadata",
+      "directory_url": "https://www.theguitarclassroom.com/gtr-ensemble",
+      "sample_or_evidence_url": "https://www.theguitarclassroom.com/classical",
+      "identity_observation": "Source accordion publication/edition grouping; Score, Parts and TAB assets stay in one explicitly grouped record.",
+      "rights_observation": "Download/print/performance allowed, reposting/distribution prohibited; retain authorship and separate educational references.",
+      "automated_acquisition_evidence": "public_directory_only",
+      "evidence_level": "official_page_read",
+      "checked_on": "2026-10-26",
+      "stated_or_observed_count": {
+        "value": 152,
+        "unit": "observed_PDF_locators_before_bundle_and_reference_review",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "jontydawson",
+      "name": "Jonty Dawson Music Scores",
+      "integration_status": "research_only",
+      "suggested_route": "permission_review",
+      "directory_url": "https://jonty-dawson.github.io/music-scores/",
+      "sample_or_evidence_url": "https://jonty-dawson.github.io/music-scores/editions/bach-js-bwv998-prelude-fugue-allegro-guitar",
+      "identity_observation": "Stable edition page slug and repository revision.",
+      "rights_observation": "Public PDF/LilyPond access without repository LICENSE is not a grant to redistribute the editions.",
+      "automated_acquisition_evidence": "not_established",
+      "evidence_level": "official_page_read",
+      "checked_on": "2026-10-26",
+      "stated_or_observed_count": {
+        "value": 13,
+        "unit": "homepage_edition_and_original_composition_entries",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "gurgeh_gitarr",
+      "name": "gurgeh/gitarr",
+      "integration_status": "research_only",
+      "suggested_route": "per_file_license_review",
+      "directory_url": "https://github.com/gurgeh/gitarr",
+      "sample_or_evidence_url": "https://github.com/gurgeh/gitarr",
+      "identity_observation": "Repository native file/variant and fixed commit; retain Mutopia parent provenance.",
+      "rights_observation": "No single repository license; source files have different Mutopia/arrangement conditions, requiring per-file review.",
+      "automated_acquisition_evidence": "not_established",
+      "evidence_level": "official_page_read",
+      "checked_on": "2026-10-26",
+      "stated_or_observed_count": {
+        "value": 4,
+        "unit": "named_works_with_multiple_variants",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "eluna_dupont",
+      "name": "Stéphane Dupont / Editions eLuna",
+      "integration_status": "research_only",
+      "suggested_route": "permission_review",
+      "directory_url": "https://stephanedupont.com/editions/",
+      "sample_or_evidence_url": "https://stephanedupont.com/editions/",
+      "identity_observation": "Native EL001–EL010 edition numbers.",
+      "rights_observation": "Freely visible PDFs but no explicit third-party republication authorization verified.",
+      "automated_acquisition_evidence": "not_established",
+      "evidence_level": "official_page_read",
+      "checked_on": "2026-10-26",
+      "stated_or_observed_count": {
+        "value": 10,
+        "unit": "edition_entries",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "duolenz",
+      "name": "Duolenz",
+      "integration_status": "research_only",
+      "suggested_route": "access_review",
+      "directory_url": "https://guitarduo.duolenz.com/free_scores.html",
+      "sample_or_evidence_url": "https://guitarduo.duolenz.com/free_scores.html",
+      "identity_observation": "Not yet established.",
+      "rights_observation": "Robots access encountered TLS hostname mismatch; certificate checks were not bypassed.",
+      "automated_acquisition_evidence": "blocked_certificate",
+      "evidence_level": "official_page_read",
+      "checked_on": "2026-10-26",
+      "stated_or_observed_count": {
+        "value": null,
+        "unit": "unknown",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "martinlohse",
+      "name": "Martin Lohse",
+      "integration_status": "research_only",
+      "suggested_route": "permission_review",
+      "directory_url": "https://martinlohse.com/",
+      "sample_or_evidence_url": "https://martinlohse.com/",
+      "identity_observation": "Not yet established.",
+      "rights_observation": "Research observed a GPTBot disallow; no automated corpus acquisition undertaken. Exact intended-agent and reuse policy need clarification.",
+      "automated_acquisition_evidence": "not_established",
+      "evidence_level": "official_page_read",
+      "checked_on": "2026-10-26",
+      "stated_or_observed_count": {
+        "value": null,
+        "unit": "unknown",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "bne",
+      "name": "Biblioteca Nacional de España / BNE Digital",
+      "integration_status": "research_only",
+      "suggested_route": "official_open_metadata_candidate",
+      "directory_url": "https://www.bne.es/es/catalogos/bne-digital",
+      "sample_or_evidence_url": "https://datos.bne.es/edicion/bipa0000181199.html",
+      "identity_observation": "Native BNE bibliographic edition identifier plus the separate digital holding identity.",
+      "rights_observation": "Official legal page states catalog data CC0; image/score rights remain item-specific. Live BNE Digital entry returned403, so no automated follow-up or file acquisition.",
+      "automated_acquisition_evidence": "official_CC0_catalog_documentation",
+      "evidence_level": "official_page_read",
+      "checked_on": "2026-10-26",
+      "stated_or_observed_count": {
+        "value": null,
+        "unit": "guitar_scope_not_enumerated",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "soundboardscholar",
+      "name": "Soundboard Scholar",
+      "integration_status": "research_only",
+      "suggested_route": "guitar_research_reference_candidate",
+      "directory_url": "https://digitalcommons.du.edu/sbs/",
+      "sample_or_evidence_url": "https://www.guitarfoundation.org/page/SBScholar",
+      "identity_observation": "Stable journal volume/issue/article record, distinct from a score or a composer.",
+      "rights_observation": "Peer-reviewed open-access guitar studies; article reproduction rights and current platform policy require separate checks. Source author is not a score composer.",
+      "automated_acquisition_evidence": "public_issue_navigation",
+      "evidence_level": "official_page_read",
+      "checked_on": "2026-10-26",
+      "stated_or_observed_count": {
+        "value": 11,
+        "unit": "current_volume_number_not_article_count",
+        "eligible_scope_count": false
+      }
+    },
+    {
+      "candidate_id": "vihuelagriffiths",
+      "name": "John Griffiths Vihuela Database",
+      "integration_status": "research_only",
+      "suggested_route": "historical_research_reference_candidate",
+      "directory_url": "https://www.vihuelagriffiths.com/",
+      "sample_or_evidence_url": "https://www.vihuelagriffiths.com/vihuela/music/info",
+      "identity_observation": "Native composer/source-order work identifier plus original folio and book.",
+      "rights_observation": "Historical vihuela research is valuable context, but not every vihuela or vocal intabulation is an accepted guitar score; database reuse license remains unverified.",
+      "automated_acquisition_evidence": "not_established",
+      "evidence_level": "official_page_read",
+      "checked_on": "2026-10-26",
+      "stated_or_observed_count": {
+        "value": null,
+        "unit": "guitar_score_scope_not_enumerated",
+        "eligible_scope_count": false
+      }
     }
   ],
   "unresolved_names": [
@@ -613,5 +847,7 @@
     "No acquisition, integration, PDF integrity audit or publication performed",
     "Some page evidence came only from official search index; retained explicitly",
     "Candidate IDs are proposed source identifiers, not existing adapter configuration"
-  ]
+  ],
+  "supplement_checked_on": "2026-10-26",
+  "supplement_scope": "Thirteen further score, institutional and research-reference candidates; registration and acquired files are recorded separately in config/sources.json and current integration receipts. Original 2026-10-01 baseline remains historical."
 }

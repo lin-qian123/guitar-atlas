@@ -195,6 +195,9 @@ def offline_input_fingerprint(root: Path) -> dict:
                      Path("metadata/instrumentation/musescore_expansion_reviewed.json"),
                      Path("metadata/instrumentation/source_classification_reviewed.json"),
                      Path("metadata/instrumentation/musescore_broad_reviewed.json"),
+                     Path("metadata/instrumentation/source_file_notes_reviewed.json"),
+                     Path("sources/source-expansion/new-pdf-evidence.json.gz"),
+                     Path("sources/source-expansion/csun-score-samples.json"),
                      Path("config/library_classification.json")):
         if (root / relative).exists() or (root / relative).is_symlink():
             paths.add(relative)

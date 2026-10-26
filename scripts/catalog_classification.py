@@ -9,6 +9,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import stat as stat_module
 from functools import lru_cache
 from pathlib import Path
 
@@ -67,7 +68,79 @@ def _verify_file(path, expected, stamp):
         raise ValueError('classification score guard changed: ' + str(path))
 
 
-def check_decision(root, work, categories, decision):
+def _verify_snapshot_file(path, expected, stamp):
+    """Freshly hash one unique snapshot path and detect changes during the read."""
+    hasher = hashlib.sha256()
+    with path.open('rb') as source:
+        for block in iter(lambda: source.read(1024 * 1024), b''):
+            hasher.update(block)
+    after = path.stat()
+    after_stamp = (after.st_dev, after.st_ino, after.st_size, after.st_mtime_ns, after.st_ctime_ns)
+    if hasher.hexdigest() != expected or after_stamp != stamp:
+        raise ValueError('classification score guard changed: ' + str(path))
+
+
+class _SnapshotEvidenceCache:
+    """Per-source cache for repeated immutable source snapshots.
+
+    Every evidence row still validates its lexical path, source ownership,
+    expected digest/size and observation text. Only the filesystem work for an
+    identical path guard is shared; all unique paths are resolved and statted
+    again before the source's decisions are returned.
+    """
+
+    def __init__(self, root):
+        self.root = Path(root)
+        self.root_real = self.root.resolve()
+        self.entries = {}
+
+    @staticmethod
+    def _stamp(stat):
+        return (stat.st_dev, stat.st_ino, stat.st_size, stat.st_mtime_ns, stat.st_ctime_ns)
+
+    def _resolved_file(self, logical_path):
+        try:
+            resolved = logical_path.resolve(strict=True)
+        except (OSError, RuntimeError) as error:
+            raise ValueError('unsafe classification source snapshot') from error
+        if not resolved.is_relative_to(self.root_real):
+            raise ValueError('unsafe classification source snapshot')
+        try:
+            stat = resolved.stat()
+        except OSError as error:
+            raise ValueError('unsafe classification source snapshot') from error
+        if not stat_module.S_ISREG(stat.st_mode):
+            raise ValueError('unsafe classification source snapshot')
+        return resolved, stat
+
+    def check(self, relative, expected, expected_size):
+        key = relative.as_posix()
+        prior = self.entries.get(key)
+        if prior is not None:
+            if prior['sha256'] != expected or prior['size'] != expected_size:
+                raise ValueError('conflicting classification source snapshot guard: ' + key)
+            return
+
+        logical_path = self.root / relative
+        resolved, stat = self._resolved_file(logical_path)
+        stamp = self._stamp(stat)
+        if (not stat_module.S_ISREG(stat.st_mode) or stat.st_size != expected_size
+                or not re.fullmatch('[0-9a-f]{64}', str(expected or ''))):
+            raise ValueError('classification source snapshot guard differs')
+        _verify_snapshot_file(resolved, expected, stamp)
+        self.entries[key] = {'path': resolved, 'sha256': expected, 'size': expected_size,
+                             'stamp': stamp}
+
+    def finish(self):
+        for relative_text, guard in self.entries.items():
+            logical_path = self.root / Path(relative_text)
+            resolved, stat = self._resolved_file(logical_path)
+            if (not stat_module.S_ISREG(stat.st_mode)
+                    or resolved != guard['path'] or self._stamp(stat) != guard['stamp']):
+                raise ValueError('classification source snapshot changed during review: ' + relative_text)
+
+
+def check_decision(root, work, categories, decision, *, _snapshot_cache=None):
     if decision.get('native_record_sha256') != digest(work):
         raise ValueError('stale native classification guard: ' + work['id'])
     topic, basis = decision.get('topic_id'), decision.get('basis')
@@ -128,14 +201,18 @@ def check_decision(root, work, categories, decision):
             path = root / relative
             if (relative.is_absolute() or '..' in relative.parts
                     or relative.parts[:2] != ('sources', work['id'].split(':', 1)[0])
-                    or not path.resolve().is_relative_to(root.resolve()) or not path.is_file()
                     or not _safe_text(item.get('observation'))):
                 raise ValueError('unsafe classification source snapshot')
-            stat = path.stat()
-            if stat.st_size != item.get('size') or not re.fullmatch('[0-9a-f]{64}', str(item.get('sha256', ''))):
-                raise ValueError('classification source snapshot guard differs')
-            _verify_file(path, item['sha256'],
-                (stat.st_dev, stat.st_ino, stat.st_size, stat.st_mtime_ns, stat.st_ctime_ns))
+            if _snapshot_cache is not None:
+                _snapshot_cache.check(relative, item.get('sha256'), item.get('size'))
+            else:
+                if not path.resolve().is_relative_to(root.resolve()) or not path.is_file():
+                    raise ValueError('unsafe classification source snapshot')
+                stat = path.stat()
+                if stat.st_size != item.get('size') or not re.fullmatch('[0-9a-f]{64}', str(item.get('sha256', ''))):
+                    raise ValueError('classification source snapshot guard differs')
+                _verify_file(path, item['sha256'],
+                    (stat.st_dev, stat.st_ino, stat.st_size, stat.st_mtime_ns, stat.st_ctime_ns))
         else:
             raise ValueError('unsupported classification evidence type')
     if basis == 'reviewed_score_evidence' and not saw_file:
@@ -158,8 +235,13 @@ def apply_classification_reviews(root, effective, native):
     indexed = {w['id']: w for w in native['works']}
     if set(entries) - set(indexed):
         raise ValueError('classification review refers to a missing native identity')
+    if not entries:
+        return effective
     categories = {c['id']: c for c in native['categories']}
-    applied = {i: check_decision(root, indexed[i], categories, d) for i, d in entries.items()}
+    snapshot_cache = _SnapshotEvidenceCache(root)
+    applied = {i: check_decision(root, indexed[i], categories, d,
+                                 _snapshot_cache=snapshot_cache) for i, d in entries.items()}
+    snapshot_cache.finish()
     if not applied:
         return effective
     result = dict(effective)

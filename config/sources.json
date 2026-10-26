@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "version": "2026-10-11.1",
+  "version": "2026-10-26.1",
   "sources": [
     {
       "id": "imslp",
@@ -345,6 +345,160 @@
         {
           "path": "/sheetmusic/guitar",
           "query": {},
+          "human_page": true
+        }
+      ]
+    },
+    {
+      "id": "yawnoc",
+      "name": "yawnoc/guitar",
+      "homepage": "https://github.com/yawnoc/guitar",
+      "allowed_hosts": [
+        "api.github.com",
+        "github.com"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/yawnoc/catalog.json",
+      "family": "yawnoc",
+      "family_name_zh": "yawnoc 吉他谱来源",
+      "family_name_en": "yawnoc guitar scores",
+      "asset_hosts": [
+        "github.com"
+      ],
+      "acquisition_settings": {
+        "delay": 0.8,
+        "formats": [
+          "PDF"
+        ],
+        "licensing": "PD_composition_and_CC0_edition_license_separate; release_PDF_status_restricted_after_robots_denial; no retry or alternate route; LilyPond bodies read for metadata only"
+      },
+      "page_url_rules": [
+        {
+          "path": "/yawnoc/guitar/releases/tag/[a-z0-9.-]+",
+          "human_page": true
+        }
+      ]
+    },
+    {
+      "id": "maikstrings",
+      "name": "Maikstrings Classical Guitar Sheet Music",
+      "homepage": "https://maikstrings.com/",
+      "allowed_hosts": [
+        "maikstrings.com"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/maikstrings/catalog.json",
+      "family": "maikstrings",
+      "family_name_zh": "Maikstrings 吉他谱来源",
+      "family_name_en": "Maikstrings guitar scores",
+      "asset_hosts": [
+        "maikstrings.com"
+      ],
+      "acquisition_settings": {
+        "delay": 0.8,
+        "formats": [
+          "PDF"
+        ],
+        "licensing": "explicit_individual_educational_use; private_file_cache_only; public_redistribution_not_established"
+      },
+      "page_url_rules": [
+        {
+          "path": "/sheet-music-guitar\\.html",
+          "human_page": true
+        }
+      ]
+    },
+    {
+      "id": "derekhasted",
+      "name": "Derek Hasted",
+      "homepage": "https://www.derek-hasted.co.uk/",
+      "allowed_hosts": [
+        "www.derek-hasted.co.uk"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/derekhasted/catalog.json",
+      "family": "derekhasted",
+      "family_name_zh": "Derek Hasted 合奏谱目录",
+      "family_name_en": "Derek Hasted ensemble music",
+      "metadata_only": true,
+      "asset_hosts": [
+        "www.derek-hasted.co.uk"
+      ],
+      "acquisition_settings": {
+        "delay": 1.0,
+        "formats": [
+          "PDF"
+        ],
+        "licensing": "offered_free_personal_download",
+        "scope": "personal_offline_only",
+        "public_redistribution": "not_confirmed"
+      },
+      "file_acquisition_note": "Official directory offers free personal download; acquisition is for private offline use. No public PDF redistribution permission is confirmed.",
+      "page_url_rules": [
+        {
+          "path": "/free/",
+          "human_page": true
+        }
+      ]
+    },
+    {
+      "id": "guitarclassroom",
+      "name": "The Guitar Classroom",
+      "homepage": "https://www.theguitarclassroom.com/",
+      "allowed_hosts": [
+        "www.theguitarclassroom.com"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/guitarclassroom/catalog.json",
+      "family": "guitarclassroom",
+      "family_name_zh": "The Guitar Classroom 吉他教学与合奏谱目录",
+      "family_name_en": "The Guitar Classroom guitar repertoire",
+      "metadata_only": true,
+      "asset_hosts": [
+        "www.theguitarclassroom.com"
+      ],
+      "acquisition_settings": {
+        "delay": 1.0,
+        "formats": [
+          "PDF"
+        ],
+        "licensing": "explicit_individual_noncommercial_use",
+        "scope": "personal_offline_only",
+        "public_redistribution": "prohibited_by_source"
+      },
+      "file_acquisition_note": "Official terms allow individual download/printing and educational or concert performance, but prohibit public reposting or distribution. Acquisition is for private offline use only.",
+      "page_url_rules": [
+        {
+          "path": "/classical",
+          "human_page": true
+        },
+        {
+          "path": "/gtr-ensemble",
+          "human_page": true
+        }
+      ]
+    },
+    {
+      "id": "csun",
+      "name": "CSUN · IGRA",
+      "homepage": "https://digital-library.csun.edu/IGRA-scores",
+      "allowed_hosts": [
+        "digital-collections.csun.edu",
+        "digital-library.csun.edu"
+      ],
+      "adapter": "normalized_catalog",
+      "catalog": "sources/csun/catalog.json",
+      "family": "csun",
+      "family_name_zh": "CSUN IGRA 吉他谱",
+      "family_name_en": "CSUN IGRA guitar scores",
+      "asset_hosts": [
+        "digital-collections.csun.edu"
+      ],
+      "metadata_basis": "frozen OCLC-documented dmQuery candidate IDs plus official CONTENTdm singleitem metadata JSON",
+      "file_acquisition": "pending PDF only with exact item Public domain rights and source-field evidence of guitar relevance; player count may remain unspecified",
+      "page_url_rules": [
+        {
+          "path": "/digital/collection/IGRA-scores/id/[0-9]+",
           "human_page": true
         }
       ]

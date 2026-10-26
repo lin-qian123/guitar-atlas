@@ -7,6 +7,7 @@ import pytest
 from catalog_classification import (APPLIED_CLASSIFICATIONS, REVIEW_PATH,
     apply_classification_reviews, digest, public_details)
 from catalog_unification import instrumentation_topic
+import catalog_classification
 
 
 def fixture(tmp_path, *, score=False):
@@ -29,6 +30,34 @@ def fixture(tmp_path, *, score=False):
     review = {'schema_version': 1, 'status': 'complete', 'entries': {'example:1': decision}}
     path = tmp_path / REVIEW_PATH; path.parent.mkdir(parents=True); path.write_text(json.dumps(review))
     return catalog, review, path
+
+
+def snapshot_fixture(tmp_path, count=2):
+    relative = 'sources/example/directory.html'
+    snapshot = tmp_path / relative
+    snapshot.parent.mkdir(parents=True, exist_ok=True)
+    body = b'official directory snapshot\n'
+    snapshot.write_bytes(body)
+    expected = hashlib.sha256(body).hexdigest()
+    works, entries = [], {}
+    for index in range(count):
+        identity = f'example:{index + 1}'
+        work = {'id': identity, 'title_en': f'Example {index + 1}',
+                'category_ids': [], 'metadata': {'instrumentation': 'Guitar'}, 'assets': []}
+        works.append(work)
+        entries[identity] = {
+            'native_record_sha256': digest(work), 'topic_id': 'guitar_unspecified',
+            'basis': 'reviewed_source_evidence', 'instrumentation': 'Guitar',
+            'note': 'Source directory declares guitar scope; player count remains unknown.',
+            'evidence': [{'kind': 'source_snapshot', 'path': relative, 'sha256': expected,
+                          'size': len(body), 'observation': 'Directory lists this guitar score.'}],
+        }
+    catalog = {'source_id': 'example', 'categories': [], 'works': works}
+    review = {'schema_version': 1, 'status': 'complete', 'entries': entries}
+    path = tmp_path / REVIEW_PATH
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(review))
+    return catalog, review, path, snapshot
 
 
 def test_review_preserves_native_and_distinguishes_source_count(tmp_path):
@@ -55,6 +84,83 @@ def test_score_evidence_rechecks_actual_bytes_on_change(tmp_path):
     apply_classification_reviews(tmp_path, native, native)
     path = tmp_path / 'score.pdf'; path.write_bytes(path.read_bytes().replace(b'immutable', b'IMMUTABLE'))
     with pytest.raises(ValueError, match='score guard changed'):
+        apply_classification_reviews(tmp_path, native, native)
+
+
+def test_repeated_source_snapshot_guard_is_verified_once_and_rechecked_once(tmp_path, monkeypatch):
+    native, _, _, _ = snapshot_fixture(tmp_path, count=24)
+    real_resolve = type(tmp_path).resolve
+    resolves = []
+    def counted_resolve(path, *args, **kwargs):
+        resolves.append(path)
+        return real_resolve(path, *args, **kwargs)
+    monkeypatch.setattr(type(tmp_path), 'resolve', counted_resolve)
+    real_verify = catalog_classification._verify_snapshot_file
+    verified = []
+    def counted_verify(*args):
+        verified.append(args[0])
+        return real_verify(*args)
+    monkeypatch.setattr(catalog_classification, '_verify_snapshot_file', counted_verify)
+    result = apply_classification_reviews(tmp_path, native, native)
+    assert len(result[APPLIED_CLASSIFICATIONS]) == 24
+    # Review path/root checks plus one initial and one final check for the one unique snapshot.
+    assert len(resolves) == 5
+    assert len(verified) == 1
+
+
+@pytest.mark.parametrize('guard_change', ['sha256', 'size'])
+def test_same_snapshot_path_with_conflicting_guard_fails_closed(tmp_path, guard_change):
+    native, review, path, _ = snapshot_fixture(tmp_path, count=2)
+    evidence = review['entries']['example:2']['evidence'][0]
+    evidence[guard_change] = ('0' * 64 if guard_change == 'sha256' else evidence['size'] + 1)
+    path.write_text(json.dumps(review))
+    with pytest.raises(ValueError, match='conflicting classification source snapshot guard'):
+        apply_classification_reviews(tmp_path, native, native)
+
+
+@pytest.mark.parametrize('change', ['mutate', 'replace', 'retarget_symlink'])
+def test_snapshot_cache_detects_mid_review_file_changes(tmp_path, monkeypatch, change):
+    native, _, _, snapshot = snapshot_fixture(tmp_path, count=2)
+    if change == 'retarget_symlink':
+        first_target = snapshot.with_name('target-a.html')
+        second_target = tmp_path.parent / f'{tmp_path.name}-outside.html'
+        first_target.write_bytes(snapshot.read_bytes())
+        second_target.write_bytes(snapshot.read_bytes())
+        snapshot.unlink()
+        snapshot.symlink_to(first_target)
+    real_verify = catalog_classification._verify_snapshot_file
+    did_change = False
+    def verify_then_change(path, expected, stamp):
+        nonlocal did_change
+        real_verify(path, expected, stamp)
+        if did_change:
+            return
+        did_change = True
+        if change == 'mutate':
+            body = snapshot.read_bytes()
+            snapshot.write_bytes(body.replace(b'official', b'OFFICIAL'))
+        elif change == 'replace':
+            replacement = snapshot.with_name('replacement.html')
+            replacement.write_bytes(snapshot.read_bytes())
+            replacement.replace(snapshot)
+        else:
+            snapshot.unlink()
+            snapshot.symlink_to(second_target)
+    monkeypatch.setattr(catalog_classification, '_verify_snapshot_file', verify_then_change)
+    with pytest.raises(ValueError, match='changed during review|unsafe classification source snapshot'):
+        apply_classification_reviews(tmp_path, native, native)
+
+
+@pytest.mark.parametrize('semantic_change', ['observation', 'source_prefix'])
+def test_repeated_snapshot_still_checks_each_rows_evidence_semantics(tmp_path, semantic_change):
+    native, review, path, _ = snapshot_fixture(tmp_path, count=2)
+    evidence = review['entries']['example:2']['evidence'][0]
+    if semantic_change == 'observation':
+        evidence['observation'] = 'sources/example/private/page.pdf'
+    else:
+        evidence['path'] = 'sources/other/directory.html'
+    path.write_text(json.dumps(review))
+    with pytest.raises(ValueError, match='unsafe classification source snapshot'):
         apply_classification_reviews(tmp_path, native, native)
 
 
