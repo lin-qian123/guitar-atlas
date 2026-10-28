@@ -51,11 +51,31 @@ test('the established PDF entry appears first regardless of native asset order',
   assert.deepEqual(nodes.filter(node => node.className === 'local-format').map(node => node.text), ['PDF', 'MXL', 'MIDI']);
 });
 
-test('missing extra formats are separate from PDF failures and do not invent links', () => {
+test('missing extra formats do not display status parameters or invent links', () => {
   const nodes = render([{category_id:1, unavailable_count:0, files:[file()], format_unavailable:{MUSICXML:1, MIDI:2}}]);
   assert.equal(nodes.filter(node => node.tag === 'a').length, 1);
-  const warnings = nodes.filter(node => node.className === 'local-pending').map(node => node.text);
-  assert.deepEqual(warnings, ['1 份 MXL 文件未就绪，可查看来源原页。', '2 份 MIDI 文件未就绪，可查看来源原页。']);
+  assert.ok(!nodes.some(node => node.className === 'local-pending'));
+});
+
+test('a card without usable local files has no empty local section or status text', () => {
+  for (const editions of [[],
+    [{category_id:1, unavailable_count:2, files:[], format_unavailable:{MUSICXML:1}}],
+    [{category_id:1, unavailable_count:1, excluded_count:1, exclusion_reason:'wrong instrumentation', files:[]}],
+    [{category_id:2, unavailable_count:0, files:[file()]}],
+  ]) {
+    const nodes = render(editions);
+    assert.equal(nodes.length, 1, 'leave the base card and its source link unchanged');
+  }
+});
+
+test('only editions with files in the active category are rendered, without failure counters', () => {
+  const nodes = render([
+    {category_id:1, unavailable_count:2, excluded_count:1, exclusion_reason:'excluded part', files:[file()]},
+    {category_id:2, unavailable_count:1, files:[]},
+  ], [{id:1, name:'Guitar', name_zh:'吉他'}, {id:2, name:'Duo', name_zh:'二重奏'}]);
+  assert.deepEqual(nodes.filter(node => node.className === 'local-instrumentation').map(node => node.text), ['吉他']);
+  assert.equal(nodes.filter(node => node.tag === 'a').length, 1);
+  assert.ok(!nodes.some(node => node.className === 'local-pending'));
 });
 
 test('download names use reviewed display titles and native IDs without changing paths', () => {

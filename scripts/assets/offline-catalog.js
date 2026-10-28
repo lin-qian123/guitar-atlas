@@ -37,7 +37,8 @@ window.GuitarCatalogAdapter = {
   },
   decorateCard(article, match) {
     const allowed = new Map(match.categories.map(category => [category.id, category]));
-    const editions = (match.item.local_editions || []).filter(edition => allowed.has(edition.category_id));
+    const editions = (match.item.local_editions || []).filter(edition => allowed.has(edition.category_id) && edition.files.length);
+    if (!editions.length) return;
     const section = makeElement("section", "local-scores");
     section.setAttribute("aria-label", "本地乐谱");
     section.append(makeElement("h4", "", "本地乐谱"));
@@ -75,17 +76,6 @@ window.GuitarCatalogAdapter = {
           files.slice(4).forEach(score => addScore(more, score));
           group.append(more);
         }
-      }
-      const pending = edition.unavailable_count - (edition.excluded_count || 0);
-      if (edition.excluded_count) {
-        group.append(makeElement("p", "local-pending", `${edition.excluded_count} 份文件未列入当前编制：${edition.exclusion_reason}`));
-      }
-      if (pending || (!edition.files.length && !edition.excluded_count)) {
-        group.append(makeElement("p", "local-pending", pending
-          ? `${pending} 份文件未就绪，可查看来源原页。` : "暂无有效本地 PDF，可查看来源原页。"));
-      }
-      for (const [format, count] of Object.entries(edition.format_unavailable || {})) {
-        if (count) group.append(makeElement("p", "local-pending", `${count} 份 ${format === "MUSICXML" ? "MXL" : format} 文件未就绪，可查看来源原页。`));
       }
       if (category.local_href) {
         const catalog = makeElement("a", "local-category-link", "分类完整目录 ↗");

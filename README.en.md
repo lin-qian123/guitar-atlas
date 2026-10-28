@@ -83,6 +83,8 @@ python -m http.server 8000 --directory public_site
 
 Open `http://127.0.0.1:8000/`. Browse shared topics or enter a query.
 
+Public cards link directly to source pages. Offline cards list local score files for the active category when available, with the source page as a fallback. PDF availability, missing-format counts, and acquisition status messages stay in private receipts rather than the interface.
+
 Install and validate with Python 3.12+ and Node.js 22+:
 
 ```bash

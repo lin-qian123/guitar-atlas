@@ -393,7 +393,7 @@ def write_offline_page(root: Path, data: dict, report: dict) -> dict:
     page = page.replace('href="./"', 'href="index.html"')
     page = re.sub(r"(<title>[^<]*)(</title>)", r"\1 · 离线版\2", page, count=1)
     page = page.replace('lang="en">GUITAR ATLAS', 'lang="en">GUITAR ATLAS · OFFLINE')
-    local_copy = "本地 PDF 可打开，MXL 与 MIDI 可下载；未就绪文件保留提示。使用条件以来源原页说明为准。"
+    local_copy = "可直接打开本地乐谱；其他乐谱请查看来源页面。使用条件以来源原页说明为准。"
     page = page.replace("乐谱下载与使用条件以各来源原页说明为准。", local_copy)
     page = page.replace("乐谱与使用条件请查看各来源页面。", local_copy)
     css_version = hashlib.sha256((PROJECT_ROOT / "scripts/assets/offline-catalog.css").read_bytes()).hexdigest()[:10]

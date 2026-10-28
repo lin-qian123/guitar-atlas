@@ -8,6 +8,5 @@
 .local-score-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .local-score-more { margin-block: 7px; }
 .local-score-more summary { font-size: 11px; color: var(--muted); }
-.local-pending { font-size: 11px; line-height: 1.7; color: var(--accent); }
 .local-category-link { display: inline-block; margin-top: 8px; font-size: 11px; color: var(--muted); text-decoration: none; }
 .local-scores + .source-link { margin-top: 18px; }

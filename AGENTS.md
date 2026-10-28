@@ -626,8 +626,11 @@ source or adapter.
   root from the public template and shared assets using the offline-only adapter
   under `scripts/assets/`. Embed offline data for direct file opening; never
   place that data or adapter in `public_site/`. Local score links must respect
-  the active category memberships. Preserve all parts and label unavailable
-  records without generating broken score links. Back up the old root entry
+  the active category memberships. Preserve all parts; show local file links
+  only for available editions and retain the source-page link as the fallback.
+  Do not display PDF acquisition/availability states, missing-format counters,
+  or exclusion-processing messages in cards or version details. Keep those
+  states in private acquisition and verification records. Back up the old root entry
   before replacing it; keep generated offline pages Git-ignored.
 - Offline MuseScore entries expose verified PDF, MXL and MIDI files together
   under the existing work and category membership. Keep prior PDF file fields

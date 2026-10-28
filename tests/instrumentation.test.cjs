@@ -83,6 +83,8 @@ test('complete original file-part labels remain searchable including instrument 
 class Element {
   constructor(tag) { this.tag = tag; this.children = []; this.style = {}; this.attributes = {}; this.textContent = ''; }
   append(...children) { this.children.push(...children); }
+  querySelector(selector) { return descendants(this).find(node => `.${node.className}` === selector) || null; }
+  insertBefore(child, reference) { this.children.splice(this.children.indexOf(reference), 0, child); }
   setAttribute(key, value) { this.attributes[key] = value; }
   addEventListener() {}
   set innerHTML(value) { throw new Error('rendering metadata as HTML is unsafe'); }
@@ -90,11 +92,12 @@ class Element {
 const descendants = element => [element, ...element.children.flatMap(descendants)];
 const escapeHTML = value => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const serialize = node => `<${node.tag}>${escapeHTML(node.textContent)}${node.children.map(serialize).join('')}</${node.tag}>`;
-function renderCard(details = {}, translation) {
+function renderCard(details = {}, translation, extra = {}, offline = false) {
   const context = {GuitarSearch:engine, window:{}, document:{querySelector:() => new Element('select'), createElement:tag => new Element(tag)}};
   const source = fs.readFileSync(require.resolve('../public_site/assets/app.js'), 'utf8').replace(/\nstart\(\);\s*$/, '');
   vm.runInNewContext(source, context);
-  return context.resultCard({item:{...data.works[0], details, translation, source_url:'https://musescore.com/user/1/scores/80344'}, categories:[data.categories[0]]}, 0);
+  if (offline) vm.runInNewContext(fs.readFileSync(require.resolve('../scripts/assets/offline-catalog.js'), 'utf8'), context);
+  return context.resultCard({item:{...data.works[0], details, translation, source_url:'https://musescore.com/user/1/scores/80344', ...extra}, categories:[data.categories[0]]}, 0);
 }
 
 test('an explicit file identity note gets a visible compact warning with its full note in details only', () => {
@@ -131,4 +134,37 @@ test('file-part labels are folded details and performer counts are identified as
   assert.ok(texts.includes('总人数（按谱面）：2'));
   const title = card.children.find(node => node.className === 'result-title');
   assert.ok(!descendants(title).some(node => node.textContent.includes(labels)));
+});
+
+test('public cards link directly to their source and omit file availability status', () => {
+  const details = {availability:'源站历史文件访问受限；PDF pending', source_edition:'First edition', arranger:'An arranger'};
+  const before = structuredClone(details);
+  const card = renderCard(details);
+  const nodes = descendants(card);
+  assert.ok(!nodes.some(node => node.textContent.includes(details.availability)));
+  assert.ok(!nodes.some(node => node.textContent.startsWith('来源可用性说明：')));
+  assert.ok(nodes.some(node => node.textContent === '版本：First edition'));
+  assert.ok(nodes.some(node => node.textContent === '编曲：An arranger'));
+  const source = nodes.find(node => node.className === 'source-link');
+  assert.equal(source.href, 'https://musescore.com/user/1/scores/80344');
+  assert.equal(source.target, '_blank');
+  assert.deepEqual(details, before, 'presentation must not alter source metadata');
+});
+
+test('offline cards retain their source fallback, with local files placed before it when available', () => {
+  for (const files of [[], [{href:'sources/musescore/objects/score', label:'Complete score'}]]) {
+    const card = renderCard({availability:'PDF pending'}, undefined,
+      {local_editions:[{category_id:0, unavailable_count:2, files, format_unavailable:{MIDI:1}}]}, true);
+    const nodes = descendants(card);
+    const source = nodes.find(node => node.className === 'source-link');
+    assert.equal(source.href, 'https://musescore.com/user/1/scores/80344');
+    assert.equal(nodes.filter(node => node.className === 'local-score-link').length, files.length);
+    assert.ok(!nodes.some(node => /未就绪|暂无有效|可用性说明|PDF pending/.test(node.textContent)));
+    if (files.length) {
+      const section = card.children.find(node => node.className === 'local-scores');
+      assert.ok(card.children.indexOf(section) < card.children.indexOf(source));
+    } else {
+      assert.ok(!nodes.some(node => node.className === 'local-scores'));
+    }
+  }
 });
