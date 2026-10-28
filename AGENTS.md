@@ -617,6 +617,11 @@ source or adapter.
   agrees with the current source manifests. Run a full render after acquisition, manifest, file,
   category, or instrumentation changes; never describe a metadata refresh as
   fresh full PDF verification.
+  An asset/template-only update may reuse the exact previously verified embedded
+  wrapper through `write_offline_page`, with matching source/config fingerprints
+  before and after, complete decoded-wrapper equality and an entry rollback.
+  Label it template-only; it does not replace metadata-only link/size checks or
+  a full file-integrity verification.
 
 - Keep the offline library and public web export as separate products. The
   offline root may link to verified local PDFs. `public_site/` must contain no
@@ -634,7 +639,8 @@ source or adapter.
   before replacing it; keep generated offline pages Git-ignored.
 - Offline MuseScore entries expose verified PDF, MXL and MIDI files together
   under the existing work and category membership. Keep prior PDF file fields
-  and counts stable; new format counts and unavailable states are separate.
+  and counts stable; new format counts and unavailable states remain separate
+  in private verification data rather than card status messages.
   Hash-version the offline adapter assets and keep file bytes outside the HTML.
 - Build the public catalog only from approved source configuration and validated
   catalogs. Deduplicate results by `source_id` plus `source_record_id`, preserve every

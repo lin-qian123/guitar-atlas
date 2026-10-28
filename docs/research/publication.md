@@ -257,4 +257,6 @@ Delcamp的2,893条逐条筛查包含2,890份PDF、40,662页全文，3条保留40
 
 本次没有重新获取文件或改动目录、译名、分类与来源身份；公开完整及压缩目录字节不变。共享脚本减少38B，离线脚本／样式合计减少829B，没有增加依赖。2,974项Python与87项Node测试及公开边界、译名、文本审计通过。实际离线快照的生产卡片与adapter在Node VM逐条检查50,498条记录：23,419条提供本地文件，27,079条仅提供来源入口；47,215个文件控件按分类成员完整保留，此数不是去重后的文件数。该检查不冒称file协议浏览器实测。
 
-本轮离线显示刷新、原快照保全、发布head、Pages运行和线上字节对应证据统一记录在私有 `sources/presentation/file-links.json`，沿用原有完整文件核验，不把显示刷新称为重新验证PDF内容。
+本轮离线模板同步、原快照保全、发布head、Pages运行和线上字节对应证据统一记录在私有 `sources/presentation/file-links.json`。通过已有`write_offline_page`复用完整快照，前后decoded wrapper严格相等，来源／配置指纹前后均与原值一致；旧入口已备份。本轮沿用此前完整文件验收，没有重新验收谱件存在性、大小或内容，不把模板同步称为metadata-only或新鲜文件核验。
+
+展示内容提交为[`516ed25b409e27f6bbfc5306733002d2de47f463`](https://github.com/lin-qian123/guitar-atlas/commit/516ed25b409e27f6bbfc5306733002d2de47f463)，[Pages运行40716498043](https://github.com/lin-qian123/guitar-atlas/actions/runs/40716498043)对应精确head并成功。线上18个内容文件均为200且大小／SHA与本地一致；实际HTTPS页面展开MuseScore曲目详情后，来源可用性状态不再显示，版本、编制与署名仍在，两条来源链接保留，控制台无warn/error。后续仅文档收尾保持相同公共树，最终ref在上述私有回执中记录。
